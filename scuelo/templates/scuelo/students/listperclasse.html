@@ -141,7 +141,7 @@
     <i class="fas fa-money-check-alt"></i> Gérer les Tarifs
 </a>
 
-<div class="content-container row mt-4">
+<div class="content-container row mt-2">
     <div class="col">
         <div class="table-responsive table-container">
             <table class="table table-striped table-bordered" id="studentTable">
@@ -169,10 +169,10 @@
                         <td>{{ student.get_condition_eleve_display }}</td>
                         <td>{{ student.get_sex_display }}</td>
                         <td>{{ student.date_naissance }}</td>
-                        <td>{{ student.total_payment|intcomma }} FCFA</td>
+                        <td>{% if student.total_payment > 0 %}{{ student.total_payment }}{% else %}-{% endif %}</td>
                         <td>{{ student.note_eleve }}</td>
                         <td>{{ student.get_cs_py_display }}</td>
-                        <td>{{ student.get_hand_display }}</td>
+                        <td>{% if student.get_hand_display %}{{ student.get_hand_display }}{% else %}-{% endif %}</td>
                         <td>
                             <a href="{% url 'student_detail' student.pk %}" class="btn btn-warning btn-sm">
                                 <i class="fas fa-pencil-alt"></i>
@@ -185,7 +185,6 @@
         </div>
     </div>
 </div>
-
 <!-- DataTables Initialization -->
 <script>
     $(document).ready(function() {
@@ -211,7 +210,7 @@
             order: [],
             columnDefs: [
                 { targets: [0, 1, 2, 3, 4, 5, 6, 7], orderable: true },
-                { targets: 10, orderable: false }
+                { targets: 20, orderable: false }
             ]
         });
     });
