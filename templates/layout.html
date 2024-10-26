@@ -9,313 +9,286 @@
 
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-<!-- Include Bootstrap CSS and JS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>  
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
- 
-<!-- DataTables CSS -->
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-
-<!-- DataTables JavaScript -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-
-<!-- DataTables Export Buttons -->
-<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
-<script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
-
-
-    <title>
-        {% block title %}
-        {% endblock title %}
-    </title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <!-- Include Bootstrap CSS and JS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>  
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     
+    <!-- DataTables JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    
+    <!-- DataTables Export Buttons -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+    
+    
+    <title>{% block title %}{% endblock title %}</title>
 </head>
 
-    
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
-        .sidebar {
-            height: 100vh;
-            width: 250px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: #A44400;
-            padding-top: 20px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-            overflow-y: auto;
-            transition: width 0.3s ease;
-        }
-        .sidebar.collapsed {
-            width: 60px;
-        }
-        .sidebar .toggle-btn {
-            background-color: transparent;
-            border: none;
-            color: white;
-            font-size: 1.5em;
-            cursor: pointer;
-            margin-bottom: 20px;
-            margin-left: 10px;
-        }
-        .sidebar a {
-            display: block;
-            padding: 10px 15px;
-            color: white;
-            text-decoration: none;
-            margin: 10px 0;
-            transition: background-color 0.3s;
-        }
-        .sidebar a:hover, .sidebar a.active {
-            background-color: #34495E;
-        }
-        .sidebar i {
-            margin-right: 10px;
-        }
-        .sidebar.collapsed a span {
-            display: none;
-        }
-        .sidebar.collapsed a i {
-            margin-right: 0;
-        }
-        .content {
-            margin-left: 250px;
-            padding: 20px;
-            transition: margin-left 0.3s ease;
-        }
-        .sidebar.collapsed + .content {
-            margin-left: 60px;
-        }
-        .sidebar.collapsed + .custom-navbar {
-            width: calc(100% - 60px);
-        }
-        .navbar {
-            width: calc(100% - 250px);
-            margin-left: 250px;
-            transition: margin-left 0.3s ease, width 0.3s ease;
-        }
-        .sidebar.collapsed + .navbar {
-            width: calc(100% - 60px);
-            margin-left: 60px;
-        }
-        .dropdown-container {
-            display: none;
-            background-color: #34495E;
-            padding-left: 8px;
-        }
-        .dropdown-btn.active + .dropdown-container {
-            display: block;
-        }
-        .dropdown-btn {
-            display: flex;
-            align-items: center;
-            padding: 10px 15px;
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-            width: 100%;
-            text-align: left;
-            outline: none;
-            transition: background-color 0.3s;
-        }
-        .dropdown-btn:hover {
-            background-color: #34495E;
-        }
-        .dropdown-btn .fa-chevron-down {
-            margin-left: auto;
-            transition: transform 0.3s;
-        }
-        .dropdown-btn.active .fa-chevron-down {
-            transform: rotate(180deg);
-        }
-        .dropdown-item {
-            padding: 10px 15px;
-            color: white;
-            text-decoration: none;
-            display: block;
-            transition: background-color 0.3s;
-        }
-        .dropdown-item:hover {
-            background-color: #34495E;
-        }
-        .logout-section {
-            position: absolute;
-            bottom: 20px;
-            width: 100%;
-            text-align: center;
-        }
-        .username {
-            color: white;
-            margin-bottom: 10px;
-        }
-        .logout-btn {
-            background-color: #dc3545;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .logout-btn:hover {
-            background-color: #c82333;
-        }
-        .page-identifier {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 22px;
-            color: black;
-            font-weight: bold;
-        }
-    </style>
-    <body>
-    {% block nav %}
-    
-    {% endblock nav %}
+<style>
+    body {
+        font-family: 'Nunito', sans-serif;
+        transition: margin-left 0.3s ease;
+    }
 
+    /* Sidebar styling */
+    .sidebar {
+        height: 100vh;
+        width: 250px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #A44400;
+        color: white;
+        padding-top: 20px;
+        transition: all 0.3s ease;
+        overflow-y: auto;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.15);
+    }
+
+    .sidebar.collapsed {
+        width: 70px;
+    }
+
+    /* Toggle button with larger size */
+    .sidebar .toggle-btn {
+        position: absolute;
+        top: 15px;
+        right: -30px;
+        width: 45px;
+        height: 45px;
+        background-color: #A44400;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        font-size: 1.8em;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Sidebar heading */
+    .sidebar h3 {
+        padding: 0 20px;
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+    /* Sidebar links */
+    .sidebar a {
+        display: flex;
+        align-items: center;
+        padding: 12px 20px;
+        color: white;
+        font-size: 16px;
+        text-decoration: none;
+        margin: 8px 0;
+        transition: background-color 0.3s, color 0.3s;
+        border-radius: 5px;
+    }
+
+    .sidebar a i {
+        margin-right: 12px;
+        font-size: 20px;
+    }
+
+    .sidebar a.active, .sidebar a:hover {
+        background-color: #34495E;
+        color: #F1C40F;
+    }
+
+    .sidebar.collapsed a span {
+        display: none;
+    }
+
+    /* Dropdown buttons */
+    .dropdown-btn {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 12px 20px;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+        border-radius: 5px;
+    }
+
+    .dropdown-btn i {
+        margin-right: 12px;
+        font-size: 20px;
+    }
+
+    .dropdown-btn.active, .dropdown-btn:hover {
+        background-color: #34495E;
+        color: #F1C40F;
+    }
+
+    /* Chevron rotation */
+    .dropdown-btn .fa-chevron-down {
+        margin-left: auto;
+        transition: transform 0.3s;
+    }
+
+    .dropdown-btn.active .fa-chevron-down {
+        transform: rotate(180deg);
+    }
+
+    /* Dropdown content */
+    .dropdown-container {
+        display: none;
+        padding-left: 20px;
+    }
+
+    .dropdown-container .dropdown-item {
+        padding: 8px 10px;
+        font-size: 15px;
+        color: white;
+        text-decoration: none;
+    }
+
+    .dropdown-container .dropdown-item:hover {
+        color: #F1C40F;
+    }
+
+    /* Logout section */
+    .logout-section {
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .logout-btn {
+        background-color: #dc3545;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: background-color 0.3s;
+    }
+
+    .logout-btn:hover {
+        background-color: #c82333;
+    }
+
+    .username {
+        color: white;
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+
+    /* Adjust content margin */
+    .content {
+        margin-left: 250px;
+        padding: 20px;
+        transition: margin-left 0.3s ease;
+    }
+
+    .sidebar.collapsed + .content {
+        margin-left: 70px;
+    }
+
+    .page-identifier {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 22px;
+        color: black;
+        font-weight: bold;
+    }
+</style>
+
+<body>
     <div class="sidebar">
         <button class="toggle-btn" onclick="toggleSidebar()">
-            <i class="fas fa-angle-double-left fa-2x"> </i>
+            <i class="fas fa-angle-double-left"></i>
         </button>
-        <h3 class="dropdown-item">SICS 0.3.1 test</h3>
+        <h3 class="dropdown-item">SICS 0.3.1 Test</h3>
+
         <a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">
-            <i class="fas fa-home fa-2x mr-5"></i><span>Home</span>
+            <i class="fas fa-home"></i><span>Home</span>
         </a>
-         <button class="dropdown-btn">
-            <i class="fas fa-user-friends fa-2x"></i> <span>Students</span> <i class="fa fa-chevron-down"></i>
-        </button>
-        <div class="dropdown-container">
-            <a class="dropdown-item" href="{% url 'offsite_students' %}">Off-site Students</a>
-            <a class="dropdown-item" href="{% url 'directly_managed_students' %}">Directly Mg Students</a>
-            <a class="dropdown-item" href="{% url 'new_student' %}">New Student</a>
-    
-        </div>
+
         <button class="dropdown-btn">
-            <i class="fas fa-cash-register fa-2x"></i> <span>Cash</span> <i class="fa fa-chevron-down"></i>
+            <i class="fas fa-user-friends"></i> <span>Students</span> <i class="fa fa-chevron-down"></i>
         </button>
         <div class="dropdown-container">
-            <a href="{% url 'mouvement_list' %}" class="dropdown-item {% if request.path == '/scuelo/cash/movements/' %}active{% endif %}">
-                <i class="fas fa-exchange-alt"></i> <span>Movements</span>
-            </a>
-            <a href="{% url 'cash_flow_report' %}" class="dropdown-item {% if request.path == '/scuelo/cash/flow_report/' %}active{% endif %}">
-                <i class="fas fa-chart-line"></i> <span>Cash Flow Report</span>
-            </a>
-            <a href="{% url 'accounting_c_sco_report_period' 'weekly' %}" class="{% if request.path == '/homepage/accounting_c_sco_report/weekly/' %}active{% endif %}">
-                <i class="fas fa-calendar-week"></i> <span>Weekly Accounting</span>
-            </a>
-            
-            <a href="{% url 'accounting_c_sco_report_period' 'bi-monthly' %}" class="{% if request.path == '/homepage/accounting_c_sco_report/bi-monthly/' %}active{% endif %}">
-                <i class="fas fa-calendar-alt"></i> <span>Bi-Monthly Accounting</span>
-            </a>
+            <a href="{% url 'offsite_students' %}" class="dropdown-item">Off-site Students</a>
+            <a href="{% url 'directly_managed_students' %}" class="dropdown-item">Directly Managed Students</a>
+            <a href="{% url 'new_student' %}" class="dropdown-item">New Student</a>
         </div>
 
         <button class="dropdown-btn">
-            <i class="fas fa-money-bill-wave fa-2x"></i> <span>School & Fees</span> <i class="fa fa-chevron-down"></i>
+            <i class="fas fa-cash-register"></i> <span>Cash</span> <i class="fa fa-chevron-down"></i>
         </button>
+        <div class="dropdown-container">
+            <a href="{% url 'mouvement_list' %}" class="dropdown-item">Movements</a>
+            <a href="{% url 'cash_flow_report' %}" class="dropdown-item">Cash Flow Report</a>
+            <a href="{% url 'accounting_c_sco_report_period' 'weekly' %}" class="dropdown-item">Weekly Accounting</a>
+            <a href="{% url 'accounting_c_sco_report_period' 'bi-monthly' %}" class="dropdown-item">Bi-Monthly Accounting</a>
+        </div>
 
-        <div class="dropdown-container">
-            <a href="{% url 'school_management' %}" class="dropdown-item {% if request.path == '/scuelo/school_management/' %}active{% endif %}">
-                <i class="fas fa-school"></i> <span>Manage Schools</span>
-            </a>
-          
-          
-            <a href="{% url 'uniform_payments' %}" class="{% if request.path == '/scuelo/uniform_payments/' %}active{% endif %}">
-                <i class="fas fa-tshirt"></i> <span>Uniform Payments</span>
-            </a>
-          
-    
-            <a href="{% url 'late_payment_report' %}" class="{% if request.path == '/scuelo/late_payment_report/' %}active{% endif %}">
-                <i class="fas fa-tshirt"></i> <span>late Payment</span>
-            </a>
-          
-        </div>
-       
         <button class="dropdown-btn">
-            <i class="fas fa-lock fa-2x"></i><span>   Security</span> <i class="fa fa-chevron-down"></i>
+            <i class="fas fa-money-bill-wave"></i> <span>School & Fees</span> <i class="fa fa-chevron-down"></i>
         </button>
         <div class="dropdown-container">
-            <a href="{% url 'user_list' %}" class="dropdown-item {% if request.path == '/accounts/users/' %}active{% endif %}">
-                <i class="fas fa-users"></i> <span>Users</span>
-            </a>
-            <a href="{% url 'group_list' %}" class="dropdown-item {% if request.path == '/accounts/groups/' %}active{% endif %}">
-                <i class="fas fa-users-cog"></i> <span>Groups</span>
-            </a>
-            <a href="{% url 'rights_management' %}" class="dropdown-item {% if request.path == '/accounts/rights/' %}active{% endif %}">
-                <i class="fas fa-key"></i> <span>Rights</span>
-            </a>
-           
-           
+            <a href="{% url 'school_management' %}" class="dropdown-item">Manage Schools</a>
+            <a href="{% url 'uniform_payments' %}" class="dropdown-item">Uniform Payments</a>
+            <a href="{% url 'late_payment_report' %}" class="dropdown-item">Late Payment</a>
         </div>
-     
-       
-        
+
+        <button class="dropdown-btn">
+            <i class="fas fa-lock"></i> <span>Security</span> <i class="fa fa-chevron-down"></i>
+        </button>
+        <div class="dropdown-container">
+            <a href="{% url 'user_list' %}" class="dropdown-item">Users</a>
+            <a href="{% url 'group_list' %}" class="dropdown-item">Groups</a>
+            <a href="{% url 'rights_management' %}" class="dropdown-item">Rights</a>
+        </div>
+
         <div class="logout-section">
-            <div class="username">
-                {{ user.username }}
-            </div>
+            <div class="username">{{ user.username }}</div>
             <a class="logout-btn" href="{% url 'logout' %}">Logout</a>
         </div>
     </div>
 
     <div class="content">
-        <div class="page-identifier ">
-            <p> <strong>{{ page_identifier }}</strong></p>
+        <div class="page-identifier">
+            <p><strong>{{ page_identifier }}</strong></p>
         </div>
-        {% block content %}
-     
-        {% endblock content %}
+        {% block content %}{% endblock content %}
     </div>
 
-  
     <script>
         function toggleSidebar() {
-            var sidebar = document.querySelector('.sidebar');
+            const sidebar = document.querySelector('.sidebar');
             sidebar.classList.toggle('collapsed');
-            var toggleBtn = document.querySelector('.toggle-btn');
-            toggleBtn.classList.toggle('collapsed');
         }
 
-        // Add an event listener to all sidebar links
-        document.querySelectorAll('.sidebar a').forEach(link => {
-            link.addEventListener('click', function() {
-                // Remove 'clicked' class from all links
-                document.querySelectorAll('.sidebar a').forEach(link => {
-                    link.classList.remove('clicked');
-                });
-                // Add 'clicked' class to the clicked link
-                this.classList.add('clicked');
+        document.querySelectorAll('.dropdown-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const dropdownContainer = this.nextElementSibling;
+                dropdownContainer.style.display = dropdownContainer.style.display === 'block' ? 'none' : 'block';
             });
         });
-
-        // Toggle dropdowns
-        var dropdown = document.getElementsByClassName("dropdown-btn");
-        var i;
-
-        for (i = 0; i < dropdown.length; i++) {
-          dropdown[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var dropdownContent = this.nextElementSibling;
-            if (dropdownContent.style.display === "block") {
-              dropdownContent.style.display = "none";
-            } else {
-              dropdownContent.style.display = "block";
-            }
-          });
-        }
     </script>
 </body>
 </html>

@@ -733,11 +733,6 @@ def cash_flow_report(request):
     }
     return render(request, 'scuelo/cash/cash_flow_report.html', context)
 
-from django.shortcuts import render, redirect, get_object_or_404
-from django.db.models import Sum, Q
-from django.contrib.auth.decorators import login_required
-from .models import Classe, Tarif, AnneeScolaire, Inscription, Mouvement
-from .forms import TarifForm
 
 
 @login_required

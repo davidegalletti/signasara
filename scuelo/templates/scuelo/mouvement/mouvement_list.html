@@ -1,6 +1,14 @@
 {% extends "../../layout.html" %}
 {% load humanize %}
 
+<!-- DataTables CSS and JavaScript -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+
 {% block content %}
 <style>
     .table-container {
@@ -10,13 +18,12 @@
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         font-size: 14px;
         margin-bottom: 20px;
+        padding: 20px;
     }
 
     table {
         width: 100%;
         border-collapse: collapse;
-        margin-bottom: 20px;
-        font-size: 14px;
     }
 
     th, td {
@@ -24,7 +31,6 @@
         text-align: center;
         border: 1px solid #dee2e6;
         background-color: #f9f9f9;
-        transition: background-color 0.3s;
     }
 
     th {
@@ -42,37 +48,14 @@
         background-color: #e9ecef;
     }
 
-    .progressive-balance {
-        font-weight: bold;
-    }
-
-    .header-row {
-        background-color: #444;
-        color: white;
-        font-weight: bold;
-        text-align: center;
-        padding: 10px;
-    }
-
-    .text-right {
-        text-align: right;
-    }
-
-    .text-left {
-        text-align: left;
-    }
-
-    /* Button Styling */
     .btn-add-mouvement {
         background-color: #007bff;
         color: white;
         padding: 10px 20px;
         border-radius: 20px;
-        text-align: center;
         margin-bottom: 20px;
         text-decoration: none;
         transition: background-color 0.3s ease-in-out, transform 0.2s ease;
-        display: inline-block;
     }
 
     .btn-add-mouvement:hover {
@@ -90,9 +73,9 @@
 </a>
 
 <div class="table-container">
-    <table class="table table-striped table-bordered">
+    <table class="table table-striped table-bordered" id="mouvementTable">
         <thead class="thead-dark">
-            <tr class="text-black-50">
+            <tr>
                 <th>Date</th>
                 <th>Description</th>
                 <th class="text-right">Entrée (Income)</th>
@@ -108,11 +91,15 @@
                 <td class="text-right">
                     {% if mouvement.entry %}
                         {{ mouvement.entry|intcomma }} FCFA
+                    {% else %}
+                        -
                     {% endif %}
                 </td>
                 <td class="text-right">
                     {% if mouvement.exit %}
                         {{ mouvement.exit|intcomma }} FCFA
+                    {% else %}
+                        -
                     {% endif %}
                 </td>
                 <td class="text-right">{{ mouvement.progressive_total|intcomma }} FCFA</td>
@@ -121,4 +108,24 @@
         </tbody>
     </table>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('#mouvementTable').DataTable({
+            dom: 'Bfrtip',
+            pageLength: 10,  // Default rows per page
+            lengthMenu: [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ],
+            buttons: [
+                { extend: 'csv', text: 'Export CSV', className: 'btn btn-success' },
+                { extend: 'excel', text: 'Export Excel', className: 'btn btn-success' },
+                { extend: 'print', text: 'Print', className: 'btn btn-success' }
+            ],
+            order: [],
+            columnDefs: [
+                { targets: '_all', orderable: true }
+            ]
+        });
+    });
+</script>
+
 {% endblock %}
