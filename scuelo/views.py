@@ -1189,10 +1189,6 @@ def delete_mouvement(request, pk):
                                                                       'page_identifier': 'S14' })
 
 
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
-from django.db.models import Sum
-from .models import Ecole, Classe, Eleve, Mouvement, Tarif, AnneeScolaire
 
 @login_required
 def late_payment_report(request):
