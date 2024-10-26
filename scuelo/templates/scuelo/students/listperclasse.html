@@ -1,4 +1,8 @@
 {% extends "../../layout.html" %}
+{% load humanize %}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 
 <style>
     /* Custom styles */
@@ -131,18 +135,7 @@
     {% endfor %}
 </ol>
 
-<p>Total des paiements pour {{ classe.nom }} en {{ selected_annee_scolaire.nom }} : {{ total_class_payment }} FCFA</p>
-
-<form method="GET" class="mb-3">
-    <label for="annee_scolaire" class="mb-2">Select Academic Year:</label>
-    <select name="annee_scolaire" id="annee_scolaire" class="form-control" onchange="this.form.submit()">
-        {% for annee in all_annee_scolaires %}
-        <option value="{{ annee.id }}" {% if annee == selected_annee_scolaire %}selected{% endif %}>
-            {{ annee.nom }}
-        </option>
-        {% endfor %}
-    </select>
-</form>
+<p>Total des paiements pour {{ classe.nom }} en {{ selected_annee_scolaire.nom }} : {{ total_class_payment|intcomma }} FCFA</p>
 
 <a href="{% url 'manage_tarifs' classe.pk %}" class="btn btn-primary mb-3">
     <i class="fas fa-money-check-alt"></i> Gérer les Tarifs
@@ -176,7 +169,7 @@
                         <td>{{ student.get_condition_eleve_display }}</td>
                         <td>{{ student.get_sex_display }}</td>
                         <td>{{ student.date_naissance }}</td>
-                        <td>{{ student.total_payment }}</td>
+                        <td>{{ student.total_payment|intcomma }} FCFA</td>
                         <td>{{ student.note_eleve }}</td>
                         <td>{{ student.get_cs_py_display }}</td>
                         <td>{{ student.get_hand_display }}</td>
@@ -192,4 +185,35 @@
         </div>
     </div>
 </div>
+
+<!-- DataTables Initialization -->
+<script>
+    $(document).ready(function() {
+        $('#studentTable').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                {
+                    extend: 'csv',
+                    text: 'Export CSV',
+                    className: 'btn btn-success'
+                },
+                {
+                    extend: 'excel',
+                    text: 'Export Excel',
+                    className: 'btn btn-success'
+                },
+                {
+                    extend: 'print',
+                    text: 'Print',
+                    className: 'btn btn-success'
+                }
+            ],
+            order: [],
+            columnDefs: [
+                { targets: [0, 1, 2, 3, 4, 5, 6, 7], orderable: true },
+                { targets: 10, orderable: false }
+            ]
+        });
+    });
+</script>
 {% endblock content %}
