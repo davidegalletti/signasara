@@ -144,7 +144,7 @@
     }
 
     .sidebar-links li a span {
-        font-size: 1.5rem;
+        font-size: 1rem;
         color: #fff;
     }
 
@@ -184,21 +184,29 @@
     }
 
     .content h1 {
-        font-size: 2rem;
+        font-size: 1rem;
         color: #333;
         margin-bottom: 20px;
     }
 
     .content p {
         color: #555;
-        font-size: 1rem;
+        font-size: 0.7rem;
         line-height: 1.6;
+    }
+    .page-identifier {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 5rem;
+        color: black;
+        font-weight: bold;
     }
 </style>
 <body>
   <aside class="sidebar">
     <div class="sidebar-header">
-      <h2>SICS Dashboard</h2>
+      <h2>0.3.1</h2>
     </div>
 
     <ul class="sidebar-links">
@@ -208,19 +216,19 @@
       <li><a href="{% url 'accounting_c_sco_report' %}"><span class="material-symbols-outlined"> analytics </span>Accounting Report</a></li>
 
       <!-- Student Management -->
-      <h4><span>Student Management</span><div class="menu-separator"></div></h4>
+      <h4><span>Student</span><div class="menu-separator"></div></h4>
       <li><a href="{% url 'offsite_students' %}"><span class="material-symbols-outlined"> school </span>Off-site Students</a></li>
       <li><a href="{% url 'directly_managed_students' %}"><span class="material-symbols-outlined"> people </span>Directly Managed Students</a></li>
       <li><a href="{% url 'new_student' %}"><span class="material-symbols-outlined"> person_add </span>New Student</a></li>
 
       <!-- School Management -->
-      <h4><span>School Management</span><div class="menu-separator"></div></h4>
+      <h4><span>School</span><div class="menu-separator"></div></h4>
       <li><a href="{% url 'school_management' %}"><span class="material-symbols-outlined"> business </span>Manage Schools</a></li>
       <li><a href="{% url 'uniform_payments' %}"><span class="material-symbols-outlined"> paid </span>Uniform Payments</a></li>
       <li><a href="{% url 'late_payment_report' %}"><span class="material-symbols-outlined"> report_problem </span>Late Payment</a></li>
 
       <!-- Cash Management -->
-      <h4><span>Cash Management</span><div class="menu-separator"></div></h4>
+      <h4><span>Cash </span><div class="menu-separator"></div></h4>
       <li><a href="{% url 'cash_flow_report' %}"><span class="material-symbols-outlined"> account_balance_wallet </span>Cash Flow Report</a></li>
       <li><a href="{% url 'mouvement_list' %}"><span class="material-symbols-outlined"> swap_horiz </span>Movements</a></li>
 
@@ -235,8 +243,8 @@
     <div class="user-account">
       <div class="user-profile">
         <div class="user-detail">
-          <h3>{{ user.username }}</h3>
-          <span>Web Developer</span>
+          <h6>{{ user.username }}</h6>
+          
         </div>
       </div>
       <a href="{% url 'logout' %}" class="logout-btn"><span class="material-symbols-outlined"> logout </span>Logout</a>
@@ -244,7 +252,9 @@
   </aside>
 
   <div class="content">
-    
+    <div class="page-identifier">
+        <h2><strong>{{ page_identifier }}</strong></h2>
+    </div>
    
     {% block content %}
     {% endblock content %}

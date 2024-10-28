@@ -85,7 +85,7 @@ def logout_view(request):
 # 2. Student Management
 # =======================
 
-@login_required
+'''@login_required
 def home(request):
     schools = Ecole.objects.all()
     data = {}
@@ -123,7 +123,56 @@ def home(request):
         'page_identifier': 'S01'  # Unique page identifier
     })
 
+'''
+@login_required
+def home(request):
+    # Get the current school year, or allow selection of a specific year
+    selected_year_id = request.GET.get('school_year')
+    if selected_year_id:
+        current_year = get_object_or_404(AnneeScolaire, id=selected_year_id)
+    else:
+        current_year = AnneeScolaire.objects.filter(actuel=True).first()
 
+    schools = Ecole.objects.all()
+    data = {}
+
+    for school in schools:
+        # Group classes by type (Maternelle, Primaire, Secondaire, Lycée)
+        categories = {
+            "Maternelle": [],
+            "Primaire": [],
+            "Secondaire": [],
+            "Lycée": []
+        }
+
+        # Retrieve classes for each school
+        classes = Classe.objects.filter(ecole=school).select_related('type')
+        for classe in classes:
+            if classe.type.type_ecole == 'M':
+                categories["Maternelle"].append(classe)
+            elif classe.type.type_ecole == 'P':
+                categories["Primaire"].append(classe)
+            elif classe.type.type_ecole == 'S':
+                categories["Secondaire"].append(classe)
+            elif classe.type.type_ecole == 'L':
+                categories["Lycée"].append(classe)
+
+        # Only add the school to data if it has classes in at least one category
+        if any(categories.values()):
+            data[school] = categories
+
+    # For the current year selection dropdown
+    all_years = AnneeScolaire.objects.all()
+
+    breadcrumbs = [('/', 'Home')]
+
+    return render(request, 'scuelo/home.html', {
+        'data': data,
+        'breadcrumbs': breadcrumbs,
+        'current_year': current_year,
+        'all_years': all_years,
+        'page_identifier': 'S01'
+    })
 
 @login_required
 def class_detail(request, pk):

@@ -15,6 +15,14 @@
         {% endfor %}
     </ol>
 </nav>
+<form method="get" action="{% url 'home' %}">
+    <label for="school_year">Select School Year:</label>
+    <select name="school_year" id="school_year" onchange="this.form.submit()">
+        {% for year in all_years %}
+            <option value="{{ year.id }}" {% if year == current_year %}selected{% endif %}>{{ year.nom }}</option>
+        {% endfor %}
+    </select>
+</form>
 
 <!-- Main content -->
 <div class=" mt-5">
