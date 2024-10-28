@@ -1,294 +1,253 @@
-{% load static %}
-{% load bootstrap5 %}
-{% load crispy_forms_tags %}
-
 <!DOCTYPE html>
-
-{% bootstrap_css %}
-{% bootstrap_javascript %}
-
 <html lang="en">
 <head>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <!-- Include Bootstrap CSS and JS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>  
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-     
-    <!-- DataTables CSS -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-    
-    <!-- DataTables JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-    
-    <!-- DataTables Export Buttons -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
-    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
-    
-    
-    <title>{% block title %}{% endblock title %}</title>
-</head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<!-- Include Bootstrap CSS and JS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>  
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ 
+<!-- DataTables CSS -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
 
+<!-- DataTables JavaScript -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+<!-- DataTables Export Buttons -->
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+</head>
 <style>
-    body {
-        font-family: 'Nunito', sans-serif;
-        transition: margin-left 0.3s ease;
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
     }
 
-    /* Sidebar styling */
+    body {
+        min-height: 100vh;
+        background: #F0F4FF;
+        display: flex;
+    }
+
     .sidebar {
-        height: 100vh;
-        width: 250px;
         position: fixed;
         top: 0;
         left: 0;
-        background-color: #A44400;
-        color: white;
-        padding-top: 20px;
-        transition: all 0.3s ease;
-        overflow-y: auto;
-        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.15);
+        height: 100%;
+        width: 85px;
+        display: flex;
+        flex-direction: column;
+        background:#A44400;
+        padding: 25px 20px;
+        transition: all 0.4s ease;
+        overflow-x: hidden;
+        z-index: 2;
     }
 
-    .sidebar.collapsed {
-        width: 70px;
+    .sidebar:hover {
+        width: 260px;
     }
 
-    /* Toggle button with larger size */
-    .sidebar .toggle-btn {
+    .sidebar-header {
+        display: flex;
+        align-items: center;
+    }
+
+    .sidebar-header h2 {
+        color: #fff;
+        font-size: 1.25rem;
+        font-weight: 600;
+        white-space: nowrap;
+        margin-left: 23px;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .sidebar:hover .sidebar-header h2 {
+        opacity: 1;
+    }
+
+    .sidebar-links h4 {
+        color: #fff;
+        font-weight: 500;
+        white-space: nowrap;
+        margin: 10px 0;
+        position: relative;
+    }
+
+    .sidebar-links h4 span {
+        opacity: 0;
+    }
+
+    .sidebar:hover .sidebar-links h4 span {
+        opacity: 1;
+    }
+
+    .menu-separator {
         position: absolute;
-        top: 15px;
-        right: -30px;
-        width: 45px;
-        height: 45px;
-        background-color: #A44400;
-        color: white;
-        border: none;
-        border-radius: 50%;
-        font-size: 1.8em;
-        cursor: pointer;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Sidebar heading */
-    .sidebar h3 {
-        padding: 0 20px;
-        font-size: 18px;
-        margin-bottom: 30px;
-    }
-
-    /* Sidebar links */
-    .sidebar a {
-        display: flex;
-        align-items: center;
-        padding: 12px 20px;
-        color: white;
-        font-size: 16px;
-        text-decoration: none;
-        margin: 8px 0;
-        transition: background-color 0.3s, color 0.3s;
-        border-radius: 5px;
-    }
-
-    .sidebar a i {
-        margin-right: 12px;
-        font-size: 20px;
-    }
-
-    .sidebar a.active, .sidebar a:hover {
-        background-color: #34495E;
-        color: #F1C40F;
-    }
-
-    .sidebar.collapsed a span {
-        display: none;
-    }
-
-    /* Dropdown buttons */
-    .dropdown-btn {
-        display: flex;
-        align-items: center;
+        left: 0;
+        top: 50%;
         width: 100%;
-        padding: 12px 20px;
-        background: none;
-        border: none;
-        color: white;
-        cursor: pointer;
-        font-size: 16px;
-        transition: background-color 0.3s;
-        border-radius: 5px;
-    }
-
-    .dropdown-btn i {
-        margin-right: 12px;
-        font-size: 20px;
-    }
-
-    .dropdown-btn.active, .dropdown-btn:hover {
-        background-color: #34495E;
-        color: #F1C40F;
-    }
-
-    /* Chevron rotation */
-    .dropdown-btn .fa-chevron-down {
-        margin-left: auto;
+        height: 1px;
+        background: #4f52ba;
+        transform-origin: right;
         transition: transform 0.3s;
+        transform: scaleX(1);
     }
 
-    .dropdown-btn.active .fa-chevron-down {
-        transform: rotate(180deg);
+    .sidebar:hover .menu-separator {
+        transform: scaleX(0);
     }
 
-    /* Dropdown content */
-    .dropdown-container {
+    .sidebar-links {
+        list-style: none;
+        margin-top: 20px;
+        height: 80%;
+        overflow-y: auto;
+        scrollbar-width: none;
+    }
+
+    .sidebar-links::-webkit-scrollbar {
         display: none;
-        padding-left: 20px;
     }
 
-    .dropdown-container .dropdown-item {
-        padding: 8px 10px;
-        font-size: 15px;
-        color: white;
+    .sidebar-links li a {
+        display: flex;
+        align-items: center;
+        gap: 0 20px;
+        color: #fff;
+        font-weight: 500;
+        white-space: nowrap;
+        padding: 15px 10px;
         text-decoration: none;
+        border-radius: 4px;
+        transition: background 0.3s, color 0.3s;
     }
 
-    .dropdown-container .dropdown-item:hover {
-        color: #F1C40F;
+    .sidebar-links li a:hover {
+        color: #161a2d;
+        background: #fff;
     }
 
-    /* Logout section */
-    .logout-section {
-        position: absolute;
-        bottom: 20px;
-        width: 100%;
-        text-align: center;
+    .sidebar-links li a span {
+        font-size: 1.5rem;
+        color: #fff;
     }
 
-    .logout-btn {
-        background-color: #dc3545;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        font-size: 16px;
-        transition: background-color 0.3s;
+    .user-account {
+        margin-top: auto;
+        padding: 12px 10px;
+        margin-left: -10px;
     }
 
-    .logout-btn:hover {
-        background-color: #c82333;
+    .user-profile {
+        display: flex;
+        align-items: center;
+        color: #161a2d;
     }
 
-    .username {
-        color: white;
-        margin-bottom: 10px;
-        font-size: 18px;
+    .user-detail {
+        margin-left: 23px;
+        white-space: nowrap;
     }
 
-    /* Adjust content margin */
+    .sidebar:hover .user-account {
+        background: #fff;
+        border-radius: 4px;
+    }
+
+    /* Content area styling */
     .content {
-        margin-left: 250px;
+        margin-left: 85px;
         padding: 20px;
-        transition: margin-left 0.3s ease;
+        width: calc(100% - 85px);
+        transition: margin-left 0.4s ease, width 0.4s ease;
     }
 
-    .sidebar.collapsed + .content {
-        margin-left: 70px;
+    .sidebar:hover ~ .content {
+        margin-left: 260px;
+        width: calc(100% - 260px);
     }
 
-    .page-identifier {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        font-size: 22px;
-        color: black;
-        font-weight: bold;
+    .content h1 {
+        font-size: 2rem;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .content p {
+        color: #555;
+        font-size: 1rem;
+        line-height: 1.6;
     }
 </style>
-
 <body>
-    <div class="sidebar">
-        <button class="toggle-btn" onclick="toggleSidebar()">
-            <i class="fas fa-angle-double-left"></i>
-        </button>
-        <h3 class="dropdown-item">SICS 0.3.1 Test</h3>
-
-        <a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">
-            <i class="fas fa-home"></i><span>Home</span>
-        </a>
-
-        <button class="dropdown-btn">
-            <i class="fas fa-user-friends"></i> <span>Students</span> <i class="fa fa-chevron-down"></i>
-        </button>
-        <div class="dropdown-container">
-            <a href="{% url 'offsite_students' %}" class="dropdown-item">Off-site Students</a>
-            <a href="{% url 'directly_managed_students' %}" class="dropdown-item">Directly Managed Students</a>
-            <a href="{% url 'new_student' %}" class="dropdown-item">New Student</a>
-        </div>
-
-        <button class="dropdown-btn">
-            <i class="fas fa-cash-register"></i> <span>Cash</span> <i class="fa fa-chevron-down"></i>
-        </button>
-        <div class="dropdown-container">
-            <a href="{% url 'mouvement_list' %}" class="dropdown-item">Movements</a>
-            <a href="{% url 'cash_flow_report' %}" class="dropdown-item">Cash Flow Report</a>
-            <a href="{% url 'accounting_c_sco_report_period' 'weekly' %}" class="dropdown-item">Weekly Accounting</a>
-            <a href="{% url 'accounting_c_sco_report_period' 'bi-monthly' %}" class="dropdown-item">Bi-Monthly Accounting</a>
-        </div>
-
-        <button class="dropdown-btn">
-            <i class="fas fa-money-bill-wave"></i> <span>School & Fees</span> <i class="fa fa-chevron-down"></i>
-        </button>
-        <div class="dropdown-container">
-            <a href="{% url 'school_management' %}" class="dropdown-item">Manage Schools</a>
-            <a href="{% url 'uniform_payments' %}" class="dropdown-item">Uniform Payments</a>
-            <a href="{% url 'late_payment_report' %}" class="dropdown-item">Late Payment</a>
-        </div>
-
-        <button class="dropdown-btn">
-            <i class="fas fa-lock"></i> <span>Security</span> <i class="fa fa-chevron-down"></i>
-        </button>
-        <div class="dropdown-container">
-            <a href="{% url 'user_list' %}" class="dropdown-item">Users</a>
-            <a href="{% url 'group_list' %}" class="dropdown-item">Groups</a>
-            <a href="{% url 'rights_management' %}" class="dropdown-item">Rights</a>
-        </div>
-
-        <div class="logout-section">
-            <div class="username">{{ user.username }}</div>
-            <a class="logout-btn" href="{% url 'logout' %}">Logout</a>
-        </div>
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2>SICS Dashboard</h2>
     </div>
 
-    <div class="content">
-        <div class="page-identifier">
-            <p><strong>{{ page_identifier }}</strong></p>
+    <ul class="sidebar-links">
+      <!-- Main Menu -->
+      <h4><span>Main Menu</span><div class="menu-separator"></div></h4>
+      <li><a href="{% url 'home' %}"><span class="material-symbols-outlined"> dashboard </span>Dashboard</a></li>
+      <li><a href="{% url 'accounting_c_sco_report' %}"><span class="material-symbols-outlined"> analytics </span>Accounting Report</a></li>
+
+      <!-- Student Management -->
+      <h4><span>Student Management</span><div class="menu-separator"></div></h4>
+      <li><a href="{% url 'offsite_students' %}"><span class="material-symbols-outlined"> school </span>Off-site Students</a></li>
+      <li><a href="{% url 'directly_managed_students' %}"><span class="material-symbols-outlined"> people </span>Directly Managed Students</a></li>
+      <li><a href="{% url 'new_student' %}"><span class="material-symbols-outlined"> person_add </span>New Student</a></li>
+
+      <!-- School Management -->
+      <h4><span>School Management</span><div class="menu-separator"></div></h4>
+      <li><a href="{% url 'school_management' %}"><span class="material-symbols-outlined"> business </span>Manage Schools</a></li>
+      <li><a href="{% url 'uniform_payments' %}"><span class="material-symbols-outlined"> paid </span>Uniform Payments</a></li>
+      <li><a href="{% url 'late_payment_report' %}"><span class="material-symbols-outlined"> report_problem </span>Late Payment</a></li>
+
+      <!-- Cash Management -->
+      <h4><span>Cash Management</span><div class="menu-separator"></div></h4>
+      <li><a href="{% url 'cash_flow_report' %}"><span class="material-symbols-outlined"> account_balance_wallet </span>Cash Flow Report</a></li>
+      <li><a href="{% url 'mouvement_list' %}"><span class="material-symbols-outlined"> swap_horiz </span>Movements</a></li>
+
+      <!-- Security and User Management -->
+      <h4><span>Security</span><div class="menu-separator"></div></h4>
+      <li><a href="{% url 'user_list' %}"><span class="material-symbols-outlined"> people </span>Users</a></li>
+      <li><a href="{% url 'group_list' %}"><span class="material-symbols-outlined"> groups </span>Groups</a></li>
+      <li><a href="{% url 'rights_management' %}"><span class="material-symbols-outlined"> security </span>Rights Management</a></li>
+    </ul>
+
+    <!-- User Account Section -->
+    <div class="user-account">
+      <div class="user-profile">
+        <div class="user-detail">
+          <h3>{{ user.username }}</h3>
+          <span>Web Developer</span>
         </div>
-        {% block content %}{% endblock content %}
+      </div>
+      <a href="{% url 'logout' %}" class="logout-btn"><span class="material-symbols-outlined"> logout </span>Logout</a>
     </div>
+  </aside>
 
-    <script>
-        function toggleSidebar() {
-            const sidebar = document.querySelector('.sidebar');
-            sidebar.classList.toggle('collapsed');
-        }
-
-        document.querySelectorAll('.dropdown-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                this.classList.toggle('active');
-                const dropdownContainer = this.nextElementSibling;
-                dropdownContainer.style.display = dropdownContainer.style.display === 'block' ? 'none' : 'block';
-            });
-        });
-    </script>
+  <div class="content">
+    
+   
+    {% block content %}
+    {% endblock content %}
+  </div>
 </body>
 </html>
