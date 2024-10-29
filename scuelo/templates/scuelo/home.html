@@ -15,159 +15,174 @@
         {% endfor %}
     </ol>
 </nav>
-<form method="get" action="{% url 'home' %}">
-    <label for="school_year">Select School Year:</label>
-    <select name="school_year" id="school_year" onchange="this.form.submit()">
-        {% for year in all_years %}
-            <option value="{{ year.id }}" {% if year == current_year %}selected{% endif %}>{{ year.nom }}</option>
-        {% endfor %}
-    </select>
-</form>
 
-<!-- Main content -->
-<div class=" mt-5">
-    <h1 class="page-title">Liste des Classes</h1>
+<!-- School Year Toggle Button -->
+<div class="school-year-toggle mb-4 text-center">
+    <form method="get" action="{% url 'home' %}" class="d-inline-block">
+        <label for="school_year" class="mr-2 font-weight-bold">School Year:</label>
+        <select name="school_year" id="school_year" onchange="this.form.submit()" class="form-control d-inline-block" style="width: auto;">
+            {% for year in all_years %}
+                <option value="{{ year.id }}" {% if year == current_year %}selected{% endif %}>{{ year.nom }}</option>
+            {% endfor %}
+        </select>
+    </form>
+</div>
+
+<!-- Quick Access Buttons Section -->
+<div class="quick-access-section mt-4">
+    <h2 class="section-title">Quick Access</h2>
+    <div class="quick-access-buttons d-flex justify-content-center flex-wrap">
+        <a href="{% url 'new_student' %}" class="btn quick-btn btn-primary">
+            <i class="fas fa-user-plus"></i> New Student
+        </a>
+        <a href="{% url 'mouvement_list' %}" class="btn quick-btn btn-info">
+            <i class="fas fa-exchange-alt"></i> Movements
+        </a>
+        <a href="{% url 'cash_flow_report' %}" class="btn quick-btn btn-success">
+            <i class="fas fa-chart-line"></i> Cash Flow Report
+        </a>
+        <a href="{% url 'uniform_payments' %}" class="btn quick-btn btn-warning">
+            <i class="fas fa-tshirt"></i> Uniform Payments
+        </a>
+        <a href="{% url 'late_payment_report' %}" class="btn quick-btn btn-danger">
+            <i class="fas fa-exclamation-triangle"></i> Late Payments
+        </a>
+        <a href="{% url 'school_management' %}" class="btn quick-btn btn-secondary">
+            <i class="fas fa-school"></i> Manage Schools
+        </a>
+        <a href="{% url 'user_list' %}" class="btn quick-btn btn-dark">
+            <i class="fas fa-users-cog"></i> Manage Users
+        </a>
+        <a href="{% url 'offsite_students' %}" class="btn quick-btn btn-outline-primary">
+            <i class="fas fa-user-friends"></i> Off-site Students
+        </a>
+    </div>
+</div>
+
+<!-- Main content with classes listing -->
+<div class="mt-5">
+    <h1 class="page-title text-center">List of Classes</h1>
     <div class="school-container">
         {% for school, categories in data.items %}
             <div class="school-section">
                 <h2 class="school-title">{{ school.nom }}</h2>
 
-                <!-- Maternelle Section -->
-                {% if categories.Maternelle %}
-                    <div class="category-section">
-                        <h3 class="category-title">Maternelle</h3>
-                        <div class="card-container">
-                            {% for classe in categories.Maternelle %}
-                                <div class="card">
-                                    <div class="card-body">
-                                        <i class="card-icon fas fa-child"></i>
-                                        <a href="{% url 'class_detail' classe.id %}" class="card-link">
-                                            {{ classe.nom }}
-                                        </a>
+                {% for category, classes in categories.items %}
+                    {% if classes %}
+                        <div class="category-section">
+                            <h3 class="category-title">{{ category }}</h3>
+                            <div class="card-container">
+                                {% for item in classes %}
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <i class="card-icon fas fa-{{ item.icon }}"></i>
+                                            <a href="{% url 'class_detail' item.classe.id %}" class="card-link">
+                                                {{ item.classe.nom }}
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                            {% endfor %}
+                                {% endfor %}
+                            </div>
                         </div>
-                    </div>
-                {% endif %}
-
-                <!-- Primaire Section -->
-                {% if categories.Primaire %}
-                    <div class="category-section">
-                        <h3 class="category-title">Primaire</h3>
-                        <div class="card-container">
-                            {% for classe in categories.Primaire %}
-                                <div class="card">
-                                    <div class="card-body">
-                                        <i class="card-icon fas fa-school"></i>
-                                        <a href="{% url 'class_detail' classe.id %}" class="card-link">
-                                            {{ classe.nom }}
-                                        </a>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                {% endif %}
-
-                <!-- Secondaire Section -->
-                {% if categories.Secondaire %}
-                    <div class="category-section">
-                        <h3 class="category-title">Secondaire</h3>
-                        <div class="card-container">
-                            {% for classe in categories.Secondaire %}
-                                <div class="card">
-                                    <div class="card-body">
-                                        <i class="card-icon fas fa-user-graduate"></i>
-                                        <a href="{% url 'class_detail' classe.id %}" class="card-link">
-                                            {{ classe.nom }}
-                                        </a>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                {% endif %}
-
-                <!-- Lycée Section -->
-                {% if categories.Lycée %}
-                    <div class="category-section">
-                        <h3 class="category-title">Lycée</h3>
-                        <div class="card-container">
-                            {% for classe in categories.Lycée %}
-                                <div class="card">
-                                    <div class="card-body">
-                                        <i class="card-icon fas fa-chalkboard-teacher"></i>
-                                        <a href="{% url 'class_detail' classe.id %}" class="card-link">
-                                            {{ classe.nom }}
-                                        </a>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                {% endif %}
+                    {% endif %}
+                {% endfor %}
             </div>
         {% endfor %}
     </div>
 </div>
 
+<!-- Styling -->
 <style>
-    /* Main container and title styles */
-    .container {
-        max-width: 1200px;
-    }
-    .page-title {
-        text-align: center;
-        font-size: 2rem;
-        font-weight: bold;
-        margin-bottom: 20px;
+    /* Toggle School Year Button */
+    .school-year-toggle label {
+        font-size: 1rem;
         color: #333;
     }
 
-    /* Breadcrumb styles */
-    .breadcrumb-item a {
-        color: #007bff;
+    /* Quick Access Section */
+    .quick-access-section {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .section-title {
+        font-size: 1.8rem;
+        color: #343a40;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+    .quick-access-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    .quick-access-buttons .quick-btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+        border-radius: 8px;
+        transition: all 0.3s;
+        text-transform: capitalize;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .quick-access-buttons .quick-btn i {
+        margin-right: 8px;
+        font-size: 1.2rem;
+    }
+    .quick-access-buttons .quick-btn:hover {
+        transform: scale(1.05);
     }
 
-    /* School section styles */
+    /* Page Title */
+    .page-title {
+        font-size: 2rem;
+        color: #2c3e50;
+        margin-bottom: 30px;
+        font-weight: bold;
+    }
+
+    /* School Container */
     .school-container {
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
         justify-content: center;
     }
+
+    /* School Section */
     .school-section {
-        border: 2px solid #ccc;
-        border-radius: 10px;
+        border: 1px solid #ddd;
+        border-radius: 12px;
         padding: 20px;
-        background-color: #f9f9f9;
+        background-color: #f8f9fa;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         width: 100%;
-        max-width: 300px;
+        max-width: 350px;
+        margin-bottom: 20px;
     }
     .school-title {
-        text-align: center;
         font-size: 1.5rem;
         font-weight: bold;
-        margin-bottom: 10px;
         color: #555;
+        text-align: center;
+        margin-bottom: 20px;
     }
 
-    /* Category title styles */
+    /* Category Section */
     .category-section {
         margin-top: 20px;
     }
     .category-title {
         font-size: 1.25rem;
         font-weight: bold;
-        color: #333;
+        color: #007bff;
         border-bottom: 2px solid #007bff;
         padding-bottom: 5px;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
     }
 
-    /* Card styles */
+    /* Card Container */
     .card-container {
         display: flex;
         flex-wrap: wrap;
@@ -175,41 +190,38 @@
         justify-content: center;
     }
     .card {
-        border: none;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        transition: transform 0.3s, box-shadow 0.3s;
-        width: 80px;
         background-color: #007bff;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        width: 90px;
+        text-align: center;
+        transition: transform 0.3s;
     }
     .card-body {
         padding: 10px;
-        color: #ffffff;
+        color: #fff;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        text-align: center;
-        transition: transform 0.2s;
     }
     .card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    .card-icon {
+        font-size: 1.8rem;
+        margin-bottom: 5px;
     }
     .card-link {
-        color: #ffffff;
-        text-decoration: none;
-        font-size: 0.85rem;
+        font-size: 0.9rem;
+        color: #fff;
         font-weight: bold;
-        margin-top: 5px;
+        text-decoration: none;
     }
     .card-link:hover {
         text-decoration: underline;
-    }
-    .card-icon {
-        font-size: 1.5rem;
-        margin-bottom: 5px;
     }
 </style>
 {% endblock %}
