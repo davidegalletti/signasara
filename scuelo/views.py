@@ -144,28 +144,16 @@ def class_detail(request, pk):
     all_annee_scolaires = AnneeScolaire.objects.all()
 
     # Get the selected academic year, default to the current year if none is selected
-    selected_annee_scolaire_id = request.GET.get('annee_scolaire', None)
-    if selected_annee_scolaire_id:
-        selected_annee_scolaire = AnneeScolaire.objects.get(pk=selected_annee_scolaire_id)
-    else:
-        selected_annee_scolaire = AnneeScolaire.objects.get(actuel=True)
+    selected_annee_scolaire_id = request.GET.get('annee_scolaire')
+    selected_annee_scolaire = get_object_or_404(AnneeScolaire, pk=selected_annee_scolaire_id) if selected_annee_scolaire_id else AnneeScolaire.objects.get(actuel=True)
 
     # Get students registered in this class during the selected academic year
     inscriptions = Inscription.objects.filter(classe=classe, annee_scolaire=selected_annee_scolaire)
     students = [inscription.eleve for inscription in inscriptions]
 
-    # Filter students whose annee_inscr matches the selected academic year's date_initiale year if date_initiale is not None
-    if selected_annee_scolaire.date_initiale:
-        students_with_matching_annee = Eleve.objects.filter(
-            Q(inscription__classe=classe, inscription__annee_scolaire=selected_annee_scolaire) |
-            Q(annee_inscr=selected_annee_scolaire.date_initiale.year, inscription__classe=classe)
-        ).distinct()
-    else:
-        students_with_matching_annee = students
-
     # Calculate total payments for each student and get details of each payment
-    for student in students_with_matching_annee:
-        payments = Mouvement.objects.filter(inscription__eleve=student)
+    for student in students:
+        payments = Mouvement.objects.filter(inscription__eleve=student, inscription__classe=classe, inscription__annee_scolaire=selected_annee_scolaire)
         student.total_payment = payments.aggregate(total=Sum('montant'))['total'] or 0
         student.payment_details = payments.values('causal', 'montant', 'date_paye')  # Detailed payment info
         student.tenues = payments.filter(causal='TEN').values('montant')  # Only "tenues" payments
@@ -185,16 +173,14 @@ def class_detail(request, pk):
 
     return render(request, 'scuelo/students/listperclasse.html', {
         'classe': classe,
-        'students': students_with_matching_annee,  # List of students registered this year
+        'students': students,  # List of students registered this year
         'tarifs': tarifs,  # Tarifs related to this class for this year
         'breadcrumbs': breadcrumbs,
         'all_annee_scolaires': all_annee_scolaires,  # Pass all academic years for selection
         'selected_annee_scolaire': selected_annee_scolaire,  # Pass the selected academic year
-        'total_class_payment': total_class_payment ,
-         'page_identifier': 'S02'  # Unique page identifier# Total amount of payments for the class in the selected year
+        'total_class_payment': total_class_payment,  # Total amount of payments for the class in the selected year
+        'page_identifier': 'S02'  # Unique page identifier
     })
-
-
 
 @login_required
 def student_detail(request, pk):
@@ -216,7 +202,7 @@ def student_detail(request, pk):
             ('#', f"{student.nom} {student.prenom}")
         ]
     else:
-        breadcrumbs = [
+        brNeadcrumbs = [
             ('/', 'Home'),
             (reverse('home'), 'Classes'),
             ('#', f"{student.nom} {student.prenom}")
