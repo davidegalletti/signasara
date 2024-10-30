@@ -7,36 +7,26 @@ from django.contrib import messages
 from django.urls import reverse, reverse_lazy
 from django.views.generic.edit import UpdateView, DeleteView
 from django.views.generic import DetailView, ListView, CreateView, TemplateView
-from django.db.models import Q, Sum, Prefetch, Count
+from django.db.models import Q, Sum, Prefetch, Count  , F
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from django.http import JsonResponse, HttpResponseRedirect
 from weasyprint import HTML
 from django.forms import modelformset_factory
-from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.template.loader import render_to_string
-from django.shortcuts import render
-from django.db.models import Sum, Q , F
+from django.db.models import Sum
 from datetime import timedelta, datetime
 import csv
 import io
-
-from django.http import HttpResponse
-
 from django.utils import timezone
-from .models import Eleve, Inscription, Mouvement, StudentLog
-from .forms import PaiementPerStudentForm
-
-from django.db.models import Sum
 import base64
 import matplotlib.pyplot as plt
 from io import BytesIO
 import seaborn as sns
 from django.db import models
-from django.utils import timezone
 from datetime import datetime
-from django.db.models import Sum, Case, When, Value
+from django.db.models import  Case, When, Value
 from django.db.models.functions import TruncDay
 # Models and Forms
 from django.utils.timezone import now
@@ -49,15 +39,6 @@ from scuelo.models import (
     Eleve, Classe, Inscription, StudentLog,
     AnneeScolaire, Mouvement, Ecole, Tarif
 )
-from django.db.models import Sum, Q
-from datetime import timedelta, datetime
-import csv
-from django.http import HttpResponse
-from django.contrib.auth.decorators import login_required
-from django.urls import reverse
-
-
-
 
 # =======================
 # 1. Authentication
@@ -84,46 +65,6 @@ def logout_view(request):
 # =======================
 # 2. Student Management
 # =======================
-
-'''@login_required
-def home(request):
-    schools = Ecole.objects.all()
-    data = {}
-
-    for school in schools:
-        # Group classes by type (Maternelle, Primaire, Secondaire, Lycée)
-        categories = {
-            "Maternelle": [],
-            "Primaire": [],
-            "Secondaire": [],
-            "Lycée": []
-        }
-
-        classes = Classe.objects.filter(ecole=school)
-        for classe in classes:
-            # Classify classes based on their type (type_ecole in TypeClasse)
-            if classe.type.type_ecole == 'M':
-                categories["Maternelle"].append(classe)
-            elif classe.type.type_ecole == 'P':
-                categories["Primaire"].append(classe)
-            elif classe.type.type_ecole == 'S':
-                categories["Secondaire"].append(classe)
-            elif classe.type.type_ecole == 'L':
-                categories["Lycée"].append(classe)
-
-        # Only add the school to data if it has classes in at least one category
-        if any(categories.values()):
-            data[school] = categories
-
-    breadcrumbs = [('/', 'Home')]  # Update breadcrumbs as needed
-
-    return render(request, 'scuelo/home.html', {
-        'data': data,
-        'breadcrumbs': breadcrumbs,
-        'page_identifier': 'S01'  # Unique page identifier
-    })
-
-'''
 
 
 
@@ -192,10 +133,6 @@ def home(request):
         'current_year': current_year,
         'page_identifier': 'S01'  # Unique page identifier
     })
-
-from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
-from .models import Ecole, Classe, TypeClasse, AnneeScolaire
 
 
 @login_required
@@ -981,8 +918,6 @@ def export_accounting_report(request):
     return response
 
 
-
-
 @login_required
 def mouvement_list(request):
     search_query = request.GET.get('search', '')
@@ -1361,8 +1296,6 @@ def load_classes(request):
 # =======================
 # 6. Financial Management
 # =======================
-
-
 def print_receipt(request, mouvement_id):
     mouvement = get_object_or_404(Mouvement, id=mouvement_id)
     context = {
