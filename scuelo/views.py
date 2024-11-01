@@ -62,11 +62,30 @@ def logout_view(request):
     return redirect('login')
 
 
+
 # =======================
 # 2. Student Management
 # =======================
 
+@login_required
+def select_school_year(request):
+    if request.method == 'POST':
+        # Get the selected school year from the form
+        school_year_id = request.POST.get('school_year')
+        if school_year_id:
+            # Save the selected school year ID in the session
+            request.session['selected_school_year'] = school_year_id
+        return redirect('home')  # Redirect to home page after setting the year
 
+    # Fetch all available school years for the dropdown
+    all_years = AnneeScolaire.objects.all()
+    # Retrieve the currently selected school year from the session if it exists
+    current_year_id = request.session.get('selected_school_year')
+
+    return render(request, 'scuelo/select_school_year.html', {
+        'all_years': all_years,
+        'current_year_id': current_year_id,
+    })
 
 @login_required
 def home(request):
@@ -81,7 +100,7 @@ def home(request):
         "Secondaire": "user-graduate",
         "Lycée": "chalkboard-teacher"
     }
-
+ 
     # Get the current school year based on request or use the active year by default
     school_year_id = request.GET.get("school_year")
     if school_year_id:

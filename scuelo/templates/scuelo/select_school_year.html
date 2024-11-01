@@ -1,0 +1,21 @@
+{% extends "../layout.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Select School Year</h2>
+    <form method="post" action="{% url 'select_school_year' %}" class="text-center">
+        {% csrf_token %}
+        <div class="form-group d-inline-block">
+            <label for="school_year" class="font-weight-bold">Choose a School Year:</label>
+            <select name="school_year" id="school_year" class="form-control">
+                {% for year in all_years %}
+                    <option value="{{ year.id }}" {% if year.id|stringformat:"s" == current_year_id %}selected{% endif %}>
+                        {{ year.nom }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Save Selection</button>
+    </form>
+</div>
+{% endblock %}
