@@ -1,6 +1,6 @@
 {% extends "../layout.html" %}
-
 {% block content %}
+
 <!-- Breadcrumbs -->
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
@@ -16,75 +16,31 @@
     </ol>
 </nav>
 
-<!-- Quick Acce Buttons Section with School Year Selection -->
-<div class="quick-access-section mt-4">
-    <h2 class="section-title text-center">Quick Access</h2>
-    <div class="quick-access-buttons d-flex justify-content-center flex-wrap">
-        <a href="{% url 'new_student' %}" class="btn quick-btn btn-primary">
-            <i class="fas fa-user-plus"></i> New Student
-        </a>
-        <a href="{% url 'mouvement_list' %}" class="btn quick-btn btn-info">
-            <i class="fas fa-exchange-alt"></i> Movements
-        </a>
-        <a href="{% url 'cash_flow_report' %}" class="btn quick-btn btn-success">
-            <i class="fas fa-chart-line"></i> Cash Flow
-        </a>
-        <a href="{% url 'uniform_payments' %}" class="btn quick-btn btn-warning">
-            <i class="fas fa-tshirt"></i> Uniforms
-        </a>
-        <a href="{% url 'late_payment_report' %}" class="btn quick-btn btn-danger">
-            <i class="fas fa-exclamation-triangle"></i> Late Payments
-        </a>
-        <a href="{% url 'school_management' %}" class="btn quick-btn btn-secondary">
-            <i class="fas fa-school"></i> Schools
-        </a>
-        <a href="{% url 'user_list' %}" class="btn quick-btn btn-dark">
-            <i class="fas fa-users-cog"></i> Users
-        </a>
-        <a href="{% url 'offsite_students' %}" class="btn quick-btn btn-outline-primary">
-            <i class="fas fa-user-friends"></i> Off-site Students
-        </a>
-
-        <!-- School Year Selection -->
-        <form method="get" action="{% url 'select_school_year' %}" class="d-inline-block quick-btn-form">
-            <label for="school_year" class="d-none">School Year</label>
-            <select name="school_year" id="school_year" onchange="this.form.submit()" class="form-control quick-btn-select">
-                <option value="">Select Year</option>
-                {% for year in all_years %}
-                    <option value="{{ year.id }}" {% if year == current_year %}selected{% endif %}>{{ year.nom }}</option>
-                {% endfor %}
-            </select>
-        </form>
+<div class="dashboard-container">
+    <!-- Quick Access Buttons -->
+    <div class="quick-access-section">
+        <h3>Quick Access</h3>
+        <div class="button-grid">
+            <!-- Quick access buttons -->
+            <a href="{% url 'new_student' %}" class="btn quick-btn">New Student</a>
+            <a href="{% url 'mouvement_list' %}" class="btn quick-btn">Movements</a>
+            <a href="{% url 'cash_flow_report' %}" class="btn quick-btn">Cash Flow</a>
+            <!-- Add other quick access buttons as needed -->
+        </div>
     </div>
-</div>
 
-<!-- Main content with classes listing -->
-<div class="mt-5">
-    <h1 class="page-title text-center">List of Classes</h1>
-    <div class="school-container">
-        {% for school, categories in data.items %}
+    <!-- Classes Display Section -->
+    <div class="classes-section">
+        {% for school in schools %}
             <div class="school-section">
-                <h2 class="school-title">{{ school.nom }}</h2>
-
-                {% for category, classes in categories.items %}
-                    {% if classes %}
-                        <div class="category-section">
-                            <h3 class="category-title">{{ category }}</h3>
-                            <div class="card-container">
-                                {% for item in classes %}
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <i class="card-icon fas fa-{{ item.icon }}"></i>
-                                            <a href="{% url 'class_detail' item.classe.id %}" class="card-link">
-                                                {{ item.classe.nom }}
-                                            </a>
-                                        </div>
-                                    </div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    {% endif %}
-                {% endfor %}
+                <h3>{{ school.nom }}</h3>
+                <div class="class-grid">
+                    {% for classe in school.classe_set.all %}
+                        <a href="{% url 'class_detail' classe.pk %}" class="btn class-btn">
+                            {{ classe.nom }}
+                        </a>
+                    {% endfor %}
+                </div>
             </div>
         {% endfor %}
     </div>
@@ -92,87 +48,63 @@
 
 <!-- Styling -->
 <style>
-    /* Quick Access Section */
+    .dashboard-container {
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    /* Quick Access Buttons Styling */
     .quick-access-section {
-        text-align: center;
-        margin-bottom: 40px;
+        flex: 1;
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
     }
-    .section-title {
-        font-size: 1.8rem;
-        color: #343a40;
-        font-weight: bold;
-        margin-bottom: 15px;
-    }
-    .quick-access-buttons {
+
+    .button-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 15px;
+        gap: 10px;
     }
-    .quick-btn {
-        font-size: 1rem;
+
+    .btn.quick-btn {
+        padding: 15px;
+        background: #007bff;
+        color: #fff;
+        border-radius: 5px;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    /* Classes Section Styling */
+    .classes-section {
+        flex: 2;
+    }
+
+    .school-section {
+        margin-bottom: 20px;
+        background: #f8f9fa;
         padding: 15px;
         border-radius: 8px;
-        transition: all 0.3s;
-        text-transform: capitalize;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .quick-btn i {
-        margin-right: 8px;
-        font-size: 1.2rem;
-    }
-    .quick-btn:hover {
-        transform: scale(1.05);
     }
 
-    /* School Year Dropdown in Quick Access */
-    .quick-btn-form {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .quick-btn-select {
-        padding: 10px 20px;
-        font-size: 1rem;
-        font-weight: bold;
-        color: #333;
-        border-radius: 8px;
-        border: 2px solid #007bff;
-        background-color: #ffffff;
-        transition: all 0.3s;
-    }
-    .quick-btn-select:hover, .quick-btn-select:focus {
-        border-color: #0056b3;
-    }
-    .quick-btn-select option {
-        font-weight: normal;
-        color: #333;
+    .class-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 10px;
+        margin-top: 10px;
     }
 
-    /* Main content styles */
-    .page-title {
-        font-size: 2rem;
-        color: #2c3e50;
-        margin-bottom: 30px;
-        font-weight: bold;
-    }
-
-    .school-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
-    }
-    .school-section {
-        border: 1px solid #ddd;
-        border-radius: 12px;
-        padding: 20px;
-        background-color: #f8f9fa;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        max-width: 350px;
-        margin-bottom: 20px;
+    .btn.class-btn {
+        padding: 10px;
+        background: #17a2b8;
+        color: #fff;
+        border-radius: 5px;
+        text-align: center;
+        text-decoration: none;
     }
 </style>
-{% endblock %}
+
+{% endblock content %}
