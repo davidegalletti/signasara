@@ -30,6 +30,9 @@
                 <a href="{% url 'late_payment_report' %}" class="btn btn-danger quick-btn">Late Payments</a>
                 <a href="{% url 'school_management' %}" class="btn btn-secondary quick-btn">Schools</a>
                 <a href="{% url 'user_list' %}" class="btn btn-dark quick-btn">Users</a>
+                <a href="{% url 'annee_scolaire_manage' %}" class="btn btn-outline-secondary quick-btn">
+                    Manage Année Scolaire
+                </a>
                 <a href="{% url 'offsite_students' %}" class="btn btn-outline-primary quick-btn">Off-site Students</a>
             </div>
         </div>
@@ -37,40 +40,84 @@
         <!-- Class List Section -->
         <div class="panel">
             <h3 class="panel-title">Classes</h3>
-            <div class="class-grid">
+            <div class="school-grid">
                 {% for school, categories in data.items %}
-                    <h4 class="school-title">{{ school.nom }}</h4>
-                    {% for category, classes in categories.items %}
-                        <div class="category-section">
-                            <h5 class="category-title">{{ category }}</h5>
-                            <div class="class-grid">
-                                {% for item in classes %}
-                                    <a href="{% url 'class_detail' item.classe.id %}" class="class-card">
-                                        <i class="fas fa-{{ item.icon }} class-icon"></i>
-                                        <span>{{ item.classe.nom }}</span>
-                                    </a>
-                                {% endfor %}
+                    <div class="school-section">
+                        <h4 class="school-title">{{ school.nom }}</h4>
+
+                        <!-- Display each category only if it contains classes -->
+                        {% if categories.Maternelle %}
+                            <div class="category-section">
+                                <h5 class="category-title">Maternelle</h5>
+                                <div class="class-grid">
+                                    {% for item in categories.Maternelle %}
+                                        <a href="{% url 'class_detail' item.classe.id %}" class="class-card">
+                                            <i class="fas fa-{{ item.icon }} class-icon"></i>
+                                            <span>{{ item.classe.nom }}</span>
+                                        </a>
+                                    {% endfor %}
+                                </div>
                             </div>
-                        </div>
-                    {% endfor %}
+                        {% endif %}
+
+                        {% if categories.Primaire %}
+                            <div class="category-section">
+                                <h5 class="category-title">Primaire</h5>
+                                <div class="class-grid">
+                                    {% for item in categories.Primaire %}
+                                        <a href="{% url 'class_detail' item.classe.id %}" class="class-card">
+                                            <i class="fas fa-{{ item.icon }} class-icon"></i>
+                                            <span>{{ item.classe.nom }}</span>
+                                        </a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endif %}
+
+                        {% if categories.Secondaire %}
+                            <div class="category-section">
+                                <h5 class="category-title">Secondaire</h5>
+                                <div class="class-grid">
+                                    {% for item in categories.Secondaire %}
+                                        <a href="{% url 'class_detail' item.classe.id %}" class="class-card">
+                                            <i class="fas fa-{{ item.icon }} class-icon"></i>
+                                            <span>{{ item.classe.nom }}</span>
+                                        </a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endif %}
+
+                        {% if categories.Lycée %}
+                            <div class="category-section">
+                                <h5 class="category-title">Lycée</h5>
+                                <div class="class-grid">
+                                    {% for item in categories.Lycée %}
+                                        <a href="{% url 'class_detail' item.classe.id %}" class="class-card">
+                                            <i class="fas fa-{{ item.icon }} class-icon"></i>
+                                            <span>{{ item.classe.nom }}</span>
+                                        </a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
                 {% endfor %}
             </div>
         </div>
-
-
     </div>
 </div>
 
 <!-- Styling -->
 <style>
-    /* Layout */
+    /* Main layout grid */
     .main-layout {
         display: grid;
         grid-template-columns: 1fr 2fr 1fr;
         gap: 20px;
     }
 
-    /* Panel Style */
+    /* Panel styling */
     .panel {
         background: #fff;
         padding: 20px;
@@ -94,6 +141,15 @@
         font-size: 1rem;
         padding: 10px;
         text-align: center;
+    }
+
+    /* School Section Grid */
+    .school-grid {
+        display: grid;
+        gap: 20px;
+    }
+    .school-section {
+        margin-bottom: 20px;
     }
 
     /* Class Grid */
@@ -121,12 +177,6 @@
     .class-icon {
         font-size: 1.5rem;
         margin-bottom: 5px;
-    }
-
-    /* Other Operations Grid */
-    .operations-grid {
-        display: grid;
-        gap: 10px;
     }
 </style>
 {% endblock %}

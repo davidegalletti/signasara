@@ -67,6 +67,35 @@ def logout_view(request):
 # 2. Student Management
 # =======================
 
+class SchoolYearManagementView(ListView):
+    model = AnneeScolaire
+    template_name = 'scuelo/annee_scolaire_manage.html'
+    context_object_name = 'school_years'
+
+    # Additional context if needed, e.g., for adding, updating, or deleting years
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # You can add extra context if necessary
+        return context
+    
+class AddSchoolYearView(CreateView):
+    model = AnneeScolaire
+    fields = ['nom', 'nom_bref', 'date_initiale', 'date_finale', 'actuel']
+    template_name = 'scuelo/add_school_year.html'
+    success_url = reverse_lazy('annee_scolaire_manage')
+
+class EditSchoolYearView(UpdateView):
+    model = AnneeScolaire
+    fields = ['nom', 'nom_bref', 'date_initiale', 'date_finale', 'actuel']
+    template_name = 'scuelo/edit_school_year.html'
+    success_url = reverse_lazy('annee_scolaire_manage')
+
+
+class DeleteSchoolYearView(DeleteView):
+    model = AnneeScolaire
+    template_name = 'scuelo/delete_school_year.html'
+    success_url = reverse_lazy('annee_scolaire_manage')    
+
 @login_required
 def select_school_year(request):
     if request.method == 'POST':

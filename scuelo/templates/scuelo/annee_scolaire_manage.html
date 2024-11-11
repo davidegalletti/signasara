@@ -1,0 +1,37 @@
+{% extends "../layout.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center">School Year Management</h2>
+    
+    <table class="table table-striped mt-4">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Current</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for year in school_years %}
+                <tr>
+                    <td>{{ year.id }}</td>
+                    <td>{{ year.nom }}</td>
+                    <td>{{ year.date_debut|date:"d/m/Y" }}</td>
+                    <td>{{ year.date_fin|date:"d/m/Y" }}</td>
+                    <td>{% if year.actuel %}Yes{% else %}No{% endif %}</td>
+                    <td>
+                        <a href="{% url 'edit_school_year' year.id %}" class="btn btn-primary btn-sm">Edit</a>
+                        <a href="{% url 'delete_school_year' year.id %}" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <a href="{% url 'add_school_year' %}" class="btn btn-success">Add New School Year</a>
+</div>
+{% endblock %}

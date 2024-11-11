@@ -5,7 +5,7 @@ from .views import (
     SchoolUpdateView, SchoolDeleteView, SchoolDetailView, ClasseCreateView,
     ClasseDetailView, ClasseUpdateView, ClasseDeleteView
      , UniformPaymentListView, print_receipt  
-      , login_view 
+      , login_view , SchoolYearManagementView ,AddSchoolYearView , DeleteSchoolYearView , EditSchoolYearView
     
 )
 
@@ -19,7 +19,11 @@ urlpatterns = [
     path('student_update/<int:pk>/', views.student_update, name='student_update'),  # Add this line
     path('logout/', views.logout_view, name='logout'),
     path('uniform_payments/', UniformPaymentListView.as_view(), name='uniform_payments'),
-
+path('annee_scolaire/manage/', views.SchoolYearManagementView.as_view(), name='annee_scolaire_manage'),
+    path('annee_scolaire/add/', views.AddSchoolYearView.as_view(), name='add_school_year'),
+    path('annee_scolaire/edit/<int:pk>/', views.EditSchoolYearView.as_view(), name='edit_school_year'),
+    path('annee_scolaire/delete/<int:pk>/', DeleteSchoolYearView.as_view(), name='delete_school_year'),
+    # Other URL patterns
 
     path('offsite_students/', views.offsite_students, name='offsite_students'),
     path('directly_managed_students/', StudentListView.as_view(), name='directly_managed_students'),
