@@ -698,7 +698,7 @@ class UniformPaymentListView(ListView):
         context['total_uniforms'] = total_uniforms_across_classes
         return context
 
-@method_decorator(login_required, name='dispatch')
+'''@method_decorator(login_required, name='dispatch')
 class UniformPaymentCreateView(CreateView):
     model = Mouvement
     form_class = MouvementForm
@@ -715,7 +715,19 @@ class UniformPaymentCreateView(CreateView):
         context['page_identifier'] = 'S21'  # Example page identifier
         return context
 
+class UniformReservationCreateView(View):
+    def get(self, request):
+        form = UniformReservationForm()
+        return render(request, 'uniform_reservation_form.html', {'form': form})
 
+    def post(self, request):
+        form = UniformReservationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('uniform_reservation_list')
+        return render(request, 'uniform_reservation_form.html', {'form': form})'''
+    
+    
 @login_required
 def cash_flow_report(request):
     # Get all movements for the current year

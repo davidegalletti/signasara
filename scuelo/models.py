@@ -38,6 +38,7 @@ TYPE_ECOLE = (
     ("L", "LYCEE"),
 )
 
+# New model for managing uniform reservations
 
 class TypeClasse(TimeStampedModel):
     '''
@@ -229,6 +230,30 @@ class Inscription(TimeStampedModel):
         super().save(*args, **kwargs)
 
 
+'''class UniformReservation(models.Model):
+   
+
+    STATUS_CHOICES = [
+        ('reserved', 'Reserved'),
+        ('delivered', 'Delivered'),
+        ('paid', 'Paid')
+    ]
+
+    student = models.ForeignKey(Eleve, on_delete=models.CASCADE, related_name="uniform_reservations")
+    student_type = models.CharField(max_length=2, choices=CS_PY)
+    quantity = models.PositiveIntegerField(default=2)
+    cost_per_uniform = models.DecimalField(max_digits=10, decimal_places=2, help_text="Cost of each uniform")
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='reserved')
+    date_reserved = models.DateField(default=timezone.now)
+    school_year = models.ForeignKey(AnneeScolaire, on_delete=models.CASCADE, related_name="uniform_reservations")
+
+    @property
+    def total_cost(self):
+        return self.quantity * self.cost_per_uniform
+
+    def __str__(self):
+        return f"Reservation for {self.student} - {self.quantity} uniforms"
+'''
 class Tarif(TimeStampedModel):
     CAUSAL = (
         ("INS", "Inscription"),
