@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Classe, Eleve, AnneeScolaire, Inscription , StudentLog
+from .models import Classe, Eleve, AnneeScolaire, Inscription , StudentLog , UniformReservation
 from django.contrib.auth.models import User, Group
 
 
@@ -89,6 +89,12 @@ class PaiementAdmin(admin.ModelAdmin):
 
 class InscriptionAdmin(admin.ModelAdmin):
     autocomplete_fields = ['eleve']
+    
+    
+@admin.register(UniformReservation)
+class UniformReservationAdmin(admin.ModelAdmin):
+    list_display = ('student', 'quantity', 'status', 'school_year')
+    list_filter = ('status', 'school_year')    
 
 # sics_site.register(Paiement, PaiementAdmin)
 sics_site.register(Eleve, EleveAdmin)

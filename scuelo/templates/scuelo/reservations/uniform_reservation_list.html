@@ -1,0 +1,58 @@
+<!-- templates/reservations/uniform_reservation_list.html -->
+
+{% extends "../../layout.html" %}
+
+{% block content %}
+<h2>Uniform Reservations</h2>
+
+<a href="{% url 'uniform-reservation-add' %}" class="btn btn-primary mb-3">Add New Reservation</a>
+
+<table id="reservationsTable" class="display">
+    <thead>
+        <tr>
+            <th>Student</th>
+            <th>Type</th>
+            <th>Quantity</th>
+            <th>Cost per Uniform</th>
+            <th>Status</th>
+            <th>Total Cost</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for reservation in reservations %}
+            <tr>
+                <td>{{ reservation.student }}</td>
+                <td>{{ reservation.get_student_type_display }}</td>
+                <td>{{ reservation.quantity }}</td>
+                <td>{{ reservation.cost_per_uniform }}</td>
+                <td>{{ reservation.get_status_display }}</td>
+                <td>{{ reservation.total_cost }}</td>
+                <td>
+                    <a href="{% url 'uniform-reservation-edit' reservation.pk %}" class="btn btn-secondary btn-sm">Edit</a>
+                    <a href="{% url 'uniform-reservation-delete' reservation.pk %}" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Initialize DataTables
+    $(document).ready(function() {
+        $('#reservationsTable').DataTable({
+            "paging": true,            // Pagination
+            "ordering": true,          // Column sorting
+            "info": true,              // Table info
+            "searching": true,         // Search functionality
+            "dom": 'Bfrtip',           // Elements order: Buttons, search box, pagination
+            "buttons": [
+                'copy', 'csv', 'excel', 'pdf', 'print'  // Export options
+            ]
+        });
+    });
+</script>
+{% endblock %}

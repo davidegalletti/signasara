@@ -133,6 +133,9 @@
 </style>
 
 <div class="container">
+   
+    <a href="{% url 'uniform-reservation-add' %}" class="btn btn-primary">Add New Reservation</a>
+    <a href="{% url 'uniform-reservation-list' %}" class="btn btn-primary">list </a>
     <h2>Uniform Payments</h2>
 
     {% for class_name, class_info in classes.items %}
@@ -145,6 +148,8 @@
         </div>
 
         <div class="table-container">
+            
+
             <table class="table table-striped table-bordered" id="uniformTable_{{ forloop.counter }}">
                 <thead>
                     <tr>

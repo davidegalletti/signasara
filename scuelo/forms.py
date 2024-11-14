@@ -1,5 +1,5 @@
 from django import forms
-from .models import Eleve, Inscription, AnneeScolaire  , Mouvement , Ecole , Classe , Tarif
+from .models import Eleve, Inscription, AnneeScolaire  , Mouvement , Ecole , Classe , Tarif ,UniformReservation
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit, Row, Column
 from django.contrib.auth.models import User, Group 
@@ -174,3 +174,19 @@ class MouvementForm(forms.ModelForm):
             }),
             'inscription': forms.Select(attrs={'class': 'form-control select2'}),  # Added `select2` class
         }
+        
+      # forms.py
+
+from django import forms
+from django.utils import timezone
+from .models import UniformReservation, Eleve, AnneeScolaire
+class UniformReservationForm(forms.ModelForm):
+    class Meta:
+        model = UniformReservation
+        fields = [
+            'student',  # Replace with 'studentId' if necessary
+            'quantity',
+            'cost_per_uniform',
+            'date_reserved',
+            'status',   # Add other fields as needed
+        ]

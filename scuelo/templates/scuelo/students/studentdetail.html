@@ -70,7 +70,12 @@
     {% endif %}
     {% endfor %}
 </ol>
-
+<div class="d-flex justify-content-between mb-4">
+    <h4>Reservations and Actions</h4>
+    <a href="{% url 'uniform-reservation-add' student.pk %}" class="btn btn-info">
+        <i class="fas fa-tshirt"></i> Make Uniform Reservation
+    </a>
+</div>
 <div class="container mt-4" style="max-width: 95%; margin: 0 auto;">
     <div class="row">
         <div class="col-md-6">

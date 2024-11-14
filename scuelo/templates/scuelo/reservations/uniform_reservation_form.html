@@ -1,0 +1,19 @@
+{% extends "../../layout.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Make Uniform Reservation</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        
+        <!-- Display prepopulated student information if available -->
+        {% if student %}
+            <p><strong>Student:</strong> {{ student.nom }} {{ student.prenom }}</p>
+        {% endif %}
+        
+        <button type="submit" class="btn btn-primary">Submit Reservation</button>
+        <a href="{% url 'uniform-reservation-list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

@@ -230,7 +230,7 @@ class Inscription(TimeStampedModel):
         super().save(*args, **kwargs)
 
 
-'''class UniformReservation(models.Model):
+class UniformReservation(models.Model):
    
 
     STATUS_CHOICES = [
@@ -253,7 +253,7 @@ class Inscription(TimeStampedModel):
 
     def __str__(self):
         return f"Reservation for {self.student} - {self.quantity} uniforms"
-'''
+
 class Tarif(TimeStampedModel):
     CAUSAL = (
         ("INS", "Inscription"),

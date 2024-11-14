@@ -33,11 +33,11 @@ from django.utils.timezone import now
 from .forms import (
     PaiementPerStudentForm, EleveUpdateForm, MouvementForm,
     EleveCreateForm, EcoleCreateForm, ClasseCreateForm,
-    TarifForm, ClassUpgradeForm, SchoolChangeForm
+    TarifForm, ClassUpgradeForm, SchoolChangeForm , UniformReservationForm
 )
 from scuelo.models import (
     Eleve, Classe, Inscription, StudentLog,
-    AnneeScolaire, Mouvement, Ecole, Tarif
+    AnneeScolaire, Mouvement, Ecole, Tarif ,UniformReservation
 )
 
 # =======================
@@ -697,35 +697,47 @@ class UniformPaymentListView(ListView):
         context['page_identifier'] = 'S20'  # Example page identifier
         context['total_uniforms'] = total_uniforms_across_classes
         return context
+    
+def student_search(request):
+    """API endpoint for filtering students by name."""
+    term = request.GET.get('q', '')
+    students = Eleve.objects.filter(nom__icontains=term)[:10]  # Limits results for performance
+    student_list = [{'id': student.id, 'text': f"{student.nom} {student.prenom}"} for student in students]
+    return JsonResponse({'results': student_list})    
 
-'''@method_decorator(login_required, name='dispatch')
-class UniformPaymentCreateView(CreateView):
-    model = Mouvement
-    form_class = MouvementForm
-    template_name = 'payment_form.html'
-    success_url = reverse_lazy('uniform_payments')
+class UniformReservationListView(ListView):
+    model = UniformReservation
+    template_name = 'scuelo/reservations/uniform_reservation_list.html'
+    context_object_name = 'reservations'
 
-    def form_valid(self, form):
-        form.instance.causal = 'TEN'  # Set the causal for uniforms
-        return super().form_valid(form)
+class UniformReservationCreateView(CreateView):
+    model = UniformReservation
+    form_class = UniformReservationForm
+    template_name = 'scuelo/reservations/uniform_reservation_form.html'
+    success_url = reverse_lazy('uniform-reservation-list')
+
+    def get_initial(self):
+        # Prepopulate the form with the student instance
+        student = get_object_or_404(Eleve, pk=self.kwargs['student_pk'])
+        return {'student': student}
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # Add the page identifier for this view
-        context['page_identifier'] = 'S21'  # Example page identifier
+        context['student'] = get_object_or_404(Eleve, pk=self.kwargs['student_pk'])
         return context
 
-class UniformReservationCreateView(View):
-    def get(self, request):
-        form = UniformReservationForm()
-        return render(request, 'uniform_reservation_form.html', {'form': form})
+class UniformReservationUpdateView(UpdateView):
+    model = UniformReservation
+    form_class = UniformReservationForm
+    template_name = 'scuelo/reservations/uniform_reservation_form.html'
+    success_url = reverse_lazy('uniform-reservation-list')
 
-    def post(self, request):
-        form = UniformReservationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('uniform_reservation_list')
-        return render(request, 'uniform_reservation_form.html', {'form': form})'''
+class UniformReservationDeleteView(DeleteView):
+    model = UniformReservation
+    template_name = 'scuelo/reservations/uniform_reservation_confirm_delete.html'
+    success_url = reverse_lazy('uniform-reservation-list')    
+    
+    
     
     
 @login_required

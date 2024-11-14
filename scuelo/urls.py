@@ -5,7 +5,11 @@ from .views import (
     SchoolUpdateView, SchoolDeleteView, SchoolDetailView, ClasseCreateView,
     ClasseDetailView, ClasseUpdateView, ClasseDeleteView
      , UniformPaymentListView, print_receipt  
-      , login_view , SchoolYearManagementView ,AddSchoolYearView , DeleteSchoolYearView , EditSchoolYearView
+      , login_view , SchoolYearManagementView ,AddSchoolYearView , DeleteSchoolYearView , EditSchoolYearView ,
+        UniformReservationListView,
+    UniformReservationCreateView,
+    UniformReservationUpdateView,
+    UniformReservationDeleteView, student_search
     
 )
 
@@ -23,6 +27,13 @@ path('annee_scolaire/manage/', views.SchoolYearManagementView.as_view(), name='a
     path('annee_scolaire/add/', views.AddSchoolYearView.as_view(), name='add_school_year'),
     path('annee_scolaire/edit/<int:pk>/', views.EditSchoolYearView.as_view(), name='edit_school_year'),
     path('annee_scolaire/delete/<int:pk>/', DeleteSchoolYearView.as_view(), name='delete_school_year'),
+    
+     path('reservations/', UniformReservationListView.as_view(), name='uniform-reservation-list'),
+     path('api/student-search/', student_search, name='student-search'),
+     path('reservations/add/<int:student_pk>/', UniformReservationCreateView.as_view(), name='uniform-reservation-add'),
+    path('reservations/add/', UniformReservationCreateView.as_view(), name='uniform-reservation-add'),
+    path('reservations/<int:pk>/edit/', UniformReservationUpdateView.as_view(), name='uniform-reservation-edit'),
+    path('reservations/<int:pk>/delete/', UniformReservationDeleteView.as_view(), name='uniform-reservation-delete'),
     # Other URL patterns
 
     path('offsite_students/', views.offsite_students, name='offsite_students'),
