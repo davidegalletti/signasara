@@ -717,14 +717,21 @@ class UniformReservationCreateView(CreateView):
     success_url = reverse_lazy('uniform-reservation-list')
 
     def get_initial(self):
-        # Prepopulate the form with the student instance
+        initial = super().get_initial()
         student = get_object_or_404(Eleve, pk=self.kwargs['student_pk'])
-        return {'student': student}
+        initial.update({'student': student})
+        return initial
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['student'] = get_object_or_404(Eleve, pk=self.kwargs['student_pk'])
-        return context
+    def form_valid(self, form):
+        # Automatically set the current school year if not set
+        if not form.instance.school_year:
+            current_school_year = AnneeScolaire.objects.filter(actuel=True).first()
+            if not current_school_year:
+                raise Exception("No current school year is defined.")
+            form.instance.school_year = current_school_year
+        return super().form_valid(form)
+
+
 
 class UniformReservationUpdateView(UpdateView):
     model = UniformReservation

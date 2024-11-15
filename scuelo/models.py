@@ -231,8 +231,6 @@ class Inscription(TimeStampedModel):
 
 
 class UniformReservation(models.Model):
-   
-
     STATUS_CHOICES = [
         ('reserved', 'Reserved'),
         ('delivered', 'Delivered'),
@@ -240,7 +238,7 @@ class UniformReservation(models.Model):
     ]
 
     student = models.ForeignKey(Eleve, on_delete=models.CASCADE, related_name="uniform_reservations")
-    student_type = models.CharField(max_length=2, choices=CS_PY)
+    student_type = models.CharField(max_length=2, choices=CS_PY, editable=False)  # Automatically set
     quantity = models.PositiveIntegerField(default=2)
     cost_per_uniform = models.DecimalField(max_digits=10, decimal_places=2, help_text="Cost of each uniform")
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='reserved')
@@ -251,8 +249,23 @@ class UniformReservation(models.Model):
     def total_cost(self):
         return self.quantity * self.cost_per_uniform
 
+    def save(self, *args, **kwargs):
+        # Automatically set the student type based on the student's cs_py field
+        if self.student:
+            self.student_type = self.student.cs_py
+        
+        # Automatically set the school year to the current one if not provided
+        if not self.school_year:
+            current_school_year = AnneeScolaire.objects.filter(actuel=True).first()
+            if not current_school_year:
+                raise Exception("No current school year is defined.")
+            self.school_year = current_school_year
+
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return f"Reservation for {self.student} - {self.quantity} uniforms"
+
 
 class Tarif(TimeStampedModel):
     CAUSAL = (

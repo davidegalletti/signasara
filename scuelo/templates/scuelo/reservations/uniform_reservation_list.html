@@ -1,13 +1,51 @@
-<!-- templates/reservations/uniform_reservation_list.html -->
-
 {% extends "../../layout.html" %}
 
 {% block content %}
+<style>
+    /* Table Styling */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+}
+
+.table th, .table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #dee2e6;
+}
+
+.table thead th {
+    background-color: #e9ecef;
+    font-weight: bold;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Button Styling */
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+}
+
+.btn-sm {
+    padding: 5px 10px;
+    margin: 0 2px;
+}
+
+</style>
 <h2>Uniform Reservations</h2>
 
-<a href="{% url 'uniform-reservation-add' %}" class="btn btn-primary mb-3">Add New Reservation</a>
-
-<table id="reservationsTable" class="display">
+<table id="reservationsTable" class="display table table-striped table-bordered">
     <thead>
         <tr>
             <th>Student</th>
@@ -25,9 +63,9 @@
                 <td>{{ reservation.student }}</td>
                 <td>{{ reservation.get_student_type_display }}</td>
                 <td>{{ reservation.quantity }}</td>
-                <td>{{ reservation.cost_per_uniform }}</td>
+                <td>{{ reservation.cost_per_uniform|floatformat:2 }}</td>
                 <td>{{ reservation.get_status_display }}</td>
-                <td>{{ reservation.total_cost }}</td>
+                <td>{{ reservation.total_cost|floatformat:2 }}</td>
                 <td>
                     <a href="{% url 'uniform-reservation-edit' reservation.pk %}" class="btn btn-secondary btn-sm">Edit</a>
                     <a href="{% url 'uniform-reservation-delete' reservation.pk %}" class="btn btn-danger btn-sm">Delete</a>
@@ -41,16 +79,19 @@
 
 {% block extra_js %}
 <script>
-    // Initialize DataTables
+    // Initialize DataTables with additional options
     $(document).ready(function() {
         $('#reservationsTable').DataTable({
-            "paging": true,            // Pagination
-            "ordering": true,          // Column sorting
-            "info": true,              // Table info
-            "searching": true,         // Search functionality
-            "dom": 'Bfrtip',           // Elements order: Buttons, search box, pagination
+            "paging": true,
+            "ordering": true,
+            "info": true,
+            "searching": true,
+            "dom": 'Bfrtip',
             "buttons": [
-                'copy', 'csv', 'excel', 'pdf', 'print'  // Export options
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ],
+            "columnDefs": [
+                { "className": "text-center", "targets": "_all" }  // Center align all columns
             ]
         });
     });

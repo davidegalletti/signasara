@@ -183,10 +183,4 @@ from .models import UniformReservation, Eleve, AnneeScolaire
 class UniformReservationForm(forms.ModelForm):
     class Meta:
         model = UniformReservation
-        fields = [
-            'student',  # Replace with 'studentId' if necessary
-            'quantity',
-            'cost_per_uniform',
-            'date_reserved',
-            'status',   # Add other fields as needed
-        ]
+        fields = ['student', 'quantity', 'cost_per_uniform', 'status', 'school_year']
