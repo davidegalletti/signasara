@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     'scuelo',
     'accounts',
     'crispy_forms',
-    'bootstrap5',
+    #'bootstrap5',
     'crispy_bootstrap5',
 ]
 
