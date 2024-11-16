@@ -250,7 +250,7 @@ def student_detail(request, pk):
             ('#', f"{student.nom} {student.prenom}")
         ]
     else:
-        brNeadcrumbs = [
+        breadcrumbs = [
             ('/', 'Home'),
             (reverse('home'), 'Classes'),
             ('#', f"{student.nom} {student.prenom}")
@@ -315,7 +315,7 @@ def student_update(request, pk):
     return render(request, 'scuelo/students/studentupdate.html', {'form': form, 'student': student,
                                                                   'page_identifier': 'S13'  })
 
-@method_decorator(login_required, name='dispatch')
+'''@method_decorator(login_required, name='dispatch')
 class StudentListView(ListView):
     model = Eleve
     template_name = 'scuelo/student_management.html'
@@ -346,8 +346,49 @@ class StudentListView(ListView):
         context['schools'] = schools
          # Add your page identifier here
         context['page_identifier'] = 'S14' 
-        return context
+        return context'''
+@method_decorator(login_required, name='dispatch')
+class StudentListView(ListView):
+    model = Eleve
+    template_name = 'scuelo/student_management.html'
+    context_object_name = 'students'
 
+    def get_queryset(self):
+        # Fetch students and sort by their associated school and class if available
+        return Eleve.objects.prefetch_related(
+            Prefetch(
+                'inscriptions',
+                queryset=Inscription.objects.select_related('classe__ecole')
+            )
+        ).order_by('nom', 'prenom')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        # Prefetch schools, classes, and students with their payment data
+        schools = Ecole.objects.prefetch_related(
+            Prefetch(
+                'classe_set',
+                queryset=Classe.objects.prefetch_related(
+                    Prefetch(
+                        'inscription_set',
+                        queryset=Inscription.objects.select_related('eleve').annotate(
+                            total_paiements=Sum('mouvement__montant')
+                        )
+                    )
+                )
+            )
+        )
+
+        for school in schools:
+            for classe in school.classe_set.all():
+                for inscription in classe.inscription_set.all():
+                    eleve = inscription.eleve
+                    eleve.total_paiements = inscription.total_paiements or 0
+
+        context['schools'] = schools
+        context['page_identifier'] = 'S14'  # Add your page identifier here
+        return context
 @login_required
 def class_upgrade(request, pk):
     student = get_object_or_404(Eleve, pk=pk)
@@ -405,7 +446,7 @@ def change_school(request, pk):
                   {'form': form, 'student': student ,
                     'page_identifier': 'S05' })
 
-@login_required
+'''@login_required
 def offsite_students(request):
     # Fetch inscriptions where the school is not "Bisongo du coeur"
     inscriptions = Inscription.objects.filter(
@@ -434,7 +475,47 @@ def offsite_students(request):
         'all_offsite_students': all_offsite_students,  
         'page_identifier': 'S06' # Combined list of offsite students
     }
+    return render(request, 'scuelo/offsite_students.html', context)'''
+    
+    
+from django.db.models import Q, Sum
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
+from .models import Inscription, Eleve, Mouvement
+
+@login_required
+def offsite_students(request):
+    # Fetch students with valid inscriptions outside "Bisongo du coeur"
+    inscriptions = Inscription.objects.filter(
+        ~Q(classe__ecole__nom__iexact="Bisongo du coeur")
+    ).select_related('eleve', 'classe__ecole')
+
+    # Compile offsite students based on inscriptions
+    offsite_students = []
+    for inscription in inscriptions:
+        student = inscription.eleve
+        student.total_paiements = Mouvement.objects.filter(inscription=inscription).aggregate(
+            total=Sum('montant')
+        )['total'] or 0
+        student.school_name = inscription.classe.ecole.nom
+        student.condition_eleve = student.get_condition_eleve_display()  # Display condition
+        offsite_students.append(student)
+
+    # Fetch students with null annee_inscr but valid offsite schools
+    students_with_null_annee_inscr = Eleve.objects.filter(
+        ~Q(inscriptions__classe__ecole__nom__iexact="Bisongo du coeur"),
+        annee_inscr__isnull=True
+    ).distinct()
+
+    # Merge both lists, avoiding duplicates
+    all_offsite_students = list({student.id: student for student in (offsite_students + list(students_with_null_annee_inscr))}.values())
+
+    context = {
+        'all_offsite_students': all_offsite_students,  # Combined list of offsite students
+        'page_identifier': 'S06'
+    }
     return render(request, 'scuelo/offsite_students.html', context)
+
 @method_decorator(login_required, name='dispatch')
 class StudentCreateView(CreateView):
     model = Eleve
@@ -705,10 +786,106 @@ def student_search(request):
     student_list = [{'id': student.id, 'text': f"{student.nom} {student.prenom}"} for student in students]
     return JsonResponse({'results': student_list})    
 
+from django.views.generic import TemplateView
+from django.db.models import Prefetch, Sum, F
+from .models import UniformReservation, Inscription, Classe
+
+class UniformReservationListView(TemplateView):
+    template_name = "scuelo/reservations/uniform_reservation_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        # Prefetch related data
+        reservations = UniformReservation.objects.prefetch_related(
+            Prefetch(
+                'student__inscriptions',
+                queryset=Inscription.objects.select_related('classe').filter(annee_scolaire__actuel=True),
+                to_attr='current_inscriptions'
+            )
+        )
+
+        # Organize data by class
+        classes = {}
+        for reservation in reservations:
+            student = reservation.student
+            current_inscription = getattr(student, 'current_inscriptions', [None])[0]
+
+            if not current_inscription:
+                continue
+
+            classe = current_inscription.classe
+            class_name = classe.nom
+
+            if class_name not in classes:
+                classes[class_name] = {
+                    "students": {},
+                    "total_uniforms": 0,
+                    "total_amount": 0,
+                }
+
+            # Add or update student data
+            if student.id not in classes[class_name]["students"]:
+                classes[class_name]["students"][student.id] = {
+                    "nom": student.nom,
+                    "prenom": student.prenom,
+                    "uniform_count": 0,
+                    "total_amount": 0,
+                }
+
+            student_data = classes[class_name]["students"][student.id]
+            student_data["uniform_count"] += reservation.quantity
+            student_data["total_amount"] += reservation.quantity * reservation.cost_per_uniform
+
+            # Update class totals
+            classes[class_name]["total_uniforms"] += reservation.quantity
+            classes[class_name]["total_amount"] += reservation.quantity * reservation.cost_per_uniform
+
+        # Calculate grand totals
+        total_uniforms = sum([info["total_uniforms"] for info in classes.values()])
+        total_amount = sum([info["total_amount"] for info in classes.values()])
+
+        context["classes"] = classes
+        context["total_uniforms"] = total_uniforms
+        context["total_amount"] = total_amount
+
+        return context
+
+
+
+
+
+'''
+from django.db.models import Sum, F
+
 class UniformReservationListView(ListView):
     model = UniformReservation
     template_name = 'scuelo/reservations/uniform_reservation_list.html'
     context_object_name = 'reservations'
+
+    def get_queryset(self):
+        # Fetch all reservations
+        return UniformReservation.objects.order_by('student__nom')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        # Calculate totals based on status
+        context['total_reserved'] = UniformReservation.objects.filter(status='reserved').aggregate(
+            total_quantity=Sum('quantity'),
+            total_cost=Sum(F('quantity') * F('cost_per_uniform'))
+        )
+        context['total_delivered'] = UniformReservation.objects.filter(status='delivered').aggregate(
+            total_quantity=Sum('quantity'),
+            total_cost=Sum(F('quantity') * F('cost_per_uniform'))
+        )
+        context['total_paid'] = UniformReservation.objects.filter(status='paid').aggregate(
+            total_quantity=Sum('quantity'),
+            total_cost=Sum(F('quantity') * F('cost_per_uniform'))
+        )
+
+        return context
+'''
 
 class UniformReservationCreateView(CreateView):
     model = UniformReservation
@@ -1190,8 +1367,102 @@ def delete_mouvement(request, pk):
                                                                       'page_identifier': 'S14' })
 
 
+from django.db.models import Sum, Prefetch
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
+from .models import Ecole, Classe, Eleve, Mouvement, Tarif, AnneeScolaire
 
 @login_required
+def late_payment_report(request):
+    data = {}
+
+    # Get the current school year
+    try:
+        current_annee_scolaire = AnneeScolaire.objects.get(actuel=True)
+    except AnneeScolaire.DoesNotExist:
+        return render(request, 'scuelo/late_payment.html', {
+            'data': data,
+            'error': 'No current school year is set.',
+        })
+
+    # Fetch all schools
+    schools = Ecole.objects.prefetch_related(
+        Prefetch(
+            'classe_set',
+            queryset=Classe.objects.prefetch_related(
+                Prefetch(
+                    'inscription_set',
+                    queryset=Inscription.objects.select_related('eleve')
+                )
+            )
+        )
+    )
+
+    for school in schools:
+        class_data = {}
+        for classe in school.classe_set.all():
+            # Fetch students linked to this class through inscriptions
+            students = Eleve.objects.filter(
+                inscriptions__classe=classe,
+                inscriptions__annee_scolaire=current_annee_scolaire,
+                inscriptions__classe__ecole=school,
+                cs_py='PY'
+            ).distinct()
+
+            student_data = []
+            total_class_remaining = 0
+
+            for student in students:
+                # Calculate SCO and CAN payments and expectations
+                payments = Mouvement.objects.filter(inscription__eleve=student)
+                sco_paid = payments.aggregate(Sum('montant'))['montant__sum'] or 0
+                can_paid = payments.filter(causal='CAN').aggregate(Sum('montant'))['montant__sum'] or 0
+
+                tarifs = Tarif.objects.filter(classe=classe, annee_scolaire=current_annee_scolaire)
+                sco_exigible = tarifs.filter(causal__in=['SCO1', 'SCO2', 'SCO3']).aggregate(Sum('montant'))['montant__sum'] or 0
+                can_exigible = tarifs.filter(causal='CAN').aggregate(Sum('montant'))['montant__sum'] or 0
+
+                diff_sco = sco_exigible - sco_paid
+                diff_can = can_exigible - can_paid
+                retards = diff_sco + diff_can
+
+                if retards > 0:
+                    percentage_paid = int(
+                        100 * (sco_paid + can_paid) / (sco_exigible + can_exigible)
+                    ) if (sco_exigible + can_exigible) > 0 else 0
+
+                    student_data.append({
+                        'id': student.id,
+                        'nom': student.nom,
+                        'prenom': student.prenom,
+                        'sex': student.sex,
+                        'cs_py': student.cs_py,
+                        'sco_paid': sco_paid,
+                        'sco_exigible': sco_exigible,
+                        'diff_sco': diff_sco,
+                        'can_paid': can_paid,
+                        'can_exigible': can_exigible,
+                        'diff_can': diff_can,
+                        'retards': retards,
+                        'percentage_paid': percentage_paid,
+                        'note': student.note_eleve,
+                    })
+
+                total_class_remaining += retards
+
+            if student_data:
+                class_data[classe.nom] = {
+                    'students': student_data,
+                    'total_class_remaining': total_class_remaining
+                }
+
+        if class_data:
+            data[school.nom] = class_data
+
+    return render(request, 'scuelo/late_payment.html', {'data': data})
+
+
+'''@login_required
 def late_payment_report(request):
     data = {}
     schools = Ecole.objects.all()
@@ -1270,7 +1541,7 @@ def late_payment_report(request):
             data[school.nom] = class_data
 
     return render(request, 'scuelo/late_payment.html', {'data': data})
-
+'''
 
 # =======================
 # 5. School Management

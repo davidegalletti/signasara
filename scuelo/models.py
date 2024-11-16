@@ -171,6 +171,28 @@ class Eleve(TimeStampedModel):
             return inscription.classe
         except Inscription.DoesNotExist:
             return None
+            
+            
+    '''    @property
+    def current_class(self):
+        """
+        Retrieves the current class for the student based on the active school year.
+        Handles missing data or misconfigurations gracefully.
+        """
+        try:
+            # Get the current school year
+            current_year = AnneeScolaire.objects.get(actuel=True)
+        except AnneeScolaire.DoesNotExist:
+            # No active school year exists
+            return None
+
+        try:
+            # Get the latest inscription for the student in the current school year
+            inscription = self.inscriptions.filter(annee_scolaire=current_year).latest('date_inscription')
+            return inscription.classe
+        except Inscription.DoesNotExist:
+            # No inscription found for the current year
+            return None'''
 
     def get_queryset(self, request):
         # Group students by nom_classe
@@ -214,7 +236,7 @@ class AnneeScolaire(TimeStampedModel):
 
 
 class Inscription(TimeStampedModel):
-    eleve = models.ForeignKey(Eleve, on_delete=models.CASCADE)
+    eleve = models.ForeignKey(Eleve, on_delete=models.CASCADE , related_name='inscriptions')
     classe = models.ForeignKey(Classe, on_delete=models.CASCADE, blank=True, null=True)
     annee_scolaire = models.ForeignKey(AnneeScolaire, on_delete=models.CASCADE)
     date_inscription = models.DateTimeField(default=timezone.now)  # Add this field

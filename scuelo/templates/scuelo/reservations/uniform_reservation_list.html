@@ -1,99 +1,93 @@
 {% extends "../../layout.html" %}
+{% load humanize %}
+
+<!-- DataTables CSS and JavaScript -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
 
 {% block content %}
-<style>
-    /* Table Styling */
-.table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 1rem;
-}
+<div class="">
+    <h2>Uniform Reservations by Class</h2>
 
-.table th, .table td {
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #dee2e6;
-}
+    {% for class_name, class_info in classes.items %}
+        <h3>Class: {{ class_name }}</h3>
 
-.table thead th {
-    background-color: #e9ecef;
-    font-weight: bold;
-}
+        <div class="summary">
+            <p>Total Students: {{ class_info.students|length }}</p>
+            <p>Total Uniforms Paid: {{ class_info.total_uniforms }}</p>
+            <p>Total Amount Collected: {{ class_info.total_amount|floatformat:2 }} FCFA</p>
+        </div>
 
-.table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
+        <div class="table-container">
+            <table class="table table-striped table-bordered" id="uniformTable_{{ forloop.counter }}">
+                <thead>
+                    <tr>
+                        <th>Student</th>
+                        <th>Number of Uniforms</th>
+                        <th>Total Amount</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student_id, details in class_info.students.items %}
+                    <tr>
+                        <td>{{ details.nom }} {{ details.prenom }}</td>
+                        <td>{{ details.uniform_count }}</td>
+                        <td>{{ details.total_amount|floatformat:2 }} FCFA</td>
+                        <td>
+                            {% if details.status == "reserved" %}
+                                <span class="badge badge-info">Reserved</span>
+                            {% elif details.status == "delivered" %}
+                                <span class="badge badge-success">Delivered</span>
+                            {% elif details.status == "paid" %}
+                                <span class="badge badge-primary">Paid</span>
+                            {% else %}
+                                <span class="badge badge-secondary">Unknown</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="{% url 'student_detail' student_id %}" class="icon-btn">
+                                <i class="fas fa-eye"></i> View
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endfor %}
 
-/* Button Styling */
-.btn-secondary {
-    background-color: #6c757d;
-    color: #fff;
-    border: none;
-}
+    <div class="summary">
+        <h4>Totals Across All Classes:</h4>
+        <p>Total Uniforms: {{ total_uniforms }}</p>
+        <p>Total Amount Collected: {{ total_amount|floatformat:2 }} FCFA</p>
+    </div>
+</div>
 
-.btn-danger {
-    background-color: #dc3545;
-    color: #fff;
-    border: none;
-}
-
-.btn-sm {
-    padding: 5px 10px;
-    margin: 0 2px;
-}
-
-</style>
-<h2>Uniform Reservations</h2>
-
-<table id="reservationsTable" class="display table table-striped table-bordered">
-    <thead>
-        <tr>
-            <th>Student</th>
-            <th>Type</th>
-            <th>Quantity</th>
-            <th>Cost per Uniform</th>
-            <th>Status</th>
-            <th>Total Cost</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for reservation in reservations %}
-            <tr>
-                <td>{{ reservation.student }}</td>
-                <td>{{ reservation.get_student_type_display }}</td>
-                <td>{{ reservation.quantity }}</td>
-                <td>{{ reservation.cost_per_uniform|floatformat:2 }}</td>
-                <td>{{ reservation.get_status_display }}</td>
-                <td>{{ reservation.total_cost|floatformat:2 }}</td>
-                <td>
-                    <a href="{% url 'uniform-reservation-edit' reservation.pk %}" class="btn btn-secondary btn-sm">Edit</a>
-                    <a href="{% url 'uniform-reservation-delete' reservation.pk %}" class="btn btn-danger btn-sm">Delete</a>
-                </td>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
-
-{% endblock %}
-
-{% block extra_js %}
 <script>
-    // Initialize DataTables with additional options
     $(document).ready(function() {
-        $('#reservationsTable').DataTable({
-            "paging": true,
-            "ordering": true,
-            "info": true,
-            "searching": true,
-            "dom": 'Bfrtip',
-            "buttons": [
-                'copy', 'csv', 'excel', 'pdf', 'print'
-            ],
-            "columnDefs": [
-                { "className": "text-center", "targets": "_all" }  // Center align all columns
-            ]
-        });
+        // Initialize DataTables for each class-specific table
+        {% for class_name, class_info in classes.items %}
+            $('#uniformTable_{{ forloop.counter }}').DataTable({
+                dom: 'Bfrtip',
+                pageLength: 10,
+                lengthMenu: [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ],
+                buttons: [
+                    { extend: 'csv', text: 'Export CSV', className: 'btn btn-success' },
+                    { extend: 'excel', text: 'Export Excel', className: 'btn btn-success' },
+                    { extend: 'print', text: 'Print', className: 'btn btn-success' }
+                ],
+                order: [],
+                columnDefs: [
+                    { targets: '_all', orderable: true }
+                ]
+            });
+        {% endfor %}
     });
 </script>
 {% endblock %}

@@ -51,3 +51,21 @@ LINE 1: ...e"."ordre", "scuelo_typeclasse"."type_ecole" FROM "scuelo_ty...
 2024-10-16 00:18:59,007 - INFO - Superuser created successfully.
 2024-10-16 00:18:59,152 - INFO - Operator created successfully.
 2024-10-16 00:18:59,183 - INFO - Permissions assigned successfully.
+2024-11-16 10:10:22,834 - INFO - Classes created successfully.
+2024-11-16 10:10:22,839 - INFO - Internal school created successfully.
+2024-11-16 10:10:22,866 - INFO - Classes for internal school created successfully.
+2024-11-16 10:10:22,919 - INFO - School years created successfully.
+2024-11-16 10:10:23,191 - INFO - Superuser created successfully.
+2024-11-16 10:10:23,407 - INFO - Operator created successfully.
+2024-11-16 10:10:23,487 - INFO - Permissions assigned successfully.
+2024-11-16 10:16:59,747 - ERROR - Error during fixture setup: relation "scuelo_typeclasse" does not exist
+LINE 1: ...e"."ordre", "scuelo_typeclasse"."type_ecole" FROM "scuelo_ty...
+                                                             ^
+
+2024-11-16 10:20:40,575 - INFO - Classes created successfully.
+2024-11-16 10:20:40,583 - INFO - Internal school created successfully.
+2024-11-16 10:20:40,669 - INFO - Classes for internal school created successfully.
+2024-11-16 10:20:40,719 - INFO - School years created successfully.
+2024-11-16 10:20:41,012 - INFO - Superuser created successfully.
+2024-11-16 10:20:41,244 - INFO - Operator created successfully.
+2024-11-16 10:20:41,357 - INFO - Permissions assigned successfully.
