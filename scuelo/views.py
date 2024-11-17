@@ -786,9 +786,6 @@ def student_search(request):
     student_list = [{'id': student.id, 'text': f"{student.nom} {student.prenom}"} for student in students]
     return JsonResponse({'results': student_list})    
 
-from django.views.generic import TemplateView
-from django.db.models import Prefetch, Sum, F
-from .models import UniformReservation, Inscription, Classe
 
 class UniformReservationListView(TemplateView):
     template_name = "scuelo/reservations/uniform_reservation_list.html"
@@ -1367,10 +1364,7 @@ def delete_mouvement(request, pk):
                                                                       'page_identifier': 'S14' })
 
 
-from django.db.models import Sum, Prefetch
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
-from .models import Ecole, Classe, Eleve, Mouvement, Tarif, AnneeScolaire
+
 
 @login_required
 def late_payment_report(request):
@@ -1610,7 +1604,7 @@ class SchoolDeleteView(DeleteView):
         return super().delete(request, *args, **kwargs)
 
     
-@method_decorator(login_required, name='dispatch')
+'''@method_decorator(login_required, name='dispatch')
 class SchoolDetailView(DetailView):
     model = Ecole
     template_name = 'scuelo/school/school_detail.html'
@@ -1620,7 +1614,27 @@ class SchoolDetailView(DetailView):
         context['students'] = Eleve.objects.filter(inscription__classe__ecole=self.object).distinct()
         context['classe_form'] = ClasseCreateForm()
         context['page_identifier'] = 'S29'  # Add unique page identifier
+        return context'''
+        
+@method_decorator(login_required, name='dispatch')
+class SchoolDetailView(DetailView):
+    model = Ecole
+    template_name = 'scuelo/school/school_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        school = self.get_object()
+
+        # Fetch students associated with this school
+        context['students'] = Eleve.objects.filter(
+            inscriptions__classe__ecole=school
+        ).distinct()
+
+        # Add form for creating new classes within the school
+        context['classe_form'] = ClasseCreateForm()
+        context['page_identifier'] = 'S29'  # Unique page identifier
         return context
+        
 
 @login_required
 def load_classes(request):
