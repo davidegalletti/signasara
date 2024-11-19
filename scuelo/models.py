@@ -251,7 +251,7 @@ class Inscription(TimeStampedModel):
             Inscription.objects.filter(eleve=self.eleve, annee_scolaire__actuel=True).exclude(pk=self.pk).delete()
         super().save(*args, **kwargs)
 
-
+#for the unifoms only 
 class UniformReservation(models.Model):
     STATUS_CHOICES = [
         ('reserved', 'Reserved'),
