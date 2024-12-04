@@ -23,10 +23,10 @@ def parse_date(date_str):
         return date_str.date()
     
     if isinstance(date_str, str):
-        # Remove non-breaking spaces and other unnecessary characters
+        # Remove non-breaking spaces and other unnecessary characters 
         date_str = date_str.strip().replace('\xa0', '')
 
-        if not date_str:  # If the date string is empty after cleaning
+        if not date_str:  # If the date string is empty after cleaning 
             return None
 
         try:

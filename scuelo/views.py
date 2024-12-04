@@ -15,7 +15,6 @@ from weasyprint import HTML
 from django.forms import modelformset_factory
 from django.http import HttpResponse
 from django.template.loader import render_to_string
-from django.db.models import Sum
 from datetime import timedelta, datetime
 import csv
 import io
@@ -389,6 +388,7 @@ class StudentListView(ListView):
         context['schools'] = schools
         context['page_identifier'] = 'S14'  # Add your page identifier here
         return context
+    
 @login_required
 def class_upgrade(request, pk):
     student = get_object_or_404(Eleve, pk=pk)
@@ -477,11 +477,7 @@ def offsite_students(request):
     }
     return render(request, 'scuelo/offsite_students.html', context)'''
     
-    
-from django.db.models import Q, Sum
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
-from .models import Inscription, Eleve, Mouvement
+
 
 @login_required
 def offsite_students(request):
@@ -562,7 +558,7 @@ class ClasseCreateView(CreateView):
         context['page_identifier'] = 'S16'  # Example page identifier
         return context
     
-from django.db.models import Sum
+
 
 @method_decorator(login_required, name='dispatch')
 class ClasseDetailView(DetailView):

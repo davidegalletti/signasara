@@ -5,8 +5,6 @@ from crispy_forms.layout import Layout, Submit, Row, Column
 from django.contrib.auth.models import User, Group 
 from django.contrib.auth.forms import UserCreationForm
 
-from django import forms
-from .models import Mouvement, Tarif, Inscription
 
 class PaiementPerStudentForm(forms.ModelForm):
     class Meta:
