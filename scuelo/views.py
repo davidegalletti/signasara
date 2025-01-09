@@ -701,8 +701,8 @@ def update_paiement(request, pk):
         form = PaiementPerStudentForm(instance=paiement)
 
     return render(request, 'scuelo/paiements/updatepaiment.html',
-                  {'form': form, 'student': student ,
-                                                                   'page_identifier': 'S07'})
+                  {'form': form, 'student': student ,'page_identifier': 'S07'})
+    
 @method_decorator(login_required, name='dispatch')
 class UniformPaymentListView(ListView):
     model = Mouvement
@@ -845,40 +845,6 @@ class UniformReservationListView(TemplateView):
         return context
 
 
-
-
-
-'''
-from django.db.models import Sum, F
-
-class UniformReservationListView(ListView):
-    model = UniformReservation
-    template_name = 'scuelo/reservations/uniform_reservation_list.html'
-    context_object_name = 'reservations'
-
-    def get_queryset(self):
-        # Fetch all reservations
-        return UniformReservation.objects.order_by('student__nom')
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-
-        # Calculate totals based on status
-        context['total_reserved'] = UniformReservation.objects.filter(status='reserved').aggregate(
-            total_quantity=Sum('quantity'),
-            total_cost=Sum(F('quantity') * F('cost_per_uniform'))
-        )
-        context['total_delivered'] = UniformReservation.objects.filter(status='delivered').aggregate(
-            total_quantity=Sum('quantity'),
-            total_cost=Sum(F('quantity') * F('cost_per_uniform'))
-        )
-        context['total_paid'] = UniformReservation.objects.filter(status='paid').aggregate(
-            total_quantity=Sum('quantity'),
-            total_cost=Sum(F('quantity') * F('cost_per_uniform'))
-        )
-
-        return context
-'''
 
 class UniformReservationCreateView(CreateView):
     model = UniformReservation
@@ -1347,8 +1313,7 @@ def update_mouvement(request, pk):
             return redirect('mouvement_list')
     else:
         form = MouvementForm(instance=mouvement)
-    return render(request, 'scuelo/mouvement/update_mouvement.html', {'form': form,
-                                                                      'mouvement': mouvement , 'page_identifier': 'S13'})
+    return render(request, 'scuelo/mouvement/update_mouvement.html', {'form': form,  'mouvement': mouvement , 'page_identifier': 'S13'})
 
 @login_required
 def delete_mouvement(request, pk):
@@ -1356,8 +1321,7 @@ def delete_mouvement(request, pk):
     if request.method == 'POST':
         mouvement.delete()
         return redirect('mouvement_list')
-    return render(request, 'scuelo/mouvement/delete_mouvement.html', {'mouvement': mouvement ,
-                                                                      'page_identifier': 'S14' })
+    return render(request, 'scuelo/mouvement/delete_mouvement.html', {'mouvement': mouvement ,   'page_identifier': 'S14' })
 
 
 
@@ -1452,86 +1416,7 @@ def late_payment_report(request):
     return render(request, 'scuelo/late_payment.html', {'data': data})
 
 
-'''@login_required
-def late_payment_report(request):
-    data = {}
-    schools = Ecole.objects.all()
 
-    # Get the current school year
-    current_annee_scolaire = AnneeScolaire.objects.get(actuel=True)
-
-    for school in schools:
-        classes = Classe.objects.filter(ecole=school)
-        class_data = {}
-
-        for classe in classes:
-            # Get all students who are 'PY' in the current class
-            students = Eleve.objects.filter(inscription__classe=classe, cs_py='PY')
-            student_data = []
-            total_class_remaining = 0  # Track the total rest to be paid for the class
-
-            for student in students:
-                payments = Mouvement.objects.filter(inscription__eleve=student)
-                sco_paid = payments.aggregate(Sum('montant'))['montant__sum'] or 0
-                # Calculate CAN paid specifically
-                can_paid = payments.filter(causal='CAN').aggregate(total=Sum('montant'))['total'] or 0
-
-                # Fetch all tariffs for the class in the current school year
-                tarifs = Tarif.objects.filter(
-                    classe=classe, 
-                    annee_scolaire=current_annee_scolaire
-                )
-
-                # Calculate the SCO exigible as the sum of SCO1, SCO2, and SCO3 for the current school year
-                sco_exigible = tarifs.filter(causal__in=['SCO1', 'SCO2', 'SCO3']).aggregate(total=Sum('montant'))['total'] or 0
-
-                # Calculate the CAN exigible separately
-                can_exigible = tarifs.filter(causal='CAN').aggregate(total=Sum('montant'))['total'] or 0
-
-                # Correct difference calculations
-                diff_sco = sco_exigible - sco_paid  # Remaining SCO amount to be paid
-                diff_can = can_exigible - can_paid  # Remaining CAN amount to be paid
-                retards = diff_sco + diff_can
-
-                # Accumulate the total remaining for the class
-                total_class_remaining += retards
-
-                # Only include students who have retards (not fully paid)
-                if retards > 0:  # Adjusted condition to show students with outstanding amounts
-                    percentage_paid = int(
-                        100 * (sco_paid + can_paid) / (sco_exigible + can_exigible)
-                    ) if (sco_exigible + can_exigible) > 0 else 0
-
-                    student_data.append({
-                        'id': student.id,
-                        'nom': student.nom,
-                        'prenom': student.prenom,
-                        'sex': student.sex,
-                        'cs_py': student.cs_py,
-                        'sco_paid': sco_paid,
-                        'sco_exigible': sco_exigible,
-                        'diff_sco': diff_sco,  # Remaining SCO amount
-                        'can_paid': can_paid,
-                        'can_exigible': can_exigible,
-                        'diff_can': diff_can,  # Remaining CAN amount
-                        'retards': retards,
-                        'percentage_paid': percentage_paid,
-                        'note': student.note_eleve,
-                    })
-
-            # Only add the class if there are students with late payments
-            if student_data:
-                class_data[classe.nom] = {
-                    'students': student_data,
-                    'total_class_remaining': total_class_remaining  # Add total remaining amount for the class
-                }
-
-        # Only add the school if there are classes with students having late payments
-        if class_data:
-            data[school.nom] = class_data
-
-    return render(request, 'scuelo/late_payment.html', {'data': data})
-'''
 
 # =======================
 # 5. School Management
@@ -1599,19 +1484,7 @@ class SchoolDeleteView(DeleteView):
         # Optional: Add any pre-deletion logic here
         return super().delete(request, *args, **kwargs)
 
-    
-'''@method_decorator(login_required, name='dispatch')
-class SchoolDetailView(DetailView):
-    model = Ecole
-    template_name = 'scuelo/school/school_detail.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['students'] = Eleve.objects.filter(inscription__classe__ecole=self.object).distinct()
-        context['classe_form'] = ClasseCreateForm()
-        context['page_identifier'] = 'S29'  # Add unique page identifier
-        return context'''
-        
 @method_decorator(login_required, name='dispatch')
 class SchoolDetailView(DetailView):
     model = Ecole

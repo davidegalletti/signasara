@@ -52,7 +52,7 @@ urlpatterns = [
     path('classes/update/<int:pk>/', ClasseUpdateView.as_view(), name='classe_update'),
     path('classes/delete/<int:pk>/', ClasseDeleteView.as_view(), name='classe_delete'),
     path('load_classes/', views.load_classes, name='load_classes'),
-    # Other URLs
+
  
     path('class/<int:pk>/manage-tarifs/', views.manage_tarifs, name='manage_tarifs'),
     path('class/<int:pk>/add-tarif/', views.add_tarif, name='add_tarif'),
@@ -65,7 +65,7 @@ urlpatterns = [
     path('mouvements/add/', views.add_mouvement, name='add_mouvement'),
     path('mouvements/update/<int:pk>/', views.update_mouvement, name='update_mouvement'),
     path('mouvements/delete/<int:pk>/', views.delete_mouvement, name='delete_mouvement'),
-    #path('cash/accounting_export/', views.cash_accounting_export, name='cash_accounting_export'),
+    # path('cash/accounting_export/', views.cash_accounting_export, name='cash_accounting_export'),
     path('student/<int:pk>/', views.student_detail, name='student_detail'),
     
     path('receipt/print/<int:mouvement_id>/', print_receipt, name='print_receipt'),
