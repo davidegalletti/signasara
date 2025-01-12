@@ -40,30 +40,11 @@
         margin-bottom: 10px;
     }
     .table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-bottom: 20px;
         margin-top: 20px;
     }
     .table th, .table td {
-        padding: 12px;
         text-align: center;
         vertical-align: middle;
-        border: 1px solid #dee2e6;
-        background-color: #f9f9f9;
-        transition: background-color 0.3s;
-    }
-    .table th {
-        background-color: #007bff;
-        color: #fff;
-        text-transform: uppercase;
-        font-weight: bold;
-    }
-    .table tbody tr:hover {
-        background-color: #e9ecef;
-    }
-    .table tbody tr:nth-child(even) {
-        background-color: #f8f9fa;
     }
     .btn-print {
         background-color: #17a2b8;
@@ -77,37 +58,6 @@
         background-color: #138496;
         border-color: #138496;
     }
-    .btn-warning {
-        background-color: #ffc107;
-        border: none;
-        padding: 5px 10px;
-        border-radius: 5px;
-        transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    }
-    .btn-warning:hover {
-        background-color: #e0a800;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-        .breadcrumb {
-            font-size: 12px;
-        }
-        .form-control {
-            font-size: 14px;
-        }
-        .btn-primary,
-        .btn-warning {
-            font-size: 14px;
-            padding: 8px 15px;
-        }
-        .table th,
-        .table td {
-            font-size: 14px;
-            padding: 10px;
-        }
-    }
 </style>
 
 {% block content %}
@@ -116,7 +66,7 @@
     {% if url %}
     <li class="breadcrumb-item"><a href="{{ url }}">{{ label }}</a></li>
     {% else %}
-    <li class="breadcrumb-item active" aria-current="page">{{ label }}</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ label }}</li>
     {% endif %}
     {% endfor %}
 </ol>
