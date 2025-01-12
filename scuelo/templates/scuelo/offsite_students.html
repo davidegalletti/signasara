@@ -9,22 +9,20 @@
     .table-container {
         max-width: 100%;
         overflow-x: auto;
-        margin: 20px 0;
-        border-radius: 10px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        padding: 20px;
+    
         background-color: #fff;
     }
 
     .table {
         width: 100%;
         border-collapse: collapse;
-        margin-bottom: 20px;
+
     }
 
     .table th,
     .table td {
-        padding: 12px;
+        padding: 5px;
         text-align: center;
         border: 1px solid #dee2e6;
         background-color: #f9f9f9;
@@ -33,7 +31,7 @@
 
     .table th {
         background-color: #007bff;
-        color: #fff;
+      
         text-transform: uppercase;
         font-weight: bold;
     }
@@ -46,13 +44,7 @@
         background-color: #f8f9fa;
     }
 
-    .btn-info,
-    .btn-warning {
-        padding: 5px 10px;
-        border-radius: 5px;
-        transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-        color: #fff;
-    }
+
 
     .btn-info {
         background-color: #17a2b8;
@@ -62,7 +54,7 @@
     .btn-info:hover {
         background-color: #138496;
         transform: translateY(-2px);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
     }
 
     .btn-warning {
@@ -70,11 +62,6 @@
         border: none;
     }
 
-    .btn-warning:hover {
-        background-color: #e0a800;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
 
     .fas {
         margin-right: 5px;
@@ -129,12 +116,10 @@
                 <td>{{ student.get_hand_display|default:'-' }}</td> <!-- Ensure blank if no handicap -->
                 <td>{{ student.note_eleve }}</td>
                 <td class="d-flex">
-                    <a href="{% url 'student_detail' student.id %}" class="btn btn-info btn-sm">
+                    <a href="{% url 'student_detail' student.id %}" >
                         <i class="fas fa-eye"></i> 
                     </a>
-                    <a href="{% url 'student_update' student.id %}" class="btn btn-warning btn-sm">
-                        <i class="fas fa-pencil-alt"></i> 
-                    </a>
+          
                 </td>
             </tr>
             {% endfor %}
