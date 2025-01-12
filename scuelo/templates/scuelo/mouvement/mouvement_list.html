@@ -15,10 +15,10 @@
         max-width: 100%;
         overflow-x: auto;
         border-radius: 10px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        font-size: 14px;
-        margin-bottom: 20px;
-        padding: 20px;
+       
+        font-size: 10px !important; /* Reduced font size */
+        margin-bottom: 15px; /* Reduced margin */
+        padding: 15px; /* Reduced padding */
     }
 
     table {
@@ -27,7 +27,7 @@
     }
 
     th, td {
-        padding: 12px;
+        padding: 8px; /* Reduced padding */
         text-align: center;
         border: 1px solid #dee2e6;
         background-color: #f9f9f9;
@@ -35,9 +35,9 @@
 
     th {
         background-color: #333;
-        color: #fff;
+       
         text-transform: uppercase;
-        font-weight: bold;
+       
     }
 
     .table tbody tr:nth-child(even) {
@@ -51,17 +51,18 @@
     .btn-add-mouvement {
         background-color: #007bff;
         color: white;
-        padding: 10px 20px;
-        border-radius: 20px;
-        margin-bottom: 20px;
+        padding: 8px 15px; /* Reduced padding */
+        border-radius: 15px; /* Reduced border radius */
+        margin-bottom: 15px; /* Reduced margin */
         text-decoration: none;
+        font-size: 12px; /* Reduced font size */
         transition: background-color 0.3s ease-in-out, transform 0.2s ease;
     }
 
     .btn-add-mouvement:hover {
         background-color: #0056b3;
         transform: translateY(-2px);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      
     }
 </style>
 
@@ -112,7 +113,7 @@
 <script>
     $(document).ready(function() {
         $('#mouvementTable').DataTable({
-            dom: 'Bfrtip',
+          //  dom: 'Bfrtip',
             pageLength: 18,  // Default rows per page
             lengthMenu: [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ],
             buttons: [
