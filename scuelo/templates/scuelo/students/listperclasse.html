@@ -22,7 +22,7 @@
         max-width: 100%;
         overflow-x: auto;
         border-radius: 10px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        
     }
 
     .table {
@@ -36,7 +36,7 @@
         padding: 2px 8px !important; /* Further reduced padding */
         text-align: center;
         font-size: 10px; /* Smaller font size */
-        transition: background-color 0.3s;
+      
     }
 
     .table th {
@@ -63,13 +63,13 @@
     {% endfor %}
 </ol>
 
-<p>Total des paiements pour ll'eleve  {{ classe.nom }} en {{ selected_annee_scolaire.nom }} : {{ total_class_payment|intcomma }} FCFA</p>
 
     
     <a href="{% url 'manage_tarifs' classe.pk %}" class="btn btn-primary mb-3">
         <i class="fas fa-money-check-alt"></i> Gérer les Tarifs
     </a>
 {% endcomment %}
+<p>Total des paiements pour l'eleve  {{ classe.nom }} en {{ selected_annee_scolaire.nom }} : {{ total_class_payment|intcomma }} FCFA</p>
 
 <div class="content-container row mt-2">
     <div class="col">
