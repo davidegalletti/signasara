@@ -231,7 +231,9 @@
 
       <!-- Cash Management -->
       <h4><span>Cash </span><div class="menu-separator"></div></h4>
-      <li><a href="{% url 'cash_flow_report' %}"><span class="material-symbols-outlined"> account_balance_wallet </span>Cash Flow Report</a></li>
+     {% comment %}
+         <li><a href="{% url 'cash_flow_report' %}"><span class="material-symbols-outlined"> account_balance_wallet </span>Cash Flow Report</a></li>
+     {% endcomment %}
       <li><a href="{% url 'mouvement_list' %}"><span class="material-symbols-outlined"> swap_horiz </span>Movements</a></li>
 
       <!-- Security and User Management -->
