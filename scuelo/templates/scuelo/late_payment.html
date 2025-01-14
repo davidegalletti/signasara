@@ -64,8 +64,8 @@
     {% for school, classes in data.items %}
         <h5>School: {{ school }}</h5>
         {% for class_name, class_info in classes.items %}
-          <div class="d-flex center">
-            <h4>Class: {{ class_name }}</h4>
+          <div class="d-flex align-content-md-between">
+            <h4>Class: {{ class_name }}</h4> 
             <h4>Total Remaining for Class: {{ class_info.total_class_remaining }} FCFA</h4>
           </div> 
             <table class="table table-striped table-bordered" id="classTable_{{ forloop.counter }}">
