@@ -78,8 +78,8 @@
                 <thead class="thead-dark">
                     <tr>
                         <th>id</th>
-                        <th>Nom</th>
                         <th>Prénom</th>
+                        <th>Nom</th>
                         <th>Condition</th>
                         <th>Sexe</th>
                         <th>Date naissance</th>
@@ -94,7 +94,7 @@
                     {% for student in students %}
                     <tr style="height:2px;">
                      
-                        <td>{{ student.pk }}    <hr style="padding:0px; margin:0px;"></td>
+                        <td>{{ student.pk }}   
                         <td>{{ student.nom }}</td>
                         <td>{{ student.prenom }}</td>
                         <td>{{ student.get_condition_eleve_display }}</td>

@@ -64,14 +64,15 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Nom</th>
                                 <th>Prénom</th>
+                                <th>Nom</th>
                                 <th>Sexe</th>
                                 <th>Date Naissance</th>
                                 <th>CS_PY</th>
                                 <th>Paiements</th>
                                 <th>Handicap</th>
                                 <th>Note</th>
+                                <th>action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -86,6 +87,11 @@
                                     <td>{% if inscription.eleve.total_paiements %}{{ inscription.eleve.total_paiements|intcomma }} FCFA{% else %}-{% endif %}</td>
                                     <td>{% if inscription.eleve.hand %}{{ inscription.eleve.hand }}{% else %}-{% endif %}</td>
                                     <td>{{ inscription.eleve.note_eleve }}</td>
+                                    <td>
+                                        <a >
+                                            <i class="fas fa-sync-alt"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                             {% endfor %}
                         </tbody>
