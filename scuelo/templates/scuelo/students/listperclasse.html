@@ -80,13 +80,15 @@
                         <th>id</th>
                         <th>Prénom</th>
                         <th>Nom</th>
+                        <th>Note</th>
                         <th>Condition</th>
                         <th>Sexe</th>
                         <th>Date naissance</th>
-                        <th>Total payé</th>
-                        <th>Note</th>
-                        <th>CS_PY</th>
                         <th>Hand</th>
+                        <th>Total payé</th>
+
+                        <th>CS_PY</th>
+                      
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -97,13 +99,15 @@
                         <td>{{ student.pk }}   
                         <td>{{ student.nom }}</td>
                         <td>{{ student.prenom }}</td>
+                        <td>{{ student.note_eleve }}</td>
                         <td>{{ student.get_condition_eleve_display }}</td>
                         <td>{{ student.get_sex_display }}</td>
-                        <td>{{ student.date_naissance }}</td>
-                        <td>{% if student.total_payment > 0 %}{{ student.total_payment }}{% else %}-{% endif %}</td>
-                        <td>{{ student.note_eleve }}</td>
-                        <td>{{ student.get_cs_py_display }}</td>
+                        <td class=''>{{ student.date_naissance }}</td>
                         <td>{% if student.get_hand_display %}{{ student.get_hand_display }}{% else %}-{% endif %}</td>
+                        <td>{% if student.total_payment > 0 %}{{ student.total_payment }}{% else %}-{% endif %}</td>
+                      
+                        <td>{{ student.get_cs_py_display }}</td>
+                      
                         <td>
                             <a href="{% url 'student_detail' student.pk %}">
                                 <i class="fas fa-sync-alt"></i>
