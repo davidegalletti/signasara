@@ -54,19 +54,15 @@
         color: red;
     }
 
-    h2, h3 {
-        text-align: left;
-        margin-top: 30px;
-        font-weight: bold;
-    }
+
 </style>
 
 
-<h2>Late Payment Report - {{ current_annee_scolaire.nom }}</h2>
+<h5>Late Payment Report - {{ current_annee_scolaire.nom }}</h5>
 
 <div class="table-container">
     {% for school, classes in data.items %}
-        <h3>School: {{ school }}</h3>
+        <h5>School: {{ school }}</h5>
         {% for class_name, class_info in classes.items %}
             <h4>Class: {{ class_name }}</h4>
             <p><strong>Total Remaining for Class:</strong> {{ class_info.total_class_remaining }} FCFA</p>
