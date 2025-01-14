@@ -11,45 +11,51 @@
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
 
+{% block content %}
 <style>
     .table-container {
-        font-size: 0.9rem;
+        max-width: 100%;
         overflow-x: auto;
-        margin-top: 20px;
-        background-color: #fff;
-        padding: 20px;
         border-radius: 10px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        margin-bottom: 40px;
     }
 
-    .school-title, .class-title {
-        background-color: #007bff;
-        color: #fff;
-        padding: 10px;
-        border-radius: 5px;
-        font-weight: bold;
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
     }
 
-    .table th, .table td {
-        padding: 8px;
+    .table th,
+    .table td {
+        padding: 2px 8px !important; /* Further reduced padding */
         text-align: center;
-        border: 1px solid #dee2e6;
+        font-size: 10px; /* Smaller font size */
+        transition: background-color 0.3s;
     }
 
     .table th {
-        background-color: #007bff;
+        background-color: #333;
         color: #fff;
+        text-transform: uppercase;
+        font-weight: bold;
     }
+
+    .table tbody tr:hover {
+        background-color: #e9ecef;
+    }
+
+  
+
+   
 </style>
 
-{% block content %}
 <div class="">
-    <h2 class="text-center mb-4">Liste des Élèves</h2>
+    <h4 class="text-center">Liste des Élèves</h4>
     
     {% for school in schools %}
         <div class="school-section">
-            <h3 class="school-title">{{ school.nom }}</h3>
+            <h5 class="school-title">{{ school.nom }}</h5>
             
             {% for classe in school.classe_set.all %}
                 <div class="table-container">
@@ -95,14 +101,14 @@
         // Initialize DataTables for each class table individually
         $('table[id^="classTable-"]').each(function() {
             $(this).DataTable({
-                dom: 'Bfrtip',
+              //  dom: 'Bfrtip',
                 buttons: [
                     { extend: 'csv', text: 'Export CSV', className: 'btn btn-success' },
                     { extend: 'excel', text: 'Export Excel', className: 'btn btn-success' },
                     { extend: 'print', text: 'Print', className: 'btn btn-success' }
                 ],
                 paging: true,
-                pageLength: 10,
+                pageLength: 40,
                 lengthMenu: [10, 25, 50, 100],
                 order: [],  // Enable sorting
                 columnDefs: [

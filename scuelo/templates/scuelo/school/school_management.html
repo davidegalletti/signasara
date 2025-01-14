@@ -1,13 +1,14 @@
 {% extends "../../layout.html" %}
 {% load crispy_forms_tags %}
+
+<!-- DataTables CSS and JavaScript -->
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
-
+{% block content %}
 <style>
     .form-control { border-radius: 20px; padding-left: 20px; padding-right: 40px; }
     .breadcrumb { background-color: #f8f9fa; border-radius: .25rem; }
@@ -28,7 +29,7 @@
     .btn-danger { background-color: #dc3545; border: none; }
 </style>
 
-{% block content %}
+
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
     <li class="breadcrumb-item active" aria-current="page">Manage Schools</li>

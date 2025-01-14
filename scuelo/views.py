@@ -314,38 +314,6 @@ def student_update(request, pk):
     return render(request, 'scuelo/students/studentupdate.html', {'form': form, 'student': student,
                                                                   'page_identifier': 'S13'  })
 
-'''@method_decorator(login_required, name='dispatch')
-class StudentListView(ListView):
-    model = Eleve
-    template_name = 'scuelo/student_management.html'
-    context_object_name = 'students'
-
-    def get_queryset(self):
-        return Eleve.objects.all().order_by(
-            'inscription__classe__ecole__nom',
-            'inscription__classe__nom',
-            'nom',
-            'prenom'
-        ).select_related('inscription__classe__ecole')
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        schools = Ecole.objects.prefetch_related(
-            Prefetch('classe_set', queryset=Classe.objects.prefetch_related(
-                Prefetch('inscription_set', queryset=Inscription.objects.select_related('eleve'))
-            ))
-        ).all()
-
-        for school in schools:
-            for classe in school.classe_set.all():
-                for inscription in classe.inscription_set.all():
-                    eleve = inscription.eleve
-                    eleve.total_paiements = Mouvement.objects.filter(inscription=inscription).aggregate(total=Sum('montant'))['total'] or 0
-
-        context['schools'] = schools
-         # Add your page identifier here
-        context['page_identifier'] = 'S14' 
-        return context'''
 @method_decorator(login_required, name='dispatch')
 class StudentListView(ListView):
     model = Eleve
@@ -446,37 +414,6 @@ def change_school(request, pk):
                   {'form': form, 'student': student ,
                     'page_identifier': 'S05' })
 
-'''@login_required
-def offsite_students(request):
-    # Fetch inscriptions where the school is not "Bisongo du coeur"
-    inscriptions = Inscription.objects.filter(
-        ~Q(classe__ecole__nom__iexact="Bisongo du coeur")
-    ).select_related('eleve', 'classe__ecole')
-
-    # Compile all students identified as offsite
-    offsite_students = []
-    for inscription in inscriptions:
-        student = inscription.eleve
-        student.total_paiements = Mouvement.objects.filter(inscription=inscription).aggregate(total=Sum('montant'))['total'] or 0
-        student.school_name = inscription.classe.ecole.nom
-        student.condition_eleve = student.get_condition_eleve_display()  # Get condition display name
-        offsite_students.append(student)
-
-    # Include students with null `annee_inscr` if their school is offsite
-    students_with_null_annee_inscr = Eleve.objects.filter(
-        ~Q(inscription__classe__ecole__nom__iexact="Bisongo du coeur"),
-        annee_inscr__isnull=True
-    )
-
-    # Combine both sets of students into one list
-    all_offsite_students = offsite_students 
-
-    context = {
-        'all_offsite_students': all_offsite_students,  
-        'page_identifier': 'S06' # Combined list of offsite students
-    }
-    return render(request, 'scuelo/offsite_students.html', context)'''
-    
 
 
 @login_required
@@ -844,8 +781,6 @@ class UniformReservationListView(TemplateView):
 
         return context
 
-
-
 class UniformReservationCreateView(CreateView):
     model = UniformReservation
     form_class = UniformReservationForm
@@ -867,8 +802,6 @@ class UniformReservationCreateView(CreateView):
             form.instance.school_year = current_school_year
         return super().form_valid(form)
 
-
-
 class UniformReservationUpdateView(UpdateView):
     model = UniformReservation
     form_class = UniformReservationForm
@@ -879,9 +812,6 @@ class UniformReservationDeleteView(DeleteView):
     model = UniformReservation
     template_name = 'scuelo/reservations/uniform_reservation_confirm_delete.html'
     success_url = reverse_lazy('uniform-reservation-list')    
-    
-    
-    
     
 @login_required
 def cash_flow_report(request):
