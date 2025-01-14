@@ -83,7 +83,6 @@ class Ecole(TimeStampedModel):
     def __str__(self):
         return self.nom
 
-
 class Classe(TimeStampedModel):
     ecole = models.ForeignKey(Ecole, on_delete=models.CASCADE)
     type = models.ForeignKey(TypeClasse, on_delete=models.CASCADE)
@@ -135,7 +134,6 @@ class Classe(TimeStampedModel):
     def sco_exigible(self):
         total_tarifs = Tarif.objects.filter(classe=self).aggregate(total=Sum('montant'))['total'] or 0
         return total_tarifs
-    
 class Eleve(TimeStampedModel):
     nom = models.CharField(max_length=34, null=False)
     prenom = models.CharField(max_length=34, null=False)
