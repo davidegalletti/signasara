@@ -1,0 +1,1 @@
+from scuelo.templatetags import custom_filters
