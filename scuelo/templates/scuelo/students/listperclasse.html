@@ -37,7 +37,14 @@
         text-align: center;
         font-size: 10px; /* Smaller font size */
       
+      
     }
+    .col-1 {
+       
+        width: 60px !important; /* Adjust as needed */
+      
+    }
+
 
     .table th {
         background-color: #333;
@@ -49,6 +56,7 @@
     .table tbody tr:hover {
         background-color: #e9ecef;
     }
+
 </style>
 
 
@@ -81,11 +89,11 @@
                         <th>Prénom</th>
                         <th>Nom</th>
                         <th>Note</th>
-                        <th>Condition</th>
-                        <th>Sexe</th>
-                        <th>Date naissance</th>
-                        <th>Hand</th>
-                        <th>Total payé</th>
+                        <th class='col-1'>Condition</th>
+                        <th class='col-1'>Sexe </th>
+                        <th class='col-1'>Date naissance</th>
+                        <th class='col-1'>Hand</th>
+                        <th class='col-1'>Total payé</th>
 
                         <th>CS_PY</th>
                       
@@ -96,7 +104,7 @@
                     {% for student in students %}
                     <tr style="height:2px;">
                      
-                        <td>{{ student.pk }}   
+                        <td >{{ student.pk }}   
                         <td>{{ student.nom }}</td>
                         <td>{{ student.prenom }}</td>
                         <td>{{ student.note_eleve }}</td>
