@@ -41,7 +41,7 @@
     }
     .col-1 {
        
-        width: 60px !important; /* Adjust as needed */
+        width: 80px !important; /* Adjust as needed */
       
     }
 
@@ -91,7 +91,7 @@
                         <th>Note</th>
                         <th class='col-1'>Condition</th>
                         <th class='col-1'>Sexe </th>
-                        <th class='col-1'>Date naissance</th>
+                        <th class='col-1'>Date naiss</th>
                         <th class='col-1'>Hand</th>
                         <th class='col-1'>Total payé</th>
 
@@ -112,7 +112,7 @@
                         <td>{{ student.get_sex_display }}</td>
                         <td class=''>{{ student.date_naissance|format_date_obj }}</td>
                         <td>{% if student.get_hand_display %}{{ student.get_hand_display }}{% else %}-{% endif %}</td>
-                        <td>{% if student.total_payment > 0 %}{{ student.total_payment }}{% else %}-{% endif %}</td>
+                        <td>{% if student.total_payment > 0 %}{{ student.total_payment|format_amount }}{% else %}-{% endif %}</td>
                       
                         <td>{{ student.get_cs_py_display }}</td>
                       
