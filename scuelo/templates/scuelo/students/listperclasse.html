@@ -56,6 +56,11 @@
     .table tbody tr:hover {
         background-color: #e9ecef;
     }
+    .col-sex {
+        width: 1% !important;
+      }
+      .col-note { width : auto}
+       
 
 </style>
 
@@ -86,18 +91,20 @@
                 <thead class="thead-dark">
                     <tr>
                         <th>id</th>
-                        <th>Prénom</th>
+                        <th class='w-5'>Prénom</th>
                         <th>Nom</th>
-                        <th>Note</th>
-                        <th class='col-1'>Condition</th>
-                        <th class='col-1'>Sexe </th>
+                        <th class='col-sex'>Sexe</th>
                         <th class='col-1'>Date naiss</th>
-                        <th class='col-1'>Hand</th>
-                        <th class='col-1'>Total payé</th>
-
-                        <th>CS_PY</th>
                       
-                        <th>Actions</th>
+                        <th>CS_PY</th>
+                   
+                        <th class='col-1'>Hand</th>
+                        <th class='col-1'>Condition</th>
+                      
+                        <th class='col-1'>Total payé</th>
+                    
+                        <th '>Note</th>
+                        <th >Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -107,15 +114,16 @@
                         <td >{{ student.pk }}   
                         <td>{{ student.nom }}</td>
                         <td>{{ student.prenom }}</td>
-                        <td>{{ student.note_eleve }}</td>
-                        <td>{{ student.get_condition_eleve_display }}</td>
                         <td>{{ student.get_sex_display }}</td>
                         <td class=''>{{ student.date_naissance|format_date_obj }}</td>
+                        <td>{{ student.get_cs_py_display }}</td>
                         <td>{% if student.get_hand_display %}{{ student.get_hand_display }}{% else %}-{% endif %}</td>
+                        <td>{{ student.get_condition_eleve_display }}</td>
+                        
                         <td>{% if student.total_payment > 0 %}{{ student.total_payment|format_amount }}{% else %}-{% endif %}</td>
                       
-                        <td>{{ student.get_cs_py_display }}</td>
                       
+                        <td>{{ student.note_eleve }}</td>
                         <td>
                             <a href="{% url 'student_detail' student.pk %}">
                                 <i class="fas fa-sync-alt"></i>
