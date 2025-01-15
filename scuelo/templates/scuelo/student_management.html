@@ -44,9 +44,16 @@
     .table tbody tr:hover {
         background-color: #e9ecef;
     }
+    .col-1 {
+       
+        width: 70px !important; /* Adjust as needed */
+      
+    }
 
-  
-
+  .col-sex {
+    width: 1% !important;
+  }
+  .col-note { width : auto}
    
 </style>
 
@@ -64,15 +71,17 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Prénom</th>
-                                <th>Nom</th>
-                                <th>Sexe</th>
-                                <th>Date Naissance</th>
-                                <th>CS_PY</th>
-                                <th>Paiements</th>
-                                <th>Handicap</th>
-                                <th>Note</th>
-                                <th>action</th>
+                                <th class='w-25'>Prénom</th>
+                                <th class='w-25'>Nom</th>
+                                <th class='col-note'>Note</th>
+                                <th class='col-sex'>Sexe</th>
+                                <th class='col-1'>Date nais</th>
+                                <th class='col-1'>CS_PY</th>
+                                <th class='col-1'>Handicap</th>
+                                <th class='col-1'>Total Paye</th>
+                         
+                   
+                                <th class='col-1'>action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -81,12 +90,14 @@
                                     <td>{{ inscription.eleve.id }}</td>
                                     <td>{{ inscription.eleve.nom }}</td>
                                     <td>{{ inscription.eleve.prenom }}</td>
+                                    <td>{{ inscription.eleve.note_eleve }}</td>
                                     <td>{{ inscription.eleve.get_sex_display }}</td>
                                     <td>{{ inscription.eleve.date_naissance|date:"d/m/Y" }}</td>
                                     <td>{{ inscription.eleve.get_cs_py_display }}</td>
-                                    <td>{% if inscription.eleve.total_paiements %}{{ inscription.eleve.total_paiements|intcomma }} FCFA{% else %}-{% endif %}</td>
                                     <td>{% if inscription.eleve.hand %}{{ inscription.eleve.hand }}{% else %}-{% endif %}</td>
-                                    <td>{{ inscription.eleve.note_eleve }}</td>
+                               
+                                    <td>{% if inscription.eleve.total_paiements %}{{ inscription.eleve.total_paiements|intcomma }} FCFA{% else %}-{% endif %}</td>
+                                 
                                     <td>
                                         <a >
                                             <i class="fas fa-sync-alt"></i>
