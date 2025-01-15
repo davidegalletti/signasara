@@ -1,5 +1,6 @@
 {% extends "../../layout.html" %}
 {% load crispy_forms_tags %}
+{% load custom_filters %}
 {% include 'scuelo/paiements/add_paiement_modal.html' %}
 
 <style>
@@ -88,7 +89,7 @@
                     <p><strong>Prénom:</strong> {{ student.prenom }}</p>
                     <p><strong>Condition:</strong> {{ student.get_condition_eleve_display }}</p>
                     <p><strong>Sexe:</strong> {{ student.get_sex_display }}</p>
-                    <p><strong>Date de Naissance:</strong> {{ student.date_naissance }}</p>
+                    <p><strong>Date de Naissance:</strong> {{ student.date_naissance|format_date_obj  }}</p>
                     <p><strong>CS PY:</strong> {{ student.get_cs_py_display }}</p>
                     {% if student.hand %}
                     <p><strong>Hand:</strong> {{ student.get_hand_display }}</p>
@@ -96,7 +97,7 @@
                     <p style="color: black;"><strong>Hand:</strong></p>
                     {% endif %}
                     {% if student.date_enquete %}
-                    <p><strong>Date enquete:</strong> {{ student.date_enquete }}</p>
+                    <p><strong>Date enquete:</strong> {{ student.date_enquete|format_date_obj  }}</p>
                     {% else %}
                     <p style="color: black;"><strong>Date enquete:</strong></p>
                     {% endif %}
@@ -126,7 +127,7 @@
                         {% for inscription in inscriptions %}
                         <li class="list-group-item">
                             {{ inscription.classe.nom }} - {{ inscription.annee_scolaire.nom }} <br>
-                            <small>Changé le: {{ inscription.date_inscription }}</small>
+                            <small>Changé le: {{ inscription.date_inscription|format_date_obj  }}</small>
                         </li>
                         {% empty %}
                         <li class="list-group-item">Aucune inscription trouvée</li>
@@ -159,9 +160,9 @@
                 <tbody>
                     {% for payment in payments %}
                     <tr>
-                        <td>{{ payment.date_paye }}</td>
+                        <td>{{ payment.date_paye|format_date_obj  }}</td>
                         <td>{{ payment.causal }}</td>
-                        <td>{{ payment.montant }}</td>
+                        <td>{{ payment.montant|format_amount  }}</td>
                         <td>{% if payment.note %}{{ payment.note }}{% else %}<span style="color: black;"></span>{% endif %}</td>
                         <td>
                             <a href="{% url 'update_paiement' pk=payment.pk %}" class="btn btn-primary btn-sm"><i class="fas fa-sync-alt"></i></a>
