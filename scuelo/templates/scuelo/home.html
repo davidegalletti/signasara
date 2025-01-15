@@ -25,7 +25,9 @@
             <div class="quick-access-grid">
                 <a href="{% url 'new_student' %}" class="btn btn-primary quick-btn">New Student</a>
                 <a href="{% url 'mouvement_list' %}" class="btn btn-info quick-btn">Movements</a>
-                <a href="{% url 'cash_flow_report' %}" class="btn btn-success quick-btn">Cash Flow</a>
+                {% comment %}
+                    <a href="{% url 'cash_flow_report' %}" class="btn btn-success quick-btn">Cash Flow</a>
+                {% endcomment %}
                 <a href="{% url 'uniform_payments' %}" class="btn btn-warning quick-btn">Uniforms</a>
                 <a href="{% url 'uniform-reservation-list' %}" class="btn btn-warning quick-btn">Uniforms reservation</a>
 
