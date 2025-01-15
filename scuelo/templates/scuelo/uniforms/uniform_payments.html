@@ -1,6 +1,6 @@
 {% extends "../../layout.html" %}
 {% load humanize %}
-
+{% load custom_filters %}
 <!-- DataTables CSS and JavaScript -->
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -111,14 +111,14 @@
         <div class="summary">
             <p>Total Students: {{ class_info.students|length }}</p>
             <p>Total Uniforms Paid: {{ class_info.total_uniforms }}</p>
-            <p>Total Amount Collected: {{ class_info.total_amount }} FCFA</p>
+            <p>Total Amount Collected: {{ class_info.total_amount|format_amount }} </p>
         </div>
 
         <div class="table-container">
             <table class="table table-striped table-bordered" id="uniformTable_{{ forloop.counter }}">
                 <thead>
                     <tr>
-                        <th>Student</th>
+                        <th >Student</th>
                         <th>Number of Uniforms</th>
                         <th>Total Amount</th>
                         <th>Actions</th>
@@ -129,7 +129,7 @@
                     <tr>
                         <td>{{ details.nom }} {{ details.prenom }}</td>
                         <td>{{ details.uniform_count }}</td>
-                        <td>{{ details.total_amount }} FCFA</td>
+                        <td>{{ details.total_amount|format_amount }}</td>
                         <td>
                             <a href="{% url 'student_detail' student.id %}" >
                                 <i class="fas fa-sync-alt"></i> 
