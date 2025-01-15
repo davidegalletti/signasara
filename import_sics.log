@@ -19167,3 +19167,2057 @@ DETAIL:  Key (legacy_id)=(F361C50C-85A5-654C-9C4E-CE42325E57F3) already exists.
 2025-01-11 03:49:27,004 - INFO - Payment for Sofiane Sam  imported successfully.
 2025-01-11 03:49:27,013 - INFO - Payment for Cheik Tidiane Zampalegre imported successfully.
 2025-01-11 03:49:27,014 - INFO - Import SICS END
+2025-01-14 23:39:27,544 - INFO - Starting import from /home/ye/sis/scuelo/export_sics/Export SICS 2.1.75 V2.xlsx
+2025-01-14 23:39:27,705 - INFO - Student Rahim Zalle imported successfully.
+2025-01-14 23:39:27,728 - INFO - Student Eddy Jean Bertrand Bouda imported successfully.
+2025-01-14 23:39:27,751 - INFO - Student Rayimwende Cephas Compaore imported successfully.
+2025-01-14 23:39:27,773 - INFO - Student Wendmi Nestor Compaore imported successfully.
+2025-01-14 23:39:27,794 - INFO - Student Wendpagnande Melissa Compaore imported successfully.
+2025-01-14 23:39:27,815 - INFO - Student Kiswende Sida Romeo Congo imported successfully.
+2025-01-14 23:39:27,838 - INFO - Student Cheick Omar Degtoumda imported successfully.
+2025-01-14 23:39:27,860 - INFO - Student Orelia Djemilatou Diallo imported successfully.
+2025-01-14 23:39:27,881 - INFO - Student Aliyata Kinda imported successfully.
+2025-01-14 23:39:27,906 - INFO - Student Sylviane Konanga imported successfully.
+2025-01-14 23:39:27,936 - INFO - Student Rasmata Lalsaga imported successfully.
+2025-01-14 23:39:27,964 - INFO - Student Adama Lengani imported successfully.
+2025-01-14 23:39:27,990 - INFO - Student Ghislaine Monean imported successfully.
+2025-01-14 23:39:28,014 - INFO - Student Honorine Nacoulma imported successfully.
+2025-01-14 23:39:28,035 - INFO - Student David Nikiema imported successfully.
+2025-01-14 23:39:28,053 - INFO - Student Edmond Nikiema imported successfully.
+2025-01-14 23:39:28,075 - INFO - Student Abdoul Raouf Ouedraogo imported successfully.
+2025-01-14 23:39:28,097 - INFO - Student Anoupiah Denise Oussale imported successfully.
+2025-01-14 23:39:28,117 - INFO - Student Mariam Sawadogo imported successfully.
+2025-01-14 23:39:28,144 - INFO - Student Rafiatou Soulga imported successfully.
+2025-01-14 23:39:28,165 - INFO - Student Islamia Naidatou Tapsoba imported successfully.
+2025-01-14 23:39:28,187 - INFO - Student Boris Bationo imported successfully.
+2025-01-14 23:39:28,209 - INFO - Student Wendyam Theophile Cephas Convolbo imported successfully.
+2025-01-14 23:39:28,227 - INFO - Student Neimata Ouedraogo imported successfully.
+2025-01-14 23:39:28,245 - INFO - Student Abdoul Nassirou Sawadogo imported successfully.
+2025-01-14 23:39:28,267 - INFO - Student Jessica Baga imported successfully.
+2025-01-14 23:39:28,295 - INFO - Student Aïchatou Bikienga imported successfully.
+2025-01-14 23:39:28,318 - INFO - Student Djamilla Bolly imported successfully.
+2025-01-14 23:39:28,337 - INFO - Student Paouhoura Bruno Bonema imported successfully.
+2025-01-14 23:39:28,358 - INFO - Student Marc Wendmi Bonkoungou imported successfully.
+2025-01-14 23:39:28,376 - INFO - Student Severin Bonkoungou imported successfully.
+2025-01-14 23:39:28,400 - INFO - Student Deborah Emmanuelle Bouda imported successfully.
+2025-01-14 23:39:28,424 - INFO - Student Abou Soufiane Compaore imported successfully.
+2025-01-14 23:39:28,445 - INFO - Student Delwende Landry Yanive Compaore imported successfully.
+2025-01-14 23:39:28,466 - INFO - Student Djaouratou Compaore imported successfully.
+2025-01-14 23:39:28,485 - INFO - Student Djemila Conde imported successfully.
+2025-01-14 23:39:28,505 - INFO - Student Abdoul Wahab Congo imported successfully.
+2025-01-14 23:39:28,524 - INFO - Student Nouriatou Congo imported successfully.
+2025-01-14 23:39:28,546 - INFO - Student Wassilatou Conombo imported successfully.
+2025-01-14 23:39:28,566 - INFO - Student Zenabo Diallo imported successfully.
+2025-01-14 23:39:28,585 - INFO - Student Barwende Jonaphate Dipama imported successfully.
+2025-01-14 23:39:28,606 - INFO - Student Justin Gasbeogo imported successfully.
+2025-01-14 23:39:28,629 - INFO - Student Boukare Morgan Gouem imported successfully.
+2025-01-14 23:39:28,652 - INFO - Student Charles Borromee Ilboudo imported successfully.
+2025-01-14 23:39:28,678 - INFO - Student Hamado Ilboudo imported successfully.
+2025-01-14 23:39:28,706 - INFO - Student Adelaïde Kabore imported successfully.
+2025-01-14 23:39:28,749 - INFO - Student Ariane Kabore imported successfully.
+2025-01-14 23:39:28,780 - INFO - Student Rachid Kabore imported successfully.
+2025-01-14 23:39:28,811 - INFO - Student Ibrahim Isaac Kabre imported successfully.
+2025-01-14 23:39:28,850 - INFO - Student Rabiatou Kafando imported successfully.
+2025-01-14 23:39:28,883 - INFO - Student Steeve Kafando imported successfully.
+2025-01-14 23:39:28,918 - INFO - Student Johvani Elisee Kazoni imported successfully.
+2025-01-14 23:39:28,952 - INFO - Student Oceane Kiendega imported successfully.
+2025-01-14 23:39:28,987 - INFO - Student Abdoul Mouhaz Kinda imported successfully.
+2025-01-14 23:39:29,017 - INFO - Student Guetawende Rut Kologo imported successfully.
+2025-01-14 23:39:29,035 - INFO - Student Mohamed Bechir Kouanda imported successfully.
+2025-01-14 23:39:29,054 - INFO - Student Amdiatou Lengane imported successfully.
+2025-01-14 23:39:29,073 - INFO - Student Rosine Nacoulma imported successfully.
+2025-01-14 23:39:29,096 - INFO - Student Joris Nana imported successfully.
+2025-01-14 23:39:29,119 - INFO - Student Nouriatou Nana imported successfully.
+2025-01-14 23:39:29,144 - INFO - Student Alimate Fadia Nikiema imported successfully.
+2025-01-14 23:39:29,169 - INFO - Student Abdoul Bassit  Nikiema imported successfully.
+2025-01-14 23:39:29,193 - INFO - Student Abdoul Wahid Nikiema imported successfully.
+2025-01-14 23:39:29,217 - INFO - Student Steeve Donal Nikiema imported successfully.
+2025-01-14 23:39:29,240 - INFO - Student Barwende Euphraim Nongtobdo imported successfully.
+2025-01-14 23:39:29,262 - INFO - Student Julia Amaël Emeraude Noufe imported successfully.
+2025-01-14 23:39:29,285 - INFO - Student Moubarack Ouedraogo imported successfully.
+2025-01-14 23:39:29,313 - INFO - Student Pedwende Mariam Ouedraogo imported successfully.
+2025-01-14 23:39:29,343 - INFO - Student Samiratou Benissa Ouedraogo imported successfully.
+2025-01-14 23:39:29,371 - INFO - Student Ibrahim Ouedraogo imported successfully.
+2025-01-14 23:39:29,391 - INFO - Student Nafissatou Passere imported successfully.
+2025-01-14 23:39:29,409 - INFO - Student Oumoul Salim Sana imported successfully.
+2025-01-14 23:39:29,427 - INFO - Student Aliyatou Sare imported successfully.
+2025-01-14 23:39:29,445 - INFO - Student Abdoul Maguid Sawadogo imported successfully.
+2025-01-14 23:39:29,463 - INFO - Student Kiswendsida Felicite Grace Sawadogo imported successfully.
+2025-01-14 23:39:29,480 - INFO - Student Layilatou Simpore imported successfully.
+2025-01-14 23:39:29,498 - INFO - Student Cedrix Ebenegre Sobgo imported successfully.
+2025-01-14 23:39:29,517 - INFO - Student Mariatou Sorgho imported successfully.
+2025-01-14 23:39:29,536 - INFO - Student Mohamadi Sani Tapsoba imported successfully.
+2025-01-14 23:39:29,555 - INFO - Student Augustine Flore Tigasse imported successfully.
+2025-01-14 23:39:29,574 - INFO - Student Saran Kiswendsida Kalo Ester To imported successfully.
+2025-01-14 23:39:29,596 - INFO - Student Naïmatou Togom imported successfully.
+2025-01-14 23:39:29,618 - INFO - Student Abdoul Nassirou Yamba imported successfully.
+2025-01-14 23:39:29,640 - INFO - Student Carine Zoungrana imported successfully.
+2025-01-14 23:39:29,662 - INFO - Student Abdoul Razack Zoungrana imported successfully.
+2025-01-14 23:39:29,685 - INFO - Student Carlos Wendkouni Isidore Zoungrana imported successfully.
+2025-01-14 23:39:29,706 - INFO - Student O. Debora Jeannine Aoue imported successfully.
+2025-01-14 23:39:29,727 - INFO - Student W. Wilfried Badolo imported successfully.
+2025-01-14 23:39:29,750 - INFO - Student W. Benaja Balma imported successfully.
+2025-01-14 23:39:29,773 - INFO - Student Haoulatou Bance imported successfully.
+2025-01-14 23:39:29,796 - INFO - Student Yousra Bilgo imported successfully.
+2025-01-14 23:39:29,824 - INFO - Student Taslimatou Fatimata Billa imported successfully.
+2025-01-14 23:39:29,847 - INFO - Student P. Oumaimata Bismoiga imported successfully.
+2025-01-14 23:39:29,869 - INFO - Student Rasmata Bonkoungou imported successfully.
+2025-01-14 23:39:29,889 - INFO - Student Grace Alexandra Bouda imported successfully.
+2025-01-14 23:39:29,913 - INFO - Student Mohamadi Boundaone imported successfully.
+2025-01-14 23:39:29,955 - INFO - Student Anne Compaore imported successfully.
+2025-01-14 23:39:29,985 - INFO - Student Aboubacar Sidik Compaore imported successfully.
+2025-01-14 23:39:30,005 - INFO - Student B. Salifou Compaore imported successfully.
+2025-01-14 23:39:30,028 - INFO - Student Dimitri  Diapa  imported successfully.
+2025-01-14 23:39:30,051 - INFO - Student Seni Hamza Ganemtore imported successfully.
+2025-01-14 23:39:30,073 - INFO - Student W. Roland Wilfried Gouba imported successfully.
+2025-01-14 23:39:30,091 - INFO - Student Maicharatou Guigma imported successfully.
+2025-01-14 23:39:30,110 - INFO - Student P. Franck Oscar Guigma imported successfully.
+2025-01-14 23:39:30,131 - INFO - Student Adama Guigma imported successfully.
+2025-01-14 23:39:30,154 - INFO - Student D. Evan Ilboudo imported successfully.
+2025-01-14 23:39:30,176 - INFO - Student Laeticia Ilboudo imported successfully.
+2025-01-14 23:39:30,196 - INFO - Student Mouhaz Amir Kabore imported successfully.
+2025-01-14 23:39:30,216 - INFO - Student Abdoul Gafarou Kabre imported successfully.
+2025-01-14 23:39:30,240 - INFO - Student K. Berenger Kabre imported successfully.
+2025-01-14 23:39:30,260 - INFO - Student Khalid Kazienga imported successfully.
+2025-01-14 23:39:30,289 - INFO - Student Yasmina Saoudatou Kiemtore imported successfully.
+2025-01-14 23:39:30,314 - INFO - Student Viviane Kientega imported successfully.
+2025-01-14 23:39:30,344 - INFO - Student Samira Kologo imported successfully.
+2025-01-14 23:39:30,372 - INFO - Student Samsadine Lengane imported successfully.
+2025-01-14 23:39:30,400 - INFO - Student P. Stanislas Nacoulma imported successfully.
+2025-01-14 23:39:30,427 - INFO - Student Geofroy Nana imported successfully.
+2025-01-14 23:39:30,449 - INFO - Student S. Junior Nana imported successfully.
+2025-01-14 23:39:30,473 - INFO - Student B. Jean Yves Nikiema imported successfully.
+2025-01-14 23:39:30,495 - INFO - Student K. Davy Nikiema imported successfully.
+2025-01-14 23:39:30,523 - INFO - Student Jean Michel Nikiema imported successfully.
+2025-01-14 23:39:30,555 - INFO - Student Jean Raphael Nikiema imported successfully.
+2025-01-14 23:39:30,590 - INFO - Student W. Aristide Ouedraogo imported successfully.
+2025-01-14 23:39:30,628 - INFO - Student Abdoul Hafiz Ouedraogo imported successfully.
+2025-01-14 23:39:30,656 - INFO - Student Flore Ouedraogo imported successfully.
+2025-01-14 23:39:30,681 - INFO - Student Mohamadi Ouedraogo imported successfully.
+2025-01-14 23:39:30,708 - INFO - Student Omeimatou Ouedraogo imported successfully.
+2025-01-14 23:39:30,735 - INFO - Student Ridwane Rabo imported successfully.
+2025-01-14 23:39:30,760 - INFO - Student Yasmina Sanon imported successfully.
+2025-01-14 23:39:30,784 - INFO - Student Mandinatou Sawadogo imported successfully.
+2025-01-14 23:39:30,809 - INFO - Student Abdoul Akim Sawadogo imported successfully.
+2025-01-14 23:39:30,832 - INFO - Student Zayd Houssene Sawadogo imported successfully.
+2025-01-14 23:39:30,854 - INFO - Student Davy Casimir Simpore imported successfully.
+2025-01-14 23:39:30,877 - INFO - Student Nouriatou Sore imported successfully.
+2025-01-14 23:39:30,900 - INFO - Student Sahadatou Sore imported successfully.
+2025-01-14 23:39:30,933 - INFO - Student Sadikou Tassembedo imported successfully.
+2025-01-14 23:39:30,969 - INFO - Student Nemata Tiemtore imported successfully.
+2025-01-14 23:39:30,992 - INFO - Student Mohamadi Tiendrebeogo imported successfully.
+2025-01-14 23:39:31,019 - INFO - Student W. Epiphane Tiendrebeogo imported successfully.
+2025-01-14 23:39:31,045 - INFO - Student Abdoul Maguid Tonde imported successfully.
+2025-01-14 23:39:31,067 - INFO - Student Moctar Traore imported successfully.
+2025-01-14 23:39:31,087 - INFO - Student Salahoudine Zabre imported successfully.
+2025-01-14 23:39:31,105 - INFO - Student W. Abdoul Maguid Zombre imported successfully.
+2025-01-14 23:39:31,123 - INFO - Student Abdoul Nassirou Zoungrana imported successfully.
+2025-01-14 23:39:31,143 - INFO - Student R. Isidore Zoungrana imported successfully.
+2025-01-14 23:39:31,162 - INFO - Student W. Adja Rasma Zoungrana imported successfully.
+2025-01-14 23:39:31,182 - INFO - Student Grace Solène Baga imported successfully.
+2025-01-14 23:39:31,200 - INFO - Student Claudine Bama imported successfully.
+2025-01-14 23:39:31,218 - INFO - Student Yidempen Victor Bationo imported successfully.
+2025-01-14 23:39:31,239 - INFO - Student Abdoul Fatao Bonsa imported successfully.
+2025-01-14 23:39:31,261 - INFO - Student Oumoul Haimane Compaore imported successfully.
+2025-01-14 23:39:31,281 - INFO - Student S G Ornela Compaore imported successfully.
+2025-01-14 23:39:31,312 - INFO - Student Sougrinooma Rachid Dondasse imported successfully.
+2025-01-14 23:39:31,362 - INFO - Student Boubakare Gutema imported successfully.
+2025-01-14 23:39:31,394 - INFO - Student Luc Kabore imported successfully.
+2025-01-14 23:39:31,432 - INFO - Student Aliane Estelle Kinda imported successfully.
+2025-01-14 23:39:31,452 - INFO - Student Nafissatou Kinda imported successfully.
+2025-01-14 23:39:31,474 - INFO - Student W Fadel Koalaga imported successfully.
+2025-01-14 23:39:31,492 - INFO - Student Wenbénèdo Chadrack Moyenga imported successfully.
+2025-01-14 23:39:31,512 - INFO - Student T Gedalya Nana imported successfully.
+2025-01-14 23:39:31,531 - INFO - Student Wentoin Triphene Angela Nana imported successfully.
+2025-01-14 23:39:31,551 - INFO - Student Faiçal Ouedraogo imported successfully.
+2025-01-14 23:39:31,570 - INFO - Student Faizatou Ouedraogo imported successfully.
+2025-01-14 23:39:31,591 - INFO - Student Pègdwendé Natacha Ouedraogo imported successfully.
+2025-01-14 23:39:31,608 - INFO - Student Sophonie Sourwema imported successfully.
+2025-01-14 23:39:31,626 - INFO - Student D Ornela Thiombiano imported successfully.
+2025-01-14 23:39:31,647 - INFO - Student Ruthe Tiemtore imported successfully.
+2025-01-14 23:39:31,668 - INFO - Student Omar Soufiane Tiendrebeogo imported successfully.
+2025-01-14 23:39:31,691 - INFO - Student Fatimata Yameogo imported successfully.
+2025-01-14 23:39:31,714 - INFO - Student Cherifatou Bonkoungou imported successfully.
+2025-01-14 23:39:31,738 - INFO - Student Renaud Bonkoungou imported successfully.
+2025-01-14 23:39:31,761 - INFO - Student Wendpanga Clovis Bouda imported successfully.
+2025-01-14 23:39:31,783 - INFO - Student Rasmata Compaore imported successfully.
+2025-01-14 23:39:31,804 - INFO - Student Abdoul Mohamir Congo imported successfully.
+2025-01-14 23:39:31,825 - INFO - Student Mami Salamata Conombo imported successfully.
+2025-01-14 23:39:31,847 - INFO - Student Hamza Dimbone imported successfully.
+2025-01-14 23:39:31,869 - INFO - Student Lamoussa Marie Godelive Dipama imported successfully.
+2025-01-14 23:39:31,891 - INFO - Student Mohamadi Dipama imported successfully.
+2025-01-14 23:39:31,914 - INFO - Student Sougrinooma Patricia Dondasse imported successfully.
+2025-01-14 23:39:31,938 - INFO - Student Anoutoua Marie Imelda Gambapebou imported successfully.
+2025-01-14 23:39:31,962 - INFO - Student Kassoum Gouem imported successfully.
+2025-01-14 23:39:31,987 - INFO - Student Gouyire Olivier Gounabou imported successfully.
+2025-01-14 23:39:32,010 - INFO - Student Weykiga Rachel Gounabou imported successfully.
+2025-01-14 23:39:32,034 - INFO - Student Salam Ilboudo imported successfully.
+2025-01-14 23:39:32,057 - INFO - Student Wendpanga Alphee Kabore imported successfully.
+2025-01-14 23:39:32,087 - INFO - Student Sibdou Wendpoui Arielle Kombassere imported successfully.
+2025-01-14 23:39:32,115 - INFO - Student Wendpayande Aliatou Nacoulma imported successfully.
+2025-01-14 23:39:32,138 - INFO - Student Dora Grace Naguiabou imported successfully.
+2025-01-14 23:39:32,161 - INFO - Student Wendkouni Romaine Nana imported successfully.
+2025-01-14 23:39:32,186 - INFO - Student Beneba Bryan Christian Nare imported successfully.
+2025-01-14 23:39:32,210 - INFO - Student Elodie Betinia Nikiema imported successfully.
+2025-01-14 23:39:32,236 - INFO - Student Sidbewendin Nikiema imported successfully.
+2025-01-14 23:39:32,257 - INFO - Student Wendkouni Emeline Nikiema imported successfully.
+2025-01-14 23:39:32,276 - INFO - Student Nathanael Ouedraogo imported successfully.
+2025-01-14 23:39:32,298 - INFO - Student Wend Kouni Emelienne Leiticia Rouamba imported successfully.
+2025-01-14 23:39:32,316 - INFO - Student Abdoul Gaffar Sana imported successfully.
+2025-01-14 23:39:32,334 - INFO - Student Neimatou Sane imported successfully.
+2025-01-14 23:39:32,356 - INFO - Student Aliatou Sanfo imported successfully.
+2025-01-14 23:39:32,376 - INFO - Student W Jean Armel Sorgho imported successfully.
+2025-01-14 23:39:32,400 - INFO - Student Wendsoo Abdoul Aziz Samuel Tapsoba imported successfully.
+2025-01-14 23:39:32,425 - INFO - Student Amira Tassembedo imported successfully.
+2025-01-14 23:39:32,448 - INFO - Student Rachid Tassembedo imported successfully.
+2025-01-14 23:39:32,470 - INFO - Student Cheik Wanda Bilah Tiama imported successfully.
+2025-01-14 23:39:32,494 - INFO - Student Rakiswende Dimitri Tiendrebeogo imported successfully.
+2025-01-14 23:39:32,517 - INFO - Student Pendwende Esaie Tougma imported successfully.
+2025-01-14 23:39:32,540 - INFO - Student Pougdwende Elie Tougma imported successfully.
+2025-01-14 23:39:32,567 - INFO - Student Bousra Yougbare imported successfully.
+2025-01-14 23:39:32,590 - INFO - Student Cheik Tidiane Zampalegre imported successfully.
+2025-01-14 23:39:32,613 - INFO - Student Nasril Ismael Zone imported successfully.
+2025-01-14 23:39:32,637 - INFO - Student Arienne Zoumbare imported successfully.
+2025-01-14 23:39:32,662 - INFO - Student Elizabette Zoungrana imported successfully.
+2025-01-14 23:39:32,683 - INFO - Student Abdoul Hakim Guigma imported successfully.
+2025-01-14 23:39:32,703 - INFO - Student Fadilatou Sokondou imported successfully.
+2025-01-14 23:39:32,721 - INFO - Student Wendkouni Zekiza Bance imported successfully.
+2025-01-14 23:39:32,739 - INFO - Student Ousmane Ilboudo imported successfully.
+2025-01-14 23:39:32,760 - INFO - Student Dylan Emelie Kabore imported successfully.
+2025-01-14 23:39:32,782 - INFO - Student Roukiatou Nacoulma imported successfully.
+2025-01-14 23:39:32,806 - INFO - Student T David Ouedraogo imported successfully.
+2025-01-14 23:39:32,828 - INFO - Student Aimé Compaore imported successfully.
+2025-01-14 23:39:32,857 - INFO - Student Latifatou Compaore imported successfully.
+2025-01-14 23:39:32,888 - INFO - Student Wendkouni Prisca Anita Ilboudo imported successfully.
+2025-01-14 23:39:32,913 - INFO - Student Mohamadi Kiemtore imported successfully.
+2025-01-14 23:39:32,935 - INFO - Student Nadège Nikiema imported successfully.
+2025-01-14 23:39:32,958 - INFO - Student Nadine Nikiema imported successfully.
+2025-01-14 23:39:32,977 - INFO - Student Claire (Eric) Ouedraogo imported successfully.
+2025-01-14 23:39:32,999 - INFO - Student Wendraabo Marie Elodie Ouedraogo imported successfully.
+2025-01-14 23:39:33,019 - INFO - Student Abdoul Fatao Ouedraogo imported successfully.
+2025-01-14 23:39:33,038 - INFO - Student Olivia Pamtaba imported successfully.
+2025-01-14 23:39:33,060 - INFO - Student Abdoul Fatasse Tassembeodo imported successfully.
+2025-01-14 23:39:33,087 - INFO - Student T. Mohamadi Tiemtore imported successfully.
+2025-01-14 23:39:33,108 - INFO - Student Yiyeayo Dieumaide Claver Bationo imported successfully.
+2025-01-14 23:39:33,129 - INFO - Student Kiswendsida Stefania Kerene Belem imported successfully.
+2025-01-14 23:39:33,149 - INFO - Student Wend-Daabo Berekia Bonkoungou imported successfully.
+2025-01-14 23:39:33,167 - INFO - Student Oumou Koulsoum Bougoumpiga imported successfully.
+2025-01-14 23:39:33,185 - INFO - Student Boushra Compaore  imported successfully.
+2025-01-14 23:39:33,204 - INFO - Student Gloria Pingdwende Compaore  imported successfully.
+2025-01-14 23:39:33,224 - INFO - Student Wendtoin Alima Compaore  imported successfully.
+2025-01-14 23:39:33,246 - INFO - Student N. Gospel Compaore  imported successfully.
+2025-01-14 23:39:33,268 - INFO - Student Kiswendsida Salimata Ilboudo imported successfully.
+2025-01-14 23:39:33,290 - INFO - Student Oumoul Koulsoum Ilboudo imported successfully.
+2025-01-14 23:39:33,310 - INFO - Student Kaoussara Ilboudo imported successfully.
+2025-01-14 23:39:33,330 - INFO - Student Natacha Ilboudo imported successfully.
+2025-01-14 23:39:33,350 - INFO - Student Diane Larissa Kibora  imported successfully.
+2025-01-14 23:39:33,371 - INFO - Student Oumaïmatou Kiemtore imported successfully.
+2025-01-14 23:39:33,393 - INFO - Student Wend-puire Appollinaire Koudougou imported successfully.
+2025-01-14 23:39:33,420 - INFO - Student Esther Tresorine Pawendtaore Lompo imported successfully.
+2025-01-14 23:39:33,446 - INFO - Student Natacha Nadembega  imported successfully.
+2025-01-14 23:39:33,467 - INFO - Student Awa Mawadatou Ouedraogo  imported successfully.
+2025-01-14 23:39:33,489 - INFO - Student Patinde Dorcas Tabita Ouedraogo  imported successfully.
+2025-01-14 23:39:33,512 - INFO - Student Flavien Ouedraogo  imported successfully.
+2025-01-14 23:39:33,540 - INFO - Student Amsetou Ouedraogo  imported successfully.
+2025-01-14 23:39:33,573 - INFO - Student Panewende Said Moussine Ouedraogo  imported successfully.
+2025-01-14 23:39:33,602 - INFO - Student Sahadatou Tamalgo  imported successfully.
+2025-01-14 23:39:33,628 - INFO - Student Roukiatou Tapsoba  imported successfully.
+2025-01-14 23:39:33,648 - INFO - Student Pawendtaore Nathan Tiendrebeogo imported successfully.
+2025-01-14 23:39:33,670 - INFO - Student Pengwende Jonas Tonde  imported successfully.
+2025-01-14 23:39:33,691 - INFO - Student Oumoul Salim Tonde  imported successfully.
+2025-01-14 23:39:33,710 - INFO - Student Regis Yannick Ariel Yameogo  imported successfully.
+2025-01-14 23:39:33,729 - INFO - Student Youssouf Yoda  imported successfully.
+2025-01-14 23:39:33,751 - INFO - Student Abdoul Samade Zoungrana  imported successfully.
+2025-01-14 23:39:33,772 - INFO - Student Abdoul faiçal Congo  imported successfully.
+2025-01-14 23:39:33,790 - INFO - Student Ashraf Bance  imported successfully.
+2025-01-14 23:39:33,809 - INFO - Student Aymar Alphaniste Bazie imported successfully.
+2025-01-14 23:39:33,829 - INFO - Student Sylvie Wenian Boungoutongo imported successfully.
+2025-01-14 23:39:33,848 - INFO - Student Weyira Miracle Loïs Colompare  imported successfully.
+2025-01-14 23:39:33,871 - INFO - Student benewende Mathis Arthur Compaore  imported successfully.
+2025-01-14 23:39:33,891 - INFO - Student Abdoul Shakour Compaore  imported successfully.
+2025-01-14 23:39:33,915 - INFO - Student Abdoul Akim Compaore  imported successfully.
+2025-01-14 23:39:33,939 - INFO - Student Abdoul Fatah Denne  imported successfully.
+2025-01-14 23:39:33,960 - INFO - Student Samadou Guigma  imported successfully.
+2025-01-14 23:39:33,983 - INFO - Student Evariste Wendlassida Ilboudo imported successfully.
+2025-01-14 23:39:34,008 - INFO - Student Raïssa Ilboudo imported successfully.
+2025-01-14 23:39:34,031 - INFO - Student Nafissatou Ilboudo imported successfully.
+2025-01-14 23:39:34,055 - INFO - Student Kiswend-sida Marie Armel Ilboudo imported successfully.
+2025-01-14 23:39:34,077 - INFO - Student Auriane Ilboudo imported successfully.
+2025-01-14 23:39:34,100 - INFO - Student Oumounaïchata Kabore  imported successfully.
+2025-01-14 23:39:34,122 - INFO - Student Maïcharatou Kazienga  imported successfully.
+2025-01-14 23:39:34,147 - INFO - Student Ouibissma Cherifa Andrea Kazoni imported successfully.
+2025-01-14 23:39:34,170 - INFO - Student Wend-So Charles le-Bon Kiema  imported successfully.
+2025-01-14 23:39:34,192 - INFO - Student Josue Isidore Kiema  imported successfully.
+2025-01-14 23:39:34,215 - INFO - Student Wendpanga Eric Kiemde  imported successfully.
+2025-01-14 23:39:34,237 - INFO - Student Awoula Mélissa Koara imported successfully.
+2025-01-14 23:39:34,257 - INFO - Student Josiane Natama imported successfully.
+2025-01-14 23:39:34,280 - INFO - Student Ouessono Kevin Nion  imported successfully.
+2025-01-14 23:39:34,305 - INFO - Student Felicia Sindinmanegda  Ouedraogo  imported successfully.
+2025-01-14 23:39:34,331 - INFO - Student Camille Rayimwende Ouedraogo  imported successfully.
+2025-01-14 23:39:34,352 - INFO - Student Rachidatou Ouedraogo  imported successfully.
+2025-01-14 23:39:34,375 - INFO - Student Ouehipe Isosidore Ghislain Oussale  imported successfully.
+2025-01-14 23:39:34,406 - INFO - Student Sofiane Sam  imported successfully.
+2025-01-14 23:39:34,433 - INFO - Student Glwadys Marie Wendtoin Savadogo  imported successfully.
+2025-01-14 23:39:34,461 - INFO - Student Apolinnaire Wilfried Wamalgda Sawadogo  imported successfully.
+2025-01-14 23:39:34,488 - INFO - Student Houzaifa Sawadogo  imported successfully.
+2025-01-14 23:39:34,511 - INFO - Student Wendbenedo Abdoul Manane Semde  imported successfully.
+2025-01-14 23:39:34,531 - INFO - Student Benabala Murielle Some imported successfully.
+2025-01-14 23:39:34,551 - INFO - Student Abdoul Gani Sore  imported successfully.
+2025-01-14 23:39:34,570 - INFO - Student Faizatou  Tapsoba  imported successfully.
+2025-01-14 23:39:34,588 - INFO - Student Barnabé Tapsoba  imported successfully.
+2025-01-14 23:39:34,607 - INFO - Student Wendso Christ-vie Tiendrebeogo imported successfully.
+2025-01-14 23:39:34,625 - INFO - Student Assaloue Boris Tigasse  imported successfully.
+2025-01-14 23:39:34,644 - INFO - Student Emmanuel Ramadan Yougbare imported successfully.
+2025-01-14 23:39:34,662 - INFO - Student Bernich Gouba  imported successfully.
+2025-01-14 23:39:34,681 - INFO - Student Aminata  Lengane  imported successfully.
+2025-01-14 23:39:34,702 - INFO - Student Neimatou Bere  imported successfully.
+2025-01-14 23:39:34,724 - INFO - Student G. Steve Vladimir Bouda  imported successfully.
+2025-01-14 23:39:34,745 - INFO - Student Abdoul Malick Congo  imported successfully.
+2025-01-14 23:39:34,769 - INFO - Student Wenddenda Aaliatou Guigma  imported successfully.
+2025-01-14 23:39:34,793 - INFO - Student Letta Donatienne Kinda  imported successfully.
+2025-01-14 23:39:34,818 - INFO - Student Assagribouga Damien Ulrich Kotani  imported successfully.
+2025-01-14 23:39:34,842 - INFO - Student Daouda Sokondou imported successfully.
+2025-01-14 23:39:34,865 - INFO - Student Paligwende Djemilatou Sorgho imported successfully.
+2025-01-14 23:39:34,887 - INFO - Student Houdimatou Souly  imported successfully.
+2025-01-14 23:39:34,909 - INFO - Student Isidore Zabpaodre  imported successfully.
+2025-01-14 23:39:34,931 - INFO - Student Oumoul Koulsoum Bikienga imported successfully.
+2025-01-14 23:39:34,953 - INFO - Student Nouriatou Rabo imported successfully.
+2025-01-14 23:39:34,975 - INFO - Student Mohamed Nouridine Sana imported successfully.
+2025-01-14 23:39:35,001 - INFO - Student Risnata Simpore imported successfully.
+2025-01-14 23:39:35,025 - INFO - Student W. Josias Tiemtore imported successfully.
+2025-01-14 23:39:35,046 - INFO - Student Yasmine Tiemtore imported successfully.
+2025-01-14 23:39:35,068 - INFO - Student Wendkouni Eben-Ezer Tiendrebeogo imported successfully.
+2025-01-14 23:39:35,088 - INFO - Student Aisseta Tonde imported successfully.
+2025-01-14 23:39:35,107 - INFO - Student W. Ezzidine Tougma imported successfully.
+2025-01-14 23:39:35,128 - INFO - Student Richard Yoda imported successfully.
+2025-01-14 23:39:35,159 - INFO - Student Hamdane Zangre imported successfully.
+2025-01-14 23:39:35,188 - INFO - Student Awa Zongo imported successfully.
+2025-01-14 23:39:35,218 - INFO - Student Abdoul Waris Zoungrana imported successfully.
+2025-01-14 23:39:35,246 - INFO - Student Yves Cedec Baga imported successfully.
+2025-01-14 23:39:35,280 - INFO - Student Bertin Bama imported successfully.
+2025-01-14 23:39:35,307 - INFO - Student Bertrand Bama imported successfully.
+2025-01-14 23:39:35,325 - INFO - Student Xavier Bationo imported successfully.
+2025-01-14 23:39:35,354 - INFO - Student Cheick Mohamed Belem imported successfully.
+2025-01-14 23:39:35,373 - INFO - Student Samsoudine Comapaore imported successfully.
+2025-01-14 23:39:35,392 - INFO - Student Oumaimatou Congo imported successfully.
+2025-01-14 23:39:35,411 - INFO - Student Ismael Goumbane imported successfully.
+2025-01-14 23:39:35,430 - INFO - Student Abdoul Maguid Guira imported successfully.
+2025-01-14 23:39:35,453 - INFO - Student Alizeta Wend-Benedo Amiratou Kabore imported successfully.
+2025-01-14 23:39:35,473 - INFO - Student Sakinatou Kiendrebeogo imported successfully.
+2025-01-14 23:39:35,491 - INFO - Student Aboubacar Sidiki Kinda imported successfully.
+2025-01-14 23:39:35,511 - INFO - Student Patindé Ridwane Lalsaga imported successfully.
+2025-01-14 23:39:35,532 - INFO - Student Fahimatou Nacoulma imported successfully.
+2025-01-14 23:39:35,553 - INFO - Student Maifiai Pargnade imported successfully.
+2025-01-14 23:39:35,575 - INFO - Student Wendyam Jorus Aubin Taita imported successfully.
+2025-01-14 23:39:35,598 - INFO - Student Bibata Tapsoba imported successfully.
+2025-01-14 23:39:35,622 - INFO - Student Zinhounsou Aymane Wandaogo imported successfully.
+2025-01-14 23:39:35,645 - INFO - Student Mohamed Bachir Yalwe imported successfully.
+2025-01-14 23:39:35,669 - INFO - Student Abdoul Mohamine Zoungrana imported successfully.
+2025-01-14 23:39:35,693 - INFO - Student Arnaud Bazie imported successfully.
+2025-01-14 23:39:35,717 - INFO - Student Prisca Compaore imported successfully.
+2025-01-14 23:39:35,737 - INFO - Student Abraham Conombo imported successfully.
+2025-01-14 23:39:35,759 - INFO - Student Cherif Mpa Amine Fofana  imported successfully.
+2025-01-14 23:39:35,779 - INFO - Student Adboul Alim Guigma imported successfully.
+2025-01-14 23:39:35,801 - INFO - Student Moubarack Guigma imported successfully.
+2025-01-14 23:39:35,826 - INFO - Student Abdoul Halim 2eme jumeau Guigma  imported successfully.
+2025-01-14 23:39:35,847 - INFO - Student Aliyatou Ilboudo imported successfully.
+2025-01-14 23:39:35,870 - INFO - Student Arthur Ilboudo imported successfully.
+2025-01-14 23:39:35,894 - INFO - Student Ange Nacoulma imported successfully.
+2025-01-14 23:39:35,916 - INFO - Student Angela Nacoulma imported successfully.
+2025-01-14 23:39:35,934 - INFO - Student Laureine Nikiema imported successfully.
+2025-01-14 23:39:35,957 - INFO - Student Samira Nikiema imported successfully.
+2025-01-14 23:39:35,978 - INFO - Student Abdoul Djalilou Ouedraogo imported successfully.
+2025-01-14 23:39:36,001 - INFO - Student Wendyame Beatrice Ouedraogo imported successfully.
+2025-01-14 23:39:36,024 - INFO - Student Roukietou Ouedraogo imported successfully.
+2025-01-14 23:39:36,046 - INFO - Student Lydie Pargnande imported successfully.
+2025-01-14 23:39:36,069 - INFO - Student Oumoul Salim Sawadogo imported successfully.
+2025-01-14 23:39:36,092 - INFO - Student Nebnow Salvador Casimir Some imported successfully.
+2025-01-14 23:39:36,115 - INFO - Student Abdoul Mohamine Soudre imported successfully.
+2025-01-14 23:39:36,139 - INFO - Student Latifatou Soulga imported successfully.
+2025-01-14 23:39:36,160 - INFO - Student Bachirou Tapsoba imported successfully.
+2025-01-14 23:39:36,185 - INFO - Student Abdoul Ganilou Tiendrebeogo imported successfully.
+2025-01-14 23:39:36,212 - INFO - Student Soulemane Zoungrana imported successfully.
+2025-01-14 23:39:36,250 - INFO - Student Bernard Badiel imported successfully.
+2025-01-14 23:39:36,279 - INFO - Student Jehovanie Bationo imported successfully.
+2025-01-14 23:39:36,302 - INFO - Student Jean Gregoire Marie Bouda imported successfully.
+2025-01-14 23:39:36,324 - INFO - Student Balguissou Compaore imported successfully.
+2025-01-14 23:39:36,343 - INFO - Student Rihanata Compaore imported successfully.
+2025-01-14 23:39:36,363 - INFO - Student Alimata Sadia Compaore imported successfully.
+2025-01-14 23:39:36,385 - INFO - Student Abdoul Gani Congo imported successfully.
+2025-01-14 23:39:36,405 - INFO - Student Faouzia Congo imported successfully.
+2025-01-14 23:39:36,425 - INFO - Student Ulrich Gansonre imported successfully.
+2025-01-14 23:39:36,449 - INFO - Student Abdoul Aziz Kibsa  Ilboudo imported successfully.
+2025-01-14 23:39:36,473 - INFO - Student Divine Kabore imported successfully.
+2025-01-14 23:39:36,491 - INFO - Student Guestawende Arthur Kabore imported successfully.
+2025-01-14 23:39:36,511 - INFO - Student Elise Kabre imported successfully.
+2025-01-14 23:39:36,534 - INFO - Student Nadia Kinda imported successfully.
+2025-01-14 23:39:36,557 - INFO - Student Pengdwende Stella Emelie Kinda imported successfully.
+2025-01-14 23:39:36,580 - INFO - Student Zoulhatou Koanda imported successfully.
+2025-01-14 23:39:36,602 - INFO - Student Issouf Lengani imported successfully.
+2025-01-14 23:39:36,622 - INFO - Student Rafiatou Nacoulma imported successfully.
+2025-01-14 23:39:36,644 - INFO - Student Abdou Onadja imported successfully.
+2025-01-14 23:39:36,663 - INFO - Student Deborah Tinwende Ouedraogo imported successfully.
+2025-01-14 23:39:36,682 - INFO - Student Moazou Ouedraogo imported successfully.
+2025-01-14 23:39:36,705 - INFO - Student Cheick Moubarack Ouedraogo imported successfully.
+2025-01-14 23:39:36,725 - INFO - Student Larissa Sanou imported successfully.
+2025-01-14 23:39:36,748 - INFO - Student Wafa Sare imported successfully.
+2025-01-14 23:39:36,771 - INFO - Student Abdoul Alim Tassembedo imported successfully.
+2025-01-14 23:39:36,798 - INFO - Student Aimane Zoungrana imported successfully.
+2025-01-14 23:39:36,823 - INFO - Student Fulbert Belemsigri imported successfully.
+2025-01-14 23:39:36,848 - INFO - Student Azrat Bint Baky Fofana  imported successfully.
+2025-01-14 23:39:36,871 - INFO - Student Moustapha Guigma imported successfully.
+2025-01-14 23:39:36,889 - INFO - Student Latifatou Ilboudo imported successfully.
+2025-01-14 23:39:36,910 - INFO - Student Aminata Dorcas Kabre imported successfully.
+2025-01-14 23:39:36,933 - INFO - Student Wenddata Franck Kiema imported successfully.
+2025-01-14 23:39:36,955 - INFO - Student Wend Kouni Laure Aurelie Kiema imported successfully.
+2025-01-14 23:39:36,979 - INFO - Student Kenza Fadila Kinda imported successfully.
+2025-01-14 23:39:37,002 - INFO - Student Mamaga Charlotte Kora imported successfully.
+2025-01-14 23:39:37,025 - INFO - Student Abdoul Salam Lengani imported successfully.
+2025-01-14 23:39:37,048 - INFO - Student Farilatou Monéan imported successfully.
+2025-01-14 23:39:37,072 - INFO - Student Pegwende Abdoul Fatao Nacoulma imported successfully.
+2025-01-14 23:39:37,094 - INFO - Student Rayanguenewende Lucienne Nacoulma imported successfully.
+2025-01-14 23:39:37,117 - INFO - Student Sheik Ousmane Tamba Onadja imported successfully.
+2025-01-14 23:39:37,147 - INFO - Student Soumaya Ouedraogo imported successfully.
+2025-01-14 23:39:37,174 - INFO - Student Rachidatou Passere imported successfully.
+2025-01-14 23:39:37,206 - INFO - Student Oumou Salim Dabo imported successfully.
+2025-01-14 23:39:37,230 - INFO - Student Abdoul Rachid Sana  imported successfully.
+2025-01-14 23:39:37,250 - INFO - Student Assana Sawadogo imported successfully.
+2025-01-14 23:39:37,271 - INFO - Student Rachidatou Sawadogo imported successfully.
+2025-01-14 23:39:37,290 - INFO - Student Sambe Evrad Some imported successfully.
+2025-01-14 23:39:37,312 - INFO - Student Amdiatou Tapsoba imported successfully.
+2025-01-14 23:39:37,330 - INFO - Student San Yacouba Traore imported successfully.
+2025-01-14 23:39:37,348 - INFO - Student Sarifatou Yameogo imported successfully.
+2025-01-14 23:39:37,368 - INFO - Student Francis Yoda imported successfully.
+2025-01-14 23:39:37,386 - INFO - Student Guiemilatou Yonli imported successfully.
+2025-01-14 23:39:37,407 - INFO - Student Abdoul Rahim Zangre imported successfully.
+2025-01-14 23:39:37,427 - INFO - Student Mohamed Zorome imported successfully.
+2025-01-14 23:39:37,449 - INFO - Student Awa Zoungrana imported successfully.
+2025-01-14 23:39:37,484 - INFO - Student Maimounata Zoungrana imported successfully.
+2025-01-14 23:39:37,519 - INFO - Student Wendkato Prisca Dorcas Zoungrana imported successfully.
+2025-01-14 23:39:37,540 - INFO - Student Aisseta Zoungrana imported successfully.
+2025-01-14 23:39:37,561 - INFO - Student Kaoue Loreine 1ere jumelle  Kotani  imported successfully.
+2025-01-14 23:39:37,580 - INFO - Student Cherif Sondé Moussa Traore  imported successfully.
+2025-01-14 23:39:37,599 - INFO - Student Akiwele Fabrice dit Belgo Alcosse  imported successfully.
+2025-01-14 23:39:37,620 - INFO - Student Wenyim Josiane Triomphe Atibie imported successfully.
+2025-01-14 23:39:37,639 - INFO - Student Wendenda Benania Balma  imported successfully.
+2025-01-14 23:39:37,660 - INFO - Student Amir Balma  imported successfully.
+2025-01-14 23:39:37,682 - INFO - Student Wendinso Adriell Compaore  imported successfully.
+2025-01-14 23:39:37,706 - INFO - Student Rachidatou Deme  imported successfully.
+2025-01-14 23:39:37,729 - INFO - Student Maria  Gouba  imported successfully.
+2025-01-14 23:39:37,751 - INFO - Student Landry Ulrich  Ilboudo  imported successfully.
+2025-01-14 23:39:37,775 - INFO - Student Wendyam Joseph Ivan  Ilboudo  imported successfully.
+2025-01-14 23:39:37,796 - INFO - Student Nelsonne  Ilboudo  imported successfully.
+2025-01-14 23:39:37,820 - INFO - Student kIswendssida Christ Ilboudo  imported successfully.
+2025-01-14 23:39:37,842 - INFO - Student Rayane  Kabore  imported successfully.
+2025-01-14 23:39:37,866 - INFO - Student Seraphine Djelika Kabore  imported successfully.
+2025-01-14 23:39:37,889 - INFO - Student Abdoul Razack Kabre  imported successfully.
+2025-01-14 23:39:37,913 - INFO - Student Kiswendssida Jacques Kagambega  imported successfully.
+2025-01-14 23:39:37,940 - INFO - Student Abdoul Maguid  Kiendrebeogo imported successfully.
+2025-01-14 23:39:37,980 - INFO - Student Grace Divine  Kontogom imported successfully.
+2025-01-14 23:39:38,011 - INFO - Student Wepooni Eleazar Josue Koubatora  imported successfully.
+2025-01-14 23:39:38,031 - INFO - Student Anekogo Jerome  Lirasse  imported successfully.
+2025-01-14 23:39:38,057 - INFO - Student Naomie Bienvenue Nana  imported successfully.
+2025-01-14 23:39:38,077 - INFO - Student Wend-Kuni Ibrahim Nikiema  imported successfully.
+2025-01-14 23:39:38,097 - INFO - Student Pawendtaore Ulrich Junior Nikiema  imported successfully.
+2025-01-14 23:39:38,123 - INFO - Student Wendtoin Nohan Anicet Nikiema  imported successfully.
+2025-01-14 23:39:38,143 - INFO - Student Arsene  Nikiema  imported successfully.
+2025-01-14 23:39:38,162 - INFO - Student Mohamed Fadel  Sana  imported successfully.
+2025-01-14 23:39:38,181 - INFO - Student Mohamed Amin Sana  imported successfully.
+2025-01-14 23:39:38,199 - INFO - Student Sougr-Nooma Abdoul Nassir  Sawadogo  imported successfully.
+2025-01-14 23:39:38,219 - INFO - Student Wendinsongdé Bienvenue Sawadogo  imported successfully.
+2025-01-14 23:39:38,237 - INFO - Student Salam  Sawadogo  imported successfully.
+2025-01-14 23:39:38,256 - INFO - Student Maissaratou Sawadogo  imported successfully.
+2025-01-14 23:39:38,276 - INFO - Student Cheick Ibrahim Simpore  imported successfully.
+2025-01-14 23:39:38,298 - INFO - Student Aroune Mohamed Assad Yiyandin Soulia  imported successfully.
+2025-01-14 23:39:38,319 - INFO - Student Abdoul Maguid  Tassembedo  imported successfully.
+2025-01-14 23:39:38,342 - INFO - Student Abdoul Waagid Tassembedo  imported successfully.
+2025-01-14 23:39:38,365 - INFO - Student Wendpanga Hicham Edem Sunrise Tiema  imported successfully.
+2025-01-14 23:39:38,386 - INFO - Student Gueswende Giovany Tiemtore  imported successfully.
+2025-01-14 23:39:38,408 - INFO - Student Wend-vie Betsaleel Tiemtore  imported successfully.
+2025-01-14 23:39:38,429 - INFO - Student Cephas Tompeglem imported successfully.
+2025-01-14 23:39:38,450 - INFO - Student Abdoul Moumouni Yaogo  imported successfully.
+2025-01-14 23:39:38,474 - INFO - Student Stephane Wendkuni Zabre  imported successfully.
+2025-01-14 23:39:38,498 - INFO - Student Rihanata  Zedouma  imported successfully.
+2025-01-14 23:39:38,531 - INFO - Student Yissono Audrey Oceanne Zongo imported successfully.
+2025-01-14 23:39:38,553 - INFO - Student Elie Yipene Zongo imported successfully.
+2025-01-14 23:39:38,574 - INFO - Student Ibrahim  Zoungrana  imported successfully.
+2025-01-14 23:39:38,597 - INFO - Student Amir Mouhminine Sore  imported successfully.
+2025-01-14 23:39:38,620 - INFO - Student Ousseni Zalle  imported successfully.
+2025-01-14 23:39:38,645 - INFO - Student Mawada Wa Rahma Compaore  imported successfully.
+2025-01-14 23:39:38,668 - INFO - Student Ida  Mien imported successfully.
+2025-01-14 23:39:38,691 - INFO - Student Tangui Dipama  imported successfully.
+2025-01-14 23:39:38,715 - INFO - Student Corneille Severin Koula  imported successfully.
+2025-01-14 23:39:38,739 - INFO - Student Payangdé Abdoul Youssouf Ouedraogo  imported successfully.
+2025-01-14 23:39:38,764 - INFO - Student Aissèta  Ouedraogo  imported successfully.
+2025-01-14 23:39:38,789 - INFO - Student Wendkouni Sylvain  Sirima  imported successfully.
+2025-01-14 23:39:38,816 - INFO - Student Franck Wendpouire Zoundi imported successfully.
+2025-01-14 23:39:38,866 - INFO - Student Abdoul Latif Compaore  imported successfully.
+2025-01-14 23:39:38,901 - INFO - Student Ibrahim  Ouedraogo imported successfully.
+2025-01-14 23:39:38,936 - INFO - Student Nouriata Sawadogo  imported successfully.
+2025-01-14 23:39:38,972 - INFO - Student Abdoul Nourou Sawadogo  imported successfully.
+2025-01-14 23:39:38,998 - INFO - Student Arianne Amsetou Dao  imported successfully.
+2025-01-14 23:39:39,023 - INFO - Student Wend-daabo Clotilde Nana  imported successfully.
+2025-01-14 23:39:39,053 - INFO - Student Bali Epiphanie Yann Siemde imported successfully.
+2025-01-14 23:39:39,076 - INFO - Student Arsene Wendtoin Zoundi  imported successfully.
+2025-01-14 23:39:39,095 - INFO - Student Moussa  Dabo  imported successfully.
+2025-01-14 23:39:39,114 - INFO - Student Bnewendé Christ Armel Nikiema  imported successfully.
+2025-01-14 23:39:39,133 - INFO - Student Nouria Déborah Traore  imported successfully.
+2025-01-14 23:39:39,153 - INFO - Student Jovani  Ouedraogo  imported successfully.
+2025-01-14 23:39:39,175 - INFO - Student Wend Songda Serge Baga imported successfully.
+2025-01-14 23:39:39,193 - INFO - Student Fatimata  Koanda  imported successfully.
+2025-01-14 23:39:39,212 - INFO - Student Saidou Koanda  imported successfully.
+2025-01-14 23:39:39,232 - INFO - Student Wendkouni Ruth  Ouedraogo  imported successfully.
+2025-01-14 23:39:39,255 - INFO - Student Neimatou Ouedraogo imported successfully.
+2025-01-14 23:39:39,277 - INFO - Student Mohaiminatou Lengani  imported successfully.
+2025-01-14 23:39:39,298 - INFO - Student Lady Sarah Wendkuni Sawadogo  imported successfully.
+2025-01-14 23:39:39,320 - INFO - Student Nonguisida Abdoulaye Ouedraogo imported successfully.
+2025-01-14 23:39:39,340 - INFO - Student Ulrich Bouda imported successfully.
+2025-01-14 23:39:39,361 - INFO - Student Tetoi Salim Traore imported successfully.
+2025-01-14 23:39:39,383 - INFO - Student Tefiè Mouslim Traore  imported successfully.
+2025-01-14 23:39:39,402 - INFO - Student Abdoull Latif Babine  imported successfully.
+2025-01-14 23:39:39,422 - INFO - Student Yasmina Kouda imported successfully.
+2025-01-14 23:39:39,441 - INFO - Student Abdoul Said Rayanemanegré Nikiema  imported successfully.
+2025-01-14 23:39:39,459 - INFO - Student Mohamadi Oueda  imported successfully.
+2025-01-14 23:39:39,477 - INFO - Student Rabiatou Bilgo imported successfully.
+2025-01-14 23:39:39,499 - INFO - Student Abdoul Bassit  Sane  imported successfully.
+2025-01-14 23:39:39,528 - INFO - Student Fadilatou Yaogo  imported successfully.
+2025-01-14 23:39:39,553 - INFO - Student Mohamadi  Pelegsonre  imported successfully.
+2025-01-14 23:39:39,581 - INFO - Student Marie Rose Remtounda  imported successfully.
+2025-01-14 23:39:39,610 - INFO - Student Wenttoin Tabita Lenglengue  imported successfully.
+2025-01-14 23:39:39,637 - INFO - Student Wemmatou Saouratou Gomgnimbou imported successfully.
+2025-01-14 23:39:39,662 - INFO - Student Nina wendinsso Sawadogo  imported successfully.
+2025-01-14 23:39:39,683 - INFO - Student Carlos Wendkouni Isidore Zoungrana  imported successfully.
+2025-01-14 23:39:39,711 - INFO - Student Josue Kabore imported successfully.
+2025-01-14 23:39:39,732 - INFO - Student Ramadane Bagyan imported successfully.
+2025-01-14 23:39:39,751 - INFO - Student Youshratou Bonkoungou imported successfully.
+2025-01-14 23:39:39,773 - INFO - Student Kamel Bonzi imported successfully.
+2025-01-14 23:39:39,793 - INFO - Student Cheick Mohazou Boulio imported successfully.
+2025-01-14 23:39:39,809 - INFO - Student Abdoul Halim Compaore imported successfully.
+2025-01-14 23:39:39,827 - INFO - Student Cheick Oumar Mohamed Congo imported successfully.
+2025-01-14 23:39:39,846 - INFO - Student Pokiadi Oubedatou Diaouara imported successfully.
+2025-01-14 23:39:39,868 - INFO - Student Leonel Dondance imported successfully.
+2025-01-14 23:39:39,890 - INFO - Student Abdoul Kader Guigma imported successfully.
+2025-01-14 23:39:39,916 - INFO - Student Ridwane Guira imported successfully.
+2025-01-14 23:39:39,942 - INFO - Student Balkissa Ilboudo imported successfully.
+2025-01-14 23:39:39,964 - INFO - Student Arsene Ilboudo imported successfully.
+2025-01-14 23:39:39,989 - INFO - Student Latifatou Ilboudo imported successfully.
+2025-01-14 23:39:40,013 - INFO - Student Soumaya Ilboudo imported successfully.
+2025-01-14 23:39:40,037 - INFO - Student Absetou Ilboudo imported successfully.
+2025-01-14 23:39:40,062 - INFO - Student Mohazou Kabore imported successfully.
+2025-01-14 23:39:40,083 - INFO - Student Sabane Kabore imported successfully.
+2025-01-14 23:39:40,106 - INFO - Student Sidbewende Severin Kabore imported successfully.
+2025-01-14 23:39:40,132 - INFO - Student Aminata Kafando imported successfully.
+2025-01-14 23:39:40,160 - INFO - Student Delwende Tatiana Yvette Kologo imported successfully.
+2025-01-14 23:39:40,182 - INFO - Student Nabou Mariam Lengane imported successfully.
+2025-01-14 23:39:40,207 - INFO - Student Assane Niaone imported successfully.
+2025-01-14 23:39:40,230 - INFO - Student Salif Nikiema imported successfully.
+2025-01-14 23:39:40,256 - INFO - Student Levis Nikiema imported successfully.
+2025-01-14 23:39:40,280 - INFO - Student Moudjahed Djasibo Onadja imported successfully.
+2025-01-14 23:39:40,300 - INFO - Student Patrice Ouedraogo imported successfully.
+2025-01-14 23:39:40,324 - INFO - Student W. Elza Josephine Ouedraogo imported successfully.
+2025-01-14 23:39:40,350 - INFO - Student Alida Doriane Ouedraogo imported successfully.
+2025-01-14 23:39:40,373 - INFO - Student Daouda Ouedraogo imported successfully.
+2025-01-14 23:39:40,394 - INFO - Student Abdoul Fataof Rabo imported successfully.
+2025-01-14 23:39:40,413 - INFO - Student Absatou Sawadogo imported successfully.
+2025-01-14 23:39:40,433 - INFO - Student Mohamed Amine Sawadogo imported successfully.
+2025-01-14 23:39:40,454 - INFO - Student Anna Gracia Tenkodogo imported successfully.
+2025-01-14 23:39:40,481 - INFO - Student P. Jeannette Thiombiano imported successfully.
+2025-01-14 23:39:40,499 - INFO - Student Naïla Yoda imported successfully.
+2025-01-14 23:39:40,518 - INFO - Student Bouchira Yougbare imported successfully.
+2025-01-14 23:39:40,539 - INFO - Student Sayouba Zongo imported successfully.
+2025-01-14 23:39:40,564 - INFO - Student Stanislas Zoundi imported successfully.
+2025-01-14 23:39:40,585 - INFO - Student Abdoul Galilou Zoungrana imported successfully.
+2025-01-14 23:39:40,611 - INFO - Student Abdoul Maguid Zoungrana imported successfully.
+2025-01-14 23:39:40,635 - INFO - Student Marthe Grace Baga imported successfully.
+2025-01-14 23:39:40,654 - INFO - Student Abdoul Moubarak Bere imported successfully.
+2025-01-14 23:39:40,678 - INFO - Student Desire Compaore imported successfully.
+2025-01-14 23:39:40,699 - INFO - Student Ah Ichata Compaore imported successfully.
+2025-01-14 23:39:40,718 - INFO - Student B. Moiazou Compaore imported successfully.
+2025-01-14 23:39:40,741 - INFO - Student Osias Compaore imported successfully.
+2025-01-14 23:39:40,764 - INFO - Student Aissata Conde imported successfully.
+2025-01-14 23:39:40,787 - INFO - Student Hardim Conombo imported successfully.
+2025-01-14 23:39:40,810 - INFO - Student Rasmatou Dondance imported successfully.
+2025-01-14 23:39:40,833 - INFO - Student Romaric Gambapebou imported successfully.
+2025-01-14 23:39:40,856 - INFO - Student Amidou Guebre imported successfully.
+2025-01-14 23:39:40,879 - INFO - Student Oviane Ilboudo imported successfully.
+2025-01-14 23:39:40,904 - INFO - Student Zoullaiha Ilboudo imported successfully.
+2025-01-14 23:39:40,926 - INFO - Student Romeo Kuela imported successfully.
+2025-01-14 23:39:40,946 - INFO - Student Ragep Lengani imported successfully.
+2025-01-14 23:39:40,970 - INFO - Student Bienvenue Monea imported successfully.
+2025-01-14 23:39:40,994 - INFO - Student Nestor Monia imported successfully.
+2025-01-14 23:39:41,018 - INFO - Student Assana Niaone imported successfully.
+2025-01-14 23:39:41,041 - INFO - Student Ghislain Nikiema imported successfully.
+2025-01-14 23:39:41,063 - INFO - Student Waliatou Sougrenoma Nikiema imported successfully.
+2025-01-14 23:39:41,083 - INFO - Student Mohamine Nikiema imported successfully.
+2025-01-14 23:39:41,104 - INFO - Student Daouda Ouanga imported successfully.
+2025-01-14 23:39:41,127 - INFO - Student Amsetou Ouedraogo imported successfully.
+2025-01-14 23:39:41,151 - INFO - Student Bassit Ouedraogo imported successfully.
+2025-01-14 23:39:41,179 - INFO - Student Moumouni Ouedraogo imported successfully.
+2025-01-14 23:39:41,200 - INFO - Student Charine Sougr Nooma Fedelia Ouedraogo imported successfully.
+2025-01-14 23:39:41,224 - INFO - Student Sarkyatou Ouedraogo imported successfully.
+2025-01-14 23:39:41,245 - INFO - Student Patindè Amdane Sawadogo imported successfully.
+2025-01-14 23:39:41,264 - INFO - Student Nadège Simpore imported successfully.
+2025-01-14 23:39:41,284 - INFO - Student Elie Tapsoba imported successfully.
+2025-01-14 23:39:41,313 - INFO - Student Elise 1Er Jumeau Tapsoba imported successfully.
+2025-01-14 23:39:41,338 - INFO - Student Cheick Oumar Tassembedo imported successfully.
+2025-01-14 23:39:41,360 - INFO - Student Lamoussa Rosine Tiemtore imported successfully.
+2025-01-14 23:39:41,380 - INFO - Student Aboubacar Tiendrebeogo imported successfully.
+2025-01-14 23:39:41,401 - INFO - Student Kabirou Yougbare imported successfully.
+2025-01-14 23:39:41,426 - INFO - Student Abdou Zampaligre imported successfully.
+2025-01-14 23:39:41,445 - INFO - Student Chonleo Nicole Zigani imported successfully.
+2025-01-14 23:39:41,467 - INFO - Student Isabelle Zoungrana imported successfully.
+2025-01-14 23:39:41,488 - INFO - Student Adissa Zoungrana imported successfully.
+2025-01-14 23:39:41,507 - INFO - Student Esther Adoua imported successfully.
+2025-01-14 23:39:41,526 - INFO - Student Emelie Baga imported successfully.
+2025-01-14 23:39:41,548 - INFO - Student Fadilatou Compaore imported successfully.
+2025-01-14 23:39:41,575 - INFO - Student W. Ferdinand Compaore imported successfully.
+2025-01-14 23:39:41,604 - INFO - Student Aisseta Compaore imported successfully.
+2025-01-14 23:39:41,628 - INFO - Student Amssetou Gouem imported successfully.
+2025-01-14 23:39:41,649 - INFO - Student Abdoul Farouk Ilboudo imported successfully.
+2025-01-14 23:39:41,669 - INFO - Student  Kiswendsida Amsetou Kabore imported successfully.
+2025-01-14 23:39:41,690 - INFO - Student Jean Bertrand Wendkouni Kabre imported successfully.
+2025-01-14 23:39:41,708 - INFO - Student T. Olga Kiema imported successfully.
+2025-01-14 23:39:41,727 - INFO - Student Anne Marie Kologo imported successfully.
+2025-01-14 23:39:41,748 - INFO - Student Grace Kouama imported successfully.
+2025-01-14 23:39:41,779 - INFO - Student Eveline Kueela imported successfully.
+2025-01-14 23:39:41,807 - INFO - Student Inoussa Nikiema imported successfully.
+2025-01-14 23:39:41,831 - INFO - Student Marie Elza Nikiema imported successfully.
+2025-01-14 23:39:41,852 - INFO - Student Moussa Nikiema imported successfully.
+2025-01-14 23:39:41,871 - INFO - Student Abdoul Aziz Ouandaogo imported successfully.
+2025-01-14 23:39:41,892 - INFO - Student Abdoul Fatao Ouedraogo imported successfully.
+2025-01-14 23:39:41,912 - INFO - Student Amidou Ouedraogo imported successfully.
+2025-01-14 23:39:41,936 - INFO - Student Clarisse Ouedraogo imported successfully.
+2025-01-14 23:39:41,962 - INFO - Student Oimaimatou Ouedraogo imported successfully.
+2025-01-14 23:39:41,989 - INFO - Student Wendinda Angela Ouedraogo imported successfully.
+2025-01-14 23:39:42,016 - INFO - Student Nadine Rouamba imported successfully.
+2025-01-14 23:39:42,038 - INFO - Student Marius Sandwidi imported successfully.
+2025-01-14 23:39:42,061 - INFO - Student Wendmi Mardia Sawadogo imported successfully.
+2025-01-14 23:39:42,095 - INFO - Student Asmao Sawadogo imported successfully.
+2025-01-14 23:39:42,120 - INFO - Student Harouna Sawadogo imported successfully.
+2025-01-14 23:39:42,150 - INFO - Student Souleymane Sawadogo imported successfully.
+2025-01-14 23:39:42,171 - INFO - Student Abdoul Maguide Silga imported successfully.
+2025-01-14 23:39:42,195 - INFO - Student Benewende Pamela Sobgo imported successfully.
+2025-01-14 23:39:42,218 - INFO - Student Abdoul Razack Sore imported successfully.
+2025-01-14 23:39:42,240 - INFO - Student Olivia Sorogo imported successfully.
+2025-01-14 23:39:42,259 - INFO - Student Amidou Tiemtore imported successfully.
+2025-01-14 23:39:42,281 - INFO - Student W. Azaël Tiendrebeogo imported successfully.
+2025-01-14 23:39:42,298 - INFO - Student Abdoul Bassite Togom imported successfully.
+2025-01-14 23:39:42,316 - INFO - Student Rasack Yonli imported successfully.
+2025-01-14 23:39:42,336 - INFO - Student Awa Toualo Houzaiphatou Zerbo imported successfully.
+2025-01-14 23:39:42,356 - INFO - Student Ezaquiele Zongo imported successfully.
+2025-01-14 23:39:42,375 - INFO - Student Amiratou Zorom imported successfully.
+2025-01-14 23:39:42,396 - INFO - Student Assia Zoungrana imported successfully.
+2025-01-14 23:39:42,417 - INFO - Student Stefanie Zoungrana imported successfully.
+2025-01-14 23:39:42,435 - INFO - Student Oumaïmatou Zoungrana imported successfully.
+2025-01-14 23:39:42,453 - INFO - Student Adama Zoungrana imported successfully.
+2025-01-14 23:39:42,472 - INFO - Student Hado Mouniratou Bagagnan imported successfully.
+2025-01-14 23:39:42,490 - INFO - Student Elisé Compaore imported successfully.
+2025-01-14 23:39:42,509 - INFO - Student Rachel Congo imported successfully.
+2025-01-14 23:39:42,530 - INFO - Student Salimatou Konombo imported successfully.
+2025-01-14 23:39:42,550 - INFO - Student Micheline Pegdwendé Dambre imported successfully.
+2025-01-14 23:39:42,573 - INFO - Student Bienvenue Wemdinso Dondasse imported successfully.
+2025-01-14 23:39:42,594 - INFO - Student Sahadatou Ilboudo imported successfully.
+2025-01-14 23:39:42,614 - INFO - Student P.Bienvenue Ilboudo imported successfully.
+2025-01-14 23:39:42,634 - INFO - Student Adjaratou Ilboudo imported successfully.
+2025-01-14 23:39:42,657 - INFO - Student Assiatou Kabore imported successfully.
+2025-01-14 23:39:42,689 - INFO - Student Simone Kabore imported successfully.
+2025-01-14 23:39:42,715 - INFO - Student Leila Kabore imported successfully.
+2025-01-14 23:39:42,735 - INFO - Student Tatiana Kiema imported successfully.
+2025-01-14 23:39:42,756 - INFO - Student Nouridine Kinda imported successfully.
+2025-01-14 23:39:42,779 - INFO - Student Jacqueline Kuela imported successfully.
+2025-01-14 23:39:42,808 - INFO - Student Barkwendé Veronique Nikiema imported successfully.
+2025-01-14 23:39:42,831 - INFO - Student Sandrine Nikiema imported successfully.
+2025-01-14 23:39:42,851 - INFO - Student Imael Ozias Ouedraogo imported successfully.
+2025-01-14 23:39:42,870 - INFO - Student W. A. Hamsa Ouedraogo imported successfully.
+2025-01-14 23:39:42,895 - INFO - Student Salif Ouedraogo imported successfully.
+2025-01-14 23:39:42,913 - INFO - Student Pierre Damien Sawadogo imported successfully.
+2025-01-14 23:39:42,933 - INFO - Student Florentin Sebego imported successfully.
+2025-01-14 23:39:42,954 - INFO - Student Souleymane Sebeogo imported successfully.
+2025-01-14 23:39:42,977 - INFO - Student Kaouchare Sore imported successfully.
+2025-01-14 23:39:42,999 - INFO - Student Sayouba Taita imported successfully.
+2025-01-14 23:39:43,020 - INFO - Student Diane Zabre imported successfully.
+2025-01-14 23:39:43,044 - INFO - Student Taibatou Zangre imported successfully.
+2025-01-14 23:39:43,064 - INFO - Payment for Fulbert Belemsigri imported successfully.
+2025-01-14 23:39:43,076 - INFO - Payment for Aminata Dorcas Kabre imported successfully.
+2025-01-14 23:39:43,091 - INFO - Payment for Wend Kouni Laure Aurelie Kiema imported successfully.
+2025-01-14 23:39:43,102 - INFO - Payment for Kaoue Loreine 1ere jumelle  Kotani  imported successfully.
+2025-01-14 23:39:43,113 - INFO - Payment for Abdoul Salam Lengani imported successfully.
+2025-01-14 23:39:43,130 - INFO - Payment for Farilatou Monéan imported successfully.
+2025-01-14 23:39:43,146 - INFO - Payment for Pegwende Abdoul Fatao Nacoulma imported successfully.
+2025-01-14 23:39:43,161 - INFO - Payment for Rayanguenewende Lucienne Nacoulma imported successfully.
+2025-01-14 23:39:43,174 - INFO - Payment for Sheik Ousmane Tamba Onadja imported successfully.
+2025-01-14 23:39:43,191 - INFO - Payment for Rachidatou Passere imported successfully.
+2025-01-14 23:39:43,205 - INFO - Payment for Oumou Salim Dabo imported successfully.
+2025-01-14 23:39:43,219 - INFO - Payment for Rachidatou Sawadogo imported successfully.
+2025-01-14 23:39:43,233 - INFO - Payment for Sambe Evrad Some imported successfully.
+2025-01-14 23:39:43,244 - INFO - Payment for Mohamed Zorome imported successfully.
+2025-01-14 23:39:43,261 - INFO - Payment for Awa Zoungrana imported successfully.
+2025-01-14 23:39:43,275 - INFO - Payment for Maimounata Zoungrana imported successfully.
+2025-01-14 23:39:43,288 - INFO - Payment for Wendkato Prisca Dorcas Zoungrana imported successfully.
+2025-01-14 23:39:43,304 - INFO - Payment for Aisseta Zoungrana imported successfully.
+2025-01-14 23:39:43,316 - INFO - Payment for Bernard Badiel imported successfully.
+2025-01-14 23:39:43,330 - INFO - Payment for Aisseta Compaore imported successfully.
+2025-01-14 23:39:43,343 - INFO - Payment for Balguissou Compaore imported successfully.
+2025-01-14 23:39:43,356 - INFO - Payment for Rihanata Compaore imported successfully.
+2025-01-14 23:39:43,377 - INFO - Payment for Alimata Sadia Compaore imported successfully.
+2025-01-14 23:39:43,403 - INFO - Payment for Abdoul Gani Congo imported successfully.
+2025-01-14 23:39:43,421 - INFO - Payment for Faouzia Congo imported successfully.
+2025-01-14 23:39:43,434 - INFO - Payment for Ulrich Gansonre imported successfully.
+2025-01-14 23:39:43,446 - INFO - Payment for Abdoul Aziz Kibsa  Ilboudo imported successfully.
+2025-01-14 23:39:43,458 - INFO - Payment for Divine Kabore imported successfully.
+2025-01-14 23:39:43,473 - INFO - Payment for Elise Kabre imported successfully.
+2025-01-14 23:39:43,489 - INFO - Payment for Jean Bertrand Wendkouni Kabre imported successfully.
+2025-01-14 23:39:43,502 - INFO - Payment for T. Olga Kiema imported successfully.
+2025-01-14 23:39:43,516 - INFO - Payment for Nadia Kinda imported successfully.
+2025-01-14 23:39:43,528 - INFO - Payment for Pengdwende Stella Emelie Kinda imported successfully.
+2025-01-14 23:39:43,539 - INFO - Payment for Issouf Lengani imported successfully.
+2025-01-14 23:39:43,553 - INFO - Payment for Rafiatou Nacoulma imported successfully.
+2025-01-14 23:39:43,563 - INFO - Payment for Moazou Ouedraogo imported successfully.
+2025-01-14 23:39:43,573 - INFO - Payment for Cheick Moubarack Ouedraogo imported successfully.
+2025-01-14 23:39:43,586 - INFO - Payment for Wafa Sare imported successfully.
+2025-01-14 23:39:43,598 - INFO - Payment for Souleymane Sawadogo imported successfully.
+2025-01-14 23:39:43,613 - INFO - Payment for Abdoul Razack Sore imported successfully.
+2025-01-14 23:39:43,627 - INFO - Payment for Abdoul Alim Tassembedo imported successfully.
+2025-01-14 23:39:43,639 - INFO - Payment for Adama Zoungrana imported successfully.
+2025-01-14 23:39:43,650 - INFO - Payment for Adama Zoungrana imported successfully.
+2025-01-14 23:39:43,664 - INFO - Payment for Osias Compaore imported successfully.
+2025-01-14 23:39:43,675 - INFO - Payment for Abraham Conombo imported successfully.
+2025-01-14 23:39:43,689 - INFO - Payment for Aliyatou Ilboudo imported successfully.
+2025-01-14 23:39:43,701 - INFO - Payment for Arthur Ilboudo imported successfully.
+2025-01-14 23:39:43,704 - ERROR - Eleve with ID 1409 does not exist.
+2025-01-14 23:39:43,707 - ERROR - Eleve with ID 1414 does not exist.
+2025-01-14 23:39:43,709 - ERROR - Eleve with ID 1414 does not exist.
+2025-01-14 23:39:43,723 - INFO - Payment for Ange Nacoulma imported successfully.
+2025-01-14 23:39:43,738 - INFO - Payment for Angela Nacoulma imported successfully.
+2025-01-14 23:39:43,750 - INFO - Payment for Samira Nikiema imported successfully.
+2025-01-14 23:39:43,763 - INFO - Payment for Abdoul Djalilou Ouedraogo imported successfully.
+2025-01-14 23:39:43,774 - INFO - Payment for Wendyame Beatrice Ouedraogo imported successfully.
+2025-01-14 23:39:43,788 - INFO - Payment for Lydie Pargnande imported successfully.
+2025-01-14 23:39:43,813 - INFO - Payment for Nebnow Salvador Casimir Some imported successfully.
+2025-01-14 23:39:43,833 - INFO - Payment for Abdoul Mohamine Soudre imported successfully.
+2025-01-14 23:39:43,845 - INFO - Payment for Lamoussa Rosine Tiemtore imported successfully.
+2025-01-14 23:39:43,856 - INFO - Payment for Xavier Bationo imported successfully.
+2025-01-14 23:39:43,868 - INFO - Payment for Oumaimatou Congo imported successfully.
+2025-01-14 23:39:43,879 - INFO - Payment for Ismael Goumbane imported successfully.
+2025-01-14 23:39:43,890 - INFO - Payment for Latifatou Ilboudo imported successfully.
+2025-01-14 23:39:43,903 - INFO - Payment for Sidbewende Severin Kabore imported successfully.
+2025-01-14 23:39:43,915 - INFO - Payment for Aboubacar Sidiki Kinda imported successfully.
+2025-01-14 23:39:43,925 - INFO - Payment for Fahimatou Nacoulma imported successfully.
+2025-01-14 23:39:43,936 - INFO - Payment for Moudjahed Djasibo Onadja imported successfully.
+2025-01-14 23:39:43,945 - INFO - Payment for Maifiai Pargnade imported successfully.
+2025-01-14 23:39:43,956 - INFO - Payment for Anna Gracia Tenkodogo imported successfully.
+2025-01-14 23:39:43,967 - INFO - Payment for Anna Gracia Tenkodogo imported successfully.
+2025-01-14 23:39:43,979 - INFO - Payment for Sayouba Zongo imported successfully.
+2025-01-14 23:39:43,989 - INFO - Payment for Stanislas Zoundi imported successfully.
+2025-01-14 23:39:44,000 - INFO - Payment for Abdoul Galilou Zoungrana imported successfully.
+2025-01-14 23:39:44,014 - INFO - Payment for Abdoul Maguid Zoungrana imported successfully.
+2025-01-14 23:39:44,029 - INFO - Payment for Oumoul Koulsoum Bikienga imported successfully.
+2025-01-14 23:39:44,042 - INFO - Payment for Deborah Emmanuelle Bouda imported successfully.
+2025-01-14 23:39:44,057 - INFO - Payment for Deborah Emmanuelle Bouda imported successfully.
+2025-01-14 23:39:44,071 - INFO - Payment for Abdoul Wahab Congo imported successfully.
+2025-01-14 23:39:44,086 - INFO - Payment for Justin Gasbeogo imported successfully.
+2025-01-14 23:39:44,096 - INFO - Payment for Justin Gasbeogo imported successfully.
+2025-01-14 23:39:44,108 - INFO - Payment for Mohamed Bechir Kouanda imported successfully.
+2025-01-14 23:39:44,120 - INFO - Payment for Mohamed Bechir Kouanda imported successfully.
+2025-01-14 23:39:44,134 - INFO - Payment for Joris Nana imported successfully.
+2025-01-14 23:39:44,150 - INFO - Payment for Aliyatou Sare imported successfully.
+2025-01-14 23:39:44,166 - INFO - Payment for Aliyatou Sare imported successfully.
+2025-01-14 23:39:44,181 - INFO - Payment for Kiswendsida Felicite Grace Sawadogo imported successfully.
+2025-01-14 23:39:44,197 - INFO - Payment for Layilatou Simpore imported successfully.
+2025-01-14 23:39:44,213 - INFO - Payment for Risnata Simpore imported successfully.
+2025-01-14 23:39:44,227 - INFO - Payment for Risnata Simpore imported successfully.
+2025-01-14 23:39:44,242 - INFO - Payment for Yasmine Tiemtore imported successfully.
+2025-01-14 23:39:44,254 - INFO - Payment for Augustine Flore Tigasse imported successfully.
+2025-01-14 23:39:44,268 - INFO - Payment for Aisseta Tonde imported successfully.
+2025-01-14 23:39:44,283 - INFO - Payment for W. Ezzidine Tougma imported successfully.
+2025-01-14 23:39:44,304 - INFO - Payment for Richard Yoda imported successfully.
+2025-01-14 23:39:44,321 - INFO - Payment for Abdoul Razack Zoungrana imported successfully.
+2025-01-14 23:39:44,336 - INFO - Payment for O. Debora Jeannine Aoue imported successfully.
+2025-01-14 23:39:44,355 - INFO - Payment for Haoulatou Bance imported successfully.
+2025-01-14 23:39:44,376 - INFO - Payment for Boris Bationo imported successfully.
+2025-01-14 23:39:44,391 - INFO - Payment for P. Oumaimata Bismoiga imported successfully.
+2025-01-14 23:39:44,405 - INFO - Payment for P. Oumaimata Bismoiga imported successfully.
+2025-01-14 23:39:44,419 - INFO - Payment for Grace Alexandra Bouda imported successfully.
+2025-01-14 23:39:44,432 - INFO - Payment for G. Steve Vladimir Bouda  imported successfully.
+2025-01-14 23:39:44,443 - INFO - Payment for G. Steve Vladimir Bouda  imported successfully.
+2025-01-14 23:39:44,458 - INFO - Payment for B. Salifou Compaore imported successfully.
+2025-01-14 23:39:44,473 - INFO - Payment for Dimitri  Diapa  imported successfully.
+2025-01-14 23:39:44,489 - INFO - Payment for D. Evan Ilboudo imported successfully.
+2025-01-14 23:39:44,501 - INFO - Payment for Laeticia Ilboudo imported successfully.
+2025-01-14 23:39:44,512 - INFO - Payment for Laeticia Ilboudo imported successfully.
+2025-01-14 23:39:44,525 - INFO - Payment for Mouhaz Amir Kabore imported successfully.
+2025-01-14 23:39:44,535 - INFO - Payment for K. Berenger Kabre imported successfully.
+2025-01-14 23:39:44,545 - INFO - Payment for Assagribouga Damien Ulrich Kotani  imported successfully.
+2025-01-14 23:39:44,557 - INFO - Payment for Geofroy Nana imported successfully.
+2025-01-14 23:39:44,569 - INFO - Payment for S. Junior Nana imported successfully.
+2025-01-14 23:39:44,579 - INFO - Payment for Jean Michel Nikiema imported successfully.
+2025-01-14 23:39:44,590 - INFO - Payment for Jean Raphael Nikiema imported successfully.
+2025-01-14 23:39:44,601 - INFO - Payment for Flore Ouedraogo imported successfully.
+2025-01-14 23:39:44,618 - INFO - Payment for Ridwane Rabo imported successfully.
+2025-01-14 23:39:44,637 - INFO - Payment for Ridwane Rabo imported successfully.
+2025-01-14 23:39:44,652 - INFO - Payment for Zayd Houssene Sawadogo imported successfully.
+2025-01-14 23:39:44,664 - INFO - Payment for Zayd Houssene Sawadogo imported successfully.
+2025-01-14 23:39:44,676 - INFO - Payment for Davy Casimir Simpore imported successfully.
+2025-01-14 23:39:44,685 - INFO - Payment for Sahadatou Sore imported successfully.
+2025-01-14 23:39:44,696 - INFO - Payment for Sadikou Tassembedo imported successfully.
+2025-01-14 23:39:44,710 - INFO - Payment for Sadikou Tassembedo imported successfully.
+2025-01-14 23:39:44,723 - INFO - Payment for W. Adja Rasma Zoungrana imported successfully.
+2025-01-14 23:39:44,737 - INFO - Payment for Wendpanga Clovis Bouda imported successfully.
+2025-01-14 23:39:44,750 - INFO - Payment for Wendpanga Clovis Bouda imported successfully.
+2025-01-14 23:39:44,765 - INFO - Payment for Rasmata Compaore imported successfully.
+2025-01-14 23:39:44,778 - INFO - Payment for Rasmata Compaore imported successfully.
+2025-01-14 23:39:44,791 - INFO - Payment for Sougrinooma Patricia Dondasse imported successfully.
+2025-01-14 23:39:44,804 - INFO - Payment for Sougrinooma Patricia Dondasse imported successfully.
+2025-01-14 23:39:44,820 - INFO - Payment for Aminata  Lengane  imported successfully.
+2025-01-14 23:39:44,834 - INFO - Payment for Dora Grace Naguiabou imported successfully.
+2025-01-14 23:39:44,849 - INFO - Payment for Dora Grace Naguiabou imported successfully.
+2025-01-14 23:39:44,861 - INFO - Payment for Wendkouni Romaine Nana imported successfully.
+2025-01-14 23:39:44,872 - INFO - Payment for Wendkouni Romaine Nana imported successfully.
+2025-01-14 23:39:44,889 - INFO - Payment for Wendkouni Emeline Nikiema imported successfully.
+2025-01-14 23:39:44,903 - INFO - Payment for Wendkouni Emeline Nikiema imported successfully.
+2025-01-14 23:39:44,920 - INFO - Payment for Nathanael Ouedraogo imported successfully.
+2025-01-14 23:39:44,931 - INFO - Payment for Nathanael Ouedraogo imported successfully.
+2025-01-14 23:39:44,943 - INFO - Payment for Amira Tassembedo imported successfully.
+2025-01-14 23:39:44,954 - INFO - Payment for Amira Tassembedo imported successfully.
+2025-01-14 23:39:44,966 - INFO - Payment for Amira Tassembedo imported successfully.
+2025-01-14 23:39:44,979 - INFO - Payment for Rachid Tassembedo imported successfully.
+2025-01-14 23:39:44,991 - INFO - Payment for Rachid Tassembedo imported successfully.
+2025-01-14 23:39:45,006 - INFO - Payment for Arienne Zoumbare imported successfully.
+2025-01-14 23:39:45,020 - INFO - Payment for Arienne Zoumbare imported successfully.
+2025-01-14 23:39:45,033 - INFO - Payment for Kiswend-sida Marie Armel Ilboudo imported successfully.
+2025-01-14 23:39:45,045 - INFO - Payment for Kiswend-sida Marie Armel Ilboudo imported successfully.
+2025-01-14 23:39:45,060 - INFO - Payment for Nafissatou Ilboudo imported successfully.
+2025-01-14 23:39:45,072 - INFO - Payment for Nafissatou Ilboudo imported successfully.
+2025-01-14 23:39:45,088 - INFO - Payment for Evariste Wendlassida Ilboudo imported successfully.
+2025-01-14 23:39:45,102 - INFO - Payment for Wend-So Charles le-Bon Kiema  imported successfully.
+2025-01-14 23:39:45,113 - INFO - Payment for Wendpanga Eric Kiemde  imported successfully.
+2025-01-14 23:39:45,126 - INFO - Payment for Awoula Mélissa Koara imported successfully.
+2025-01-14 23:39:45,144 - INFO - Payment for Awoula Mélissa Koara imported successfully.
+2025-01-14 23:39:45,157 - INFO - Payment for Glwadys Marie Wendtoin Savadogo  imported successfully.
+2025-01-14 23:39:45,168 - INFO - Payment for Glwadys Marie Wendtoin Savadogo  imported successfully.
+2025-01-14 23:39:45,181 - INFO - Payment for Apolinnaire Wilfried Wamalgda Sawadogo  imported successfully.
+2025-01-14 23:39:45,195 - INFO - Payment for Apolinnaire Wilfried Wamalgda Sawadogo  imported successfully.
+2025-01-14 23:39:45,207 - INFO - Payment for Assaloue Boris Tigasse  imported successfully.
+2025-01-14 23:39:45,221 - INFO - Payment for Assaloue Boris Tigasse  imported successfully.
+2025-01-14 23:39:45,233 - INFO - Payment for Ashraf Bance  imported successfully.
+2025-01-14 23:39:45,246 - INFO - Payment for Ashraf Bance  imported successfully.
+2025-01-14 23:39:45,257 - INFO - Payment for Cheick Oumar Mohamed Congo imported successfully.
+2025-01-14 23:39:45,270 - INFO - Payment for Raïssa Ilboudo imported successfully.
+2025-01-14 23:39:45,285 - INFO - Payment for Raïssa Ilboudo imported successfully.
+2025-01-14 23:39:45,296 - INFO - Payment for Charles Borromee Ilboudo imported successfully.
+2025-01-14 23:39:45,310 - INFO - Payment for Arsene Ilboudo imported successfully.
+2025-01-14 23:39:45,324 - INFO - Payment for Latifatou Soulga imported successfully.
+2025-01-14 23:39:45,336 - INFO - Payment for Roukietou Ouedraogo imported successfully.
+2025-01-14 23:39:45,350 - INFO - Payment for Djaouratou Compaore imported successfully.
+2025-01-14 23:39:45,364 - INFO - Payment for San Yacouba Traore imported successfully.
+2025-01-14 23:39:45,379 - INFO - Payment for Wendso Christ-vie Tiendrebeogo imported successfully.
+2025-01-14 23:39:45,393 - INFO - Payment for Wendso Christ-vie Tiendrebeogo imported successfully.
+2025-01-14 23:39:45,408 - INFO - Payment for Oumoul Salim Sawadogo imported successfully.
+2025-01-14 23:39:45,421 - INFO - Payment for Abdoul Wahid Nikiema imported successfully.
+2025-01-14 23:39:45,437 - INFO - Payment for Abdoul Hafiz Ouedraogo imported successfully.
+2025-01-14 23:39:45,451 - INFO - Payment for Prisca Compaore imported successfully.
+2025-01-14 23:39:45,466 - INFO - Payment for Yousra Bilgo imported successfully.
+2025-01-14 23:39:45,482 - INFO - Payment for Yousra Bilgo imported successfully.
+2025-01-14 23:39:45,494 - INFO - Payment for Naïla Yoda imported successfully.
+2025-01-14 23:39:45,506 - INFO - Payment for Amdiatou Lengane imported successfully.
+2025-01-14 23:39:45,517 - INFO - Payment for Cheik Tidiane Zampalegre imported successfully.
+2025-01-14 23:39:45,530 - INFO - Payment for Mamaga Charlotte Kora imported successfully.
+2025-01-14 23:39:45,544 - INFO - Payment for Felicia Sindinmanegda  Ouedraogo  imported successfully.
+2025-01-14 23:39:45,560 - INFO - Payment for Felicia Sindinmanegda  Ouedraogo  imported successfully.
+2025-01-14 23:39:45,574 - INFO - Payment for Anoutoua Marie Imelda Gambapebou imported successfully.
+2025-01-14 23:39:45,589 - INFO - Payment for Anoutoua Marie Imelda Gambapebou imported successfully.
+2025-01-14 23:39:45,604 - INFO - Payment for Romaric Gambapebou imported successfully.
+2025-01-14 23:39:45,619 - INFO - Payment for Romaric Gambapebou imported successfully.
+2025-01-14 23:39:45,635 - INFO - Payment for Abdoul Mohamine Zoungrana imported successfully.
+2025-01-14 23:39:45,650 - INFO - Payment for Abdoul Bassit  Nikiema imported successfully.
+2025-01-14 23:39:45,662 - INFO - Payment for Anoutoua Marie Imelda Gambapebou imported successfully.
+2025-01-14 23:39:45,679 - INFO - Payment for Julia Amaël Emeraude Noufe imported successfully.
+2025-01-14 23:39:45,697 - INFO - Payment for Amssetou Gouem imported successfully.
+2025-01-14 23:39:45,720 - INFO - Payment for Kassoum Gouem imported successfully.
+2025-01-14 23:39:45,732 - INFO - Payment for Kassoum Gouem imported successfully.
+2025-01-14 23:39:45,743 - INFO - Payment for Cheik Tidiane Zampalegre imported successfully.
+2025-01-14 23:39:45,755 - INFO - Payment for Cheik Tidiane Zampalegre imported successfully.
+2025-01-14 23:39:45,765 - INFO - Payment for Akiwele Fabrice dit Belgo Alcosse  imported successfully.
+2025-01-14 23:39:45,776 - INFO - Payment for Akiwele Fabrice dit Belgo Alcosse  imported successfully.
+2025-01-14 23:39:45,791 - INFO - Payment for Akiwele Fabrice dit Belgo Alcosse  imported successfully.
+2025-01-14 23:39:45,809 - INFO - Payment for Akiwele Fabrice dit Belgo Alcosse  imported successfully.
+2025-01-14 23:39:45,822 - INFO - Payment for Wenyim Josiane Triomphe Atibie imported successfully.
+2025-01-14 23:39:45,836 - INFO - Payment for Wenyim Josiane Triomphe Atibie imported successfully.
+2025-01-14 23:39:45,846 - INFO - Payment for Wenyim Josiane Triomphe Atibie imported successfully.
+2025-01-14 23:39:45,861 - INFO - Payment for Wenyim Josiane Triomphe Atibie imported successfully.
+2025-01-14 23:39:45,875 - INFO - Payment for Amir Balma  imported successfully.
+2025-01-14 23:39:45,889 - INFO - Payment for Amir Balma  imported successfully.
+2025-01-14 23:39:45,901 - INFO - Payment for Amir Balma  imported successfully.
+2025-01-14 23:39:45,912 - INFO - Payment for Amir Balma  imported successfully.
+2025-01-14 23:39:45,922 - INFO - Payment for Wendenda Benania Balma  imported successfully.
+2025-01-14 23:39:45,935 - INFO - Payment for Wendenda Benania Balma  imported successfully.
+2025-01-14 23:39:45,949 - INFO - Payment for Wendenda Benania Balma  imported successfully.
+2025-01-14 23:39:45,964 - INFO - Payment for Wendenda Benania Balma  imported successfully.
+2025-01-14 23:39:45,978 - INFO - Payment for Wendinso Adriell Compaore  imported successfully.
+2025-01-14 23:39:45,990 - INFO - Payment for Wendinso Adriell Compaore  imported successfully.
+2025-01-14 23:39:46,005 - INFO - Payment for Wendinso Adriell Compaore  imported successfully.
+2025-01-14 23:39:46,019 - INFO - Payment for Wendinso Adriell Compaore  imported successfully.
+2025-01-14 23:39:46,028 - INFO - Payment for Rachidatou Deme  imported successfully.
+2025-01-14 23:39:46,038 - INFO - Payment for Rachidatou Deme  imported successfully.
+2025-01-14 23:39:46,047 - INFO - Payment for Rachidatou Deme  imported successfully.
+2025-01-14 23:39:46,056 - INFO - Payment for Rachidatou Deme  imported successfully.
+2025-01-14 23:39:46,068 - INFO - Payment for Maria  Gouba  imported successfully.
+2025-01-14 23:39:46,079 - INFO - Payment for Maria  Gouba  imported successfully.
+2025-01-14 23:39:46,089 - INFO - Payment for kIswendssida Christ Ilboudo  imported successfully.
+2025-01-14 23:39:46,101 - INFO - Payment for kIswendssida Christ Ilboudo  imported successfully.
+2025-01-14 23:39:46,113 - INFO - Payment for kIswendssida Christ Ilboudo  imported successfully.
+2025-01-14 23:39:46,122 - INFO - Payment for kIswendssida Christ Ilboudo  imported successfully.
+2025-01-14 23:39:46,132 - INFO - Payment for Landry Ulrich  Ilboudo  imported successfully.
+2025-01-14 23:39:46,151 - INFO - Payment for Landry Ulrich  Ilboudo  imported successfully.
+2025-01-14 23:39:46,163 - INFO - Payment for Landry Ulrich  Ilboudo  imported successfully.
+2025-01-14 23:39:46,176 - INFO - Payment for Landry Ulrich  Ilboudo  imported successfully.
+2025-01-14 23:39:46,192 - INFO - Payment for Nelsonne  Ilboudo  imported successfully.
+2025-01-14 23:39:46,208 - INFO - Payment for Nelsonne  Ilboudo  imported successfully.
+2025-01-14 23:39:46,220 - INFO - Payment for Nelsonne  Ilboudo  imported successfully.
+2025-01-14 23:39:46,234 - INFO - Payment for Nelsonne  Ilboudo  imported successfully.
+2025-01-14 23:39:46,245 - INFO - Payment for Wendyam Joseph Ivan  Ilboudo  imported successfully.
+2025-01-14 23:39:46,257 - INFO - Payment for Wendyam Joseph Ivan  Ilboudo  imported successfully.
+2025-01-14 23:39:46,269 - INFO - Payment for Wendyam Joseph Ivan  Ilboudo  imported successfully.
+2025-01-14 23:39:46,282 - INFO - Payment for Wendyam Joseph Ivan  Ilboudo  imported successfully.
+2025-01-14 23:39:46,293 - INFO - Payment for Rayane  Kabore  imported successfully.
+2025-01-14 23:39:46,309 - INFO - Payment for Rayane  Kabore  imported successfully.
+2025-01-14 23:39:46,321 - INFO - Payment for Rayane  Kabore  imported successfully.
+2025-01-14 23:39:46,348 - INFO - Payment for Seraphine Djelika Kabore  imported successfully.
+2025-01-14 23:39:46,364 - INFO - Payment for Seraphine Djelika Kabore  imported successfully.
+2025-01-14 23:39:46,378 - INFO - Payment for Seraphine Djelika Kabore  imported successfully.
+2025-01-14 23:39:46,391 - INFO - Payment for Seraphine Djelika Kabore  imported successfully.
+2025-01-14 23:39:46,402 - INFO - Payment for Abdoul Razack Kabre  imported successfully.
+2025-01-14 23:39:46,413 - INFO - Payment for Abdoul Razack Kabre  imported successfully.
+2025-01-14 23:39:46,425 - INFO - Payment for Abdoul Razack Kabre  imported successfully.
+2025-01-14 23:39:46,436 - INFO - Payment for Abdoul Razack Kabre  imported successfully.
+2025-01-14 23:39:46,449 - INFO - Payment for Kiswendssida Jacques Kagambega  imported successfully.
+2025-01-14 23:39:46,462 - INFO - Payment for Kiswendssida Jacques Kagambega  imported successfully.
+2025-01-14 23:39:46,478 - INFO - Payment for Kiswendssida Jacques Kagambega  imported successfully.
+2025-01-14 23:39:46,492 - INFO - Payment for Kiswendssida Jacques Kagambega  imported successfully.
+2025-01-14 23:39:46,509 - INFO - Payment for Abdoul Maguid  Kiendrebeogo imported successfully.
+2025-01-14 23:39:46,520 - INFO - Payment for Abdoul Maguid  Kiendrebeogo imported successfully.
+2025-01-14 23:39:46,534 - INFO - Payment for Abdoul Maguid  Kiendrebeogo imported successfully.
+2025-01-14 23:39:46,547 - INFO - Payment for Abdoul Maguid  Kiendrebeogo imported successfully.
+2025-01-14 23:39:46,560 - INFO - Payment for Grace Divine  Kontogom imported successfully.
+2025-01-14 23:39:46,571 - INFO - Payment for Grace Divine  Kontogom imported successfully.
+2025-01-14 23:39:46,586 - INFO - Payment for Grace Divine  Kontogom imported successfully.
+2025-01-14 23:39:46,602 - INFO - Payment for Grace Divine  Kontogom imported successfully.
+2025-01-14 23:39:46,617 - INFO - Payment for Wepooni Eleazar Josue Koubatora  imported successfully.
+2025-01-14 23:39:46,634 - INFO - Payment for Wepooni Eleazar Josue Koubatora  imported successfully.
+2025-01-14 23:39:46,651 - INFO - Payment for Wepooni Eleazar Josue Koubatora  imported successfully.
+2025-01-14 23:39:46,666 - INFO - Payment for Wepooni Eleazar Josue Koubatora  imported successfully.
+2025-01-14 23:39:46,684 - INFO - Payment for Anekogo Jerome  Lirasse  imported successfully.
+2025-01-14 23:39:46,703 - INFO - Payment for Anekogo Jerome  Lirasse  imported successfully.
+2025-01-14 23:39:46,723 - INFO - Payment for Anekogo Jerome  Lirasse  imported successfully.
+2025-01-14 23:39:46,740 - INFO - Payment for Anekogo Jerome  Lirasse  imported successfully.
+2025-01-14 23:39:46,757 - INFO - Payment for Naomie Bienvenue Nana  imported successfully.
+2025-01-14 23:39:46,769 - INFO - Payment for Naomie Bienvenue Nana  imported successfully.
+2025-01-14 23:39:46,787 - INFO - Payment for Naomie Bienvenue Nana  imported successfully.
+2025-01-14 23:39:46,809 - INFO - Payment for Naomie Bienvenue Nana  imported successfully.
+2025-01-14 23:39:46,824 - INFO - Payment for Arsene  Nikiema  imported successfully.
+2025-01-14 23:39:46,837 - INFO - Payment for Arsene  Nikiema  imported successfully.
+2025-01-14 23:39:46,850 - INFO - Payment for Arsene  Nikiema  imported successfully.
+2025-01-14 23:39:46,864 - INFO - Payment for Arsene  Nikiema  imported successfully.
+2025-01-14 23:39:46,880 - INFO - Payment for Pawendtaore Ulrich Junior Nikiema  imported successfully.
+2025-01-14 23:39:46,894 - INFO - Payment for Pawendtaore Ulrich Junior Nikiema  imported successfully.
+2025-01-14 23:39:46,910 - INFO - Payment for Pawendtaore Ulrich Junior Nikiema  imported successfully.
+2025-01-14 23:39:46,923 - INFO - Payment for Pawendtaore Ulrich Junior Nikiema  imported successfully.
+2025-01-14 23:39:46,937 - INFO - Payment for Wend-Kuni Ibrahim Nikiema  imported successfully.
+2025-01-14 23:39:46,950 - INFO - Payment for Wend-Kuni Ibrahim Nikiema  imported successfully.
+2025-01-14 23:39:46,962 - INFO - Payment for Wend-Kuni Ibrahim Nikiema  imported successfully.
+2025-01-14 23:39:46,972 - INFO - Payment for Wend-Kuni Ibrahim Nikiema  imported successfully.
+2025-01-14 23:39:46,983 - INFO - Payment for Wendtoin Nohan Anicet Nikiema  imported successfully.
+2025-01-14 23:39:46,995 - INFO - Payment for Wendtoin Nohan Anicet Nikiema  imported successfully.
+2025-01-14 23:39:47,010 - INFO - Payment for Wendtoin Nohan Anicet Nikiema  imported successfully.
+2025-01-14 23:39:47,021 - INFO - Payment for Wendtoin Nohan Anicet Nikiema  imported successfully.
+2025-01-14 23:39:47,032 - INFO - Payment for Mohamed Amin Sana  imported successfully.
+2025-01-14 23:39:47,043 - INFO - Payment for Mohamed Amin Sana  imported successfully.
+2025-01-14 23:39:47,053 - INFO - Payment for Mohamed Amin Sana  imported successfully.
+2025-01-14 23:39:47,066 - INFO - Payment for Mohamed Amin Sana  imported successfully.
+2025-01-14 23:39:47,079 - INFO - Payment for Mohamed Fadel  Sana  imported successfully.
+2025-01-14 23:39:47,090 - INFO - Payment for Mohamed Fadel  Sana  imported successfully.
+2025-01-14 23:39:47,106 - INFO - Payment for Mohamed Fadel  Sana  imported successfully.
+2025-01-14 23:39:47,121 - INFO - Payment for Mohamed Fadel  Sana  imported successfully.
+2025-01-14 23:39:47,134 - INFO - Payment for Mohamed Fadel  Sana  imported successfully.
+2025-01-14 23:39:47,147 - INFO - Payment for Maissaratou Sawadogo  imported successfully.
+2025-01-14 23:39:47,156 - INFO - Payment for Maissaratou Sawadogo  imported successfully.
+2025-01-14 23:39:47,171 - INFO - Payment for Maissaratou Sawadogo  imported successfully.
+2025-01-14 23:39:47,185 - INFO - Payment for Maissaratou Sawadogo  imported successfully.
+2025-01-14 23:39:47,196 - INFO - Payment for Salam  Sawadogo  imported successfully.
+2025-01-14 23:39:47,211 - INFO - Payment for Salam  Sawadogo  imported successfully.
+2025-01-14 23:39:47,227 - INFO - Payment for Salam  Sawadogo  imported successfully.
+2025-01-14 23:39:47,242 - INFO - Payment for Salam  Sawadogo  imported successfully.
+2025-01-14 23:39:47,256 - INFO - Payment for Sougr-Nooma Abdoul Nassir  Sawadogo  imported successfully.
+2025-01-14 23:39:47,269 - INFO - Payment for Sougr-Nooma Abdoul Nassir  Sawadogo  imported successfully.
+2025-01-14 23:39:47,281 - INFO - Payment for Sougr-Nooma Abdoul Nassir  Sawadogo  imported successfully.
+2025-01-14 23:39:47,297 - INFO - Payment for Sougr-Nooma Abdoul Nassir  Sawadogo  imported successfully.
+2025-01-14 23:39:47,312 - INFO - Payment for Wendinsongdé Bienvenue Sawadogo  imported successfully.
+2025-01-14 23:39:47,325 - INFO - Payment for Wendinsongdé Bienvenue Sawadogo  imported successfully.
+2025-01-14 23:39:47,339 - INFO - Payment for Wendinsongdé Bienvenue Sawadogo  imported successfully.
+2025-01-14 23:39:47,355 - INFO - Payment for Wendinsongdé Bienvenue Sawadogo  imported successfully.
+2025-01-14 23:39:47,372 - INFO - Payment for Cheick Ibrahim Simpore  imported successfully.
+2025-01-14 23:39:47,385 - INFO - Payment for Cheick Ibrahim Simpore  imported successfully.
+2025-01-14 23:39:47,401 - INFO - Payment for Cheick Ibrahim Simpore  imported successfully.
+2025-01-14 23:39:47,412 - INFO - Payment for Cheick Ibrahim Simpore  imported successfully.
+2025-01-14 23:39:47,425 - INFO - Payment for Aroune Mohamed Assad Yiyandin Soulia  imported successfully.
+2025-01-14 23:39:47,441 - INFO - Payment for Aroune Mohamed Assad Yiyandin Soulia  imported successfully.
+2025-01-14 23:39:47,457 - INFO - Payment for Aroune Mohamed Assad Yiyandin Soulia  imported successfully.
+2025-01-14 23:39:47,472 - INFO - Payment for Aroune Mohamed Assad Yiyandin Soulia  imported successfully.
+2025-01-14 23:39:47,485 - INFO - Payment for Abdoul Maguid  Tassembedo  imported successfully.
+2025-01-14 23:39:47,501 - INFO - Payment for Abdoul Maguid  Tassembedo  imported successfully.
+2025-01-14 23:39:47,514 - INFO - Payment for Abdoul Maguid  Tassembedo  imported successfully.
+2025-01-14 23:39:47,531 - INFO - Payment for Abdoul Maguid  Tassembedo  imported successfully.
+2025-01-14 23:39:47,548 - INFO - Payment for Abdoul Maguid  Tassembedo  imported successfully.
+2025-01-14 23:39:47,564 - INFO - Payment for Abdoul Waagid Tassembedo  imported successfully.
+2025-01-14 23:39:47,579 - INFO - Payment for Abdoul Waagid Tassembedo  imported successfully.
+2025-01-14 23:39:47,591 - INFO - Payment for Abdoul Waagid Tassembedo  imported successfully.
+2025-01-14 23:39:47,604 - INFO - Payment for Abdoul Waagid Tassembedo  imported successfully.
+2025-01-14 23:39:47,616 - INFO - Payment for Abdoul Waagid Tassembedo  imported successfully.
+2025-01-14 23:39:47,628 - INFO - Payment for Wendpanga Hicham Edem Sunrise Tiema  imported successfully.
+2025-01-14 23:39:47,641 - INFO - Payment for Wendpanga Hicham Edem Sunrise Tiema  imported successfully.
+2025-01-14 23:39:47,654 - INFO - Payment for Wendpanga Hicham Edem Sunrise Tiema  imported successfully.
+2025-01-14 23:39:47,666 - INFO - Payment for Wendpanga Hicham Edem Sunrise Tiema  imported successfully.
+2025-01-14 23:39:47,682 - INFO - Payment for Wendpanga Hicham Edem Sunrise Tiema  imported successfully.
+2025-01-14 23:39:47,694 - INFO - Payment for Gueswende Giovany Tiemtore  imported successfully.
+2025-01-14 23:39:47,708 - INFO - Payment for Gueswende Giovany Tiemtore  imported successfully.
+2025-01-14 23:39:47,717 - INFO - Payment for Gueswende Giovany Tiemtore  imported successfully.
+2025-01-14 23:39:47,728 - INFO - Payment for Gueswende Giovany Tiemtore  imported successfully.
+2025-01-14 23:39:47,739 - INFO - Payment for Wend-vie Betsaleel Tiemtore  imported successfully.
+2025-01-14 23:39:47,754 - INFO - Payment for Wend-vie Betsaleel Tiemtore  imported successfully.
+2025-01-14 23:39:47,764 - INFO - Payment for Wend-vie Betsaleel Tiemtore  imported successfully.
+2025-01-14 23:39:47,777 - INFO - Payment for Wend-vie Betsaleel Tiemtore  imported successfully.
+2025-01-14 23:39:47,788 - INFO - Payment for Cephas Tompeglem imported successfully.
+2025-01-14 23:39:47,799 - INFO - Payment for Cephas Tompeglem imported successfully.
+2025-01-14 23:39:47,810 - INFO - Payment for Cephas Tompeglem imported successfully.
+2025-01-14 23:39:47,822 - INFO - Payment for Cephas Tompeglem imported successfully.
+2025-01-14 23:39:47,833 - INFO - Payment for Abdoul Moumouni Yaogo  imported successfully.
+2025-01-14 23:39:47,844 - INFO - Payment for Abdoul Moumouni Yaogo  imported successfully.
+2025-01-14 23:39:47,854 - INFO - Payment for Abdoul Moumouni Yaogo  imported successfully.
+2025-01-14 23:39:47,863 - INFO - Payment for Abdoul Moumouni Yaogo  imported successfully.
+2025-01-14 23:39:47,875 - INFO - Payment for Stephane Wendkuni Zabre  imported successfully.
+2025-01-14 23:39:47,884 - INFO - Payment for Stephane Wendkuni Zabre  imported successfully.
+2025-01-14 23:39:47,898 - INFO - Payment for Stephane Wendkuni Zabre  imported successfully.
+2025-01-14 23:39:47,910 - INFO - Payment for Stephane Wendkuni Zabre  imported successfully.
+2025-01-14 23:39:47,920 - INFO - Payment for Rihanata  Zedouma  imported successfully.
+2025-01-14 23:39:47,930 - INFO - Payment for Rihanata  Zedouma  imported successfully.
+2025-01-14 23:39:47,942 - INFO - Payment for Rihanata  Zedouma  imported successfully.
+2025-01-14 23:39:47,959 - INFO - Payment for Rihanata  Zedouma  imported successfully.
+2025-01-14 23:39:47,974 - INFO - Payment for Elie Yipene Zongo imported successfully.
+2025-01-14 23:39:47,988 - INFO - Payment for Elie Yipene Zongo imported successfully.
+2025-01-14 23:39:48,002 - INFO - Payment for Elie Yipene Zongo imported successfully.
+2025-01-14 23:39:48,019 - INFO - Payment for Elie Yipene Zongo imported successfully.
+2025-01-14 23:39:48,033 - INFO - Payment for Yissono Audrey Oceanne Zongo imported successfully.
+2025-01-14 23:39:48,049 - INFO - Payment for Yissono Audrey Oceanne Zongo imported successfully.
+2025-01-14 23:39:48,061 - INFO - Payment for Yissono Audrey Oceanne Zongo imported successfully.
+2025-01-14 23:39:48,076 - INFO - Payment for Yissono Audrey Oceanne Zongo imported successfully.
+2025-01-14 23:39:48,089 - INFO - Payment for Ibrahim  Zoungrana  imported successfully.
+2025-01-14 23:39:48,102 - INFO - Payment for Ibrahim  Zoungrana  imported successfully.
+2025-01-14 23:39:48,118 - INFO - Payment for Ibrahim  Zoungrana  imported successfully.
+2025-01-14 23:39:48,131 - INFO - Payment for Ibrahim  Zoungrana  imported successfully.
+2025-01-14 23:39:48,147 - INFO - Payment for Beneba Bryan Christian Nare imported successfully.
+2025-01-14 23:39:48,162 - INFO - Payment for Beneba Bryan Christian Nare imported successfully.
+2025-01-14 23:39:48,177 - INFO - Payment for Viviane Kientega imported successfully.
+2025-01-14 23:39:48,189 - INFO - Payment for Wendkouni Emeline Nikiema imported successfully.
+2025-01-14 23:39:48,205 - INFO - Payment for Azrat Bint Baky Fofana  imported successfully.
+2025-01-14 23:39:48,216 - INFO - Payment for Azrat Bint Baky Fofana  imported successfully.
+2025-01-14 23:39:48,226 - INFO - Payment for Abdoul Ganilou Tiendrebeogo imported successfully.
+2025-01-14 23:39:48,236 - INFO - Payment for Abdoul Ganilou Tiendrebeogo imported successfully.
+2025-01-14 23:39:48,245 - INFO - Payment for Cheick Oumar Tassembedo imported successfully.
+2025-01-14 23:39:48,257 - INFO - Payment for Cheick Oumar Tassembedo imported successfully.
+2025-01-14 23:39:48,268 - INFO - Payment for Nouriatou Congo imported successfully.
+2025-01-14 23:39:48,279 - INFO - Payment for Aliatou Sanfo imported successfully.
+2025-01-14 23:39:48,290 - INFO - Payment for Aliatou Sanfo imported successfully.
+2025-01-14 23:39:48,301 - INFO - Payment for Aïchatou Bikienga imported successfully.
+2025-01-14 23:39:48,311 - INFO - Payment for W. Epiphane Tiendrebeogo imported successfully.
+2025-01-14 23:39:48,322 - INFO - Payment for Rakiswende Dimitri Tiendrebeogo imported successfully.
+2025-01-14 23:39:48,333 - INFO - Payment for Rakiswende Dimitri Tiendrebeogo imported successfully.
+2025-01-14 23:39:48,344 - INFO - Payment for benewende Mathis Arthur Compaore  imported successfully.
+2025-01-14 23:39:48,355 - INFO - Payment for benewende Mathis Arthur Compaore  imported successfully.
+2025-01-14 23:39:48,365 - INFO - Payment for Delwende Landry Yanive Compaore imported successfully.
+2025-01-14 23:39:48,378 - INFO - Payment for Ibrahim Isaac Kabre imported successfully.
+2025-01-14 23:39:48,389 - INFO - Payment for Nabou Mariam Lengane imported successfully.
+2025-01-14 23:39:48,401 - INFO - Payment for Nabou Mariam Lengane imported successfully.
+2025-01-14 23:39:48,413 - INFO - Payment for Nabou Mariam Lengane imported successfully.
+2025-01-14 23:39:48,425 - INFO - Payment for Cheick Mohazou Boulio imported successfully.
+2025-01-14 23:39:48,436 - INFO - Payment for Cheick Mohazou Boulio imported successfully.
+2025-01-14 23:39:48,448 - INFO - Payment for Wenddenda Aaliatou Guigma  imported successfully.
+2025-01-14 23:39:48,460 - INFO - Payment for Adboul Alim Guigma imported successfully.
+2025-01-14 23:39:48,471 - INFO - Payment for Abdoul Halim 2eme jumeau Guigma  imported successfully.
+2025-01-14 23:39:48,483 - INFO - Payment for Boukare Morgan Gouem imported successfully.
+2025-01-14 23:39:48,494 - INFO - Payment for Cherif Mpa Amine Fofana  imported successfully.
+2025-01-14 23:39:48,509 - INFO - Payment for Josue Isidore Kiema  imported successfully.
+2025-01-14 23:39:48,527 - INFO - Payment for Josue Isidore Kiema  imported successfully.
+2025-01-14 23:39:48,544 - INFO - Payment for Neimatou Bere  imported successfully.
+2025-01-14 23:39:48,555 - INFO - Payment for Neimatou Bere  imported successfully.
+2025-01-14 23:39:48,566 - INFO - Payment for Neimatou Bere  imported successfully.
+2025-01-14 23:39:48,576 - INFO - Payment for Ange Nacoulma imported successfully.
+2025-01-14 23:39:48,586 - INFO - Payment for Angela Nacoulma imported successfully.
+2025-01-14 23:39:48,596 - INFO - Payment for Wendyam Jorus Aubin Taita imported successfully.
+2025-01-14 23:39:48,606 - INFO - Payment for Abdoul Alim Tassembedo imported successfully.
+2025-01-14 23:39:48,616 - INFO - Payment for Romaric Gambapebou imported successfully.
+2025-01-14 23:39:48,626 - INFO - Payment for Steeve Kafando imported successfully.
+2025-01-14 23:39:48,635 - INFO - Payment for Steeve Kafando imported successfully.
+2025-01-14 23:39:48,645 - INFO - Payment for Pendwende Esaie Tougma imported successfully.
+2025-01-14 23:39:48,654 - INFO - Payment for Pougdwende Elie Tougma imported successfully.
+2025-01-14 23:39:48,667 - INFO - Payment for Kamel Bonzi imported successfully.
+2025-01-14 23:39:48,676 - INFO - Payment for Cephas Tompeglem imported successfully.
+2025-01-14 23:39:48,688 - INFO - Payment for Abdoul Halim Compaore imported successfully.
+2025-01-14 23:39:48,707 - INFO - Payment for Lamoussa Marie Godelive Dipama imported successfully.
+2025-01-14 23:39:48,723 - INFO - Payment for Xavier Bationo imported successfully.
+2025-01-14 23:39:48,739 - INFO - Payment for Boris Bationo imported successfully.
+2025-01-14 23:39:48,758 - INFO - Payment for Chonleo Nicole Zigani imported successfully.
+2025-01-14 23:39:48,779 - INFO - Payment for Abdoul Fataof Rabo imported successfully.
+2025-01-14 23:39:48,802 - INFO - Payment for Sougr-Nooma Abdoul Nassir  Sawadogo  imported successfully.
+2025-01-14 23:39:48,824 - INFO - Payment for Laureine Nikiema imported successfully.
+2025-01-14 23:39:48,850 - INFO - Payment for Sylvie Wenian Boungoutongo imported successfully.
+2025-01-14 23:39:48,865 - INFO - Payment for Sylvie Wenian Boungoutongo imported successfully.
+2025-01-14 23:39:48,882 - INFO - Payment for Wendbenedo Abdoul Manane Semde  imported successfully.
+2025-01-14 23:39:48,902 - INFO - Payment for Faizatou  Tapsoba  imported successfully.
+2025-01-14 23:39:48,920 - INFO - Payment for Faizatou  Tapsoba  imported successfully.
+2025-01-14 23:39:48,934 - INFO - Payment for P. Jeannette Thiombiano imported successfully.
+2025-01-14 23:39:48,955 - INFO - Payment for Yasmina Saoudatou Kiemtore imported successfully.
+2025-01-14 23:39:48,972 - INFO - Payment for Camille Rayimwende Ouedraogo  imported successfully.
+2025-01-14 23:39:48,989 - INFO - Payment for Camille Rayimwende Ouedraogo  imported successfully.
+2025-01-14 23:39:49,007 - INFO - Payment for Camille Rayimwende Ouedraogo  imported successfully.
+2025-01-14 23:39:49,024 - INFO - Payment for Charine Sougr Nooma Fedelia Ouedraogo imported successfully.
+2025-01-14 23:39:49,043 - INFO - Payment for Charine Sougr Nooma Fedelia Ouedraogo imported successfully.
+2025-01-14 23:39:49,059 - INFO - Payment for Charine Sougr Nooma Fedelia Ouedraogo imported successfully.
+2025-01-14 23:39:49,075 - INFO - Payment for Ouessono Kevin Nion  imported successfully.
+2025-01-14 23:39:49,090 - INFO - Payment for W. Josias Tiemtore imported successfully.
+2025-01-14 23:39:49,104 - INFO - Payment for Khalid Kazienga imported successfully.
+2025-01-14 23:39:49,119 - INFO - Payment for Gouyire Olivier Gounabou imported successfully.
+2025-01-14 23:39:49,134 - INFO - Payment for Elodie Betinia Nikiema imported successfully.
+2025-01-14 23:39:49,150 - INFO - Payment for Elodie Betinia Nikiema imported successfully.
+2025-01-14 23:39:49,166 - INFO - Payment for Boukare Morgan Gouem imported successfully.
+2025-01-14 23:39:49,182 - INFO - Payment for Mohamadi Dipama imported successfully.
+2025-01-14 23:39:49,196 - INFO - Payment for Bertin Bama imported successfully.
+2025-01-14 23:39:49,210 - INFO - Payment for Bertrand Bama imported successfully.
+2025-01-14 23:39:49,223 - INFO - Payment for Ah Ichata Compaore imported successfully.
+2025-01-14 23:39:49,238 - INFO - Payment for Laeticia Ilboudo imported successfully.
+2025-01-14 23:39:49,254 - INFO - Payment for Aisseta Zoungrana imported successfully.
+2025-01-14 23:39:49,270 - INFO - Payment for Abdoul Galilou Zoungrana imported successfully.
+2025-01-14 23:39:49,287 - INFO - Payment for R. Isidore Zoungrana imported successfully.
+2025-01-14 23:39:49,310 - INFO - Payment for Romeo Kuela imported successfully.
+2025-01-14 23:39:49,327 - INFO - Payment for Abou Soufiane Compaore imported successfully.
+2025-01-14 23:39:49,342 - INFO - Payment for Delwende Tatiana Yvette Kologo imported successfully.
+2025-01-14 23:39:49,358 - INFO - Payment for Anne Marie Kologo imported successfully.
+2025-01-14 23:39:49,374 - INFO - Payment for Isidore Zabpaodre  imported successfully.
+2025-01-14 23:39:49,392 - INFO - Payment for Guiemilatou Yonli imported successfully.
+2025-01-14 23:39:49,409 - INFO - Payment for Rasack Yonli imported successfully.
+2025-01-14 23:39:49,432 - INFO - Payment for Hamza Dimbone imported successfully.
+2025-01-14 23:39:49,446 - INFO - Payment for Hamza Dimbone imported successfully.
+2025-01-14 23:39:49,468 - INFO - Payment for Hamza Dimbone imported successfully.
+2025-01-14 23:39:49,484 - INFO - Payment for Rayane  Kabore  imported successfully.
+2025-01-14 23:39:49,501 - INFO - Payment for Nouriatou Nana imported successfully.
+2025-01-14 23:39:49,513 - INFO - Payment for Nouriatou Nana imported successfully.
+2025-01-14 23:39:49,527 - INFO - Payment for Bousra Yougbare imported successfully.
+2025-01-14 23:39:49,541 - INFO - Payment for Kabirou Yougbare imported successfully.
+2025-01-14 23:39:49,557 - INFO - Payment for Weyira Miracle Loïs Colompare  imported successfully.
+2025-01-14 23:39:49,569 - INFO - Payment for Weyira Miracle Loïs Colompare  imported successfully.
+2025-01-14 23:39:49,580 - INFO - Payment for Josiane Natama imported successfully.
+2025-01-14 23:39:49,591 - INFO - Payment for Josiane Natama imported successfully.
+2025-01-14 23:39:49,601 - INFO - Payment for Josiane Natama imported successfully.
+2025-01-14 23:39:49,611 - INFO - Payment for Auriane Ilboudo imported successfully.
+2025-01-14 23:39:49,621 - INFO - Payment for Auriane Ilboudo imported successfully.
+2025-01-14 23:39:49,635 - INFO - Payment for Weykiga Rachel Gounabou imported successfully.
+2025-01-14 23:39:49,646 - INFO - Payment for Weykiga Rachel Gounabou imported successfully.
+2025-01-14 23:39:49,658 - INFO - Payment for Nafissatou Passere imported successfully.
+2025-01-14 23:39:49,669 - INFO - Payment for Johvani Elisee Kazoni imported successfully.
+2025-01-14 23:39:49,679 - INFO - Payment for Ouibissma Cherifa Andrea Kazoni imported successfully.
+2025-01-14 23:39:49,690 - INFO - Payment for Ouibissma Cherifa Andrea Kazoni imported successfully.
+2025-01-14 23:39:49,700 - INFO - Payment for Mouhaz Amir Kabore imported successfully.
+2025-01-14 23:39:49,710 - INFO - Payment for Glwadys Marie Wendtoin Savadogo  imported successfully.
+2025-01-14 23:39:49,720 - INFO - Payment for Abdoul Shakour Compaore  imported successfully.
+2025-01-14 23:39:49,731 - INFO - Payment for Abdoul Shakour Compaore  imported successfully.
+2025-01-14 23:39:49,742 - INFO - Payment for Yasmina Saoudatou Kiemtore imported successfully.
+2025-01-14 23:39:49,753 - INFO - Payment for Mohamed Bachir Yalwe imported successfully.
+2025-01-14 23:39:49,763 - INFO - Payment for Wendpayande Aliatou Nacoulma imported successfully.
+2025-01-14 23:39:49,775 - INFO - Payment for Wendpayande Aliatou Nacoulma imported successfully.
+2025-01-14 23:39:49,786 - INFO - Payment for Wendpayande Aliatou Nacoulma imported successfully.
+2025-01-14 23:39:49,798 - INFO - Payment for Roukiatou Nacoulma imported successfully.
+2025-01-14 23:39:49,808 - INFO - Payment for Roukiatou Nacoulma imported successfully.
+2025-01-14 23:39:49,820 - INFO - Payment for Evariste Wendlassida Ilboudo imported successfully.
+2025-01-14 23:39:49,833 - INFO - Payment for Evariste Wendlassida Ilboudo imported successfully.
+2025-01-14 23:39:49,846 - INFO - Payment for Hamdane Zangre imported successfully.
+2025-01-14 23:39:49,860 - INFO - Payment for Hamdane Zangre imported successfully.
+2025-01-14 23:39:49,879 - INFO - Payment for Abdoul Rahim Zangre imported successfully.
+2025-01-14 23:39:49,895 - INFO - Payment for Abdoul Rahim Zangre imported successfully.
+2025-01-14 23:39:49,913 - INFO - Payment for Sakinatou Kiendrebeogo imported successfully.
+2025-01-14 23:39:49,931 - INFO - Payment for Arnaud Bazie imported successfully.
+2025-01-14 23:39:49,945 - INFO - Payment for Arnaud Bazie imported successfully.
+2025-01-14 23:39:49,961 - INFO - Payment for Arnaud Bazie imported successfully.
+2025-01-14 23:39:49,978 - INFO - Payment for Wafa Sare imported successfully.
+2025-01-14 23:39:49,995 - INFO - Payment for Nouriatou Rabo imported successfully.
+2025-01-14 23:39:50,013 - INFO - Payment for Houzaifa Sawadogo  imported successfully.
+2025-01-14 23:39:50,032 - INFO - Payment for Houzaifa Sawadogo  imported successfully.
+2025-01-14 23:39:50,051 - INFO - Payment for Houzaifa Sawadogo  imported successfully.
+2025-01-14 23:39:50,067 - INFO - Payment for Abdoul Maguid Sawadogo imported successfully.
+2025-01-14 23:39:50,087 - INFO - Payment for Absatou Sawadogo imported successfully.
+2025-01-14 23:39:50,109 - INFO - Payment for Benabala Murielle Some imported successfully.
+2025-01-14 23:39:50,131 - INFO - Payment for Benabala Murielle Some imported successfully.
+2025-01-14 23:39:50,147 - INFO - Payment for Ibrahim Ouedraogo imported successfully.
+2025-01-14 23:39:50,161 - INFO - Payment for Latifatou Ilboudo imported successfully.
+2025-01-14 23:39:50,176 - INFO - Payment for Absetou Ilboudo imported successfully.
+2025-01-14 23:39:50,193 - INFO - Payment for B. Salifou Compaore imported successfully.
+2025-01-14 23:39:50,207 - INFO - Payment for Oumoul Salim Sana imported successfully.
+2025-01-14 23:39:50,221 - INFO - Payment for Oumoul Salim Sana imported successfully.
+2025-01-14 23:39:50,236 - INFO - Payment for W Jean Armel Sorgho imported successfully.
+2025-01-14 23:39:50,249 - INFO - Payment for Kenza Fadila Kinda imported successfully.
+2025-01-14 23:39:50,264 - INFO - Payment for Abdoul Mouhaz Kinda imported successfully.
+2025-01-14 23:39:50,279 - INFO - Payment for Romeo Kuela imported successfully.
+2025-01-14 23:39:50,281 - ERROR - Eleve with ID 1412 does not exist.
+2025-01-14 23:39:50,281 - ERROR - Eleve with ID 1412 does not exist.
+2025-01-14 23:39:50,291 - INFO - Payment for Oumounaïchata Kabore  imported successfully.
+2025-01-14 23:39:50,301 - INFO - Payment for Oumounaïchata Kabore  imported successfully.
+2025-01-14 23:39:50,318 - INFO - Payment for Oumounaïchata Kabore  imported successfully.
+2025-01-14 23:39:50,329 - INFO - Payment for Waliatou Sougrenoma Nikiema imported successfully.
+2025-01-14 23:39:50,338 - INFO - Payment for Kiswendssida Jacques Kagambega  imported successfully.
+2025-01-14 23:39:50,348 - INFO - Payment for Kabirou Yougbare imported successfully.
+2025-01-14 23:39:50,362 - INFO - Payment for Kabirou Yougbare imported successfully.
+2025-01-14 23:39:50,374 - INFO - Payment for Bousra Yougbare imported successfully.
+2025-01-14 23:39:50,386 - INFO - Payment for Bousra Yougbare imported successfully.
+2025-01-14 23:39:50,399 - INFO - Payment for Ouehipe Isosidore Ghislain Oussale  imported successfully.
+2025-01-14 23:39:50,410 - INFO - Payment for Ouehipe Isosidore Ghislain Oussale  imported successfully.
+2025-01-14 23:39:50,420 - INFO - Payment for Abdoul Mohamir Congo imported successfully.
+2025-01-14 23:39:50,429 - INFO - Payment for Abdoul Mohamir Congo imported successfully.
+2025-01-14 23:39:50,439 - INFO - Payment for W. Azaël Tiendrebeogo imported successfully.
+2025-01-14 23:39:50,449 - INFO - Payment for W. Azaël Tiendrebeogo imported successfully.
+2025-01-14 23:39:50,463 - INFO - Payment for Rachidatou Ouedraogo  imported successfully.
+2025-01-14 23:39:50,473 - INFO - Payment for Rachidatou Ouedraogo  imported successfully.
+2025-01-14 23:39:50,484 - INFO - Payment for Rachidatou Ouedraogo  imported successfully.
+2025-01-14 23:39:50,495 - INFO - Payment for Abdoul Gani Sore  imported successfully.
+2025-01-14 23:39:50,506 - INFO - Payment for Abdoul Gani Sore  imported successfully.
+2025-01-14 23:39:50,519 - INFO - Payment for Nouriatou Congo imported successfully.
+2025-01-14 23:39:50,531 - INFO - Payment for Boukare Morgan Gouem imported successfully.
+2025-01-14 23:39:50,543 - INFO - Payment for Paligwende Djemilatou Sorgho imported successfully.
+2025-01-14 23:39:50,557 - INFO - Payment for Zoulhatou Koanda imported successfully.
+2025-01-14 23:39:50,571 - INFO - Payment for Zoulhatou Koanda imported successfully.
+2025-01-14 23:39:50,589 - INFO - Payment for Francis Yoda imported successfully.
+2025-01-14 23:39:50,609 - INFO - Payment for Assana Sawadogo imported successfully.
+2025-01-14 23:39:50,627 - INFO - Payment for Deborah Tinwende Ouedraogo imported successfully.
+2025-01-14 23:39:50,645 - INFO - Payment for P. Jeannette Thiombiano imported successfully.
+2025-01-14 23:39:50,660 - INFO - Payment for Carlos Wendkouni Isidore Zoungrana imported successfully.
+2025-01-14 23:39:50,673 - INFO - Payment for Jean Gregoire Marie Bouda imported successfully.
+2025-01-14 23:39:50,686 - INFO - Payment for Djaouratou Compaore imported successfully.
+2025-01-14 23:39:50,699 - INFO - Payment for Aminata Kafando imported successfully.
+2025-01-14 23:39:50,712 - INFO - Payment for Aminata Kafando imported successfully.
+2025-01-14 23:39:50,726 - INFO - Payment for Daouda Ouedraogo imported successfully.
+2025-01-14 23:39:50,737 - INFO - Payment for Deborah Emmanuelle Bouda imported successfully.
+2025-01-14 23:39:50,753 - INFO - Payment for Wendpanga Clovis Bouda imported successfully.
+2025-01-14 23:39:50,766 - INFO - Payment for Anekogo Jerome  Lirasse  imported successfully.
+2025-01-14 23:39:50,777 - INFO - Payment for Soumaya Ilboudo imported successfully.
+2025-01-14 23:39:50,789 - INFO - Payment for Seraphine Djelika Kabore  imported successfully.
+2025-01-14 23:39:50,800 - INFO - Payment for Amir Mouhminine Sore  imported successfully.
+2025-01-14 23:39:50,812 - INFO - Payment for Amir Mouhminine Sore  imported successfully.
+2025-01-14 23:39:50,828 - INFO - Payment for Amir Mouhminine Sore  imported successfully.
+2025-01-14 23:39:50,840 - INFO - Payment for Amir Mouhminine Sore  imported successfully.
+2025-01-14 23:39:50,853 - INFO - Payment for Severin Bonkoungou imported successfully.
+2025-01-14 23:39:50,864 - INFO - Payment for Renaud Bonkoungou imported successfully.
+2025-01-14 23:39:50,875 - INFO - Payment for Emmanuel Ramadan Yougbare imported successfully.
+2025-01-14 23:39:50,888 - INFO - Payment for Emmanuel Ramadan Yougbare imported successfully.
+2025-01-14 23:39:50,901 - INFO - Payment for Emmanuel Ramadan Yougbare imported successfully.
+2025-01-14 23:39:50,916 - INFO - Payment for Bnewendé Christ Armel Nikiema  imported successfully.
+2025-01-14 23:39:50,929 - INFO - Payment for Nonguisida Abdoulaye Ouedraogo imported successfully.
+2025-01-14 23:39:50,939 - INFO - Payment for Nonguisida Abdoulaye Ouedraogo imported successfully.
+2025-01-14 23:39:50,950 - INFO - Payment for Nonguisida Abdoulaye Ouedraogo imported successfully.
+2025-01-14 23:39:50,961 - INFO - Payment for Nonguisida Abdoulaye Ouedraogo imported successfully.
+2025-01-14 23:39:50,972 - INFO - Payment for Jehovanie Bationo imported successfully.
+2025-01-14 23:39:50,983 - INFO - Payment for Abdoul Maguid Guira imported successfully.
+2025-01-14 23:39:50,997 - INFO - Payment for Abdoul Maguid Guira imported successfully.
+2025-01-14 23:39:51,009 - INFO - Payment for Ridwane Guira imported successfully.
+2025-01-14 23:39:51,019 - INFO - Payment for Ridwane Guira imported successfully.
+2025-01-14 23:39:51,029 - INFO - Payment for Larissa Sanou imported successfully.
+2025-01-14 23:39:51,039 - INFO - Payment for Mami Salamata Conombo imported successfully.
+2025-01-14 23:39:51,049 - INFO - Payment for Asmao Sawadogo imported successfully.
+2025-01-14 23:39:51,060 - INFO - Payment for Wend-vie Betsaleel Tiemtore  imported successfully.
+2025-01-14 23:39:51,070 - INFO - Payment for Tetoi Salim Traore imported successfully.
+2025-01-14 23:39:51,080 - INFO - Payment for Tefiè Mouslim Traore  imported successfully.
+2025-01-14 23:39:51,091 - INFO - Payment for Neimata Ouedraogo imported successfully.
+2025-01-14 23:39:51,101 - INFO - Payment for Rabiatou Bilgo imported successfully.
+2025-01-14 23:39:51,113 - INFO - Payment for Rabiatou Bilgo imported successfully.
+2025-01-14 23:39:51,124 - INFO - Payment for Rabiatou Bilgo imported successfully.
+2025-01-14 23:39:51,142 - INFO - Payment for Rabiatou Bilgo imported successfully.
+2025-01-14 23:39:51,160 - INFO - Payment for Abdoul Said Rayanemanegré Nikiema  imported successfully.
+2025-01-14 23:39:51,174 - INFO - Payment for Abdoul Said Rayanemanegré Nikiema  imported successfully.
+2025-01-14 23:39:51,186 - INFO - Payment for Abdoul Said Rayanemanegré Nikiema  imported successfully.
+2025-01-14 23:39:51,199 - INFO - Payment for Abdoul Said Rayanemanegré Nikiema  imported successfully.
+2025-01-14 23:39:51,209 - INFO - Payment for Yasmina Kouda imported successfully.
+2025-01-14 23:39:51,219 - INFO - Payment for Yasmina Kouda imported successfully.
+2025-01-14 23:39:51,231 - INFO - Payment for Yasmina Kouda imported successfully.
+2025-01-14 23:39:51,242 - INFO - Payment for Yasmina Kouda imported successfully.
+2025-01-14 23:39:51,254 - INFO - Payment for Abdoull Latif Babine  imported successfully.
+2025-01-14 23:39:51,269 - INFO - Payment for Abdoull Latif Babine  imported successfully.
+2025-01-14 23:39:51,289 - INFO - Payment for Abdoull Latif Babine  imported successfully.
+2025-01-14 23:39:51,300 - INFO - Payment for Abdoull Latif Babine  imported successfully.
+2025-01-14 23:39:51,315 - INFO - Payment for Abdoull Latif Babine  imported successfully.
+2025-01-14 23:39:51,327 - INFO - Payment for Abdoul Bassit  Sane  imported successfully.
+2025-01-14 23:39:51,339 - INFO - Payment for Abdoul Bassit  Sane  imported successfully.
+2025-01-14 23:39:51,354 - INFO - Payment for Abdoul Bassit  Sane  imported successfully.
+2025-01-14 23:39:51,365 - INFO - Payment for Abdoul Bassit  Sane  imported successfully.
+2025-01-14 23:39:51,376 - INFO - Payment for Fadilatou Yaogo  imported successfully.
+2025-01-14 23:39:51,389 - INFO - Payment for Fadilatou Yaogo  imported successfully.
+2025-01-14 23:39:51,403 - INFO - Payment for Fadilatou Yaogo  imported successfully.
+2025-01-14 23:39:51,414 - INFO - Payment for Mohamed Nouridine Sana imported successfully.
+2025-01-14 23:39:51,424 - INFO - Payment for Mohamed Nouridine Sana imported successfully.
+2025-01-14 23:39:51,434 - INFO - Payment for Mohamed Nouridine Sana imported successfully.
+2025-01-14 23:39:51,448 - INFO - Payment for Mohamadi  Pelegsonre  imported successfully.
+2025-01-14 23:39:51,460 - INFO - Payment for Jean Michel Nikiema imported successfully.
+2025-01-14 23:39:51,474 - INFO - Payment for Jean Raphael Nikiema imported successfully.
+2025-01-14 23:39:51,485 - INFO - Payment for Moustapha Guigma imported successfully.
+2025-01-14 23:39:51,496 - INFO - Payment for Abdoul Kader Guigma imported successfully.
+2025-01-14 23:39:51,509 - INFO - Payment for B. Salifou Compaore imported successfully.
+2025-01-14 23:39:51,527 - INFO - Payment for Yissono Audrey Oceanne Zongo imported successfully.
+2025-01-14 23:39:51,539 - INFO - Payment for Samadou Guigma  imported successfully.
+2025-01-14 23:39:51,550 - INFO - Payment for Samadou Guigma  imported successfully.
+2025-01-14 23:39:51,569 - INFO - Payment for Samadou Guigma  imported successfully.
+2025-01-14 23:39:51,580 - INFO - Payment for Adama Guigma imported successfully.
+2025-01-14 23:39:51,595 - INFO - Payment for Adama Guigma imported successfully.
+2025-01-14 23:39:51,608 - INFO - Payment for Issouf Lengani imported successfully.
+2025-01-14 23:39:51,620 - INFO - Payment for Abdoul Salam Lengani imported successfully.
+2025-01-14 23:39:51,632 - INFO - Payment for Aminata  Lengane  imported successfully.
+2025-01-14 23:39:51,646 - INFO - Payment for Aminata  Lengane  imported successfully.
+2025-01-14 23:39:51,660 - INFO - Payment for Rachidatou Sawadogo imported successfully.
+2025-01-14 23:39:51,672 - INFO - Payment for Souleymane Sawadogo imported successfully.
+2025-01-14 23:39:51,686 - INFO - Payment for Dora Grace Naguiabou imported successfully.
+2025-01-14 23:39:51,701 - INFO - Payment for Sarifatou Yameogo imported successfully.
+2025-01-14 23:39:51,723 - INFO - Payment for Patindé Ridwane Lalsaga imported successfully.
+2025-01-14 23:39:51,749 - INFO - Payment for Geofroy Nana imported successfully.
+2025-01-14 23:39:51,766 - INFO - Payment for Abdoul Fatah Denne  imported successfully.
+2025-01-14 23:39:51,780 - INFO - Payment for Abdoul Fatah Denne  imported successfully.
+2025-01-14 23:39:51,797 - INFO - Payment for R. Isidore Zoungrana imported successfully.
+2025-01-14 23:39:51,810 - INFO - Payment for Mohamadi  Pelegsonre  imported successfully.
+2025-01-14 23:39:51,822 - INFO - Payment for Mohamadi  Pelegsonre  imported successfully.
+2025-01-14 23:39:51,833 - INFO - Payment for Kiswend-sida Marie Armel Ilboudo imported successfully.
+2025-01-14 23:39:51,845 - INFO - Payment for Boukare Morgan Gouem imported successfully.
+2025-01-14 23:39:51,862 - INFO - Payment for Assaloue Boris Tigasse  imported successfully.
+2025-01-14 23:39:51,873 - INFO - Payment for Wemmatou Saouratou Gomgnimbou imported successfully.
+2025-01-14 23:39:51,887 - INFO - Payment for W. Josias Tiemtore imported successfully.
+2025-01-14 23:39:51,898 - INFO - Payment for Nebnow Salvador Casimir Some imported successfully.
+2025-01-14 23:39:51,909 - INFO - Payment for Chonleo Nicole Zigani imported successfully.
+2025-01-14 23:39:51,924 - INFO - Payment for Aminata Kafando imported successfully.
+2025-01-14 23:39:51,937 - INFO - Payment for Benewende Pamela Sobgo imported successfully.
+2025-01-14 23:39:51,946 - INFO - Payment for Benewende Pamela Sobgo imported successfully.
+2025-01-14 23:39:51,957 - INFO - Payment for Cedrix Ebenegre Sobgo imported successfully.
+2025-01-14 23:39:51,969 - INFO - Payment for Cedrix Ebenegre Sobgo imported successfully.
+2025-01-14 23:39:51,980 - INFO - Payment for Elie Tapsoba imported successfully.
+2025-01-14 23:39:51,992 - INFO - Payment for Elise 1Er Jumeau Tapsoba imported successfully.
+2025-01-14 23:39:52,005 - INFO - Payment for Alida Doriane Ouedraogo imported successfully.
+2025-01-14 23:39:52,019 - INFO - Payment for Wendkouni Emeline Nikiema imported successfully.
+2025-01-14 23:39:52,021 - ERROR - Eleve with ID 1411 does not exist.
+2025-01-14 23:39:52,033 - INFO - Payment for Abdoul Rachid Sana  imported successfully.
+2025-01-14 23:39:52,044 - INFO - Payment for Mohamed Bachir Yalwe imported successfully.
+2025-01-14 23:39:52,057 - INFO - Payment for Mamaga Charlotte Kora imported successfully.
+2025-01-14 23:39:52,069 - INFO - Payment for Nina wendinsso Sawadogo  imported successfully.
+2025-01-14 23:39:52,081 - INFO - Payment for Abdoul Maguid Sawadogo imported successfully.
+2025-01-14 23:39:52,093 - INFO - Payment for Absatou Sawadogo imported successfully.
+2025-01-14 23:39:52,107 - INFO - Payment for Asmao Sawadogo imported successfully.
+2025-01-14 23:39:52,121 - INFO - Payment for Wemmatou Saouratou Gomgnimbou imported successfully.
+2025-01-14 23:39:52,138 - INFO - Payment for Nina wendinsso Sawadogo  imported successfully.
+2025-01-14 23:39:52,153 - INFO - Payment for Mohamadi  Pelegsonre  imported successfully.
+2025-01-14 23:39:52,167 - INFO - Payment for Barnabé Tapsoba  imported successfully.
+2025-01-14 23:39:52,184 - INFO - Payment for Alizeta Wend-Benedo Amiratou Kabore imported successfully.
+2025-01-14 23:39:52,199 - INFO - Payment for Marthe Grace Baga imported successfully.
+2025-01-14 23:39:52,213 - INFO - Payment for Abdoul Halim Compaore imported successfully.
+2025-01-14 23:39:52,230 - INFO - Payment for Rachidatou Passere imported successfully.
+2025-01-14 23:39:52,248 - INFO - Payment for Levis Nikiema imported successfully.
+2025-01-14 23:39:52,262 - INFO - Payment for Abdoul Waris Zoungrana imported successfully.
+2025-01-14 23:39:52,276 - INFO - Payment for Steeve Donal Nikiema imported successfully.
+2025-01-14 23:39:52,291 - INFO - Payment for Jean Bertrand Wendkouni Kabre imported successfully.
+2025-01-14 23:39:52,305 - INFO - Payment for K. Berenger Kabre imported successfully.
+2025-01-14 23:39:52,321 - INFO - Payment for Daouda Sokondou imported successfully.
+2025-01-14 23:39:52,335 - INFO - Payment for Taslimatou Fatimata Billa imported successfully.
+2025-01-14 23:39:52,349 - INFO - Payment for Amiratou Zorom imported successfully.
+2025-01-14 23:39:52,369 - INFO - Payment for Paligwende Djemilatou Sorgho imported successfully.
+2025-01-14 23:39:52,392 - INFO - Payment for Paligwende Djemilatou Sorgho imported successfully.
+2025-01-14 23:39:52,414 - INFO - Payment for Wassilatou Conombo imported successfully.
+2025-01-14 23:39:52,430 - INFO - Payment for Wendpanga Alphee Kabore imported successfully.
+2025-01-14 23:39:52,442 - INFO - Payment for Wendpanga Alphee Kabore imported successfully.
+2025-01-14 23:39:52,456 - INFO - Payment for W. Roland Wilfried Gouba imported successfully.
+2025-01-14 23:39:52,475 - INFO - Payment for W. Roland Wilfried Gouba imported successfully.
+2025-01-14 23:39:52,488 - INFO - Payment for Maria  Gouba  imported successfully.
+2025-01-14 23:39:52,499 - INFO - Payment for Maria  Gouba  imported successfully.
+2025-01-14 23:39:52,514 - INFO - Payment for Cherif Sondé Moussa Traore  imported successfully.
+2025-01-14 23:39:52,531 - INFO - Payment for Sambe Evrad Some imported successfully.
+2025-01-14 23:39:52,543 - INFO - Payment for Renaud Bonkoungou imported successfully.
+2025-01-14 23:39:52,554 - INFO - Payment for Benabala Murielle Some imported successfully.
+2025-01-14 23:39:52,565 - INFO - Payment for Gouyire Olivier Gounabou imported successfully.
+2025-01-14 23:39:52,577 - INFO - Payment for W. Ezzidine Tougma imported successfully.
+2025-01-14 23:39:52,589 - INFO - Payment for Rachidatou Deme  imported successfully.
+2025-01-14 23:39:52,601 - INFO - Payment for Abdou Onadja imported successfully.
+2025-01-14 23:39:52,611 - INFO - Payment for Assana Niaone imported successfully.
+2025-01-14 23:39:52,622 - INFO - Payment for Assane Niaone imported successfully.
+2025-01-14 23:39:52,634 - INFO - Payment for Ramadane Bagyan imported successfully.
+2025-01-14 23:39:52,645 - INFO - Payment for Harouna Sawadogo imported successfully.
+2025-01-14 23:39:52,657 - INFO - Payment for Sarkyatou Ouedraogo imported successfully.
+2025-01-14 23:39:52,670 - INFO - Payment for Aimane Zoungrana imported successfully.
+2025-01-14 23:39:52,686 - INFO - Payment for Abdoul Nassirou Sawadogo imported successfully.
+2025-01-14 23:39:52,699 - INFO - Payment for Sabane Kabore imported successfully.
+2025-01-14 23:39:52,701 - ERROR - Eleve with ID 1410 does not exist.
+2025-01-14 23:39:52,714 - INFO - Payment for Oumaimatou Congo imported successfully.
+2025-01-14 23:39:52,726 - INFO - Payment for Bibata Tapsoba imported successfully.
+2025-01-14 23:39:52,738 - INFO - Payment for Ah Ichata Compaore imported successfully.
+2025-01-14 23:39:52,751 - INFO - Payment for Nadine Rouamba imported successfully.
+2025-01-14 23:39:52,763 - INFO - Payment for Nouriatou Nana imported successfully.
+2025-01-14 23:39:52,776 - INFO - Payment for Jean Michel Nikiema imported successfully.
+2025-01-14 23:39:52,790 - INFO - Payment for Jean Raphael Nikiema imported successfully.
+2025-01-14 23:39:52,804 - INFO - Payment for Mohamed Zorome imported successfully.
+2025-01-14 23:39:52,816 - INFO - Payment for Khalid Kazienga imported successfully.
+2025-01-14 23:39:52,817 - ERROR - Eleve with ID 1410 does not exist.
+2025-01-14 23:39:52,828 - INFO - Payment for Abdoul Maguid  Kiendrebeogo imported successfully.
+2025-01-14 23:39:52,840 - INFO - Payment for Maïcharatou Kazienga  imported successfully.
+2025-01-14 23:39:52,853 - INFO - Payment for Maïcharatou Kazienga  imported successfully.
+2025-01-14 23:39:52,868 - INFO - Payment for Abdoul Akim Compaore  imported successfully.
+2025-01-14 23:39:52,883 - INFO - Payment for Abdoul Akim Compaore  imported successfully.
+2025-01-14 23:39:52,901 - INFO - Payment for Sofiane Sam  imported successfully.
+2025-01-14 23:39:52,915 - INFO - Payment for Sofiane Sam  imported successfully.
+2025-01-14 23:39:52,928 - INFO - Payment for Weyira Miracle Loïs Colompare  imported successfully.
+2025-01-14 23:39:52,941 - INFO - Payment for Bnewendé Christ Armel Nikiema  imported successfully.
+2025-01-14 23:39:52,958 - INFO - Payment for Bnewendé Christ Armel Nikiema  imported successfully.
+2025-01-14 23:39:52,974 - INFO - Payment for Pendwende Esaie Tougma imported successfully.
+2025-01-14 23:39:52,987 - INFO - Payment for Pougdwende Elie Tougma imported successfully.
+2025-01-14 23:39:53,002 - INFO - Payment for Rihanata  Zedouma  imported successfully.
+2025-01-14 23:39:53,016 - INFO - Payment for Ouessono Kevin Nion  imported successfully.
+2025-01-14 23:39:53,032 - INFO - Payment for Lamoussa Marie Godelive Dipama imported successfully.
+2025-01-14 23:39:53,047 - INFO - Payment for Mohamadi Dipama imported successfully.
+2025-01-14 23:39:53,061 - INFO - Payment for Bousra Yougbare imported successfully.
+2025-01-14 23:39:53,074 - INFO - Payment for Samira Nikiema imported successfully.
+2025-01-14 23:39:53,089 - INFO - Payment for Elie Tapsoba imported successfully.
+2025-01-14 23:39:53,108 - INFO - Payment for Elise 1Er Jumeau Tapsoba imported successfully.
+2025-01-14 23:39:53,126 - INFO - Payment for Abdoul Bassite Togom imported successfully.
+2025-01-14 23:39:53,153 - INFO - Payment for Naïmatou Togom imported successfully.
+2025-01-14 23:39:53,155 - ERROR - Eleve with ID 1409 does not exist.
+2025-01-14 23:39:53,168 - INFO - Payment for Mami Salamata Conombo imported successfully.
+2025-01-14 23:39:53,184 - INFO - Payment for Mami Salamata Conombo imported successfully.
+2025-01-14 23:39:53,194 - INFO - Payment for Alimata Sadia Compaore imported successfully.
+2025-01-14 23:39:53,208 - INFO - Payment for Carlos Wendkouni Isidore Zoungrana  imported successfully.
+2025-01-14 23:39:53,220 - INFO - Payment for Arthur Ilboudo imported successfully.
+2025-01-14 23:39:53,231 - INFO - Payment for Wendpanga Eric Kiemde  imported successfully.
+2025-01-14 23:39:53,243 - INFO - Payment for Nadine Rouamba imported successfully.
+2025-01-14 23:39:53,253 - INFO - Payment for Rayanguenewende Lucienne Nacoulma imported successfully.
+2025-01-14 23:39:53,266 - INFO - Payment for Wendkato Prisca Dorcas Zoungrana imported successfully.
+2025-01-14 23:39:53,277 - INFO - Payment for Evariste Wendlassida Ilboudo imported successfully.
+2025-01-14 23:39:53,292 - INFO - Payment for Stephane Wendkuni Zabre  imported successfully.
+2025-01-14 23:39:53,307 - INFO - Payment for Beneba Bryan Christian Nare imported successfully.
+2025-01-14 23:39:53,321 - INFO - Payment for Guestawende Arthur Kabore imported successfully.
+2025-01-14 23:39:53,334 - INFO - Payment for Guestawende Arthur Kabore imported successfully.
+2025-01-14 23:39:53,345 - INFO - Payment for Yasmina Kouda imported successfully.
+2025-01-14 23:39:53,360 - INFO - Payment for Pendwende Esaie Tougma imported successfully.
+2025-01-14 23:39:53,372 - INFO - Payment for Pougdwende Elie Tougma imported successfully.
+2025-01-14 23:39:53,387 - INFO - Payment for Naomie Bienvenue Nana  imported successfully.
+2025-01-14 23:39:53,401 - INFO - Payment for Aymar Alphaniste Bazie imported successfully.
+2025-01-14 23:39:53,417 - INFO - Payment for Aymar Alphaniste Bazie imported successfully.
+2025-01-14 23:39:53,428 - INFO - Payment for Ouehipe Isosidore Ghislain Oussale  imported successfully.
+2025-01-14 23:39:53,442 - INFO - Payment for Mohamed Amin Sana  imported successfully.
+2025-01-14 23:39:53,465 - INFO - Payment for Mohamadi Dipama imported successfully.
+2025-01-14 23:39:53,477 - INFO - Payment for Mohamed Bachir Yalwe imported successfully.
+2025-01-14 23:39:53,490 - INFO - Payment for Wendbenedo Abdoul Manane Semde  imported successfully.
+2025-01-14 23:39:53,505 - INFO - Payment for Wendbenedo Abdoul Manane Semde  imported successfully.
+2025-01-14 23:39:53,520 - INFO - Payment for Cheick Oumar Tassembedo imported successfully.
+2025-01-14 23:39:53,531 - INFO - Payment for Carlos Wendkouni Isidore Zoungrana  imported successfully.
+2025-01-14 23:39:53,543 - INFO - Payment for Wendyame Beatrice Ouedraogo imported successfully.
+2025-01-14 23:39:53,557 - INFO - Payment for Abdoul Razack Kabre  imported successfully.
+2025-01-14 23:39:53,572 - INFO - Payment for Nafissatou Ilboudo imported successfully.
+2025-01-14 23:39:53,585 - INFO - Payment for Aliyatou Ilboudo imported successfully.
+2025-01-14 23:39:53,598 - INFO - Payment for Grace Alexandra Bouda imported successfully.
+2025-01-14 23:39:53,611 - INFO - Payment for Apolinnaire Wilfried Wamalgda Sawadogo  imported successfully.
+2025-01-14 23:39:53,623 - INFO - Payment for Wendtoin Nohan Anicet Nikiema  imported successfully.
+2025-01-14 23:39:53,636 - INFO - Payment for benewende Mathis Arthur Compaore  imported successfully.
+2025-01-14 23:39:53,650 - INFO - Payment for Delwende Landry Yanive Compaore imported successfully.
+2025-01-14 23:39:53,662 - INFO - Payment for Salam  Sawadogo  imported successfully.
+2025-01-14 23:39:53,683 - INFO - Payment for Camille Rayimwende Ouedraogo  imported successfully.
+2025-01-14 23:39:53,701 - INFO - Payment for Gueswende Giovany Tiemtore  imported successfully.
+2025-01-14 23:39:53,719 - INFO - Payment for W. Josias Tiemtore imported successfully.
+2025-01-14 23:39:53,742 - INFO - Payment for Ibrahim Isaac Kabre imported successfully.
+2025-01-14 23:39:53,756 - INFO - Payment for Aminata Dorcas Kabre imported successfully.
+2025-01-14 23:39:53,766 - INFO - Payment for Jean Michel Nikiema imported successfully.
+2025-01-14 23:39:53,779 - INFO - Payment for Jean Raphael Nikiema imported successfully.
+2025-01-14 23:39:53,795 - INFO - Payment for O. Debora Jeannine Aoue imported successfully.
+2025-01-14 23:39:53,807 - INFO - Payment for Abdoul Wahab Congo imported successfully.
+2025-01-14 23:39:53,821 - INFO - Payment for Faouzia Congo imported successfully.
+2025-01-14 23:39:53,833 - INFO - Payment for Osias Compaore imported successfully.
+2025-01-14 23:39:53,843 - INFO - Payment for Wendinso Adriell Compaore  imported successfully.
+2025-01-14 23:39:53,854 - INFO - Payment for Cheick Ibrahim Simpore  imported successfully.
+2025-01-14 23:39:53,869 - INFO - Payment for Oumaimatou Congo imported successfully.
+2025-01-14 23:39:53,883 - INFO - Payment for W. Epiphane Tiendrebeogo imported successfully.
+2025-01-14 23:39:53,894 - INFO - Payment for Rakiswende Dimitri Tiendrebeogo imported successfully.
+2025-01-14 23:39:53,905 - INFO - Payment for Nafissatou Ilboudo imported successfully.
+2025-01-14 23:39:53,914 - INFO - Payment for Aliyatou Ilboudo imported successfully.
+2025-01-14 23:39:53,924 - INFO - Payment for Stanislas Zoundi imported successfully.
+2025-01-14 23:39:53,936 - INFO - Payment for Wenddenda Aaliatou Guigma  imported successfully.
+2025-01-14 23:39:53,948 - INFO - Payment for Adboul Alim Guigma imported successfully.
+2025-01-14 23:39:53,959 - INFO - Payment for Abdoul Halim 2eme jumeau Guigma  imported successfully.
+2025-01-14 23:39:53,971 - INFO - Payment for W. Adja Rasma Zoungrana imported successfully.
+2025-01-14 23:39:53,984 - INFO - Payment for Aimane Zoungrana imported successfully.
+2025-01-14 23:39:53,998 - INFO - Payment for Raïssa Ilboudo imported successfully.
+2025-01-14 23:39:54,009 - INFO - Payment for Abdoul Hafiz Ouedraogo imported successfully.
+2025-01-14 23:39:54,021 - INFO - Payment for Weykiga Rachel Gounabou imported successfully.
+2025-01-14 23:39:54,035 - INFO - Payment for Julia Amaël Emeraude Noufe imported successfully.
+2025-01-14 23:39:54,047 - INFO - Payment for G. Steve Vladimir Bouda  imported successfully.
+2025-01-14 23:39:54,059 - INFO - Payment for Wendpanga Clovis Bouda imported successfully.
+2025-01-14 23:39:54,072 - INFO - Payment for Deborah Emmanuelle Bouda imported successfully.
+2025-01-14 23:39:54,085 - INFO - Payment for Wendso Christ-vie Tiendrebeogo imported successfully.
+2025-01-14 23:39:54,098 - INFO - Payment for Romeo Kuela imported successfully.
+2025-01-14 23:39:54,111 - INFO - Payment for Abdoul Shakour Compaore  imported successfully.
+2025-01-14 23:39:54,125 - INFO - Payment for Absetou Ilboudo imported successfully.
+2025-01-14 23:39:54,138 - INFO - Payment for Aroune Mohamed Assad Yiyandin Soulia  imported successfully.
+2025-01-14 23:39:54,151 - INFO - Payment for Sahadatou Sore imported successfully.
+2025-01-14 23:39:54,164 - INFO - Payment for Nouriatou Congo imported successfully.
+2025-01-14 23:39:54,177 - INFO - Payment for Roukiatou Nacoulma imported successfully.
+2025-01-14 23:39:54,190 - INFO - Payment for Mouhaz Amir Kabore imported successfully.
+2025-01-14 23:39:54,202 - INFO - Payment for Dimitri  Diapa  imported successfully.
+2025-01-14 23:39:54,215 - INFO - Payment for D. Evan Ilboudo imported successfully.
+2025-01-14 23:39:54,228 - INFO - Payment for Davy Casimir Simpore imported successfully.
+2025-01-14 23:39:54,240 - INFO - Payment for Rachidatou Sawadogo imported successfully.
+2025-01-14 23:39:54,253 - INFO - Payment for Souleymane Sawadogo imported successfully.
+2025-01-14 23:39:54,266 - INFO - Payment for Wendkouni Romaine Nana imported successfully.
+2025-01-14 23:39:54,281 - INFO - Payment for Paligwende Djemilatou Sorgho imported successfully.
+2025-01-14 23:39:54,293 - INFO - Payment for Nouriatou Rabo imported successfully.
+2025-01-14 23:39:54,306 - INFO - Payment for Oumoul Salim Sawadogo imported successfully.
+2025-01-14 23:39:54,320 - INFO - Payment for Abou Soufiane Compaore imported successfully.
+2025-01-14 23:39:54,332 - INFO - Payment for Viviane Kientega imported successfully.
+2025-01-14 23:39:54,346 - INFO - Payment for Ouessono Kevin Nion  imported successfully.
+2025-01-14 23:39:54,359 - INFO - Payment for Elie Yipene Zongo imported successfully.
+2025-01-14 23:39:54,372 - INFO - Payment for Awa Zongo imported successfully.
+2025-01-14 23:39:54,384 - INFO - Payment for B. Salifou Compaore imported successfully.
+2025-01-14 23:39:54,396 - INFO - Payment for Weyira Miracle Loïs Colompare  imported successfully.
+2025-01-14 23:39:54,409 - INFO - Payment for Xavier Bationo imported successfully.
+2025-01-14 23:39:54,428 - INFO - Payment for Boris Bationo imported successfully.
+2025-01-14 23:39:54,438 - INFO - Payment for Maissaratou Sawadogo  imported successfully.
+2025-01-14 23:39:54,450 - INFO - Payment for Houzaifa Sawadogo  imported successfully.
+2025-01-14 23:39:54,464 - INFO - Payment for Abdoul Maguid Sawadogo imported successfully.
+2025-01-14 23:39:54,476 - INFO - Payment for Absatou Sawadogo imported successfully.
+2025-01-14 23:39:54,492 - INFO - Payment for Asmao Sawadogo imported successfully.
+2025-01-14 23:39:54,507 - INFO - Payment for kIswendssida Christ Ilboudo  imported successfully.
+2025-01-14 23:39:54,521 - INFO - Payment for Cherif Mpa Amine Fofana  imported successfully.
+2025-01-14 23:39:54,532 - INFO - Payment for Bibata Tapsoba imported successfully.
+2025-01-14 23:39:54,545 - INFO - Payment for Abdoul Djalilou Ouedraogo imported successfully.
+2025-01-14 23:39:54,560 - INFO - Payment for Ibrahim Ouedraogo imported successfully.
+2025-01-14 23:39:54,575 - INFO - Payment for Wendyam Jorus Aubin Taita imported successfully.
+2025-01-14 23:39:54,585 - INFO - Payment for Abdoul Bassit  Nikiema imported successfully.
+2025-01-14 23:39:54,598 - INFO - Payment for Prisca Compaore imported successfully.
+2025-01-14 23:39:54,609 - INFO - Payment for Abdoul Mohamine Soudre imported successfully.
+2025-01-14 23:39:54,620 - INFO - Payment for Elie Tapsoba imported successfully.
+2025-01-14 23:39:54,632 - INFO - Payment for Oumoul Salim Sana imported successfully.
+2025-01-14 23:39:54,642 - INFO - Payment for Landry Ulrich  Ilboudo  imported successfully.
+2025-01-14 23:39:54,653 - INFO - Payment for Felicia Sindinmanegda  Ouedraogo  imported successfully.
+2025-01-14 23:39:54,664 - INFO - Payment for Abdoul Maguid Zoungrana imported successfully.
+2025-01-14 23:39:54,676 - INFO - Payment for Grace Divine  Kontogom imported successfully.
+2025-01-14 23:39:54,688 - INFO - Payment for Arsene  Nikiema  imported successfully.
+2025-01-14 23:39:54,701 - INFO - Payment for Elodie Betinia Nikiema imported successfully.
+2025-01-14 23:39:54,714 - INFO - Payment for Auriane Ilboudo imported successfully.
+2025-01-14 23:39:54,728 - INFO - Payment for Nelsonne  Ilboudo  imported successfully.
+2025-01-14 23:39:54,743 - INFO - Payment for Nathanael Ouedraogo imported successfully.
+2025-01-14 23:39:54,757 - INFO - Payment for Deborah Tinwende Ouedraogo imported successfully.
+2025-01-14 23:39:54,770 - INFO - Payment for S. Junior Nana imported successfully.
+2025-01-14 23:39:54,784 - INFO - Payment for Arienne Zoumbare imported successfully.
+2025-01-14 23:39:54,799 - INFO - Payment for Abdoul Galilou Zoungrana imported successfully.
+2025-01-14 23:39:54,812 - INFO - Payment for Aisseta Zoungrana imported successfully.
+2025-01-14 23:39:54,828 - INFO - Payment for Sadikou Tassembedo imported successfully.
+2025-01-14 23:39:54,842 - INFO - Payment for Amiratou Zorom imported successfully.
+2025-01-14 23:39:54,857 - INFO - Payment for Justin Gasbeogo imported successfully.
+2025-01-14 23:39:54,871 - INFO - Payment for Haoulatou Bance imported successfully.
+2025-01-14 23:39:54,884 - INFO - Payment for Barnabé Tapsoba  imported successfully.
+2025-01-14 23:39:54,898 - INFO - Payment for Barnabé Tapsoba  imported successfully.
+2025-01-14 23:39:54,909 - INFO - Payment for Ibrahim  Zoungrana  imported successfully.
+2025-01-14 23:39:54,922 - INFO - Payment for Abdoul Razack Zoungrana imported successfully.
+2025-01-14 23:39:54,938 - INFO - Payment for Awa Zoungrana imported successfully.
+2025-01-14 23:39:54,954 - INFO - Payment for Amir Balma  imported successfully.
+2025-01-14 23:39:54,970 - INFO - Payment for Bousra Yougbare imported successfully.
+2025-01-14 23:39:54,987 - INFO - Payment for Kabirou Yougbare imported successfully.
+2025-01-14 23:39:55,099 - INFO - Payment for Akiwele Fabrice dit Belgo Alcosse  imported successfully.
+2025-01-14 23:39:55,113 - INFO - Payment for Josue Isidore Kiema  imported successfully.
+2025-01-14 23:39:55,127 - INFO - Payment for Kiswendsida Felicite Grace Sawadogo imported successfully.
+2025-01-14 23:39:55,146 - INFO - Payment for W Jean Armel Sorgho imported successfully.
+2025-01-14 23:39:55,169 - INFO - Payment for Kenza Fadila Kinda imported successfully.
+2025-01-14 23:39:55,194 - INFO - Payment for Abdoul Mouhaz Kinda imported successfully.
+2025-01-14 23:39:55,215 - INFO - Payment for Amssetou Gouem imported successfully.
+2025-01-14 23:39:55,232 - INFO - Payment for Kassoum Gouem imported successfully.
+2025-01-14 23:39:55,245 - INFO - Payment for Patindé Ridwane Lalsaga imported successfully.
+2025-01-14 23:39:55,257 - INFO - Payment for Sylvie Wenian Boungoutongo imported successfully.
+2025-01-14 23:39:55,269 - INFO - Payment for Grace Alexandra Bouda imported successfully.
+2025-01-14 23:39:55,282 - INFO - Payment for Mohamadi  Pelegsonre  imported successfully.
+2025-01-14 23:39:55,293 - INFO - Payment for Wendinsongdé Bienvenue Sawadogo  imported successfully.
+2025-01-14 23:39:55,305 - INFO - Payment for Ismael Goumbane imported successfully.
+2025-01-14 23:39:55,316 - INFO - Payment for Fulbert Belemsigri imported successfully.
+2025-01-14 23:39:55,327 - INFO - Payment for Wendpanga Eric Kiemde  imported successfully.
+2025-01-14 23:39:55,338 - INFO - Payment for Amir Mouhminine Sore  imported successfully.
+2025-01-14 23:39:55,350 - INFO - Payment for Zinhounsou Aymane Wandaogo imported successfully.
+2025-01-14 23:39:55,362 - INFO - Payment for Wendpanga Alphee Kabore imported successfully.
+2025-01-14 23:39:55,378 - INFO - Payment for Jehovanie Bationo imported successfully.
+2025-01-14 23:39:55,388 - INFO - Payment for Abdoul Mohamine Zoungrana imported successfully.
+2025-01-14 23:39:55,399 - INFO - Payment for Maimounata Zoungrana imported successfully.
+2025-01-14 23:39:55,413 - INFO - Payment for Kamel Bonzi imported successfully.
+2025-01-14 23:39:55,425 - INFO - Payment for Taslimatou Fatimata Billa imported successfully.
+2025-01-14 23:39:55,438 - INFO - Payment for Hamza Dimbone imported successfully.
+2025-01-14 23:39:55,451 - INFO - Payment for Waliatou Sougrenoma Nikiema imported successfully.
+2025-01-14 23:39:55,465 - INFO - Payment for Wenyim Josiane Triomphe Atibie imported successfully.
+2025-01-14 23:39:55,481 - INFO - Payment for Wemmatou Saouratou Gomgnimbou imported successfully.
+2025-01-14 23:39:55,494 - INFO - Payment for Flore Ouedraogo imported successfully.
+2025-01-14 23:39:55,507 - INFO - Payment for Aïchatou Bikienga imported successfully.
+2025-01-14 23:39:55,522 - INFO - Payment for Jean Bertrand Wendkouni Kabre imported successfully.
+2025-01-14 23:39:55,536 - INFO - Payment for K. Berenger Kabre imported successfully.
+2025-01-14 23:39:55,547 - INFO - Payment for Laureine Nikiema imported successfully.
+2025-01-14 23:39:55,561 - INFO - Payment for Layilatou Simpore imported successfully.
+2025-01-14 23:39:55,573 - INFO - Payment for Rachidatou Ouedraogo  imported successfully.
+2025-01-14 23:39:55,589 - INFO - Payment for Gouyire Olivier Gounabou imported successfully.
+2025-01-14 23:39:55,602 - INFO - Payment for Rafiatou Nacoulma imported successfully.
+2025-01-14 23:39:55,616 - INFO - Payment for Pegwende Abdoul Fatao Nacoulma imported successfully.
+2025-01-14 23:39:55,627 - INFO - Payment for Roukietou Ouedraogo imported successfully.
+2025-01-14 23:39:55,639 - INFO - Payment for Sabane Kabore imported successfully.
+2025-01-14 23:39:55,650 - INFO - Payment for Assane Niaone imported successfully.
+2025-01-14 23:39:55,659 - INFO - Payment for Assana Niaone imported successfully.
+2025-01-14 23:39:55,670 - INFO - Payment for Wendenda Benania Balma  imported successfully.
+2025-01-14 23:39:55,681 - INFO - Payment for San Yacouba Traore imported successfully.
+2025-01-14 23:39:55,695 - INFO - Payment for Tetoi Salim Traore imported successfully.
+2025-01-14 23:39:55,705 - INFO - Payment for Tefiè Mouslim Traore  imported successfully.
+2025-01-14 23:39:55,716 - INFO - Payment for Abdoul Said Rayanemanegré Nikiema  imported successfully.
+2025-01-14 23:39:55,727 - INFO - Payment for Josiane Natama imported successfully.
+2025-01-14 23:39:55,739 - INFO - Payment for Mohamed Bechir Kouanda imported successfully.
+2025-01-14 23:39:55,740 - ERROR - Eleve with ID 1414 does not exist.
+2025-01-14 23:39:55,751 - INFO - Payment for Nonguisida Abdoulaye Ouedraogo imported successfully.
+2025-01-14 23:39:55,762 - INFO - Payment for Nina wendinsso Sawadogo  imported successfully.
+2025-01-14 23:39:55,773 - INFO - Payment for Abdoul Wahid Nikiema imported successfully.
+2025-01-14 23:39:55,784 - INFO - Payment for Rayane  Kabore  imported successfully.
+2025-01-14 23:39:55,797 - INFO - Payment for Wend-Kuni Ibrahim Nikiema  imported successfully.
+2025-01-14 23:39:55,808 - INFO - Payment for Yousra Bilgo imported successfully.
+2025-01-14 23:39:55,820 - INFO - Payment for Rabiatou Bilgo imported successfully.
+2025-01-14 23:39:55,831 - INFO - Payment for Abdoul Gani Sore  imported successfully.
+2025-01-14 23:39:55,843 - INFO - Payment for Wend Kouni Emelienne Leiticia Rouamba imported successfully.
+2025-01-14 23:39:55,856 - INFO - Payment for Wend Kouni Emelienne Leiticia Rouamba imported successfully.
+2025-01-14 23:39:55,870 - INFO - Payment for Abdoul Razack Sore imported successfully.
+2025-01-14 23:39:55,887 - INFO - Payment for Abdoul Moumouni Yaogo  imported successfully.
+2025-01-14 23:39:55,900 - INFO - Payment for Oumou Salim Dabo imported successfully.
+2025-01-14 23:39:55,917 - INFO - Payment for Lamoussa Marie Godelive Dipama imported successfully.
+2025-01-14 23:39:55,934 - INFO - Payment for Sougrinooma Patricia Dondasse imported successfully.
+2025-01-14 23:39:55,949 - INFO - Payment for Dora Grace Naguiabou imported successfully.
+2025-01-14 23:39:55,967 - INFO - Payment for Abdoul Kader Guigma imported successfully.
+2025-01-14 23:39:55,984 - INFO - Payment for Moustapha Guigma imported successfully.
+2025-01-14 23:39:56,002 - INFO - Payment for Bernard Badiel imported successfully.
+2025-01-14 23:39:56,022 - INFO - Payment for Yasmina Saoudatou Kiemtore imported successfully.
+2025-01-14 23:39:56,036 - INFO - Payment for Mohamed Zorome imported successfully.
+2025-01-14 23:39:56,048 - INFO - Payment for Zoulhatou Koanda imported successfully.
+2025-01-14 23:39:56,062 - INFO - Payment for R. Isidore Zoungrana imported successfully.
+2025-01-14 23:39:56,073 - INFO - Payment for Abdoul Alim Tassembedo imported successfully.
+2025-01-14 23:39:56,084 - INFO - Payment for Kabirou Yougbare imported successfully.
+2025-01-14 23:39:56,097 - INFO - Payment for Latifatou Ilboudo imported successfully.
+2025-01-14 23:39:56,107 - INFO - Payment for Abdoul Gani Congo imported successfully.
+2025-01-14 23:39:56,121 - INFO - Payment for Assana Sawadogo imported successfully.
+2025-01-14 23:39:56,134 - INFO - Payment for Harouna Sawadogo imported successfully.
+2025-01-14 23:39:56,149 - INFO - Payment for Abraham Conombo imported successfully.
+2025-01-14 23:39:56,164 - INFO - Payment for Ibrahim Ouedraogo imported successfully.
+2025-01-14 23:39:56,180 - INFO - Payment for W. Azaël Tiendrebeogo imported successfully.
+2025-01-14 23:39:56,192 - INFO - Payment for Larissa Sanou imported successfully.
+2025-01-14 23:39:56,202 - INFO - Payment for Maimounata Zoungrana imported successfully.
+2025-01-14 23:39:56,215 - INFO - Payment for Daouda Sokondou imported successfully.
+2025-01-14 23:39:56,231 - INFO - Payment for Nafissatou Passere imported successfully.
+2025-01-14 23:39:56,244 - INFO - Payment for Abdoul Nassirou Sawadogo imported successfully.
+2025-01-14 23:39:56,258 - INFO - Payment for Kaoue Loreine 1ere jumelle  Kotani  imported successfully.
+2025-01-14 23:39:56,271 - INFO - Payment for Assagribouga Damien Ulrich Kotani  imported successfully.
+2025-01-14 23:39:56,282 - INFO - Payment for Aisseta Compaore imported successfully.
+2025-01-14 23:39:56,293 - INFO - Payment for Steeve Donal Nikiema imported successfully.
+2025-01-14 23:39:56,304 - INFO - Payment for Abdoul Waris Zoungrana imported successfully.
+2025-01-14 23:39:56,318 - INFO - Payment for Alida Doriane Ouedraogo imported successfully.
+2025-01-14 23:39:56,332 - INFO - Payment for Ramadane Bagyan imported successfully.
+2025-01-14 23:39:56,343 - INFO - Payment for Abdoul Maguid Zoungrana imported successfully.
+2025-01-14 23:39:56,353 - INFO - Payment for Wendyame Beatrice Ouedraogo imported successfully.
+2025-01-14 23:39:56,364 - INFO - Payment for Elise Kabre imported successfully.
+2025-01-14 23:39:56,379 - INFO - Payment for Pawendtaore Ulrich Junior Nikiema  imported successfully.
+2025-01-14 23:39:56,391 - INFO - Payment for Emmanuel Ramadan Yougbare imported successfully.
+2025-01-14 23:39:56,404 - INFO - Payment for Amiratou Zorom imported successfully.
+2025-01-14 23:39:56,419 - INFO - Payment for W Jean Armel Sorgho imported successfully.
+2025-01-14 23:39:56,434 - INFO - Payment for W Jean Armel Sorgho imported successfully.
+2025-01-14 23:39:56,451 - INFO - Payment for Steeve Donal Nikiema imported successfully.
+2025-01-14 23:39:56,463 - INFO - Payment for Ange Nacoulma imported successfully.
+2025-01-14 23:39:56,477 - INFO - Payment for Angela Nacoulma imported successfully.
+2025-01-14 23:39:56,493 - INFO - Payment for Sayouba Zongo imported successfully.
+2025-01-14 23:39:56,507 - INFO - Payment for Amira Tassembedo imported successfully.
+2025-01-14 23:39:56,522 - INFO - Payment for Naomie Bienvenue Nana  imported successfully.
+2025-01-14 23:39:56,534 - INFO - Payment for Wepooni Eleazar Josue Koubatora  imported successfully.
+2025-01-14 23:39:56,536 - ERROR - Eleve with ID 1411 does not exist.
+2025-01-14 23:39:56,547 - INFO - Payment for Rasmata Compaore imported successfully.
+2025-01-14 23:39:56,560 - INFO - Payment for Abdoul Aziz Kibsa  Ilboudo imported successfully.
+2025-01-14 23:39:56,571 - INFO - Payment for Nadine Rouamba imported successfully.
+2025-01-14 23:39:56,584 - INFO - Payment for Latifatou Soulga imported successfully.
+2025-01-14 23:39:56,598 - INFO - Payment for Khalid Kazienga imported successfully.
+2025-01-14 23:39:56,613 - INFO - Payment for Renaud Bonkoungou imported successfully.
+2025-01-14 23:39:56,625 - INFO - Payment for Severin Bonkoungou imported successfully.
+2025-01-14 23:39:56,636 - INFO - Payment for Wendkouni Romaine Nana imported successfully.
+2025-01-14 23:39:56,652 - INFO - Payment for Isidore Zabpaodre  imported successfully.
+2025-01-14 23:39:56,666 - INFO - Payment for Farilatou Monéan imported successfully.
+2025-01-14 23:39:56,681 - INFO - Payment for Ulrich Gansonre imported successfully.
+2025-01-14 23:39:56,695 - INFO - Payment for Sarkyatou Ouedraogo imported successfully.
+2025-01-14 23:39:56,708 - INFO - Payment for Mohamadi Dipama imported successfully.
+2025-01-14 23:39:56,722 - INFO - Payment for Nebnow Salvador Casimir Some imported successfully.
+2025-01-14 23:39:56,738 - INFO - Payment for Wassilatou Conombo imported successfully.
+2025-01-14 23:39:56,751 - INFO - Payment for Kenza Fadila Kinda imported successfully.
+2025-01-14 23:39:56,766 - INFO - Payment for Abdoul Razack Sore imported successfully.
+2025-01-14 23:39:56,780 - INFO - Payment for Amdiatou Lengane imported successfully.
+2025-01-14 23:39:56,792 - INFO - Payment for Charles Borromee Ilboudo imported successfully.
+2025-01-14 23:39:56,808 - INFO - Payment for Arsene Ilboudo imported successfully.
+2025-01-14 23:39:56,826 - INFO - Payment for Marthe Grace Baga imported successfully.
+2025-01-14 23:39:56,842 - INFO - Payment for Adama Zoungrana imported successfully.
+2025-01-14 23:39:56,854 - INFO - Payment for Nadia Kinda imported successfully.
+2025-01-14 23:39:56,866 - INFO - Payment for Nouriatou Congo imported successfully.
+2025-01-14 23:39:56,882 - INFO - Payment for Chonleo Nicole Zigani imported successfully.
+2025-01-14 23:39:56,892 - INFO - Payment for Steeve Kafando imported successfully.
+2025-01-14 23:39:56,904 - INFO - Payment for Rasack Yonli imported successfully.
+2025-01-14 23:39:56,919 - INFO - Payment for Guiemilatou Yonli imported successfully.
+2025-01-14 23:39:56,934 - INFO - Payment for Abdoul Maguid Guira imported successfully.
+2025-01-14 23:39:56,945 - INFO - Payment for Ridwane Guira imported successfully.
+2025-01-14 23:39:56,955 - INFO - Payment for Alizeta Wend-Benedo Amiratou Kabore imported successfully.
+2025-01-14 23:39:56,967 - INFO - Payment for Kiswend-sida Marie Armel Ilboudo imported successfully.
+2025-01-14 23:39:56,979 - INFO - Payment for Aliyatou Ilboudo imported successfully.
+2025-01-14 23:39:56,991 - INFO - Payment for Balguissou Compaore imported successfully.
+2025-01-14 23:39:57,004 - INFO - Payment for Rihanata Compaore imported successfully.
+2025-01-14 23:39:57,017 - INFO - Payment for Jean Gregoire Marie Bouda imported successfully.
+2025-01-14 23:39:57,030 - INFO - Payment for Abdou Onadja imported successfully.
+2025-01-14 23:39:57,042 - INFO - Payment for Abdoul Halim Compaore imported successfully.
+2025-01-14 23:39:57,054 - INFO - Payment for Abdoul Akim Compaore  imported successfully.
+2025-01-14 23:39:57,066 - INFO - Payment for Yissono Audrey Oceanne Zongo imported successfully.
+2025-01-14 23:39:57,077 - INFO - Payment for Wendenda Benania Balma  imported successfully.
+2025-01-14 23:39:57,091 - INFO - Payment for Salam  Sawadogo  imported successfully.
+2025-01-14 23:39:57,111 - INFO - Payment for Khalid Kazienga imported successfully.
+2025-01-14 23:39:57,134 - INFO - Payment for Sofiane Sam  imported successfully.
+2025-01-14 23:39:57,150 - INFO - Payment for Bnewendé Christ Armel Nikiema  imported successfully.
+2025-01-14 23:39:57,170 - INFO - Payment for Abdoul Mohamir Congo imported successfully.
+2025-01-14 23:39:57,181 - INFO - Payment for Mami Salamata Conombo imported successfully.
+2025-01-14 23:39:57,192 - INFO - Payment for Faizatou  Tapsoba  imported successfully.
+2025-01-14 23:39:57,203 - INFO - Payment for Sarifatou Yameogo imported successfully.
+2025-01-14 23:39:57,213 - INFO - Payment for Aisseta Tonde imported successfully.
+2025-01-14 23:39:57,224 - INFO - Payment for Abdoul Shakour Compaore  imported successfully.
+2025-01-14 23:39:57,234 - INFO - Payment for Oumoul Salim Sana imported successfully.
+2025-01-14 23:39:57,244 - INFO - Payment for Jehovanie Bationo imported successfully.
+2025-01-14 23:39:57,255 - INFO - Payment for Abdoul Bassit  Sane  imported successfully.
+2025-01-14 23:39:57,266 - INFO - Payment for Cheick Oumar Mohamed Congo imported successfully.
+2025-01-14 23:39:57,278 - INFO - Payment for Daouda Ouedraogo imported successfully.
+2025-01-14 23:39:57,291 - INFO - Payment for Latifatou Ilboudo imported successfully.
+2025-01-14 23:39:57,293 - ERROR - Eleve with ID 1410 does not exist.
+2025-01-14 23:39:57,307 - INFO - Payment for Divine Kabore imported successfully.
+2025-01-14 23:39:57,321 - INFO - Payment for Neimata Ouedraogo imported successfully.
+2025-01-14 23:39:57,333 - INFO - Payment for Auriane Ilboudo imported successfully.
+2025-01-14 23:39:57,345 - INFO - Payment for Francis Yoda imported successfully.
+2025-01-14 23:39:57,359 - INFO - Payment for Richard Yoda imported successfully.
+2025-01-14 23:39:57,372 - INFO - Payment for Emmanuel Ramadan Yougbare imported successfully.
+2025-01-14 23:39:57,386 - INFO - Payment for Bertin Bama imported successfully.
+2025-01-14 23:39:57,399 - INFO - Payment for Bertrand Bama imported successfully.
+2025-01-14 23:39:57,417 - INFO - Payment for Rayane  Kabore  imported successfully.
+2025-01-14 23:39:57,437 - INFO - Payment for Delwende Tatiana Yvette Kologo imported successfully.
+2025-01-14 23:39:57,458 - INFO - Payment for Anne Marie Kologo imported successfully.
+2025-01-14 23:39:57,469 - INFO - Payment for W. Ezzidine Tougma imported successfully.
+2025-01-14 23:39:57,480 - INFO - Payment for Abdoul Djalilou Ouedraogo imported successfully.
+2025-01-14 23:39:57,491 - INFO - Payment for Camille Rayimwende Ouedraogo  imported successfully.
+2025-01-14 23:39:57,502 - INFO - Payment for Cheick Moubarack Ouedraogo imported successfully.
+2025-01-14 23:39:57,514 - INFO - Payment for Maïcharatou Kazienga  imported successfully.
+2025-01-14 23:39:57,525 - INFO - Payment for Nafissatou Ilboudo imported successfully.
+2025-01-14 23:39:57,536 - INFO - Payment for Aymar Alphaniste Bazie imported successfully.
+2025-01-14 23:39:57,549 - INFO - Payment for Sougrinooma Patricia Dondasse imported successfully.
+2025-01-14 23:39:57,563 - INFO - Payment for Wenyim Josiane Triomphe Atibie imported successfully.
+2025-01-14 23:39:57,575 - INFO - Payment for Aroune Mohamed Assad Yiyandin Soulia  imported successfully.
+2025-01-14 23:39:57,585 - INFO - Payment for Anekogo Jerome  Lirasse  imported successfully.
+2025-01-14 23:39:57,596 - INFO - Payment for Pengdwende Stella Emelie Kinda imported successfully.
+2025-01-14 23:39:57,607 - INFO - Payment for Assaloue Boris Tigasse  imported successfully.
+2025-01-14 23:39:57,619 - INFO - Payment for Nonguisida Abdoulaye Ouedraogo imported successfully.
+2025-01-14 23:39:57,630 - INFO - Payment for Nelsonne  Ilboudo  imported successfully.
+2025-01-14 23:39:57,641 - INFO - Payment for Wendso Christ-vie Tiendrebeogo imported successfully.
+2025-01-14 23:39:57,651 - INFO - Payment for Stephane Wendkuni Zabre  imported successfully.
+2025-01-14 23:39:57,661 - INFO - Payment for Wend-vie Betsaleel Tiemtore  imported successfully.
+2025-01-14 23:39:57,671 - INFO - Payment for Paligwende Djemilatou Sorgho imported successfully.
+2025-01-14 23:39:57,683 - INFO - Payment for Alizeta Wend-Benedo Amiratou Kabore imported successfully.
+2025-01-14 23:39:57,692 - INFO - Payment for Moazou Ouedraogo imported successfully.
+2025-01-14 23:39:57,705 - INFO - Payment for Felicia Sindinmanegda  Ouedraogo  imported successfully.
+2025-01-14 23:39:57,720 - INFO - Payment for Elodie Betinia Nikiema imported successfully.
+2025-01-14 23:39:57,735 - INFO - Payment for Arsene  Nikiema  imported successfully.
+2025-01-14 23:39:57,749 - INFO - Payment for Cherif Sondé Moussa Traore  imported successfully.
+2025-01-14 23:39:57,761 - INFO - Payment for Wendpanga Eric Kiemde  imported successfully.
+2025-01-14 23:39:57,771 - INFO - Payment for Rakiswende Dimitri Tiendrebeogo imported successfully.
+2025-01-14 23:39:57,783 - INFO - Payment for Assana Niaone imported successfully.
+2025-01-14 23:39:57,795 - INFO - Payment for Assane Niaone imported successfully.
+2025-01-14 23:39:57,806 - INFO - Payment for Wendenda Benania Balma  imported successfully.
+2025-01-14 23:39:57,818 - INFO - Payment for Abdoul Maguid  Kiendrebeogo imported successfully.
+2025-01-14 23:39:57,828 - INFO - Payment for Anoutoua Marie Imelda Gambapebou imported successfully.
+2025-01-14 23:39:57,841 - INFO - Payment for Ouehipe Isosidore Ghislain Oussale  imported successfully.
+2025-01-14 23:39:57,853 - INFO - Payment for Aminata Dorcas Kabre imported successfully.
+2025-01-14 23:39:57,869 - INFO - Payment for Ibrahim Isaac Kabre imported successfully.
+2025-01-14 23:39:57,884 - INFO - Payment for Rachidatou Ouedraogo  imported successfully.
+2025-01-14 23:39:57,898 - INFO - Payment for Abdoul Bassite Togom imported successfully.
+2025-01-14 23:39:57,913 - INFO - Payment for Naïmatou Togom imported successfully.
+2025-01-14 23:39:57,924 - INFO - Payment for Abdoul Ganilou Tiendrebeogo imported successfully.
+2025-01-14 23:39:57,935 - INFO - Payment for Wendyam Jorus Aubin Taita imported successfully.
+2025-01-14 23:39:57,948 - INFO - Payment for Ibrahim  Zoungrana  imported successfully.
+2025-01-14 23:39:57,964 - INFO - Payment for Abdoul Razack Zoungrana imported successfully.
+2025-01-14 23:39:57,979 - INFO - Payment for Awa Zoungrana imported successfully.
+2025-01-14 23:39:57,992 - INFO - Payment for Mohamed Amin Sana  imported successfully.
+2025-01-14 23:39:58,008 - INFO - Payment for Bnewendé Christ Armel Nikiema  imported successfully.
+2025-01-14 23:39:58,024 - INFO - Payment for Bnewendé Christ Armel Nikiema  imported successfully.
+2025-01-14 23:39:58,040 - INFO - Payment for Ulrich Gansonre imported successfully.
+2025-01-14 23:39:58,054 - INFO - Payment for Cheick Oumar Tassembedo imported successfully.
+2025-01-14 23:39:58,067 - INFO - Payment for Bernard Badiel imported successfully.
+2025-01-14 23:39:58,081 - INFO - Payment for Cheick Ibrahim Simpore  imported successfully.
+2025-01-14 23:39:58,096 - INFO - Payment for Auriane Ilboudo imported successfully.
+2025-01-14 23:39:58,108 - INFO - Payment for Abdoul Hafiz Ouedraogo imported successfully.
+2025-01-14 23:39:58,122 - INFO - Payment for Amir Balma  imported successfully.
+2025-01-14 23:39:58,135 - INFO - Payment for Elie Yipene Zongo imported successfully.
+2025-01-14 23:39:58,150 - INFO - Payment for Mami Salamata Conombo imported successfully.
+2025-01-14 23:39:58,165 - INFO - Payment for Fulbert Belemsigri imported successfully.
+2025-01-14 23:39:58,178 - INFO - Payment for Abdoul Galilou Zoungrana imported successfully.
+2025-01-14 23:39:58,193 - INFO - Payment for Aisseta Zoungrana imported successfully.
+2025-01-14 23:39:58,207 - INFO - Payment for Alimata Sadia Compaore imported successfully.
+2025-01-14 23:39:58,219 - INFO - Payment for Abou Soufiane Compaore imported successfully.
+2025-01-14 23:39:58,235 - INFO - Payment for Abdoul Mohamine Zoungrana imported successfully.
+2025-01-14 23:39:58,247 - INFO - Payment for Arthur Ilboudo imported successfully.
+2025-01-14 23:39:58,258 - INFO - Payment for Rihanata  Zedouma  imported successfully.
+2025-01-14 23:39:58,271 - INFO - Payment for Delwende Landry Yanive Compaore imported successfully.
+2025-01-14 23:39:58,282 - INFO - Payment for benewende Mathis Arthur Compaore  imported successfully.
+2025-01-14 23:39:58,295 - INFO - Payment for Deborah Tinwende Ouedraogo imported successfully.
+2025-01-14 23:39:58,306 - INFO - Payment for Nathanael Ouedraogo imported successfully.
+2025-01-14 23:39:58,319 - INFO - Payment for Mouhaz Amir Kabore imported successfully.
+2025-01-14 23:39:58,334 - INFO - Payment for Prisca Compaore imported successfully.
+2025-01-14 23:39:58,348 - INFO - Payment for Wendyame Beatrice Ouedraogo imported successfully.
+2025-01-14 23:39:58,363 - INFO - Payment for Romaric Gambapebou imported successfully.
+2025-01-14 23:39:58,377 - INFO - Payment for Renaud Bonkoungou imported successfully.
+2025-01-14 23:39:58,391 - INFO - Payment for Severin Bonkoungou imported successfully.
+2025-01-14 23:39:58,405 - INFO - Payment for Abdoul Alim Tassembedo imported successfully.
+2025-01-14 23:39:58,418 - INFO - Payment for Latifatou Ilboudo imported successfully.
+2025-01-14 23:39:58,431 - INFO - Payment for Absetou Ilboudo imported successfully.
+2025-01-14 23:39:58,443 - INFO - Payment for Ah Ichata Compaore imported successfully.
+2025-01-14 23:39:58,457 - INFO - Payment for Maimounata Zoungrana imported successfully.
+2025-01-14 23:39:58,471 - INFO - Payment for Elise 1Er Jumeau Tapsoba imported successfully.
+2025-01-14 23:39:58,487 - INFO - Payment for Cheick Oumar Mohamed Congo imported successfully.
+2025-01-14 23:39:58,502 - INFO - Payment for Daouda Ouedraogo imported successfully.
+2025-01-14 23:39:58,517 - INFO - Payment for Weyira Miracle Loïs Colompare  imported successfully.
+2025-01-14 23:39:58,532 - INFO - Payment for Layilatou Simpore imported successfully.
+2025-01-14 23:39:58,545 - INFO - Payment for Pendwende Esaie Tougma imported successfully.
+2025-01-14 23:39:58,558 - INFO - Payment for Pougdwende Elie Tougma imported successfully.
+2025-01-14 23:39:58,570 - INFO - Payment for Kaoue Loreine 1ere jumelle  Kotani  imported successfully.
+2025-01-14 23:39:58,581 - INFO - Payment for Assagribouga Damien Ulrich Kotani  imported successfully.
+2025-01-14 23:39:58,593 - INFO - Payment for Abdoul Mouhaz Kinda imported successfully.
+2025-01-14 23:39:58,606 - INFO - Payment for Moudjahed Djasibo Onadja imported successfully.
+2025-01-14 23:39:58,609 - ERROR - Eleve with ID 1409 does not exist.
+2025-01-14 23:39:58,620 - INFO - Payment for Bibata Tapsoba imported successfully.
+2025-01-14 23:39:58,633 - INFO - Payment for Josiane Natama imported successfully.
+2025-01-14 23:39:58,647 - INFO - Payment for Flore Ouedraogo imported successfully.
+2025-01-14 23:39:58,656 - INFO - Payment for Julia Amaël Emeraude Noufe imported successfully.
+2025-01-14 23:39:58,667 - INFO - Payment for Lamoussa Marie Godelive Dipama imported successfully.
+2025-01-14 23:39:58,681 - INFO - Payment for Bertin Bama imported successfully.
+2025-01-14 23:39:58,698 - INFO - Payment for Bertrand Bama imported successfully.
+2025-01-14 23:39:58,713 - INFO - Payment for Wepooni Eleazar Josue Koubatora  imported successfully.
+2025-01-14 23:39:58,725 - INFO - Payment for Jean Gregoire Marie Bouda imported successfully.
+2025-01-14 23:39:58,744 - INFO - Payment for Jean Bertrand Wendkouni Kabre imported successfully.
+2025-01-14 23:39:58,757 - INFO - Payment for K. Berenger Kabre imported successfully.
+2025-01-14 23:39:58,773 - INFO - Payment for Levis Nikiema imported successfully.
+2025-01-14 23:39:58,791 - INFO - Payment for Ismael Goumbane imported successfully.
+2025-01-14 23:39:58,807 - INFO - Payment for Sakinatou Kiendrebeogo imported successfully.
+2025-01-14 23:39:58,824 - INFO - Payment for Maissaratou Sawadogo  imported successfully.
+2025-01-14 23:39:58,838 - INFO - Payment for Houzaifa Sawadogo  imported successfully.
+2025-01-14 23:39:58,851 - INFO - Payment for Abdoul Said Rayanemanegré Nikiema  imported successfully.
+2025-01-14 23:39:58,866 - INFO - Payment for Aïchatou Bikienga imported successfully.
+2025-01-14 23:39:58,882 - INFO - Payment for Arienne Zoumbare imported successfully.
+2025-01-14 23:39:58,897 - INFO - Payment for Barnabé Tapsoba  imported successfully.
+2025-01-14 23:39:58,913 - INFO - Payment for D. Evan Ilboudo imported successfully.
+2025-01-14 23:39:58,932 - INFO - Payment for Abdoul Maguid Sawadogo imported successfully.
+2025-01-14 23:39:58,947 - INFO - Payment for Absatou Sawadogo imported successfully.
+2025-01-14 23:39:58,963 - INFO - Payment for Asmao Sawadogo imported successfully.
+2025-01-14 23:39:58,984 - INFO - Payment for Abdoul Moumouni Yaogo  imported successfully.
+2025-01-14 23:39:59,001 - INFO - Payment for Chonleo Nicole Zigani imported successfully.
+2025-01-14 23:39:59,018 - INFO - Payment for San Yacouba Traore imported successfully.
+2025-01-14 23:39:59,033 - INFO - Payment for Tetoi Salim Traore imported successfully.
+2025-01-14 23:39:59,049 - INFO - Payment for Tefiè Mouslim Traore  imported successfully.
+2025-01-14 23:39:59,073 - INFO - Payment for Justin Gasbeogo imported successfully.
+2025-01-14 23:39:59,095 - INFO - Payment for S. Junior Nana imported successfully.
+2025-01-14 23:39:59,120 - INFO - Payment for Abdoul Razack Sore imported successfully.
+2025-01-14 23:39:59,139 - INFO - Payment for Abdoul Mohamine Soudre imported successfully.
+2025-01-14 23:39:59,151 - INFO - Payment for Dimitri  Diapa  imported successfully.
+2025-01-14 23:39:59,162 - INFO - Payment for Mohamed Bechir Kouanda imported successfully.
+2025-01-14 23:39:59,164 - ERROR - Eleve with ID 1414 does not exist.
+2025-01-14 23:39:59,176 - INFO - Payment for Zoulhatou Koanda imported successfully.
+2025-01-14 23:39:59,186 - INFO - Payment for Rachidatou Sawadogo imported successfully.
+2025-01-14 23:39:59,197 - INFO - Payment for Souleymane Sawadogo imported successfully.
+2025-01-14 23:39:59,208 - INFO - Payment for Latifatou Soulga imported successfully.
+2025-01-14 23:39:59,217 - INFO - Payment for Ouibissma Cherifa Andrea Kazoni imported successfully.
+2025-01-14 23:39:59,228 - INFO - Payment for Johvani Elisee Kazoni imported successfully.
+2025-01-14 23:39:59,239 - INFO - Payment for O. Debora Jeannine Aoue imported successfully.
+2025-01-14 23:39:59,250 - INFO - Payment for Romeo Kuela imported successfully.
+2025-01-14 23:39:59,260 - INFO - Payment for Alida Doriane Ouedraogo imported successfully.
+2025-01-14 23:39:59,271 - INFO - Payment for Abdoul Nassirou Sawadogo imported successfully.
+2025-01-14 23:39:59,281 - INFO - Payment for Stanislas Zoundi imported successfully.
+2025-01-14 23:39:59,292 - INFO - Payment for Abdoul Halim Compaore imported successfully.
+2025-01-14 23:39:59,305 - INFO - Payment for Ulrich Gansonre imported successfully.
+2025-01-14 23:39:59,317 - INFO - Payment for Abdoul Hafiz Ouedraogo imported successfully.
+2025-01-14 23:39:59,330 - INFO - Payment for Souleymane Sawadogo imported successfully.
+2025-01-14 23:39:59,341 - INFO - Payment for Rachidatou Sawadogo imported successfully.
+2025-01-14 23:39:59,352 - INFO - Payment for Djaouratou Compaore imported successfully.
+2025-01-14 23:39:59,366 - INFO - Payment for Arthur Ilboudo imported successfully.
+2025-01-14 23:39:59,380 - INFO - Payment for Aliyatou Ilboudo imported successfully.
+2025-01-14 23:39:59,395 - INFO - Payment for Sabane Kabore imported successfully.
+2025-01-14 23:39:59,410 - INFO - Payment for Richard Yoda imported successfully.
+2025-01-14 23:39:59,420 - INFO - Payment for Ange Nacoulma imported successfully.
+2025-01-14 23:39:59,432 - INFO - Payment for Angela Nacoulma imported successfully.
+2025-01-14 23:39:59,444 - INFO - Payment for Amssetou Gouem imported successfully.
+2025-01-14 23:39:59,456 - INFO - Payment for Amiratou Zorom imported successfully.
+2025-01-14 23:39:59,469 - INFO - Payment for Abdoul Waris Zoungrana imported successfully.
+2025-01-14 23:39:59,482 - INFO - Payment for Zayd Houssene Sawadogo imported successfully.
+2025-01-14 23:39:59,498 - INFO - Payment for D. Evan Ilboudo imported successfully.
+2025-01-14 23:39:59,511 - INFO - Payment for Adboul Alim Guigma imported successfully.
+2025-01-14 23:39:59,524 - INFO - Payment for Abdoul Halim 2eme jumeau Guigma  imported successfully.
+2025-01-14 23:39:59,536 - INFO - Payment for Wenddenda Aaliatou Guigma  imported successfully.
+2025-01-14 23:39:59,550 - INFO - Payment for Ibrahim Ouedraogo imported successfully.
+2025-01-14 23:39:59,564 - INFO - Payment for Laureine Nikiema imported successfully.
+2025-01-14 23:39:59,578 - INFO - Payment for Roukietou Ouedraogo imported successfully.
+2025-01-14 23:39:59,598 - INFO - Payment for Samira Nikiema imported successfully.
+2025-01-14 23:39:59,611 - INFO - Payment for Aliatou Sanfo imported successfully.
+2025-01-14 23:39:59,626 - INFO - Payment for Elise Kabre imported successfully.
+2025-01-14 23:39:59,640 - INFO - Payment for Kiswendsida Felicite Grace Sawadogo imported successfully.
+2025-01-14 23:39:59,654 - INFO - Payment for Delwende Tatiana Yvette Kologo imported successfully.
+2025-01-14 23:39:59,668 - INFO - Payment for Anne Marie Kologo imported successfully.
+2025-01-14 23:39:59,684 - INFO - Payment for Marthe Grace Baga imported successfully.
+2025-01-14 23:39:59,699 - INFO - Payment for Aisseta Compaore imported successfully.
+2025-01-14 23:39:59,712 - INFO - Payment for Divine Kabore imported successfully.
+2025-01-14 23:39:59,726 - INFO - Payment for Aisseta Tonde imported successfully.
+2025-01-14 23:39:59,738 - INFO - Payment for B. Salifou Compaore imported successfully.
+2025-01-14 23:39:59,750 - INFO - Payment for Amiratou Zorom imported successfully.
+2025-01-14 23:39:59,763 - INFO - Payment for Abdoul Wahab Congo imported successfully.
+2025-01-14 23:39:59,774 - INFO - Payment for Faouzia Congo imported successfully.
+2025-01-14 23:39:59,791 - INFO - Payment for Maimounata Zoungrana imported successfully.
+2025-01-14 23:39:59,803 - INFO - Payment for Abdoul Mohamine Zoungrana imported successfully.
+2025-01-14 23:39:59,817 - INFO - Payment for Daouda Sokondou imported successfully.
+2025-01-14 23:39:59,831 - INFO - Payment for Abdoul Gani Congo imported successfully.
+2025-01-14 23:39:59,845 - INFO - Payment for R. Isidore Zoungrana imported successfully.
+2025-01-14 23:39:59,858 - INFO - Payment for Adama Guigma imported successfully.
+2025-01-14 23:39:59,871 - INFO - Payment for Mohamed Zorome imported successfully.
+2025-01-14 23:39:59,887 - INFO - Payment for Abdoul Bassite Togom imported successfully.
+2025-01-14 23:39:59,903 - INFO - Payment for Naïmatou Togom imported successfully.
+2025-01-14 23:39:59,915 - INFO - Payment for Patindé Ridwane Lalsaga imported successfully.
+2025-01-14 23:39:59,928 - INFO - Payment for Sylvie Wenian Boungoutongo imported successfully.
+2025-01-14 23:39:59,944 - INFO - Payment for Hamdane Zangre imported successfully.
+2025-01-14 23:39:59,955 - INFO - Payment for Abdoul Rahim Zangre imported successfully.
+2025-01-14 23:39:59,966 - INFO - Payment for Nafissatou Passere imported successfully.
+2025-01-14 23:39:59,977 - INFO - Payment for Cheick Oumar Tassembedo imported successfully.
+2025-01-14 23:39:59,990 - INFO - Payment for Kassoum Gouem imported successfully.
+2025-01-14 23:40:00,004 - INFO - Payment for Jean Michel Nikiema imported successfully.
+2025-01-14 23:40:00,022 - INFO - Payment for Jean Raphael Nikiema imported successfully.
+2025-01-14 23:40:00,035 - INFO - Payment for Amdiatou Lengane imported successfully.
+2025-01-14 23:40:00,048 - INFO - Payment for Taslimatou Fatimata Billa imported successfully.
+2025-01-14 23:40:00,062 - INFO - Payment for Guiemilatou Yonli imported successfully.
+2025-01-14 23:40:00,074 - INFO - Payment for Rasack Yonli imported successfully.
+2025-01-14 23:40:00,087 - INFO - Payment for Francis Yoda imported successfully.
+2025-01-14 23:40:00,100 - INFO - Payment for Rayanguenewende Lucienne Nacoulma imported successfully.
+2025-01-14 23:40:00,113 - INFO - Payment for Oumou Salim Dabo imported successfully.
+2025-01-14 23:40:00,126 - INFO - Payment for Cherif Sondé Moussa Traore  imported successfully.
+2025-01-14 23:40:00,141 - INFO - Payment for Pegwende Abdoul Fatao Nacoulma imported successfully.
+2025-01-14 23:40:00,156 - INFO - Payment for Rafiatou Nacoulma imported successfully.
+2025-01-14 23:40:00,171 - INFO - Payment for Abdoul Rachid Sana  imported successfully.
+2025-01-14 23:40:00,186 - INFO - Payment for Gueswende Giovany Tiemtore  imported successfully.
+2025-01-14 23:40:00,200 - INFO - Payment for Assane Niaone imported successfully.
+2025-01-14 23:40:00,214 - INFO - Payment for Assana Niaone imported successfully.
+2025-01-14 23:40:00,229 - INFO - Payment for Abdoul Fatah Denne  imported successfully.
+2025-01-14 23:40:00,245 - INFO - Payment for Khalid Kazienga imported successfully.
+2025-01-14 23:40:00,258 - INFO - Payment for Maïcharatou Kazienga  imported successfully.
+2025-01-14 23:40:00,271 - INFO - Payment for Ange Nacoulma imported successfully.
+2025-01-14 23:40:00,283 - INFO - Payment for Angela Nacoulma imported successfully.
+2025-01-14 23:40:00,296 - INFO - Payment for Ouehipe Isosidore Ghislain Oussale  imported successfully.
+2025-01-14 23:40:00,307 - INFO - Payment for Hamza Dimbone imported successfully.
+2025-01-14 23:40:00,316 - INFO - Payment for Samadou Guigma  imported successfully.
+2025-01-14 23:40:00,326 - INFO - Payment for Abdoul Waris Zoungrana imported successfully.
+2025-01-14 23:40:00,335 - INFO - Payment for Weykiga Rachel Gounabou imported successfully.
+2025-01-14 23:40:00,346 - INFO - Payment for Abraham Conombo imported successfully.
+2025-01-14 23:40:00,358 - INFO - Payment for Nadia Kinda imported successfully.
+2025-01-14 23:40:00,370 - INFO - Payment for Balguissou Compaore imported successfully.
+2025-01-14 23:40:00,381 - INFO - Payment for Rihanata Compaore imported successfully.
+2025-01-14 23:40:00,390 - INFO - Payment for Wemmatou Saouratou Gomgnimbou imported successfully.
+2025-01-14 23:40:00,403 - INFO - Payment for Elie Tapsoba imported successfully.
+2025-01-14 23:40:00,413 - INFO - Payment for Josue Isidore Kiema  imported successfully.
+2025-01-14 23:40:00,427 - INFO - Payment for Ismael Goumbane imported successfully.
+2025-01-14 23:40:00,428 - ERROR - Eleve with ID 1410 does not exist.
+2025-01-14 23:40:00,439 - INFO - Payment for Rasmata Compaore imported successfully.
+2025-01-14 23:40:00,450 - INFO - Payment for Bousra Yougbare imported successfully.
+2025-01-14 23:40:00,462 - INFO - Payment for Nebnow Salvador Casimir Some imported successfully.
+2025-01-14 23:40:00,476 - INFO - Payment for Levis Nikiema imported successfully.
+2025-01-14 23:40:00,489 - INFO - Payment for Latifatou Ilboudo imported successfully.
+2025-01-14 23:40:00,502 - INFO - Payment for Abdoul Gani Congo imported successfully.
+2025-01-14 23:40:00,515 - INFO - Payment for Nouriatou Congo imported successfully.
+2025-01-14 23:40:00,529 - INFO - Payment for W. Adja Rasma Zoungrana imported successfully.
+2025-01-14 23:40:00,545 - INFO - Payment for Aimane Zoungrana imported successfully.
+2025-01-14 23:40:00,558 - INFO - Payment for Abdoul Mohamine Zoungrana imported successfully.
+2025-01-14 23:40:00,572 - INFO - Payment for Sayouba Zongo imported successfully.
+2025-01-14 23:40:00,586 - INFO - Payment for Assana Sawadogo imported successfully.
+2025-01-14 23:40:00,588 - ERROR - Eleve with ID 1411 does not exist.
+2025-01-14 23:40:00,598 - INFO - Payment for Abdoul Maguid Guira imported successfully.
+2025-01-14 23:40:00,609 - INFO - Payment for Ridwane Guira imported successfully.
+2025-01-14 23:40:00,625 - INFO - Payment for Ramadane Bagyan imported successfully.
+2025-01-14 23:40:00,641 - INFO - Payment for Faouzia Congo imported successfully.
+2025-01-14 23:40:00,654 - INFO - Payment for Yousra Bilgo imported successfully.
+2025-01-14 23:40:00,669 - INFO - Payment for Rabiatou Bilgo imported successfully.
+2025-01-14 23:40:00,685 - INFO - Payment for Aisseta Tonde imported successfully.
+2025-01-14 23:40:00,697 - INFO - Payment for Geofroy Nana imported successfully.
+2025-01-14 23:40:00,711 - INFO - Payment for Rafiatou Nacoulma imported successfully.
+2025-01-14 23:40:00,726 - INFO - Payment for Landry Ulrich  Ilboudo  imported successfully.
+2025-01-14 23:40:00,739 - INFO - Payment for Wend-Kuni Ibrahim Nikiema  imported successfully.
+2025-01-14 23:40:00,750 - INFO - Payment for Nadine Rouamba imported successfully.
+2025-01-14 23:40:00,762 - INFO - Payment for Sofiane Sam  imported successfully.
+2025-01-14 23:40:00,771 - INFO - Payment for Abdoul Wahid Nikiema imported successfully.
+2025-01-14 23:40:00,782 - INFO - Payment for Glwadys Marie Wendtoin Savadogo  imported successfully.
+2025-01-14 23:40:00,794 - INFO - Payment for Emmanuel Ramadan Yougbare imported successfully.
+2025-01-14 23:40:00,804 - INFO - Payment for Aymar Alphaniste Bazie imported successfully.
+2025-01-14 23:40:00,816 - INFO - Payment for Barnabé Tapsoba  imported successfully.
+2025-01-14 23:40:00,827 - INFO - Payment for Zinhounsou Aymane Wandaogo imported successfully.
+2025-01-14 23:40:00,839 - INFO - Payment for Bertin Bama imported successfully.
+2025-01-14 23:40:00,855 - INFO - Payment for Bertrand Bama imported successfully.
+2025-01-14 23:40:00,868 - INFO - Payment for Abdoul Rachid Sana  imported successfully.
+2025-01-14 23:40:00,884 - INFO - Payment for Waliatou Sougrenoma Nikiema imported successfully.
+2025-01-14 23:40:00,898 - INFO - Payment for Bibata Tapsoba imported successfully.
+2025-01-14 23:40:00,910 - INFO - Payment for Cheick Moubarack Ouedraogo imported successfully.
+2025-01-14 23:40:00,921 - INFO - Payment for Sylvie Wenian Boungoutongo imported successfully.
+2025-01-14 23:40:00,935 - INFO - Payment for Pawendtaore Ulrich Junior Nikiema  imported successfully.
+2025-01-14 23:40:00,947 - INFO - Payment for Maïcharatou Kazienga  imported successfully.
+2025-01-14 23:40:00,958 - INFO - Payment for Steeve Donal Nikiema imported successfully.
+2025-01-14 23:40:00,971 - INFO - Payment for Zinhounsou Aymane Wandaogo imported successfully.
+2025-01-14 23:40:00,987 - INFO - Payment for Sarkyatou Ouedraogo imported successfully.
+2025-01-14 23:40:01,002 - INFO - Payment for Abdoul Bassit  Sane  imported successfully.
+2025-01-14 23:40:01,016 - INFO - Payment for Neimata Ouedraogo imported successfully.
+2025-01-14 23:40:01,031 - INFO - Payment for Abdoul Razack Sore imported successfully.
+2025-01-14 23:40:01,046 - INFO - Payment for Gouyire Olivier Gounabou imported successfully.
+2025-01-14 23:40:01,072 - INFO - Payment for Abdoul Mohamir Congo imported successfully.
+2025-01-14 23:40:01,089 - INFO - Payment for W Jean Armel Sorgho imported successfully.
+2025-01-14 23:40:01,105 - INFO - Payment for Harouna Sawadogo imported successfully.
+2025-01-14 23:40:01,118 - INFO - Payment for Kiswendsida Felicite Grace Sawadogo imported successfully.
+2025-01-14 23:40:01,130 - INFO - Payment for Oumoul Salim Sana imported successfully.
+2025-01-14 23:40:01,145 - INFO - Payment for Isidore Zabpaodre  imported successfully.
+2025-01-14 23:40:01,156 - INFO - Payment for Bertin Bama imported successfully.
+2025-01-14 23:40:01,167 - INFO - Payment for Bertrand Bama imported successfully.
+2025-01-14 23:40:01,176 - INFO - Payment for Cherif Sondé Moussa Traore  imported successfully.
+2025-01-14 23:40:01,189 - INFO - Payment for Cherif Sondé Moussa Traore  imported successfully.
+2025-01-14 23:40:01,201 - INFO - Payment for Alizeta Wend-Benedo Amiratou Kabore imported successfully.
+2025-01-14 23:40:01,214 - INFO - Payment for Jean Gregoire Marie Bouda imported successfully.
+2025-01-14 23:40:01,224 - INFO - Payment for Isidore Zabpaodre  imported successfully.
+2025-01-14 23:40:01,238 - INFO - Payment for Awa Zongo imported successfully.
+2025-01-14 23:40:01,250 - INFO - Payment for Wassilatou Conombo imported successfully.
+2025-01-14 23:40:01,267 - INFO - Payment for Abdoul Aziz Kibsa  Ilboudo imported successfully.
+2025-01-14 23:40:01,282 - INFO - Payment for Nina wendinsso Sawadogo  imported successfully.
+2025-01-14 23:40:01,299 - INFO - Payment for Mohamed Zorome imported successfully.
+2025-01-14 23:40:01,314 - INFO - Payment for Cheik Tidiane Zampalegre imported successfully.
+2025-01-14 23:40:01,329 - INFO - Payment for Mamaga Charlotte Kora imported successfully.
+2025-01-14 23:40:01,343 - INFO - Payment for Oumoul Salim Sana imported successfully.
+2025-01-14 23:40:01,355 - INFO - Payment for Nouriatou Rabo imported successfully.
+2025-01-14 23:40:01,367 - INFO - Payment for Abdoul Shakour Compaore  imported successfully.
+2025-01-14 23:40:01,381 - INFO - Payment for Abdou Onadja imported successfully.
+2025-01-14 23:40:01,392 - INFO - Payment for Wend Kouni Emelienne Leiticia Rouamba imported successfully.
+2025-01-14 23:40:01,405 - INFO - Payment for Wendbenedo Abdoul Manane Semde  imported successfully.
+2025-01-14 23:40:01,418 - INFO - Payment for Boris Bationo imported successfully.
+2025-01-14 23:40:01,432 - INFO - Payment for Xavier Bationo imported successfully.
+2025-01-14 23:40:01,447 - INFO - Payment for Abou Soufiane Compaore imported successfully.
+2025-01-14 23:40:01,462 - INFO - Payment for Alimata Sadia Compaore imported successfully.
+2025-01-14 23:40:01,477 - INFO - Payment for Pawendtaore Ulrich Junior Nikiema  imported successfully.
+2025-01-14 23:40:01,490 - INFO - Payment for Ouibissma Cherifa Andrea Kazoni imported successfully.
+2025-01-14 23:40:01,501 - INFO - Payment for Johvani Elisee Kazoni imported successfully.
+2025-01-14 23:40:01,512 - INFO - Payment for Wassilatou Conombo imported successfully.
+2025-01-14 23:40:01,522 - INFO - Payment for Jean Bertrand Wendkouni Kabre imported successfully.
+2025-01-14 23:40:01,532 - INFO - Payment for K. Berenger Kabre imported successfully.
+2025-01-14 23:40:01,541 - INFO - Payment for Kenza Fadila Kinda imported successfully.
+2025-01-14 23:40:01,553 - INFO - Payment for Abdoull Latif Babine  imported successfully.
+2025-01-14 23:40:01,569 - INFO - Payment for Abdoul Akim Compaore  imported successfully.
+2025-01-14 23:40:01,583 - INFO - Payment for Daouda Sokondou imported successfully.
+2025-01-14 23:40:01,597 - INFO - Payment for Soumaya Ilboudo imported successfully.
+2025-01-14 23:40:01,609 - INFO - Payment for Nouriatou Rabo imported successfully.
+2025-01-14 23:40:01,624 - INFO - Payment for Sofiane Sam  imported successfully.
+2025-01-14 23:40:01,635 - INFO - Payment for Cheik Tidiane Zampalegre imported successfully.
+2025-01-14 23:40:01,636 - INFO - Import SICS END

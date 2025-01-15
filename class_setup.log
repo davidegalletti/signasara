@@ -76,3 +76,10 @@ LINE 1: ...e"."ordre", "scuelo_typeclasse"."type_ecole" FROM "scuelo_ty...
 2025-01-11 03:48:54,383 - INFO - Superuser created successfully.
 2025-01-11 03:48:54,735 - INFO - Operator created successfully.
 2025-01-11 03:48:54,954 - INFO - Permissions assigned successfully.
+2025-01-14 23:39:09,005 - INFO - Classes created successfully.
+2025-01-14 23:39:09,019 - INFO - Internal school created successfully.
+2025-01-14 23:39:09,117 - INFO - Classes for internal school created successfully.
+2025-01-14 23:39:09,195 - INFO - School years created successfully.
+2025-01-14 23:39:09,566 - INFO - Superuser created successfully.
+2025-01-14 23:39:09,933 - INFO - Operator created successfully.
+2025-01-14 23:39:10,122 - INFO - Permissions assigned successfully.
