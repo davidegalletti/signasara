@@ -114,15 +114,6 @@
                     {% if student.current_class %}
                     <p><strong>École:</strong> {{ student.current_class.ecole.nom }}</p>
                     {% endif %}
-                </div>
-            </div>  
-        </div>
-        <div class="col-md-6">
-            <div class="card mb-4">
-                <div class="card-header">
-                    Inscriptions
-                </div>
-                <div class="card-body">
                     <ul class="list-group">
                         {% for inscription in inscriptions %}
                         <li class="list-group-item">
@@ -134,89 +125,78 @@
                         {% endfor %}
                     </ul>
                 </div>
-            </div>
-            <div class="d-flex justify-content-between">
-                <a href="{% url 'student_update' pk=student.pk %}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Modifier</a>
+            </div>  
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h4>Paiements de {{ student.nom }}</h4> 
+                </div>
+                <div class="card-body">
+                    <div class="col-md-12 mb-5">
+                        <div class="d-flex justify-content-between">
+                            <a href="{% url 'student_update' pk=student.pk %}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Modifier</a>
                 <a href="{% url 'class_upgrade' pk=student.pk %}" class="btn btn-secondary"><i class="fas fa-level-up-alt"></i> Upgrade Class & school </a>
-            </div> 
-        </div>
-    </div>
-    <div class="row mt-1">
-        <div class="col-md-12 mb-5">
-            <div class="d-flex justify-content-between">
-                <h4>Paiements de {{ student.nom }}</h4> 
-                <a href="{% url 'add_paiement' student.pk %}" class="btn btn-success"><i class="fas fa-plus"></i> Add Payment</a>
+                            <a href="{% url 'add_paiement' student.pk %}" class="btn btn-success"><i class="fas fa-plus"></i> Add Payment</a>
+                        </div>
+                        <table class="table table-striped table-bordered payments-table mt-4">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Causal</th>
+                                    <th>Montant</th>
+                                    <th>Note</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for payment in payments %}
+                                <tr>
+                                    <td>{{ payment.date_paye|format_date_obj  }}</td>
+                                    <td>{{ payment.causal }}</td>
+                                    <td>{{ payment.montant|format_amount  }}</td>
+                                    <td>{% if payment.note %}{{ payment.note }}{% else %}<span style="color: black;"></span>{% endif %}</td>
+                                    <td>
+                                        <a href="{% url 'update_paiement' pk=payment.pk %}" class="btn btn-primary btn-sm"><i class="fas fa-sync-alt"></i></a>
+                                        <form method="POST" action="{% url 'student_detail' student.pk %}" style="display:inline;">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="payment_id" value="{{ payment.id }}">
+                                            <button type="submit" name="print_receipt" class="btn btn-print btn-sm">
+                                                <i class="fas fa-print"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="2"><strong>Total paiement:</strong></td>
+                                    <td><strong>{{ total_payment }} FCFA</strong></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+            
+                     
+                    </div>
+                   {% comment %}
+                     <ul class="list-group">
+                         {% for inscription in inscriptions %}
+                         <li class="list-group-item">
+                             {{ inscription.classe.nom }} - {{ inscription.annee_scolaire.nom }} <br>
+                             <small>Changé le: {{ inscription.date_inscription|format_date_obj  }}</small>
+                         </li>
+                         {% empty %}
+                         <li class="list-group-item">Aucune inscription trouvée</li>
+                         {% endfor %}
+                     </ul>
+                   {% endcomment %}
+                </div>
             </div>
-            <table class="table table-striped table-bordered payments-table mt-4">
-                <thead class="thead-light">
-                    <tr>
-                        <th>Date</th>
-                        <th>Causal</th>
-                        <th>Montant</th>
-                        <th>Note</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for payment in payments %}
-                    <tr>
-                        <td>{{ payment.date_paye|format_date_obj  }}</td>
-                        <td>{{ payment.causal }}</td>
-                        <td>{{ payment.montant|format_amount  }}</td>
-                        <td>{% if payment.note %}{{ payment.note }}{% else %}<span style="color: black;"></span>{% endif %}</td>
-                        <td>
-                            <a href="{% url 'update_paiement' pk=payment.pk %}" class="btn btn-primary btn-sm"><i class="fas fa-sync-alt"></i></a>
-                            <form method="POST" action="{% url 'student_detail' student.pk %}" style="display:inline;">
-                                {% csrf_token %}
-                                <input type="hidden" name="payment_id" value="{{ payment.id }}">
-                                <button type="submit" name="print_receipt" class="btn btn-print btn-sm">
-                                    <i class="fas fa-print"></i>
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="2"><strong>Total paiement:</strong></td>
-                        <td><strong>{{ total_payment }} FCFA</strong></td>
-                    </tr>
-                </tfoot>
-            </table>
-
-            <!-- Change Logs -->
-            <h2>Change Logs</h2>
-            <table class="table table-striped table-bordered">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>User</th>
-                        <th>Action</th>
-                        <th>Old Value</th>
-                        <th>New Value</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for log in logs %}
-                    <tr>
-                        <td>{{ log.timestamp }}</td>
-                        <td>
-                            {% if log.user %}
-                                {{ log.user.username }}
-                            {% else %}
-                                System
-                            {% endif %}
-                        </td>
-                        <td>{{ log.action }}</td>
-                        <td>{{ log.old_value }}</td>
-                        <td>{{ log.new_value }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+             
         </div>
     </div>
+  
 </div>
 
 <script>
