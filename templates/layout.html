@@ -40,66 +40,13 @@
         font-family: "Poppins", sans-serif;
     }
 
+  
     body {
-        min-height: 100vh;
+       width: 100%;
         background: #F0F4FF;
-        display: flex;
-    }
-
-    .sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 85px;
-        display: flex;
-        flex-direction: column;
-        background:#A44400;
-        padding: 25px 20px;
-        transition: all 0.4s ease;
-        overflow-x: hidden;
-        z-index: 2;
-    }
-
-    .sidebar:hover {
-        width: 260px;
-    }
-
-    .sidebar-header {
-        display: flex;
-        align-items: center;
-    }
-
-    .sidebar-header h2 {
-        color: #fff;
-        font-size: 1.25rem;
-        font-weight: 600;
-        white-space: nowrap;
-        margin-left: 23px;
-        opacity: 0;
-        transition: opacity 0.3s;
-    }
-
-    .sidebar:hover .sidebar-header h2 {
-        opacity: 1;
-    }
-
-    .sidebar-links h4 {
-        color: #fff;
-        font-weight: 500;
-        white-space: nowrap;
-        margin: 10px 0;
-        position: relative;
-    }
-
-    .sidebar-links h4 span {
-        opacity: 0;
-    }
-
-    .sidebar:hover .sidebar-links h4 span {
-        opacity: 1;
-    }
-
+      
+    } 
+  
     .menu-separator {
         position: absolute;
         left: 0;
@@ -111,80 +58,20 @@
         transition: transform 0.3s;
         transform: scaleX(1);
     }
+   
 
-    .sidebar:hover .menu-separator {
-        transform: scaleX(0);
-    }
+  
 
-    .sidebar-links {
-        list-style: none;
-        margin-top: 20px;
-        height: 80%;
-        overflow-y: auto;
-        scrollbar-width: none;
-    }
-
-    .sidebar-links::-webkit-scrollbar {
-        display: none;
-    }
-
-    .sidebar-links li a {
-        display: flex;
-        align-items: center;
-        gap: 0 20px;
-        color: #fff;
-        font-weight: 500;
-        white-space: nowrap;
-        padding: 15px 10px;
-        text-decoration: none;
-        border-radius: 4px;
-        transition: background 0.3s, color 0.3s;
-    }
-
-    .sidebar-links li a:hover {
-        color: #161a2d;
-        background: #fff;
-    }
-
-    .sidebar-links li a span {
-        font-size: 1rem;
-        color: #fff;
-    }
-
-    .user-account {
-        margin-top: auto;
-        padding: 12px 10px;
-        margin-left: -10px;
-    }
-
-    .user-profile {
-        display: flex;
-        align-items: center;
-        color: #161a2d;
-    }
-
-    .user-detail {
-        margin-left: 23px;
-        white-space: nowrap;
-    }
-
-    .sidebar:hover .user-account {
-        background: #fff;
-        border-radius: 4px;
-    }
-
+    
     /* Content area styling */
     .content {
-        margin-left: 85px;
-        padding: 20px;
-        width: calc(100% - 85px);
+        
+     
+       
         transition: margin-left 0.4s ease, width 0.4s ease;
     }
 
-    .sidebar:hover ~ .content {
-        margin-left: 260px;
-        width: calc(100% - 260px);
-    }
+
 
     .content h1 {
         font-size: 1rem;
@@ -197,78 +84,75 @@
         font-size: 0.7rem;
         line-height: 1.6;
     }
-    .page-identifier {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        font-size: 5rem;
-        color: black;
-        font-weight: bold;
-    }
+  .navbar{
+    background-color: black;
+  }
+  .class-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #A6A6A6FF;
+    color: #fff;
+    padding: 10px 30px; /* Reduced padding */
+  
+    text-align: center;
+    transition: transform 0.2s;
+    text-decoration: none;
+    
+    
+   
+}
  
 </style>
 <body>
-  <aside class="sidebar">
-    <div class="sidebar-header">
-      <h2>0.3.3</h2>
-    </div>
+  
 
-    <ul class="sidebar-links">
-      <!-- Main Menu -->
-      <h4><span>Main Menu</span><div class="menu-separator"></div></h4>
-      <li><a href="{% url 'home' %}"><span class="material-symbols-outlined"> dashboard </span>Dashboard</a></li>
-      <li><a href="{% url 'accounting_c_sco_report' %}"><span class="material-symbols-outlined"> analytics </span>Accounting Report</a></li>
-
-      <!-- Student Management -->
-      <h4><span>Student</span><div class="menu-separator"></div></h4>
-      <li><a href="{% url 'offsite_students' %}"><span class="material-symbols-outlined"> school </span>Off-site Students</a></li>
-      <li><a href="{% url 'directly_managed_students' %}"><span class="material-symbols-outlined"> people </span>Directly Managed Students</a></li>
-      <li><a href="{% url 'new_student' %}"><span class="material-symbols-outlined"> person_add </span>New Student</a></li>
-
-      <!-- School Management -->
-      <h4><span>School</span><div class="menu-separator"></div></h4>
-      <li><a href="{% url 'school_management' %}"><span class="material-symbols-outlined"> business </span>Manage Schools</a></li>
-      <li><a href="{% url 'uniform_payments' %}"><span class="material-symbols-outlined"> paid </span>Uniform Payments</a></li>
-      <li><a href="{% url 'late_payment_report' %}"><span class="material-symbols-outlined"> report_problem </span>Late Payment</a></li>
-
-      <!-- Cash Management -->
-      <h4><span>Cash </span><div class="menu-separator"></div></h4>
-      
-     {% comment %}
-         <li><a href="{% url 'cash_flow_report' %}"><span class="material-symbols-outlined"> account_balance_wallet </span>Cash Flow Report</a></li>
-     {% endcomment %}
-      <li><a href="{% url 'mouvement_list' %}"><span class="material-symbols-outlined"> swap_horiz </span>Movements</a></li>
-
-      <!-- Security and User Management -->
-      <h4><span>Security</span><div class="menu-separator"></div></h4>
-      <li><a href="{% url 'user_list' %}"><span class="material-symbols-outlined"> people </span>Users</a></li>
-      <li><a href="{% url 'group_list' %}"><span class="material-symbols-outlined"> groups </span>Groups</a></li>
-      <li><a href="{% url 'rights_management' %}"><span class="material-symbols-outlined"> security </span>Rights Management</a></li>
-    </ul>
-
-    <!-- User Account Section -->
-    <div class="user-account">
-      <div class="user-profile">
-        <div class="user-detail">
-          <h6>{{ user.username }}</h6>
-          
-        </div>
-      </div>
-      <a href="{% url 'logout' %}" class="logout-btn"><span class="material-symbols-outlined"> logout </span>Logout</a>
-    </div>
-  </aside>
-
+ 
   <div class="content">
-    <div class="page-identifier">
-        <h2><strong>{{ page_identifier }}</strong></h2>
-    </div>
+    <nav class="navbar">
+        {% block header %}
+            <span class="navbar-brand mb-0 h1">Navbar</span>
+            <h2><strong>{{ page_identifier }}</strong></h2>
+    
+            <!-- Undo and Redo Icons -->
+            <div class="ml-auto">
+                <button class="btn btn-link" id="undo-button" title="Undo">
+                    <i class="fas fa-undo"></i>
+                </button>
+                <button class="btn btn-link" id="redo-button" title="Redo">
+                    <i class="fas fa-redo"></i>
+                </button>
+            </div>
+        {% endblock header %}
+    </nav>
    
     {% block content %}
     {% endblock content %}
   </div>
 </body>
 <script>
-    script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    // Undo (Back) Button
+    document.getElementById('undo-button').addEventListener('click', function() {
+        window.history.back(); // Navigate back in history
+    });
+
+    // Redo (Forward) Button
+    document.getElementById('redo-button').addEventListener('click', function() {
+        window.history.forward(); // Navigate forward in history
+    });
+</script>
+<script>
+    document.getElementById('undo-button').addEventListener('click', function() {
+        console.log('Undo action triggered');
+        // Add your undo logic here
+    });
+
+    document.getElementById('redo-button').addEventListener('click', function() {
+        console.log('Redo action triggered');
+        // Add your redo logic here
+    });
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.1.0/js/dataTables.buttons.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
