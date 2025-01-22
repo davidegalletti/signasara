@@ -1,13 +1,24 @@
 {% extends "../../layout.html" %}
 {% load crispy_forms_tags %}
-
+{% block header %}
+<span class="text-white mb-0">Update school</span>
+          
+    
+            <!-- Undo and Redo Icons -->
+            <div class="ml-2 d-flex align-items-stretch">
+                <button class="class-card mr-3" id="undo-button" title="Undo">
+                    <i class="fas fa-undo"></i>
+                </button>
+                <button class="class-card mr-3" id="redo-button" title="Redo">
+                    <i class="fas fa-redo"></i>
+                </button>
+                <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
+            </div>
+{% endblock header %}
 {% block content %}
-<ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Update School</li>
-</ol>
+
 <div class="container">
-    <h1>Update School</h1>
+
     <form method="post">
         {% csrf_token %}
         {{ form|crispy }}

@@ -45,12 +45,25 @@
     </style>
 </head>
 <body>
+    {% block header %}
+<span class="navbar-brand mb-0 h1 text-white">ajouter etudiant</span>
+          
+    
+            <!-- Undo and Redo Icons -->
+            <div class="ml-2 d-flex align-items-stretch">
+                <button class="class-card mr-3" id="undo-button" title="Undo">
+                    <i class="fas fa-undo"></i>
+                </button>
+                <button class="class-card mr-3" id="redo-button" title="Redo">
+                    <i class="fas fa-redo"></i>
+                </button>
+                <h2 class='mr-3 text-white' ><strong>{{ page_identifier }}</strong></h2>
+            </div>
+{% endblock header %}
     {% block content %}
     <div class="container-fluid">
         <div class="card">
-            <div class="card-header">
-                <h1>Nouvel élève</h1>
-            </div>
+        
             <div class="card-body">
                 <form method="post" action="{% url 'new_student' %}">
                     {% csrf_token %}

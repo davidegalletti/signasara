@@ -59,25 +59,46 @@
         background-color: #138496;
         border-color: #138496;
     }
+   .card-body h5{
+        font-size: 14px;
+    }
 </style>
 
+{% block header %}
+<h2 class="navbar-brand mb-0 h1">gestion eleve</h2>
+
+    
+            <!-- Undo and Redo Icons -->
+            <div class="ml-2 d-flex align-items-stretch">
+                <a href="{% url 'student_update' pk=student.pk %}" class="class-card ml-2"><i class="fas fa-pencil-alt"></i> Modifier</a>
+                <a href="{% url 'class_upgrade' pk=student.pk %}" class="class-card ml-2"><i class="fas fa-level-up-alt"></i> Upgrade Class & school </a>
+                <a href="{% url 'add_paiement' student.pk %}" class="class-card ml-2"><i class="fas fa-plus"></i> Add Payment</a>
+                <button class="class-card mr-3 ml-3" id="undo-button" title="Undo">
+                    <i class="fas fa-undo"></i>
+                </button>
+                <button class="class-card mr-3" id="redo-button" title="Redo">
+                    <i class="fas fa-redo"></i>
+                </button>
+                <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
+            </div>
+{% endblock header %}
 {% block content %}
-<ol class="breadcrumb">
-    {% for url, label in breadcrumbs %}
-    {% if url %}
-    <li class="breadcrumb-item"><a href="{{ url }}">{{ label }}</a></li>
-    {% else %}
-    <li class="breadcrumb-item active" aria-current="page">{{ label }}</li>
-    {% endif %}
-    {% endfor %}
+<style>
+    .card-body h5{
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+</style>
 </ol>
 <div class="d-flex justify-content-between mb-4">
-    <h4>Reservations and Actions</h4>
-    <a href="{% url 'uniform-reservation-add' student.pk %}" class="btn btn-info">
-        <i class="fas fa-tshirt"></i> Make Uniform Reservation
-    </a>
+   
+  {% comment %}
+      <a href="{% url 'uniform-reservation-add' student.pk %}" class="btn btn-info">
+          <i class="fas fa-tshirt"></i> Make Uniform Reservation
+      </a>
+  {% endcomment %}
 </div>
-<div class="container mt-4" style="max-width: 95%; margin: 0 auto;">
+<div class=" mt-4" style="max-width: 95%; margin: 0 auto;">
     <div class="row">
         <div class="col-md-6">
             <div class="card mb-4">
@@ -85,60 +106,64 @@
                     Information de base
                 </div>
                 <div class="card-body">
-                    <p><strong>Nom:</strong> {{ student.nom }}</p>
-                    <p><strong>Prénom:</strong> {{ student.prenom }}</p>
-                    <p><strong>Condition:</strong> {{ student.get_condition_eleve_display }}</p>
-                    <p><strong>Sexe:</strong> {{ student.get_sex_display }}</p>
-                    <p><strong>Date de Naissance:</strong> {{ student.date_naissance|format_date_obj  }}</p>
-                    <p><strong>CS PY:</strong> {{ student.get_cs_py_display }}</p>
+                
+                    <h5>Nom: {{ student.nom }}</h5>
+                    <h5>Prénom: {{ student.prenom }}</h5>
+                    <h5>Condition: {{ student.get_condition_eleve_display }}</h5>
+                    <h5>Sexe: {{ student.get_sex_display }}</h5>
+                    <h5>Date de Naissance: {{ student.date_naissance|format_date_obj  }}</h5>
+                    <h5>CS PY: {{ student.get_cs_py_display }}</h5>
                     {% if student.hand %}
-                    <p><strong>Hand:</strong> {{ student.get_hand_display }}</p>
+                    <h5>Hand: {{ student.get_hand_display }}</h5>
                     {% else %}
-                    <p style="color: black;"><strong>Hand:</strong></p>
+                    <h5 style="color: black;">Hand:</h5>
                     {% endif %}
                     {% if student.date_enquete %}
-                    <p><strong>Date enquete:</strong> {{ student.date_enquete|format_date_obj  }}</p>
+                    <h5>Date enquete: {{ student.date_enquete|format_date_obj  }}</h5>
                     {% else %}
-                    <p style="color: black;"><strong>Date enquete:</strong></p>
+                    <h5 style="color: black;">Date enquete:</h5>
                     {% endif %}
                     {% if student.parent %}
-                    <p><strong>Parent:</strong> {{ student.parent }}</p>
+                    <h5>Parent: {{ student.parent }}</h5>
                     {% else %}
-                    <p style="color: black;"><strong>Parent:</strong></p>
+                    <h5 style="color: black;">Parent:</p>
                     {% endif %}
                     {% if student.note_eleve %}
-                    <p><strong>Notes:</strong> {{ student.note_eleve }}</p>
+                    <h5>Notes: {{ student.note_eleve }}</h5>
                     {% else %}
-                    <p style="color: black;"><strong>Notes:</strong></p>
+                    <h5 style="color: black;">Notes:</h5>
                     {% endif %}
-                    {% if student.current_class %}
-                    <p><strong>École:</strong> {{ student.current_class.ecole.nom }}</p>
-                    {% endif %}
-                    <ul class="list-group">
-                        {% for inscription in inscriptions %}
-                        <li class="list-group-item">
-                            {{ inscription.classe.nom }} - {{ inscription.annee_scolaire.nom }} <br>
-                            <small>Changé le: {{ inscription.date_inscription|format_date_obj  }}</small>
-                        </li>
-                        {% empty %}
-                        <li class="list-group-item">Aucune inscription trouvée</li>
-                        {% endfor %}
-                    </ul>
+              {% comment %}
+                      {% if student.current_class %}
+                      <h5>École:{{ student.current_class.ecole.nom }}</h5>
+                      {% endif %}
+              {% endcomment %}
+                    {% comment %}
+                        <ul class="list-group">
+                            {% for inscription in inscriptions %}
+                            <li class="list-group-item">
+                                {{ inscription.classe.nom }} - {{ inscription.annee_scolaire.nom }} <br>
+                                <small>Changé le: {{ inscription.date_inscription|format_date_obj  }}</small>
+                            </li>
+                            {% empty %}
+                            <li class="list-group-item">Aucune inscription trouvée</li>
+                            {% endfor %}
+                        </ul>
+                    {% endcomment %}
                 </div>
             </div>  
         </div>
         <div class="col-md-6">
             <div class="card mb-4">
                 <div class="card-header">
-                    <h4>Paiements de {{ student.nom }}</h4> 
+                   
+                    <!-- Display current school and class -->
+                    <h4><strong>École:</strong> {{ current_school_name }}</h4>
+                    <h4><strong>Classe:</strong> {{ current_class_name }}</h4>
                 </div>
                 <div class="card-body">
                     <div class="col-md-12 mb-5">
-                        <div class="d-flex justify-content-between">
-                            <a href="{% url 'student_update' pk=student.pk %}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Modifier</a>
-                <a href="{% url 'class_upgrade' pk=student.pk %}" class="btn btn-secondary"><i class="fas fa-level-up-alt"></i> Upgrade Class & school </a>
-                            <a href="{% url 'add_paiement' student.pk %}" class="btn btn-success"><i class="fas fa-plus"></i> Add Payment</a>
-                        </div>
+                       
                         <table class="table table-striped table-bordered payments-table mt-4">
                             <thead class="thead-light">
                                 <tr>
@@ -176,25 +201,10 @@
                                 </tr>
                             </tfoot>
                         </table>
-            
-                     
                     </div>
-                   {% comment %}
-                     <ul class="list-group">
-                         {% for inscription in inscriptions %}
-                         <li class="list-group-item">
-                             {{ inscription.classe.nom }} - {{ inscription.annee_scolaire.nom }} <br>
-                             <small>Changé le: {{ inscription.date_inscription|format_date_obj  }}</small>
-                         </li>
-                         {% empty %}
-                         <li class="list-group-item">Aucune inscription trouvée</li>
-                         {% endfor %}
-                     </ul>
-                   {% endcomment %}
                 </div>
             </div>
-             
-        </div>
+        </div>>
     </div>
   
 </div>

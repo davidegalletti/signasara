@@ -89,18 +89,34 @@
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 </style>
-
+{% block header %}
+<span class="navbar-brand mb-0 h1">Navbar</span>
+          
+    
+            <!-- Undo and Redo Icons -->
+            <div class="ml-2 d-flex align-items-stretch">
+                <button class="btn btn-lg btn-light btn-link mr-3" id="undo-button" title="Undo">
+                    <i class="fas fa-undo"></i>
+                </button>
+                <button class="btn btn-lg btn-light btn-link mr-3" id="redo-button" title="Redo">
+                    <i class="fas fa-redo"></i>
+                </button>
+                <h2 class='mr-3'><strong>{{ page_identifier }}</strong></h2>
+            </div>
+{% endblock header %}
 {% block content %}
-<!-- Breadcrumb Navigation -->
-<ol class="breadcrumb">
-    {% for url, label in breadcrumbs %}
-    {% if forloop.last %}
-    <li class="breadcrumb-item active" aria-current="page">{{ label }}</li>
-    {% else %}
-    <li class="breadcrumb-item"><a href="{{ url }}">{{ label }}</a></li>
-    {% endif %}
-    {% endfor %}
-</ol>
+{% comment %}
+    <!-- Breadcrumb Navigation -->
+    <ol class="breadcrumb">
+        {% for url, label in breadcrumbs %}
+        {% if forloop.last %}
+        <li class="breadcrumb-item active" aria-current="page">{{ label }}</li>
+        {% else %}
+        <li class="breadcrumb-item"><a href="{{ url }}">{{ label }}</a></li>
+        {% endif %}
+        {% endfor %}
+    </ol>
+{% endcomment %}
 
 <!-- Class Info -->
 <div class="card">

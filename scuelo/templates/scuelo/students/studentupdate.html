@@ -45,6 +45,21 @@
     </style>
 </head>
 <body>
+    {% block header %}
+<span class="navbar-brand mb-0 h1 text-white">mise a jours eleve</span>
+          
+    
+            <!-- Undo and Redo Icons -->
+            <div class="ml-2 d-flex align-items-stretch">
+                <button class="class-card mr-3" id="undo-button" title="Undo">
+                    <i class="fas fa-undo"></i>
+                </button>
+                <button class="class-card mr-3" id="redo-button" title="Redo">
+                    <i class="fas fa-redo"></i>
+                </button>
+                <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
+            </div>
+{% endblock header %}
     {% block content %}
     <div class="container-fluid">
         <div class="card">
@@ -139,7 +154,7 @@
                     <div class="form-buttons">
                         <button type="submit" class="btn btn-success">Update Student</button>
                         <a href="{% url 'home' %}" class="btn btn-secondary">Cancel</a>
-                        <a href="{% url 'student_detail' student.pk %}" class="btn btn-secondary">back</a>
+                   
                     </div>
                 </form>
             </div>

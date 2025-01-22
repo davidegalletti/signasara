@@ -1,112 +1,195 @@
 {% extends "../layout.html" %}
+{% load static %}
+{% block header %}
+<span class="navbar-brand mb-0 h1 text-white">Système d’Information Centre Social Djickofe</span>
+
+{% comment %}
+    <!-- Undo and Redo Icons -->
+    <div class="user-account">
+        <div class="user-profile">
+          <div class="user-detail">
+            <h6>{{ user.username }}</h6>
+                <a href="{% url 'logout' %}" class="logout-btn"><span class="material-symbols-outlined"> logout </span>Logout</a>
+  </div>
+          </div>
+        </div>
+    </div>
+{% endcomment %}
+
+<div class="ml-2 d-flex align-items-stretch">
+    <button class="class-card mr-3 text-decoration-none" id="undo-button" title="Undo">
+        <i class="fas fa-undo"></i>
+    </button>
+    <button class="class-card mr-3" id="redo-button" title="Redo">
+        <i class="fas fa-redo"></i>
+    </button>
+    <h2 class="mr-3 text-white"><strong>{{ page_identifier }}</strong></h2>
+</div>
+{% endblock header %}
 
 {% block content %}
-<div class="container mt-4">
-    <!-- Breadcrumbs -->
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            {% for url, name in breadcrumbs %}
-                <li class="breadcrumb-item {% if forloop.last %}active{% endif %}">
-                    {% if not forloop.last %}
-                        <a href="{{ url }}">{{ name }}</a>
-                    {% else %}
-                        {{ name }}
-                    {% endif %}
-                </li>
-            {% endfor %}
-        </ol>
-    </nav>
-
+<div class="container-fluid mt-4">
     <!-- Main Content Layout -->
-    <div class="main-layout">
-        <!-- Quick Access Section -->
-        <div class="panel">
-            <h3 class="panel-title">Quick Access</h3>
-            <div class="quick-access-grid">
-                <a href="{% url 'new_student' %}" class="btn btn-primary quick-btn">New Student</a>
-                <a href="{% url 'mouvement_list' %}" class="btn btn-info quick-btn">Movements</a>
-                {% comment %}
-                    <a href="{% url 'cash_flow_report' %}" class="btn btn-success quick-btn">Cash Flow</a>
-                {% endcomment %}
-                <a href="{% url 'uniform_payments' %}" class="btn btn-warning quick-btn">Uniforms</a>
-                <a href="{% url 'uniform-reservation-list' %}" class="btn btn-warning quick-btn">Uniforms reservation</a>
-
-                <a href="{% url 'late_payment_report' %}" class="btn btn-danger quick-btn">Late Payments</a>
-                <a href="{% url 'school_management' %}" class="btn btn-secondary quick-btn">Schools</a>
-                <a href="{% url 'user_list' %}" class="btn btn-dark quick-btn">Users</a>
-                <a href="{% url 'annee_scolaire_manage' %}" class="btn btn-outline-secondary quick-btn">
-                    Manage Année Scolaire
-                </a>
-                <a href="{% url 'offsite_students' %}" class="btn btn-outline-primary quick-btn">Off-site Students</a>
+    <div class="row">
+        <!-- Left Column for Logo -->
+        <div class="col-md-2">
+            <div class="logo-section">
+          
+              
+                    <img src="{% static '/logonassara-removebg-preview.png' %}" alt="Logo" class="img-fluid">
+               
             </div>
         </div>
 
-        <!-- Class List Section -->
-        <div class="panel">
-            <h3 class="panel-title">Classes</h3>
-            <div class="school-grid">
-                {% for school, categories in data.items %}
-                    <div class="school-section">
-                        <h4 class="school-title">{{ school.nom }}</h4>
+        <!-- Main Content Column -->
+        <div class="col-md-6">
+            <div class="panel">
+                <h3 class="panel-title">Recherche predefinies</h3>
+                <div class="row">
+                    
 
-                        <!-- Display each category only if it contains classes -->
-                        {% if categories.Maternelle %}
-                            <div class="category-section">
-                                <h5 class="category-title">Maternelle</h5>
-                                <div class="class-grid">
-                                    {% for item in categories.Maternelle %}
-                                        <a href="{% url 'class_detail' item.classe.id %}" class="class-card">
-                                            <i class="fas fa-{{ item.icon }} class-icon"></i>
-                                            <span>{{ item.classe.nom }}</span>
-                                        </a>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        {% endif %}
+                    <!-- Classes Section -->
+                    {% for school, categories in data.items %}
+                        <div class="col-md-12">
+                            <div class="school-section">
+                                {% comment %}
+                                    <h4 class="school-title">{{ school.nom }}</h4>
+                                {% endcomment %}
 
-                        {% if categories.Primaire %}
-                            <div class="category-section">
-                                <h5 class="category-title">Primaire</h5>
-                                <div class="class-grid">
-                                    {% for item in categories.Primaire %}
-                                        <a href="{% url 'class_detail' item.classe.id %}" class="class-card">
-                                            <i class="fas fa-{{ item.icon }} class-icon"></i>
-                                            <span>{{ item.classe.nom }}</span>
-                                        </a>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        {% endif %}
+                                <!-- Display each category only if it contains classes -->
+                                {% if categories.Maternelle %}
+                                    <div class="category-section">
+                                        <div class="class-grid">
+                                            {% for item in categories.Maternelle %}
+                                                <a href="{% url 'class_detail' item.classe.id %}" class="class-card text-decoration-none">
+                                                    <i class="fas fa-{{ item.icon }} class-icon text-decoration-none"></i>
+                                                    <span class='text-decoration-none'>{{ item.classe.nom }}</span>
+                                                </a>
+                                            {% endfor %}
+                                        </div>
+                                        <h4>
+                                    </div>
+                                {% endif %}
 
-                        {% if categories.Secondaire %}
-                            <div class="category-section">
-                                <h5 class="category-title">Secondaire</h5>
-                                <div class="class-grid">
-                                    {% for item in categories.Secondaire %}
-                                        <a href="{% url 'class_detail' item.classe.id %}" class="class-card">
-                                            <i class="fas fa-{{ item.icon }} class-icon"></i>
-                                            <span>{{ item.classe.nom }}</span>
-                                        </a>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        {% endif %}
+                                {% if categories.Primaire %}
+                                    <div class="category-section">
+                                        <div class="class-grid">
+                                            {% for item in categories.Primaire %}
+                                                <a href="{% url 'class_detail' item.classe.id %} text-decoration-none" class="class-card">
+                                                    <i class="fas fa-{{ item.icon }} class-icon text-decoration-none"></i>
+                                                    <span class='text-decoration-none'>{{ item.classe.nom }} </span>
+                                                </a>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                {% endif %}
 
-                        {% if categories.Lycée %}
-                            <div class="category-section">
-                                <h5 class="category-title">Lycée</h5>
-                                <div class="class-grid">
-                                    {% for item in categories.Lycée %}
-                                        <a href="{% url 'class_detail' item.classe.id %}" class="class-card">
-                                            <i class="fas fa-{{ item.icon }} class-icon"></i>
-                                            <span>{{ item.classe.nom }}</span>
-                                        </a>
-                                    {% endfor %}
-                                </div>
+                                {% if categories.Secondaire %}
+                                    <div class="category-section">
+                                        <h5 class="category-title">Secondaire</h5>
+                                        <div class="class-grid">
+                                            {% for item in categories.Secondaire %}
+                                                <a href="{% url 'class_detail' item.classe.id %}" class="class-card text-decoration-none">
+                                                    <i class="fas fa-{{ item.icon }} class-icon text-decoration-none"></i>
+                                                    <span>{{ item.classe.nom }}</span>
+                                                </a>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                {% endif %}
+
+                                {% if categories.Lycée %}
+                                    <div class="category-section">
+                                        <h5 class="category-title">Lycée</h5>
+                                        <div class="class-grid">
+                                            {% for item in categories.Lycée %}
+                                                <a href="{% url 'class_detail' item.classe.id %}" class="class-card">
+                                                    <i class="fas fa-{{ item.icon }} class-icon"></i>
+                                                    <span>{{ item.classe.nom }}</span>
+                                                </a>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                {% endif %}
                             </div>
-                        {% endif %}
+                        </div>
+                    {% endfor %}
+
+                    <!-- Quick Access Links -->
+                    <div class="col-md-12 mt-5">
+                        <div class="class-grid">
+                            <a href="{% url 'uniform_payments' %}" class="class-card">
+                                <i class="fas fa-tshirt"></i>
+                                <span>Uniform</span>
+                            </a>
+                            <a href="{% url 'offsite_students' %}" class="class-card">
+                                <i class="fas fa-user-friends"></i>
+                                <span>External Students</span>
+                            </a>
+                            <a href="{% url 'directly_managed_students' %}" class="class-card">
+                                <i class="fas fa-users"></i>
+                                <span>Student Management</span>
+                            </a>
+                            <a href="{% url 'late_payment_report' %}" class="class-card">
+                                <i class="fas fa-exclamation-circle"></i>
+                                <span>Late Payment</span>
+                            </a>
+                        </div>
                     </div>
-                {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="col-md-4">
+            <!-- Top Row in Right Column -->
+            <div class="panel">
+                <h3 class="panel-title">Tresorerie</h3>
+                <div class="content-section">
+                  <!-- Quick Access Links -->
+                  <div class="col-md-12 ">
+                    <div class="class-grid">
+                        <a href="#" class="class-card">
+                            <i class="fas fa-tshirt"></i>
+                            <span>entre/sorties</span>
+                        </a>
+                        <a href="#" class="class-card">
+                            <i class="fas fa-user-friends"></i>
+                            <span>sortie</span>
+                        </a>
+                        <a href="#" class="class-card">
+                            <i class="fas fa-users"></i>
+                            <span>sortie d'argent</span>
+                        </a>
+                     
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!-- Bottom Row in Right Column -->
+            <div class="panel mt-4">
+                <h3 class="panel-title">autres operations</h3>
+                <div class="content-section">
+                      <!-- Quick Access Links -->
+                      <div class="col-md-12 ">
+                        <div class="class-grid">
+                            <a href="{% url 'new_student' %}" class="class-card">
+                                <i class="fas fa-tshirt"></i>
+                                <span>nouvel eleve</span>
+                            </a>
+                            <a href="{% url 'school_management' %}" class="class-card">
+                                <i class="fas fa-user-friends"></i>
+                                <span>gestion ecole</span>
+                            </a>
+                            <a href="#" class="class-card">
+                                <i class="fas fa-users"></i>
+                                <span>tableau de board</span>
+                            </a>
+                         
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -114,20 +197,15 @@
 
 <!-- Styling -->
 <style>
-    /* Main layout grid */
-    .main-layout {
-        display: grid;
-        grid-template-columns: 1fr 2fr 1fr;
-        gap: 20px;
-    }
-
-    /* Panel styling */
     .panel {
         background: #fff;
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 0; /* Remove margin between panels */
+        border: 1px solid #ddd; /* Add border */
     }
+
     .panel-title {
         font-size: 1.2rem;
         margin-bottom: 15px;
@@ -135,52 +213,96 @@
         text-align: center;
     }
 
-    /* Quick Access Grid */
-    .quick-access-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
-    .quick-btn {
-        font-size: 1rem;
-        padding: 10px;
-        text-align: center;
+    .school-section {
+        margin-bottom: 0; /* Remove margin between sections */
+        border-bottom: 1px solid #ddd; /* Add border */
     }
 
-    /* School Section Grid */
-    .school-grid {
-        display: grid;
-        gap: 20px;
+    .school-title {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        font-weight: bold;
     }
-    .school-section {
+
+    .category-title {
+        font-size: 1rem;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    .class-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .class-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #A6A6A6FF;
+        color: #fff;
+        padding: 10px 30px; /* Reduced padding */
+      
+        text-align: center;
+        transition: transform 0.2s;
+        text-decoration: none;
+        
+        
+       
+    }
+
+
+    .class-icon {
+        font-size: 1.2rem; /* Reduced icon size */
+        margin-bottom: 5px;
+        font-style: none;
+        text-decoration: none;
+    }
+
+    .content-section {
+        padding: 15px;
+    }
+
+    .content-section p {
+        margin: 0;
+    }
+
+    .logo-section {
+        text-align: center;
         margin-bottom: 20px;
     }
 
-    /* Class Grid */
-    .class-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-        gap: 10px;
+    .logo-section img {
+        max-width: 100%;
+        height: auto;
     }
-    .class-card {
+
+    /* Quick Access Links Styling */
+    .quick-access-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .quick-link {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         background-color: #007bff;
         color: #fff;
-        padding: 15px;
+        padding: 10px;
         border-radius: 8px;
         text-align: center;
-        transition: transform 0.2s;
         text-decoration: none;
+        transition: background-color 0.3s;
+        width: 120px; /* Adjust width as needed */
     }
-    .class-card:hover {
-        transform: scale(1.05);
-    }
-    .class-icon {
-        font-size: 1.5rem;
-        margin-bottom: 5px;
-    }
+
+   
+
 </style>
 {% endblock %}
