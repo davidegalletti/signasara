@@ -1,275 +1,222 @@
 (function () {
   'use strict';
 
-  function ownKeys(object, enumerableOnly) {
-    var keys = Object.keys(object);
-
-    if (Object.getOwnPropertySymbols) {
-      var symbols = Object.getOwnPropertySymbols(object);
-      enumerableOnly && (symbols = symbols.filter(function (sym) {
-        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-      })), keys.push.apply(keys, symbols);
-    }
-
-    return keys;
-  }
-
-  function _objectSpread2(target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = null != arguments[i] ? arguments[i] : {};
-      i % 2 ? ownKeys(Object(source), !0).forEach(function (key) {
-        _defineProperty(target, key, source[key]);
-      }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) {
-        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-      });
-    }
-
-    return target;
-  }
-
-  function _defineProperty(obj, key, value) {
-    if (key in obj) {
-      Object.defineProperty(obj, key, {
-        value: value,
-        enumerable: true,
-        configurable: true,
-        writable: true
-      });
-    } else {
-      obj[key] = value;
-    }
-
-    return obj;
-  }
-
-  function _toConsumableArray(arr) {
-    return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
-  }
-
-  function _arrayWithoutHoles(arr) {
-    if (Array.isArray(arr)) return _arrayLikeToArray(arr);
-  }
-
-  function _iterableToArray(iter) {
-    if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
-  }
-
-  function _unsupportedIterableToArray(o, minLen) {
-    if (!o) return;
-    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-    var n = Object.prototype.toString.call(o).slice(8, -1);
-    if (n === "Object" && o.constructor) n = o.constructor.name;
-    if (n === "Map" || n === "Set") return Array.from(o);
-    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-  }
-
-  function _arrayLikeToArray(arr, len) {
-    if (len == null || len > arr.length) len = arr.length;
-
-    for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
-
-    return arr2;
-  }
-
-  function _nonIterableSpread() {
-    throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-  }
-
-  function _createForOfIteratorHelper(o, allowArrayLike) {
-    var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"];
-
-    if (!it) {
-      if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
-        if (it) o = it;
-        var i = 0;
-
-        var F = function () {};
-
-        return {
-          s: F,
-          n: function () {
-            if (i >= o.length) return {
-              done: true
-            };
-            return {
-              done: false,
-              value: o[i++]
-            };
-          },
-          e: function (e) {
-            throw e;
-          },
-          f: F
-        };
-      }
-
-      throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-    }
-
-    var normalCompletion = true,
-        didErr = false,
-        err;
-    return {
-      s: function () {
-        it = it.call(o);
-      },
-      n: function () {
-        var step = it.next();
-        normalCompletion = step.done;
-        return step;
-      },
-      e: function (e) {
-        didErr = true;
-        err = e;
-      },
-      f: function () {
-        try {
-          if (!normalCompletion && it.return != null) it.return();
-        } finally {
-          if (didErr) throw err;
-        }
-      }
-    };
-  }
-
-  var _WINDOW = {};
-  var _DOCUMENT = {};
+  let _WINDOW = {};
+  let _DOCUMENT = {};
 
   try {
     if (typeof window !== 'undefined') _WINDOW = window;
     if (typeof document !== 'undefined') _DOCUMENT = document;
   } catch (e) {}
 
-  var _ref = _WINDOW.navigator || {},
-      _ref$userAgent = _ref.userAgent,
-      userAgent = _ref$userAgent === void 0 ? '' : _ref$userAgent;
-  var WINDOW = _WINDOW;
-  var DOCUMENT = _DOCUMENT;
-  var IS_BROWSER = !!WINDOW.document;
-  var IS_DOM = !!DOCUMENT.documentElement && !!DOCUMENT.head && typeof DOCUMENT.addEventListener === 'function' && typeof DOCUMENT.createElement === 'function';
-  var IS_IE = ~userAgent.indexOf('MSIE') || ~userAgent.indexOf('Trident/');
+  const {
+    userAgent = ''
+  } = _WINDOW.navigator || {};
+  const WINDOW = _WINDOW;
+  const DOCUMENT = _DOCUMENT;
+  const IS_BROWSER = !!WINDOW.document;
+  const IS_DOM = !!DOCUMENT.documentElement && !!DOCUMENT.head && typeof DOCUMENT.addEventListener === 'function' && typeof DOCUMENT.createElement === 'function';
+  const IS_IE = ~userAgent.indexOf('MSIE') || ~userAgent.indexOf('Trident/');
 
-  var _familyProxy, _familyProxy2, _familyProxy3, _familyProxy4, _familyProxy5;
+  var a = "classic",
+      r = "sharp",
+      o = "sharp-duotone";
 
-  var NAMESPACE_IDENTIFIER = '___FONT_AWESOME___';
-  var PRODUCTION = function () {
+  var et$1 = {
+    classic: {
+      900: "fas",
+      400: "far",
+      normal: "far",
+      300: "fal",
+      100: "fat"
+    },
+    sharp: {
+      900: "fass",
+      400: "fasr",
+      300: "fasl",
+      100: "fast"
+    },
+    "sharp-duotone": {
+      900: "fasds"
+    }
+  };
+  var bt = {
+    kit: {
+      fak: "kit",
+      "fa-kit": "kit"
+    },
+    "kit-duotone": {
+      fakd: "kit-duotone",
+      "fa-kit-duotone": "kit-duotone"
+    }
+  };
+  var lo = {
+    classic: {
+      "fa-brands": "fab",
+      "fa-duotone": "fad",
+      "fa-light": "fal",
+      "fa-regular": "far",
+      "fa-solid": "fas",
+      "fa-thin": "fat"
+    },
+    sharp: {
+      "fa-solid": "fass",
+      "fa-regular": "fasr",
+      "fa-light": "fasl",
+      "fa-thin": "fast"
+    },
+    "sharp-duotone": {
+      "fa-solid": "fasds"
+    }
+  },
+      no = {
+    classic: {
+      fab: "fa-brands",
+      fad: "fa-duotone",
+      fal: "fa-light",
+      far: "fa-regular",
+      fas: "fa-solid",
+      fat: "fa-thin"
+    },
+    sharp: {
+      fass: "fa-solid",
+      fasr: "fa-regular",
+      fasl: "fa-light",
+      fast: "fa-thin"
+    },
+    "sharp-duotone": {
+      fasds: "fa-solid"
+    }
+  },
+      fo = {
+    classic: {
+      solid: "fas",
+      regular: "far",
+      light: "fal",
+      thin: "fat",
+      duotone: "fad",
+      brands: "fab"
+    },
+    sharp: {
+      solid: "fass",
+      regular: "fasr",
+      light: "fasl",
+      thin: "fast"
+    },
+    "sharp-duotone": {
+      solid: "fasds"
+    }
+  },
+      ho = {
+    classic: {
+      fa: "solid",
+      fas: "solid",
+      "fa-solid": "solid",
+      far: "regular",
+      "fa-regular": "regular",
+      fal: "light",
+      "fa-light": "light",
+      fat: "thin",
+      "fa-thin": "thin",
+      fad: "duotone",
+      "fa-duotone": "duotone",
+      fab: "brands",
+      "fa-brands": "brands"
+    },
+    sharp: {
+      fa: "solid",
+      fass: "solid",
+      "fa-solid": "solid",
+      fasr: "regular",
+      "fa-regular": "regular",
+      fasl: "light",
+      "fa-light": "light",
+      fast: "thin",
+      "fa-thin": "thin"
+    },
+    "sharp-duotone": {
+      fa: "solid",
+      fasds: "solid",
+      "fa-solid": "solid"
+    }
+  };
+  var Io = {
+    kit: {
+      "fa-kit": "fak"
+    },
+    "kit-duotone": {
+      "fa-kit-duotone": "fakd"
+    }
+  },
+      Fo = {
+    kit: {
+      fak: "fa-kit"
+    },
+    "kit-duotone": {
+      fakd: "fa-kit-duotone"
+    }
+  },
+      So = {
+    kit: {
+      kit: "fak"
+    },
+    "kit-duotone": {
+      "kit-duotone": "fakd"
+    }
+  };
+
+  const NAMESPACE_IDENTIFIER = '___FONT_AWESOME___';
+  const PRODUCTION = (() => {
     try {
       return "production" === 'production';
-    } catch (e) {
+    } catch (e$$1) {
       return false;
     }
-  }();
-  var FAMILY_CLASSIC = 'classic';
-  var FAMILY_SHARP = 'sharp';
-  var FAMILIES = [FAMILY_CLASSIC, FAMILY_SHARP];
+  })();
 
   function familyProxy(obj) {
     // Defaults to the classic family if family is not available
     return new Proxy(obj, {
-      get: function get(target, prop) {
-        return prop in target ? target[prop] : target[FAMILY_CLASSIC];
+      get(target, prop) {
+        return prop in target ? target[prop] : target[a];
       }
+
     });
   }
-  var PREFIX_TO_STYLE = familyProxy((_familyProxy = {}, _defineProperty(_familyProxy, FAMILY_CLASSIC, {
-    'fa': 'solid',
-    'fas': 'solid',
-    'fa-solid': 'solid',
-    'far': 'regular',
-    'fa-regular': 'regular',
-    'fal': 'light',
-    'fa-light': 'light',
-    'fat': 'thin',
-    'fa-thin': 'thin',
-    'fad': 'duotone',
-    'fa-duotone': 'duotone',
-    'fab': 'brands',
-    'fa-brands': 'brands',
-    'fak': 'kit',
-    'fakd': 'kit',
-    'fa-kit': 'kit',
-    'fa-kit-duotone': 'kit'
-  }), _defineProperty(_familyProxy, FAMILY_SHARP, {
-    'fa': 'solid',
-    'fass': 'solid',
-    'fa-solid': 'solid',
-    'fasr': 'regular',
-    'fa-regular': 'regular',
-    'fasl': 'light',
-    'fa-light': 'light',
-    'fast': 'thin',
-    'fa-thin': 'thin'
-  }), _familyProxy));
-  var STYLE_TO_PREFIX = familyProxy((_familyProxy2 = {}, _defineProperty(_familyProxy2, FAMILY_CLASSIC, {
-    solid: 'fas',
-    regular: 'far',
-    light: 'fal',
-    thin: 'fat',
-    duotone: 'fad',
-    brands: 'fab',
-    kit: 'fak'
-  }), _defineProperty(_familyProxy2, FAMILY_SHARP, {
-    solid: 'fass',
-    regular: 'fasr',
-    light: 'fasl',
-    thin: 'fast'
-  }), _familyProxy2));
-  var PREFIX_TO_LONG_STYLE = familyProxy((_familyProxy3 = {}, _defineProperty(_familyProxy3, FAMILY_CLASSIC, {
-    fab: 'fa-brands',
-    fad: 'fa-duotone',
-    fak: 'fa-kit',
-    fal: 'fa-light',
-    far: 'fa-regular',
-    fas: 'fa-solid',
-    fat: 'fa-thin'
-  }), _defineProperty(_familyProxy3, FAMILY_SHARP, {
-    fass: 'fa-solid',
-    fasr: 'fa-regular',
-    fasl: 'fa-light',
-    fast: 'fa-thin'
-  }), _familyProxy3));
-  var LONG_STYLE_TO_PREFIX = familyProxy((_familyProxy4 = {}, _defineProperty(_familyProxy4, FAMILY_CLASSIC, {
-    'fa-brands': 'fab',
-    'fa-duotone': 'fad',
-    'fa-kit': 'fak',
-    'fa-light': 'fal',
-    'fa-regular': 'far',
-    'fa-solid': 'fas',
-    'fa-thin': 'fat'
-  }), _defineProperty(_familyProxy4, FAMILY_SHARP, {
-    'fa-solid': 'fass',
-    'fa-regular': 'fasr',
-    'fa-light': 'fasl',
-    'fa-thin': 'fast'
-  }), _familyProxy4));
-  var FONT_WEIGHT_TO_PREFIX = familyProxy((_familyProxy5 = {}, _defineProperty(_familyProxy5, FAMILY_CLASSIC, {
-    900: 'fas',
-    400: 'far',
-    normal: 'far',
-    300: 'fal',
-    100: 'fat'
-  }), _defineProperty(_familyProxy5, FAMILY_SHARP, {
-    900: 'fass',
-    400: 'fasr',
-    300: 'fasl',
-    100: 'fast'
-  }), _familyProxy5));
-  var oneToTen = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  var oneToTwenty = oneToTen.concat([11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
-  var DUOTONE_CLASSES = {
-    GROUP: 'duotone-group',
-    SWAP_OPACITY: 'swap-opacity',
-    PRIMARY: 'primary',
-    SECONDARY: 'secondary'
+
+  const _PREFIX_TO_STYLE = { ...ho
   };
-  var prefixes = new Set();
-  Object.keys(STYLE_TO_PREFIX[FAMILY_CLASSIC]).map(prefixes.add.bind(prefixes));
-  Object.keys(STYLE_TO_PREFIX[FAMILY_SHARP]).map(prefixes.add.bind(prefixes));
-  var RESERVED_CLASSES = [].concat(FAMILIES, _toConsumableArray(prefixes), ['2xs', 'xs', 'sm', 'lg', 'xl', '2xl', 'beat', 'border', 'fade', 'beat-fade', 'bounce', 'flip-both', 'flip-horizontal', 'flip-vertical', 'flip', 'fw', 'inverse', 'layers-counter', 'layers-text', 'layers', 'li', 'pull-left', 'pull-right', 'pulse', 'rotate-180', 'rotate-270', 'rotate-90', 'rotate-by', 'shake', 'spin-pulse', 'spin-reverse', 'spin', 'stack-1x', 'stack-2x', 'stack', 'ul', DUOTONE_CLASSES.GROUP, DUOTONE_CLASSES.SWAP_OPACITY, DUOTONE_CLASSES.PRIMARY, DUOTONE_CLASSES.SECONDARY]).concat(oneToTen.map(function (n) {
-    return "".concat(n, "x");
-  })).concat(oneToTwenty.map(function (n) {
-    return "w-".concat(n);
-  }));
+  _PREFIX_TO_STYLE[a] = { ...ho[a],
+    ...bt['kit'],
+    ...bt['kit-duotone']
+  };
+  const PREFIX_TO_STYLE = familyProxy(_PREFIX_TO_STYLE);
+  const _STYLE_TO_PREFIX = { ...fo
+  };
+  _STYLE_TO_PREFIX[a] = { ..._STYLE_TO_PREFIX[a],
+    ...So['kit'],
+    ...So['kit-duotone']
+  };
+  const STYLE_TO_PREFIX = familyProxy(_STYLE_TO_PREFIX);
+  const _PREFIX_TO_LONG_STYLE = { ...no
+  };
+  _PREFIX_TO_LONG_STYLE[a] = { ..._PREFIX_TO_LONG_STYLE[a],
+    ...Fo['kit']
+  };
+  const PREFIX_TO_LONG_STYLE = familyProxy(_PREFIX_TO_LONG_STYLE);
+  const _LONG_STYLE_TO_PREFIX = { ...lo
+  };
+  _LONG_STYLE_TO_PREFIX[a] = { ..._LONG_STYLE_TO_PREFIX[a],
+    ...Io['kit']
+  };
+  const LONG_STYLE_TO_PREFIX = familyProxy(_LONG_STYLE_TO_PREFIX);
+  const _FONT_WEIGHT_TO_PREFIX = { ...et$1
+  };
+  const FONT_WEIGHT_TO_PREFIX = familyProxy(_FONT_WEIGHT_TO_PREFIX);
+  const prefixes = new Set();
+  Object.keys(STYLE_TO_PREFIX[a]).map(prefixes.add.bind(prefixes));
+  Object.keys(STYLE_TO_PREFIX[r]).map(prefixes.add.bind(prefixes));
+  Object.keys(STYLE_TO_PREFIX[o]).map(prefixes.add.bind(prefixes));
 
   function bunker(fn) {
     try {
@@ -277,7 +224,7 @@
         args[_key - 1] = arguments[_key];
       }
 
-      fn.apply(void 0, args);
+      fn(...args);
     } catch (e) {
       if (!PRODUCTION) {
         throw e;
@@ -285,17 +232,17 @@
     }
   }
 
-  var w = WINDOW || {};
-  if (!w[NAMESPACE_IDENTIFIER]) w[NAMESPACE_IDENTIFIER] = {};
-  if (!w[NAMESPACE_IDENTIFIER].styles) w[NAMESPACE_IDENTIFIER].styles = {};
-  if (!w[NAMESPACE_IDENTIFIER].hooks) w[NAMESPACE_IDENTIFIER].hooks = {};
-  if (!w[NAMESPACE_IDENTIFIER].shims) w[NAMESPACE_IDENTIFIER].shims = [];
-  var namespace = w[NAMESPACE_IDENTIFIER];
+  const w$1 = WINDOW || {};
+  if (!w$1[NAMESPACE_IDENTIFIER]) w$1[NAMESPACE_IDENTIFIER] = {};
+  if (!w$1[NAMESPACE_IDENTIFIER].styles) w$1[NAMESPACE_IDENTIFIER].styles = {};
+  if (!w$1[NAMESPACE_IDENTIFIER].hooks) w$1[NAMESPACE_IDENTIFIER].hooks = {};
+  if (!w$1[NAMESPACE_IDENTIFIER].shims) w$1[NAMESPACE_IDENTIFIER].shims = [];
+  var namespace = w$1[NAMESPACE_IDENTIFIER];
 
   function normalizeIcons(icons) {
-    return Object.keys(icons).reduce(function (acc, iconName) {
-      var icon = icons[iconName];
-      var expanded = !!icon.icon;
+    return Object.keys(icons).reduce((acc, iconName) => {
+      const icon = icons[iconName];
+      const expanded = !!icon.icon;
 
       if (expanded) {
         acc[icon.iconName] = icon.icon;
@@ -308,15 +255,18 @@
   }
 
   function defineIcons(prefix, icons) {
-    var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-    var _params$skipHooks = params.skipHooks,
-        skipHooks = _params$skipHooks === void 0 ? false : _params$skipHooks;
-    var normalized = normalizeIcons(icons);
+    let params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    const {
+      skipHooks = false
+    } = params;
+    const normalized = normalizeIcons(icons);
 
     if (typeof namespace.hooks.addPack === 'function' && !skipHooks) {
       namespace.hooks.addPack(prefix, normalizeIcons(icons));
     } else {
-      namespace.styles[prefix] = _objectSpread2(_objectSpread2({}, namespace.styles[prefix] || {}), normalized);
+      namespace.styles[prefix] = { ...(namespace.styles[prefix] || {}),
+        ...normalized
+      };
     }
     /**
      * Font Awesome 4 used the prefix of `fa` for all icons. With the introduction
@@ -357,20 +307,10 @@
   {{/each}}
 
   ];
-  bunker(function () {
-    var _iterator = _createForOfIteratorHelper(prefixes$1),
-        _step;
-
-    try {
-      for (_iterator.s(); !(_step = _iterator.n()).done;) {
-        var prefix = _step.value;
-        if (!prefix) continue;
-        defineIcons(prefix, icons);
-      }
-    } catch (err) {
-      _iterator.e(err);
-    } finally {
-      _iterator.f();
+  bunker(() => {
+    for (const prefix of prefixes$1) {
+      if (!prefix) continue;
+      defineIcons(prefix, icons);
     }
   });
 
