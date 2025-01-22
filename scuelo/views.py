@@ -240,6 +240,10 @@ def student_detail(request, pk):
     total_payment = payments.aggregate(Sum('montant'))['montant__sum'] or 0
     current_class = student.current_class
     
+    # Get the current school name if the student has a current class
+    current_school_name = current_class.ecole.nom if current_class else "No School Assigned"
+    current_class_name = current_class.nom if current_class else "No Class Assigned"
+    
     # Check if current_class is None
     if current_class:
         breadcrumbs = [
@@ -284,9 +288,11 @@ def student_detail(request, pk):
         'breadcrumbs': breadcrumbs,
         'form': form,
         'logs': logs,
-         'page_identifier': 'S03'  # Unique page identifier
+        'current_school_name': current_school_name,  # Pass the current school name
+        'current_class_name': current_class_name,    # Pass the current class name
+        'page_identifier': 'S03'  # Unique page identifier
     })
- 
+
 @login_required
 def student_update(request, pk):
     student = get_object_or_404(Eleve, pk=pk)
