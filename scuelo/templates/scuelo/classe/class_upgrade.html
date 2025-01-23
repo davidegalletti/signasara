@@ -1,53 +1,110 @@
 {% extends "../../layout.html" %}
 {% load crispy_forms_tags %}
+
 {% block header %}
-<span class="navbar-brand mb-0 h1">class Upgrade</span>
-          
-    
-            <!-- Undo and Redo Icons -->
-            <div class="ml-2 d-flex align-items-stretch">
-                <button class="class-card mr-3" id="undo-button" title="Undo">
-                    <i class="fas fa-undo"></i>
-                </button>
-                <button class="class-card mr-3" id="redo-button" title="Redo">
-                    <i class="fas fa-redo"></i>
-                </button>
-                <h2 class='mr-3'><strong>{{ page_identifier }}</strong></h2>
-            </div>
+<span class="navbar-brand mb-0 h1 text-white">Class Upgrade</span>
+<div class="ml-2 d-flex align-items-stretch">
+    <a href="{% url 'student_detail' pk=student.pk %}" class="class-card mr-3">Cancel</a>
+    <button class="class-card mr-3" id="undo-button" title="Undo">
+        <i class="fas fa-undo"></i>
+    </button>
+    <button class="class-card mr-3" id="redo-button" title="Redo">
+        <i class="fas fa-redo"></i>
+    </button>
+    <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
+</div>
 {% endblock header %}
+
 {% block content %}
-
-
 <div class="container mt-4">
     <h1>Upgrade Class for {{ student.nom }} {{ student.prenom }}</h1>
-    <form method="post" action="{% url 'class_upgrade' pk=student.pk %}">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <div class="form-group mt-3">
-            <button type="submit" class="btn btn-primary">Upgrade Class</button>
-            <a href="{% url 'student_detail' pk=student.pk %}" class="btn btn-secondary">Cancel</a>
+    
+    {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+    {% else %}
+        <div class="mb-4">
+            <h4>Current Class and School</h4>
+            <p><strong>ID:</strong> {{ student.pk }}</p>
+            <p><strong>Current Class:</strong> {{ current_class.nom }}</p>
+            <p><strong>Current School:</strong> {{ current_school.nom }}</p>
         </div>
-    </form>
+
+        <h4>Select New Class and School</h4>
+        <form method="post" action="{% url 'class_upgrade' pk=student.pk %}">
+            {% csrf_token %}
+            <table id="class-table" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Select</th>
+                        <th>ID École</th>
+                        <th>Nom École</th>
+                        <th>Type de Classe</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for classe in classes %}
+                    <tr {% if classe.id == current_class.id %}class="current-class"{% endif %}>
+                        <td>
+                            <input type="radio" name="new_class" value="{{ classe.id }}" required>
+                        </td>
+                        <td>{{ classe.ecole.id }}</td>
+                        <td>{{ classe.ecole.nom }}</td>
+                        <td>{{ classe.nom }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="form-group mt-3">
+                <button type="submit" class="btn btn-primary">Upgrade Class</button>
+               
+            </div>
+        </form>
+    {% endif %}
 </div>
+
+<!-- DataTables CSS -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css">
+
+<!-- jQuery and DataTables JS -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+
+<style>
+    .current-class {
+        background-color: #e0f7fa; /* Light blue background */
+        font-weight: bold;        /* Bold text */
+    }
+    .current-class td {
+        color: #00796b;
+background: #000;
+                  /* Dark green text */
+    }
+</style>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+        // Initialize DataTables
+        $('#class-table').DataTable({
+            paging: true,       // Enable pagination
+            searching: true,    // Enable search
+            ordering: true,     // Enable sorting
+            info: true,         // Show table information
+            responsive: true,   // Make the table responsive
+            createdRow: function (row, data, dataIndex) {
+                // Check if the row corresponds to the current class
+                if (data[3] === "{{ current_class.nom }}") { // Adjust the column index if needed
+                    $(row).addClass('current-class');
+                }
+            }
+        });
+
+        // Filter classes by school (if needed)
         const schoolSelect = document.getElementById('id_new_school');
-        const classSelect = document.getElementById('id_new_class');
+        const classTable = $('#class-table').DataTable();
 
         schoolSelect.addEventListener('change', function () {
             const schoolId = this.value;
-            fetch(`/homepage/load_classes/?school_id=${schoolId}`)
-                .then(response => response.json())
-                .then(data => {
-                    classSelect.innerHTML = '<option value="">Select class</option>';
-                    data.forEach(function (classe) {
-                        const option = document.createElement('option');
-                        option.value = classe.id;
-                        option.textContent = classe.nom;
-                        classSelect.appendChild(option);
-                    });
-                });
+            classTable.column(1).search(schoolId).draw(); // Filter by school ID in the second column
         });
     });
 </script>

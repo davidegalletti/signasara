@@ -1,25 +1,22 @@
 {% extends "../../layout.html" %}
 {% block header %}
-<span class="navbar-brand mb-0 h1">Navbar</span>
+<span class="navbar-brand mb-0 h1 text-white">Sup classe</span>
           
     
             <!-- Undo and Redo Icons -->
             <div class="ml-2 d-flex align-items-stretch">
-                <button class="btn btn-lg btn-light btn-link mr-3" id="undo-button" title="Undo">
+                <a href="{% url 'school_detail' object.ecole.pk %}" class="class-card mr-3">Cancel</a>
+                <button class="class-card mr-3" id="undo-button" title="Undo">
                     <i class="fas fa-undo"></i>
                 </button>
-                <button class="btn btn-lg btn-light btn-link mr-3" id="redo-button" title="Redo">
+                <button class="class-card mr-3" id="redo-button" title="Redo">
                     <i class="fas fa-redo"></i>
                 </button>
-                <h2 class='mr-3'><strong>{{ page_identifier }}</strong></h2>
+                <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
             </div>
 {% endblock header %}
 {% block content %}
-<ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-    <li class="breadcrumb-item"><a href="{% url 'school_detail' object.ecole.pk %}">School Details</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Delete Class</li>
-</ol>
+
 <div class="container">
     <h1>Delete Class</h1>
     <p>Are you sure you want to delete the class "{{ object.nom }}"?</p>
@@ -27,7 +24,7 @@
         {% csrf_token %}
         <div class="d-flex justify-content-end">
             <button type="submit" class="btn btn-danger">Delete</button>
-            <a href="{% url 'school_detail' object.ecole.pk %}" class="btn btn-secondary ml-2">Cancel</a>
+           
         </div>
     </form>
 </div>

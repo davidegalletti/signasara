@@ -1,44 +1,66 @@
+{% extends "../../layout.html" %}
 {% load crispy_forms_tags %}
+{% block header %}
+<span class="navbar-brand mb-0 h1 text-white">Ajouter classe</span>
+          
+    
+            <!-- Undo and Redo Icons -->
+            <div class="ml-2 d-flex align-items-stretch">
+               
+                <button class="class-card mr-3" id="undo-button" title="Undo">
+                    <i class="fas fa-undo"></i>
+                </button>
+                <button class="class-card mr-3" id="redo-button" title="Redo">
+                    <i class="fas fa-redo"></i>
+                </button>
+                <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
+            </div>
+{% endblock header %}
+{% block content %}
+<div class="container mt-4">
+  
 
-<div class="modal fade" id="addClasseModal" tabindex="-1" aria-labelledby="addClasseModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addClasseModalLabel">Add Class</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="add-classe-form" method="post" action="{% url 'classe_create' school_id %}">
-                    {% csrf_token %}
-                    {{ form|crispy }}
-                    <div class="d-flex justify-content-end">
-                        <button type="submit" class="btn btn-primary">Add Class</button>
+    <div class="card shadow-sm">
+   
+        <div class="card-body">
+            <form method="post" class="needs-validation" novalidate>
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+             
+                            {{ form.nom|as_crispy_field }}
+                        </div>
                     </div>
-                </form>
-            </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="{{ form.type.id_for_label }}" class="font-weight-bold">Type</label>
+                            <select name="{{ form.type.name }}" id="{{ form.type.id_for_label }}" class="form-control">
+                                {% for value, label in form.type.field.choices %}
+                                    <option value="{{ value }}" {% if form.type.value == value %}selected{% endif %}>
+                                        {{ label }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                            {% if form.type.errors %}
+                                <div class="invalid-feedback">
+                                    {{ form.type.errors|join:", " }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                      </i> Create Class
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
 
-<script>
-    $(document).ready(function(){
-        $('#add-classe-form').on('submit', function(event){
-            event.preventDefault();
-            var form = $(this);
-            $.ajax({
-                url: form.attr('action'),
-                type: form.attr('method'),
-                data: form.serialize(),
-                success: function(response){
-                    // Close modal and refresh the page or update the list
-                    $('#addClasseModal').modal('hide');
-                    location.reload(); // This will refresh the page
-                },
-                error: function(response){
-                    // Handle error
-                    alert('An error occurred. Please try again.');
-                }
-            });
-        });
-    });
-</script>
+
+
+
+{% endblock %}
