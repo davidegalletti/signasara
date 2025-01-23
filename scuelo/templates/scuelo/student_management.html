@@ -15,6 +15,10 @@
 <span class="navbar-brand mb-0 h1 text-white">liste generale etudiant</span>
             <!-- Undo and Redo Icons -->
             <div class="ml-2 d-flex align-items-stretch">
+                <a href="{% url 'new_student' %}" class="class-card mr-3">
+                    <i class="fas fa-tshirt"></i>
+                    <span>nouvel eleve</span>
+                </a>
                 <button class="class-card mr-3" id="undo-button" title="Undo">
                     <i class="fas fa-undo"></i>
                 </button>
@@ -111,7 +115,7 @@
                                     <td>{% if inscription.eleve.total_paiements %}{{ inscription.eleve.total_paiements|intcomma }} FCFA{% else %}-{% endif %}</td>
                                  
                                     <td>
-                                        <a >
+                                        <a href="{% url 'student_detail' student.pk %}">
                                             <i class="fas fa-sync-alt"></i>
                                         </a>
                                     </td>

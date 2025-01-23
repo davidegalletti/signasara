@@ -39,6 +39,9 @@ from scuelo.models import (
     AnneeScolaire, Mouvement, Ecole, Tarif ,UniformReservation
 )
 
+
+
+
 # =======================
 # 1. Authentication
 # =======================
@@ -369,41 +372,6 @@ class StudentListView(ListView):
         context['page_identifier'] = 'S14'  # Add your page identifier here
         return context
     
-'''@login_required
-def class_upgrade(request, pk):
-    student = get_object_or_404(Eleve, pk=pk)
-    if request.method == 'POST':
-        form = ClassUpgradeForm(request.POST)
-        if form.is_valid():
-            new_class = form.cleaned_data['new_class']
-            old_class = student.inscription_set.latest('date_inscription').classe.nom
-
-            # Update the latest inscription to the new class
-            latest_inscription = student.inscription_set.latest('date_inscription')
-            latest_inscription.classe = new_class
-            latest_inscription.save()
-
-            # Log the class upgrade
-            StudentLog.objects.create(
-                student=student,
-                user=request.user,
-                action="Upgraded Class",
-                old_value=old_class,
-                new_value=new_class.nom
-            )
-            return redirect('student_detail', pk=student.pk)
-    else:
-        form = ClassUpgradeForm()
-
-    return render(request, 'scuelo/classe/class_upgrade.html',
-                  {'form': form, 'student': student ,  
-                    'page_identifier': 'S04' })'''
-
-# views.py
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.decorators import login_required
-from .models import Eleve, Inscription, Classe, Ecole, StudentLog
-from .forms import ClassUpgradeForm
 
 @login_required
 def class_upgrade(request, pk):
@@ -485,39 +453,104 @@ def change_school(request, pk):
                     'page_identifier': 'S05' })
 
 
-
 @login_required
 def offsite_students(request):
-    # Fetch students with valid inscriptions outside "Bisongo du coeur"
-    inscriptions = Inscription.objects.filter(
-        ~Q(classe__ecole__nom__iexact="Bisongo du coeur")
-    ).select_related('eleve', 'classe__ecole')
+    """
+    View to display students who are associated with schools where `externe` is True.
+    Students without an assigned school (classe or ecole is None) are excluded.
+    """
+    try:
+        # Fetch students with valid inscriptions where the associated school is externe (externe=True)
+        # Exclude students where classe or ecole is None
+        inscriptions = Inscription.objects.filter(
+            classe__ecole__externe=True,
+            classe__isnull=False,  # Ensure classe is assigned
+            classe__ecole__isnull=False  # Ensure ecole is assigned
+        ).select_related('eleve', 'classe__ecole')
 
-    # Compile offsite students based on inscriptions
-    offsite_students = []
-    for inscription in inscriptions:
-        student = inscription.eleve
-        student.total_paiements = Mouvement.objects.filter(inscription=inscription).aggregate(
-            total=Sum('montant')
-        )['total'] or 0
-        student.school_name = inscription.classe.ecole.nom
-        student.condition_eleve = student.get_condition_eleve_display()  # Display condition
-        offsite_students.append(student)
+        # Debug: Print inscriptions and associated school names
+        for inscription in inscriptions:
+            print(f"Student: {inscription.eleve.nom}, School: {inscription.classe.ecole.nom}")
 
-    # Fetch students with null annee_inscr but valid offsite schools
-    students_with_null_annee_inscr = Eleve.objects.filter(
-        ~Q(inscriptions__classe__ecole__nom__iexact="Bisongo du coeur"),
-        annee_inscr__isnull=True
-    ).distinct()
+        # Compile offsite students based on inscriptions
+        offsite_students = []
+        for inscription in inscriptions:
+            student_data = {
+                'id': inscription.eleve.id,
+                'nom': inscription.eleve.nom,
+                'prenom': inscription.eleve.prenom,
+                'condition_eleve': inscription.eleve.get_condition_eleve_display(),
+                'sex': inscription.eleve.get_sex_display(),
+                'date_naissance': inscription.eleve.date_naissance,
+                'cs_py': inscription.eleve.get_cs_py_display(),
+                'school_name': inscription.classe.ecole.nom,  # School is guaranteed to exist
+                'hand': inscription.eleve.get_hand_display(),
+                'note_eleve': inscription.eleve.note_eleve,
+            }
+            offsite_students.append(student_data)
 
-    # Merge both lists, avoiding duplicates
-    all_offsite_students = list({student.id: student for student in (offsite_students + list(students_with_null_annee_inscr))}.values())
+        # Fetch students with null annee_inscr but associated with externe schools
+        # Exclude students where classe or ecole is None
+        students_with_null_annee_inscr = Eleve.objects.filter(
+            inscriptions__classe__ecole__externe=True,
+            inscriptions__classe__isnull=False,  # Ensure classe is assigned
+            inscriptions__classe__ecole__isnull=False,  # Ensure ecole is assigned
+            annee_inscr__isnull=True
+        ).distinct()
 
-    context = {
-        'all_offsite_students': all_offsite_students,  # Combined list of offsite students
-        'page_identifier': 'S06'
-    }
-    return render(request, 'scuelo/offsite_students.html', context)
+        # Debug: Print students with null annee_inscr
+        for student in students_with_null_annee_inscr:
+            print(f"Student with null annee_inscr: {student.nom}")
+
+        # Add students with null annee_inscr to the offsite_students list
+        for student in students_with_null_annee_inscr:
+            # Fetch the latest inscription for the student to get the school name
+            latest_inscription = student.inscriptions.filter(
+                classe__ecole__externe=True,
+                classe__isnull=False,
+                classe__ecole__isnull=False
+            ).order_by('-date_inscription').first()
+
+            if latest_inscription:
+                school_name = latest_inscription.classe.ecole.nom
+            else:
+                school_name = "No School Assigned"
+
+            student_data = {
+                'id': student.id,
+                'nom': student.nom,
+                'prenom': student.prenom,
+                'condition_eleve': student.get_condition_eleve_display(),
+                'sex': student.get_sex_display(),
+                'date_naissance': student.date_naissance,
+                'cs_py': student.get_cs_py_display(),
+                'school_name': school_name,
+                'hand': student.get_hand_display(),
+                'note_eleve': student.note_eleve,
+            }
+            offsite_students.append(student_data)
+
+        # Debug: Print all offsite students and their school names
+        for student in offsite_students:
+            print(f"Final Student: {student['nom']}, School: {student['school_name']}")
+
+        # Calculate the total number of offsite students
+        total = len(offsite_students)
+
+        # Prepare context for the template
+        context = {
+            'all_offsite_students': offsite_students,  # Combined list of offsite students
+            'page_identifier': 'S06',
+            'total': total,
+        }
+
+        return render(request, 'scuelo/offsite_students.html', context)
+
+    except Exception as e:
+        # Log the error and display a user-friendly message
+        print(f"An error occurred: {e}")
+        messages.error(request, "An error occurred while fetching data. Please try again later.")
+        return redirect('some_fallback_view')  # Redirect to a fallback view
 
 @method_decorator(login_required, name='dispatch')
 class StudentCreateView(CreateView):
@@ -546,25 +579,6 @@ class StudentCreateView(CreateView):
 # =======================
 # 3. Class Management
 # =======================
-'''@method_decorator(login_required, name='dispatch')
-class ClasseCreateView(CreateView):
-    model = Classe
-    form_class = ClasseCreateForm
-    template_name = 'scuelo/classe/classe_create.html'
-
-    def form_valid(self, form):
-        form.instance.ecole_id = self.kwargs['pk']
-        return super().form_valid(form)
-
-    def get_success_url(self):
-        return reverse_lazy('school_detail', kwargs={'pk': self.kwargs['pk']})
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        # Add page identifier for this page
-        context['page_identifier'] = 'S16'  # Example page identifier
-        return context'''
-    
 
 
 @method_decorator(login_required, name='dispatch')
@@ -1432,29 +1446,6 @@ class SchoolManagementView(TemplateView):
         context['page_identifier'] = 'S25'  # Add page identifier
         return context
 
-'''@method_decorator(login_required, name='dispatch')
-class SchoolCreateView(CreateView):
-    model = Ecole
-    form_class = EcoleCreateForm
-    template_name = 'scuelo/school_create.html'
-    success_url = reverse_lazy('school_management')
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['page_identifier'] = 'S26'  # Add page identifier
-        return context
-
-    def form_valid(self, form):
-        response = super().form_valid(form)
-        if self.request.headers.get('x-requested-with') == 'XMLHttpRequest':
-            return JsonResponse({"message": "Success"})
-        return response
-
-    def form_invalid(self, form):
-        response = super().form_invalid(form)
-        if self.request.headers.get('x-requested-with') == 'XMLHttpRequest':
-            return JsonResponse(form.errors, status=400)
-        return response'''
 
 class SchoolCreateView(CreateView):
     model = Ecole
@@ -1495,25 +1486,7 @@ class SchoolDeleteView(DeleteView):
         return super().delete(request, *args, **kwargs)
 
 
-'''@method_decorator(login_required, name='dispatch')
-class SchoolDetailView(DetailView):
-    model = Ecole
-    template_name = 'scuelo/school/school_detail.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        school = self.get_object()
-
-        # Fetch students associated with this school
-        context['students'] = Eleve.objects.filter(
-            inscriptions__classe__ecole=school
-        ).distinct()
-
-        # Add form for creating new classes within the school
-        context['classe_form'] = ClasseCreateForm()
-        context['page_identifier'] = 'S29'  # Unique page identifier
-        return context
-        '''
 @method_decorator(login_required, name='dispatch')
 class SchoolDetailView(DetailView):
     model = Ecole

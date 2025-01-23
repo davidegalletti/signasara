@@ -8,7 +8,7 @@
 {% block header %}
 <span class="navbar-brand mb-0 h1 text-white">eleves externes</span>
           
-    
+    <h3> total {{ student.total}} </h3>
             <!-- Undo and Redo Icons -->
             <div class="ml-2 d-flex align-items-stretch">
                 <button class="class-card mr-3" id="undo-button" title="Undo">
@@ -100,7 +100,7 @@
                 <th>ID</th>
                 <th>Prénom</th>
                 <th>Nom</th>
-                <th>Note</th>
+              
                 <th>Condition</th>
                 <th>Sexe</th>
                 <th>Date Naissance</th>
@@ -108,7 +108,7 @@
                 <th>École</th>
          
                 <th>Handicap</th>
-             
+                <th>Note</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -118,15 +118,16 @@
                 <td>{{ student.id }}</td>
                 <td>{{ student.prenom }}</td>
                 <td>{{ student.nom }}</td>
-                <td>{{ student.note_eleve }}</td>
+           
                 <td>{{ student.condition_eleve }}</td>
                 <td>{{ student.get_sex_display }}</td>
                 <td>{{ student.date_naissance|format_date_obj  }}</td>
                 <td>{{ student.get_cs_py_display }}</td>
-                <td>{{ student.school_name }}</td>
+                <td>{{ student.school_name|default:"-" }}</td>
          
                 <td>{{ student.get_hand_display|default:'-' }}</td> <!-- Ensure blank if no handicap -->
-    
+                
+                <td>{{ student.note_eleve }}</td>
                 <td class="d-flex">
                     <a href="{% url 'student_detail' student.id %}" >
                         <i class="fas fa-eye"></i> 
