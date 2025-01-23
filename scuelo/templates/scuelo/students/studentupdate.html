@@ -51,6 +51,7 @@
     
             <!-- Undo and Redo Icons -->
             <div class="ml-2 d-flex align-items-stretch">
+                <a href="{% url 'home' %}" class="class-card mr-3">Cancel</a>
                 <button class="class-card mr-3" id="undo-button" title="Undo">
                     <i class="fas fa-undo"></i>
                 </button>
@@ -63,9 +64,7 @@
     {% block content %}
     <div class="container-fluid">
         <div class="card">
-            <div class="card-header">
-                <h1>Update Student</h1>
-            </div>
+        
             <div class="card-body">
                 <form method="post" action="{% url 'student_update' student.pk %}">
                     {% csrf_token %}
@@ -153,7 +152,7 @@
                     </div>
                     <div class="form-buttons">
                         <button type="submit" class="btn btn-success">Update Student</button>
-                        <a href="{% url 'home' %}" class="btn btn-secondary">Cancel</a>
+                     
                    
                     </div>
                 </form>

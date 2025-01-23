@@ -9,18 +9,18 @@
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
 {% block header %}
-<span class="navbar-brand mb-0 h1">Navbar</span>
+<span class="navbar-brand mb-0 h1 text-white">Navbar</span>
           
     
             <!-- Undo and Redo Icons -->
             <div class="ml-2 d-flex align-items-stretch">
-                <button class="btn btn-lg btn-light btn-link mr-3" id="undo-button" title="Undo">
+                <button class="class-card mr-3" id="undo-button" title="Undo">
                     <i class="fas fa-undo"></i>
                 </button>
-                <button class="btn btn-lg btn-light btn-link mr-3" id="redo-button" title="Redo">
+                <button class="class-card mr-3" id="redo-button" title="Redo">
                     <i class="fas fa-redo"></i>
                 </button>
-                <h2 class='mr-3'><strong>{{ page_identifier }}</strong></h2>
+                <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
             </div>
 {% endblock header %}
 {% block content %}
@@ -66,7 +66,7 @@
                         </td>
                         <td>
                             <a href="{% url 'student_detail' student_id %}" class="icon-btn">
-                                <i class="fas fa-eye"></i> View
+                                <i class="fas fa-eye"></i> 
                             </a>
                         </td>
                     </tr>
@@ -88,7 +88,7 @@
         // Initialize DataTables for each class-specific table
         {% for class_name, class_info in classes.items %}
             $('#uniformTable_{{ forloop.counter }}').DataTable({
-                dom: 'Bfrtip',
+                //dom: 'Bfrtip',
                 pageLength: 10,
                 lengthMenu: [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ],
                 buttons: [
