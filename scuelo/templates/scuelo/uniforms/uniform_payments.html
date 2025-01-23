@@ -1,8 +1,10 @@
 {% extends "../../layout.html" %}
 {% load humanize %}
 {% load custom_filters %}
+
 <!-- DataTables CSS and JavaScript -->
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
@@ -10,32 +12,33 @@
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
 
 {% block header %}
-<span class="navbar-brand mb-0 h1 text-white">uniform payment</span>
-<h4 class='text-white'> total tenu {{ total_uniforms }}</h4>
-    
-            <!-- Undo and Redo Icons -->
-            <div class="ml-2 d-flex align-items-stretch">
-  {% comment %}
-               
-      <a href="{% url 'uniform-reservation-list' %}" class="class-card mr-3">list of reservations </a>
-  
-  {% endcomment %}
-                <button class="class-card mr-3" id="undo-button" title="Undo">
-                    <i class="fas fa-undo"></i>
-                </button>
-                <button class="class-card mr-3" id="redo-button" title="Redo">
-                    <i class="fas fa-redo"></i>
-                </button>
-                <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
-            </div>
+<span class="navbar-brand mb-0 h1 text-white">Uniform Payment</span>
+<h4 class='text-white'>Total Tenu: {{ total_uniforms }}</h4>
+<h4 class='text-white'>Total Amount: {{ total_amount_across_classes|format_amount }}</h4>
+<!-- Undo and Redo Icons -->
+<div class="ml-2 d-flex align-items-stretch">
+    <button class="class-card mr-3" id="exportBtn"> <i class="fas fa-file-excel"></i></button>
+    <button class="class-card mr-3" id="printBtn">       <i class="fas fa-print"></i></button>
+    {% comment %}
+    <a href="{% url 'uniform-reservation-list' %}" class="class-card mr-3">List of Reservations</a>
+    {% endcomment %}
+    <button class="class-card mr-3" id="undo-button" title="Undo">
+        <i class="fas fa-undo"></i>
+    </button>
+    <button class="class-card mr-3" id="redo-button" title="Redo">
+        <i class="fas fa-redo"></i>
+    </button>
+    <!-- Print and Export Buttons -->
+
+    <h1 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h1>
+</div>
 {% endblock header %}
+
 {% block content %}
 <style>
     /* Styling adjustments for table and buttons */
     .container {
         font-family: Arial, sans-serif;
-    
-
     }
 
     h2 {
@@ -52,26 +55,24 @@
         margin-top: 30px;
         margin-bottom: 20px;
         font-weight: bold;
-       
     }
 
     .summary {
         display: flex;
         flex-wrap: wrap;
         background-color: #f4f4f4;
-      
+        padding: 4px !important;
+        border-radius: 5px;
+     
     }
 
     .summary p {
         margin: 0;
-        padding: 8px 0;
+        padding: 0px 0 !important;
         font-weight: bold;
         font-size: 14px;
         flex: 1 1 200px;
-       
     }
-
-   
 
     .table-container {
         max-width: 100%;
@@ -105,6 +106,12 @@
         background-color: #e9ecef;
     }
 
+    /* Hide DataTables search and length menu */
+    .dataTables_wrapper .dataTables_filter,
+    .dataTables_wrapper .dataTables_length {
+        display: none;
+    }
+
     @media (max-width: 768px) {
         h2, h3 {
             font-size: 24px;
@@ -122,23 +129,21 @@
 </style>
 
 <div>
-   
-
     {% for class_name, class_info in classes.items %}
-
-        
+        <!-- Summary Section -->
         <div class="summary">
             <p>Class: {{ class_name }}</p>
             <p>Total Students: {{ class_info.students|length }}</p>
             <p>Total Uniforms Paid: {{ class_info.total_uniforms }}</p>
-            <p>Total Amount Collected: {{ class_info.total_amount|format_amount }} </p>
+            <p>Total Amount Collected: {{ class_info.total_amount|format_amount }}</p>
         </div>
 
+        <!-- Table Section -->
         <div class="table-container">
             <table class="table table-striped table-bordered" id="uniformTable_{{ forloop.counter }}">
                 <thead>
                     <tr>
-                        <th >Student</th>
+                        <th>Student</th>
                         <th>Number of Uniforms</th>
                         <th>Total Amount</th>
                         <th>Actions</th>
@@ -151,7 +156,7 @@
                         <td>{{ details.uniform_count }}</td>
                         <td>{{ details.total_amount|format_amount }}</td>
                         <td>
-                            <a href="{% url 'student_detail' student.id %}" >
+                            <a href="{% url 'student_detail' student.id %}">
                                 <i class="fas fa-sync-alt"></i> 
                             </a>
                         </td>
@@ -159,26 +164,38 @@
                     {% endfor %}
                 </tbody>
             </table>
+         
         </div>
+      
     {% endfor %}
-
-
 </div>
-
+<h1></h1>
 <script>
     $(document).ready(function() {
         // Initialize DataTables for each class-specific table
         {% for class_name, class_info in classes.items %}
             $('#uniformTable_{{ forloop.counter }}').DataTable({
-               // dom: 'Bfrtip',
-                pageLength: 10,
-                lengthMenu: [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ],
-                order: [],
+                dom: 't', // Only show the table (no search, length menu, etc.)
+                paging: false, // Disable pagination
+                searching: false, // Disable search
+                info: false, // Disable table info
+                order: [], // Enable sorting
                 columnDefs: [
-                    { targets: '_all', orderable: true }
+                    { targets: '_all', orderable: true } // Allow sorting on all columns
                 ]
             });
         {% endfor %}
+
+        // Add event listeners for custom Print and Export buttons
+        $('#exportBtn').on('click', function() {
+            // Trigger export for the first table (or customize as needed)
+            $('#uniformTable_1').DataTable().button('.buttons-csv').trigger();
+        });
+
+        $('#printBtn').on('click', function() {
+            // Trigger print for the first table (or customize as needed)
+            $('#uniformTable_1').DataTable().button('.buttons-print').trigger();
+        });
     });
 </script>
 
