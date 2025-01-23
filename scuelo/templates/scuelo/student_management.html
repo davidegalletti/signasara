@@ -12,22 +12,22 @@
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
 
 {% block header %}
-<span class="navbar-brand mb-0 h1 text-white">liste generale etudiant</span>
-            <!-- Undo and Redo Icons -->
-            <div class="ml-2 d-flex align-items-stretch">
-                <a href="{% url 'new_student' %}" class="class-card mr-3">
-                    <i class="fas fa-tshirt"></i>
-                    <span>nouvel eleve</span>
-                </a>
-                <button class="class-card mr-3" id="undo-button" title="Undo">
-                    <i class="fas fa-undo"></i>
-                </button>
-                <button class="class-card mr-3" id="redo-button" title="Redo">
-                    <i class="fas fa-redo"></i>
-                </button>
-                <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
-            </div>
+<span class="navbar-brand mb-0 h1 text-white">Liste générale des étudiants</span>
+<div class="ml-2 d-flex align-items-stretch">
+    <a href="{% url 'new_student' %}" class="class-card mr-3">
+        <i class="fas fa-tshirt"></i>
+        <span>Nouvel élève</span>
+    </a>
+    <button class="class-card mr-3" id="undo-button" title="Undo">
+        <i class="fas fa-undo"></i>
+    </button>
+    <button class="class-card mr-3" id="redo-button" title="Redo">
+        <i class="fas fa-redo"></i>
+    </button>
+    <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
+</div>
 {% endblock header %}
+
 {% block content %}
 <style>
     .table-container {
@@ -61,21 +61,21 @@
     .table tbody tr:hover {
         background-color: #e9ecef;
     }
+
     .col-1 {
-       
         width: 70px !important; /* Adjust as needed */
-      
     }
 
-  .col-sex {
-    width: 1% !important;
-  }
-  .col-note { width : auto}
-   
+    .col-sex {
+        width: 1% !important;
+    }
+
+    .col-note {
+        width: auto;
+    }
 </style>
 
 <div class="">
-
     {% for school in schools %}
         <div class="school-section">
             <h5 class="school-title">{{ school.nom }}</h5>
@@ -94,10 +94,8 @@
                                 <th class='col-1'>Date nais</th>
                                 <th class='col-1'>CS_PY</th>
                                 <th class='col-1'>Handicap</th>
-                                <th class='col-1'>Total Paye</th>
-                         
-                   
-                                <th class='col-1'>action</th>
+                                <th class='col-1'>Total Payé</th>
+                                <th class='col-1'>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -111,12 +109,10 @@
                                     <td>{{ inscription.eleve.date_naissance|date:"d/m/Y" }}</td>
                                     <td>{{ inscription.eleve.get_cs_py_display }}</td>
                                     <td>{% if inscription.eleve.hand %}{{ inscription.eleve.hand }}{% else %}-{% endif %}</td>
-                               
                                     <td>{% if inscription.eleve.total_paiements %}{{ inscription.eleve.total_paiements|intcomma }} FCFA{% else %}-{% endif %}</td>
-                                 
                                     <td>
-                                        <a href="{% url 'student_detail' student.pk %}">
-                                            <i class="fas fa-sync-alt"></i>
+                                        <a href="{% url 'student_detail' inscription.eleve.id %}">
+                                            <i class="fas fa-eye"></i> 
                                         </a>
                                     </td>
                                 </tr>
@@ -134,7 +130,6 @@
         // Initialize DataTables for each class table individually
         $('table[id^="classTable-"]').each(function() {
             $(this).DataTable({
-              //  dom: 'Bfrtip',
                 buttons: [
                     { extend: 'csv', text: 'Export CSV', className: 'btn btn-success' },
                     { extend: 'excel', text: 'Export Excel', className: 'btn btn-success' },
