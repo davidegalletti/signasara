@@ -51,6 +51,7 @@
     
             <!-- Undo and Redo Icons -->
             <div class="ml-2 d-flex align-items-stretch">
+                <a href="{% url 'home' %}" class="class-card mr-3">Annuler</a>
                 <button class="class-card mr-3" id="undo-button" title="Undo">
                     <i class="fas fa-undo"></i>
                 </button>
@@ -151,7 +152,7 @@
                     </div>
                     <div class="form-buttons">
                         <button type="submit" class="btn btn-success">Ajouter étudiant</button>
-                        <a href="{% url 'home' %}" class="btn btn-secondary">Annuler</a>
+                       
                     </div>
                 </form>
             </div>
