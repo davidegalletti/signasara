@@ -740,6 +740,7 @@ class UniformPaymentListView(ListView):
         # Group payments by class
         classes = {}
         total_uniforms_across_classes = 0
+        total_amount_across_classes = 0  # Initialize total amount across all classes
 
         for payment in payments:
             classe = payment.inscription.classe.nom
@@ -789,11 +790,13 @@ class UniformPaymentListView(ListView):
             classes[classe]['total_uniforms'] += uniform_count
             classes[classe]['total_amount'] += payment.montant
             total_uniforms_across_classes += uniform_count
+            total_amount_across_classes += payment.montant  # Add to total amount across all classes
 
         # Pass the context to the template
         context['classes'] = classes  
         context['page_identifier'] = 'S20'  # Example page identifier
         context['total_uniforms'] = total_uniforms_across_classes
+        context['total_amount_across_classes'] = total_amount_across_classes  # Add total amount across all classes
         return context
     
 def student_search(request):
