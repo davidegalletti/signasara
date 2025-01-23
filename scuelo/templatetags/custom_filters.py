@@ -22,3 +22,12 @@ def format_amount(value):
         return f"{value:,}".replace(",", " ") + " FCFA"
     except (ValueError, TypeError):
         return value
+    
+    
+@register.filter
+def filter_cs_py(students, cs_py_value):
+    return students.filter(cs_py=cs_py_value)
+
+@register.filter
+def subtract(value, arg):
+    return value - arg    

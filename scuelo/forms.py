@@ -1,5 +1,5 @@
 from django import forms
-from .models import Eleve, Inscription, AnneeScolaire  , Mouvement , Ecole , Classe , Tarif ,UniformReservation
+from .models import Eleve, Inscription, AnneeScolaire  , Mouvement , Ecole , Classe , Tarif ,UniformReservation , TypeClasse
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit, Row, Column
 from django.contrib.auth.models import User, Group 
@@ -47,7 +47,7 @@ class ClasseCreateForm(forms.ModelForm):
             'legacy_id': forms.TextInput(attrs={'class': 'form-control'}),
         }    
     
-class ClassUpgradeForm(forms.Form):
+'''class ClassUpgradeForm(forms.Form):
     new_school = forms.ModelChoiceField(queryset=Ecole.objects.all(), required=True, label="Nouvelle École")
     new_class = forms.ModelChoiceField(queryset=Classe.objects.none(), required=True, label="Nouvelle Classe")
 
@@ -61,8 +61,39 @@ class ClassUpgradeForm(forms.Form):
                 self.fields['new_class'].queryset = Classe.objects.none()
         else:
             self.fields['new_class'].queryset = Classe.objects.none()
+'''
+       
+'''class ClassUpgradeForm(forms.Form):
+    new_school = forms.ModelChoiceField(
+        queryset=Ecole.objects.all(),
+        label="Select School",
+        required=True,
+        widget=forms.Select(attrs={'class': 'form-control'})
+    )
+    new_class = forms.ModelChoiceField(
+        queryset=Classe.objects.none(),  # Initially empty, will be populated via AJAX
+        label="Select Class",
+        required=True,
+        widget=forms.Select(attrs={'class': 'form-control'})
+    )
 
-            
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Populate the new_class field based on the selected school
+        if 'new_school' in self.data:
+            try:
+                school_id = int(self.data.get('new_school'))
+                self.fields['new_class'].queryset = Classe.objects.filter(ecole_id=school_id)
+            except (ValueError, TypeError):
+                pass     '''     
+                
+class ClassUpgradeForm(forms.Form):
+    new_class = forms.ModelChoiceField(
+        queryset=Classe.objects.all(),
+        label="Select Class",
+        required=True,
+        widget=forms.HiddenInput()  # Hidden because selection happens in the table
+    )               
 class SchoolChangeForm(forms.Form):
     new_school = forms.ModelChoiceField(queryset=Ecole.objects.all(), required=True, label="Nouvelle École")
 
@@ -173,7 +204,14 @@ class MouvementForm(forms.ModelForm):
             'inscription': forms.Select(attrs={'class': 'form-control select2'}),  # Added `select2` class
         }
         
-      # forms.py
+class ClasseCreateForm(forms.ModelForm):
+    class Meta:
+        model = Classe
+        fields = ['nom', 'type']  # Remove 'ecole' since it's set automatically
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['type'].queryset = TypeClasse.objects.all()
 
 from django import forms
 from django.utils import timezone
