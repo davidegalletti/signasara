@@ -214,15 +214,21 @@ def class_detail(request, pk):
 
     # Get tarifs related to this class for the selected academic year
     tarifs = Tarif.objects.filter(classe=classe, annee_scolaire=selected_annee_scolaire)
-
+        # Calculate counts for each category
+    cs_count = sum(1 for student in students if student.get_cs_py_display() == 'CS')
+    py_count = sum(1 for student in students if student.get_cs_py_display() == 'PY')
+    aut_count = len(students) - cs_count - py_count 
     # Breadcrumb navigation (for template rendering)
     breadcrumbs = [('/', 'Home'), (reverse('home'), 'Classes'), ('#', classe.nom)]
-
+    total_students = len(students)
+    student_count_display = f"{total_students}({cs_count}-{py_count}-{aut_count})"
     return render(request, 'scuelo/students/listperclasse.html', {
         'classe': classe,
         'students': students,  # List of students registered this year
         'tarifs': tarifs,  # Tarifs related to this class for this year
         'breadcrumbs': breadcrumbs,
+        'total_class_payment': total_class_payment,
+        'student_count_display':student_count_display,
         'all_annee_scolaires': all_annee_scolaires,  # Pass all academic years for selection
         'selected_annee_scolaire': selected_annee_scolaire,  # Pass the selected academic year
         'total_class_payment': total_class_payment,  # Total amount of payments for the class in the selected year
@@ -363,7 +369,7 @@ class StudentListView(ListView):
         context['page_identifier'] = 'S14'  # Add your page identifier here
         return context
     
-@login_required
+'''@login_required
 def class_upgrade(request, pk):
     student = get_object_or_404(Eleve, pk=pk)
     if request.method == 'POST':
@@ -391,7 +397,65 @@ def class_upgrade(request, pk):
 
     return render(request, 'scuelo/classe/class_upgrade.html',
                   {'form': form, 'student': student ,  
-                    'page_identifier': 'S04' })
+                    'page_identifier': 'S04' })'''
+
+# views.py
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from .models import Eleve, Inscription, Classe, Ecole, StudentLog
+from .forms import ClassUpgradeForm
+
+@login_required
+def class_upgrade(request, pk):
+    student = get_object_or_404(Eleve, pk=pk)
+    
+    try:
+        latest_inscription = student.inscriptions.latest('date_inscription')
+    except Inscription.DoesNotExist:
+        return render(request, 'scuelo/classe/class_upgrade.html', {
+            'form': ClassUpgradeForm(),
+            'student': student,
+            'page_identifier': 'S04',
+            'error': 'Student has no inscriptions.'
+        })
+    
+    current_class = latest_inscription.classe
+    current_school = current_class.ecole
+
+    if request.method == 'POST':
+        form = ClassUpgradeForm(request.POST)
+        if form.is_valid():
+            new_class = form.cleaned_data['new_class']
+            
+            # Update the latest inscription to the new class
+            latest_inscription.classe = new_class
+            latest_inscription.save()
+
+            # Log the class upgrade
+            StudentLog.objects.create(
+                student=student,
+                user=request.user,
+                action="Upgraded Class",
+                old_value=current_class.nom,
+                new_value=new_class.nom
+            )
+            return redirect('student_detail', pk=student.pk)
+    else:
+        form = ClassUpgradeForm()
+
+    # Fetch all schools and classes for the table
+    schools = Ecole.objects.all()
+    classes = Classe.objects.select_related('ecole').all()
+
+    return render(request, 'scuelo/classe/class_upgrade.html', {
+        'form': form,
+        'student': student,
+        'current_class': current_class,
+        'current_school': current_school,
+        'schools': schools,
+        'classes': classes,
+        'page_identifier': 'S04'
+    })         
 
 @login_required
 def change_school(request, pk):
@@ -482,7 +546,7 @@ class StudentCreateView(CreateView):
 # =======================
 # 3. Class Management
 # =======================
-@method_decorator(login_required, name='dispatch')
+'''@method_decorator(login_required, name='dispatch')
 class ClasseCreateView(CreateView):
     model = Classe
     form_class = ClasseCreateForm
@@ -499,7 +563,7 @@ class ClasseCreateView(CreateView):
         context = super().get_context_data(**kwargs)
         # Add page identifier for this page
         context['page_identifier'] = 'S16'  # Example page identifier
-        return context
+        return context'''
     
 
 
@@ -1368,7 +1432,7 @@ class SchoolManagementView(TemplateView):
         context['page_identifier'] = 'S25'  # Add page identifier
         return context
 
-@method_decorator(login_required, name='dispatch')
+'''@method_decorator(login_required, name='dispatch')
 class SchoolCreateView(CreateView):
     model = Ecole
     form_class = EcoleCreateForm
@@ -1390,8 +1454,18 @@ class SchoolCreateView(CreateView):
         response = super().form_invalid(form)
         if self.request.headers.get('x-requested-with') == 'XMLHttpRequest':
             return JsonResponse(form.errors, status=400)
-        return response
+        return response'''
 
+class SchoolCreateView(CreateView):
+    model = Ecole
+    form_class = EcoleCreateForm
+    template_name = 'scuelo/school/school_create.html'  # Use the new template
+    success_url = reverse_lazy('school_management')  # Redirect to school management page
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['page_identifier'] = 'S26'  # Add page identifier
+        return context
 @method_decorator(login_required, name='dispatch')
 class SchoolUpdateView(UpdateView):
     model = Ecole
@@ -1421,7 +1495,7 @@ class SchoolDeleteView(DeleteView):
         return super().delete(request, *args, **kwargs)
 
 
-@method_decorator(login_required, name='dispatch')
+'''@method_decorator(login_required, name='dispatch')
 class SchoolDetailView(DetailView):
     model = Ecole
     template_name = 'scuelo/school/school_detail.html'
@@ -1439,8 +1513,93 @@ class SchoolDetailView(DetailView):
         context['classe_form'] = ClasseCreateForm()
         context['page_identifier'] = 'S29'  # Unique page identifier
         return context
-        
+        '''
+@method_decorator(login_required, name='dispatch')
+class SchoolDetailView(DetailView):
+    model = Ecole
+    template_name = 'scuelo/school/school_detail.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        school = self.get_object()
+
+        # Get the current academic year
+        current_annee_scolaire = AnneeScolaire.objects.get(actuel=True)
+
+        # Fetch students associated with this school for the current academic year
+        students = Eleve.objects.filter(
+            inscriptions__classe__ecole=school,
+            inscriptions__annee_scolaire=current_annee_scolaire
+        ).distinct()
+
+        # Calculate CS, PY, and AUT counts for the entire school
+        cs_count = sum(1 for student in students if student.cs_py == 'CS')
+        py_count = sum(1 for student in students if student.cs_py == 'PY')
+        aut_count = len(students) - cs_count - py_count
+
+        # Add counts and student display string to context
+        context['cs_count'] = cs_count
+        context['py_count'] = py_count
+        context['aut_count'] = aut_count
+        context['total_students'] = len(students)
+        context['student_count_display'] = f"{len(students)}({cs_count}-{py_count}-{aut_count})"
+
+        # Calculate counts for each class
+        classes_with_counts = []
+        for classe in school.classe_set.all():
+            students_in_classe = Eleve.objects.filter(
+                inscriptions__classe=classe,
+                inscriptions__annee_scolaire=current_annee_scolaire
+            ).distinct()
+            cs_count_classe = sum(1 for student in students_in_classe if student.cs_py == 'CS')
+            py_count_classe = sum(1 for student in students_in_classe if student.cs_py == 'PY')
+            aut_count_classe = len(students_in_classe) - cs_count_classe - py_count_classe
+            classes_with_counts.append({
+                'classe': classe,
+                'cs_count': cs_count_classe,
+                'py_count': py_count_classe,
+                'aut_count': aut_count_classe,
+                'total_students': len(students_in_classe),
+            })
+
+        # Add classes with counts to context
+        context['classes_with_counts'] = classes_with_counts
+
+        # Add form for creating new classes within the school
+        context['classe_form'] = ClasseCreateForm()
+
+        # Add page identifier
+        context['page_identifier'] = 'S29'
+
+        # Breadcrumb navigation
+        context['breadcrumbs'] = [
+            ('/', 'Home'),
+            (reverse('home'), 'Classes'),
+            ('#', school.nom)  # Current page (school name)
+        ]
+
+        return context
+@method_decorator(login_required, name='dispatch')
+class ClassCreateView(CreateView):
+    model = Classe
+    form_class = ClasseCreateForm
+    template_name = 'scuelo/classe/classe_create.html'
+
+    def get_success_url(self):
+        # Redirect to the school detail page after creation
+        return reverse('school_detail', kwargs={'pk': self.kwargs['pk']})
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Add the school object to the context for use in the template
+        context['school'] = get_object_or_404(Ecole, pk=self.kwargs['pk'])
+        return context
+
+    def form_valid(self, form):
+        # Set the school for the class being created
+        form.instance.ecole = get_object_or_404(Ecole, pk=self.kwargs['pk'])
+        return super().form_valid(form)
+        
 @login_required
 def load_classes(request):
     school_id = request.GET.get('school_id')
