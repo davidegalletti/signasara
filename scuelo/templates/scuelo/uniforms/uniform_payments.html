@@ -11,19 +11,22 @@
 
 {% block header %}
 <span class="navbar-brand mb-0 h1 text-white">uniform payment</span>
-          
+<h4 class='text-white'> total tenu {{ total_uniforms }}</h4>
     
             <!-- Undo and Redo Icons -->
             <div class="ml-2 d-flex align-items-stretch">
-    <a href="{% url 'uniform-reservation-list' %}" class="class-card mr-3">list of reservations </a>
-
+  {% comment %}
+               
+      <a href="{% url 'uniform-reservation-list' %}" class="class-card mr-3">list of reservations </a>
+  
+  {% endcomment %}
                 <button class="class-card mr-3" id="undo-button" title="Undo">
                     <i class="fas fa-undo"></i>
                 </button>
                 <button class="class-card mr-3" id="redo-button" title="Redo">
                     <i class="fas fa-redo"></i>
                 </button>
-                <h2 class='mr-3'><strong>{{ page_identifier }}</strong></h2>
+                <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
             </div>
 {% endblock header %}
 {% block content %}
@@ -122,9 +125,10 @@
    
 
     {% for class_name, class_info in classes.items %}
-        <h3>Class: {{ class_name }}</h3>
+
         
         <div class="summary">
+            <p>Class: {{ class_name }}</p>
             <p>Total Students: {{ class_info.students|length }}</p>
             <p>Total Uniforms Paid: {{ class_info.total_uniforms }}</p>
             <p>Total Amount Collected: {{ class_info.total_amount|format_amount }} </p>
@@ -158,7 +162,7 @@
         </div>
     {% endfor %}
 
-    <h4>Total Uniforms Paid Across All Classes: {{ total_uniforms }}</h4>
+
 </div>
 
 <script>
