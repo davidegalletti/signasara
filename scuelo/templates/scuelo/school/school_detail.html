@@ -1,5 +1,6 @@
 {% extends "../../layout.html" %}
 {% load crispy_forms_tags %}
+{% load custom_filters %}
 
 <style>
     .form-control {
@@ -146,73 +147,92 @@
         margin-bottom: 10px;
     }
 </style>
-{% block header %}
-<span class="navbar-brand mb-0 h1 text-white">school detail</span>
-          
-    
-            <!-- Undo and Redo Icons -->
-            <div class="ml-2 d-flex align-items-stretch">
-                <button class="class-card mr-3" id="undo-button" title="Undo">
-                    <i class="fas fa-undo"></i>
-                </button>
-                <button class="class-card mr-3" id="redo-button" title="Redo">
-                    <i class="fas fa-redo"></i>
-                </button>
-                <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
-            </div>
-{% endblock header %}
-{% block content %}
 
+{% block header %}
+<span class="navbar-brand mb-0 h1 text-white">School Detail</span>
+
+<!-- Undo and Redo Icons -->
+<div class="ml-2 d-flex align-items-stretch">
+   
+        <a href="{% url 'classe_create' object.pk %}" class="class-card mr-3">
+            Add Class
+        </a>
+   
+    <button class="class-card mr-3" id="undo-button" title="Undo">
+        <i class="fas fa-undo"></i>
+    </button>
+    <button class="class-card mr-3" id="redo-button" title="Redo">
+        <i class="fas fa-redo"></i>
+    </button>
+    <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
+</div>
+{% endblock header %}
+
+
+
+<!-- Styles and scripts omitted for brevity -->
+{% block content %}
 <div class="container mt-4">
+   
+
+    <!-- School Details -->
     <div class="card">
         <div class="card-body">
-            <h1 class="card-title">School Details</h1>
+        
             <p class="card-text"><strong>Name:</strong> {{ object.nom }}</p>
             <p class="card-text"><strong>City:</strong> {{ object.ville }}</p>
             <p class="card-text"><strong>Contact Name:</strong> {{ object.nom_du_referent }} {{ object.prenom_du_referent }}</p>
             <p class="card-text"><strong>Contact Email:</strong> {{ object.email_du_referent }}</p>
-            <p class="card-text"><strong>Number of Students:</strong> {{ object.num_students }}</p>
+
+            <!-- Student Count and Total Payment Display -->
+            <div class="d-flex align-items-center mt-4">
+                <div class="text-right mr-4">
+                    <div><strong>Tot(cs-py-aut)</strong></div>
+                    <div>{{ student_count_display }}</div>
+                </div>
+               {% comment %}
+                 <div class="text-right">
+                     <div><strong>Total Paid</strong></div>
+                     <div>{{ total_class_payment|format_amount }} FCFA</div>
+                 </div>
+               {% endcomment %}
+            </div>
         </div>
     </div>
 
+    <!-- Classes Table -->
     <h2>Classes</h2>
     <div class="table-responsive">
         <table class="table table-striped table-bordered table-hover table-sm">
             <thead>
                 <tr>
-                    <th>Class Name</th>
                     <th>Type</th>
+                    <th>Class</th>
+                    <th>Tot (cs-py-aut)</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                {% for classe in object.classe_set.all %}
-                <tr>
-                    <td>{{ classe.nom }}</td>
-                    <td>{{ classe.type.nom }}</td>
-                    <td>
-                        
-                        <a href="{% url 'classe_update' classe.pk %}" class="btn btn-warning btn-sm">
-                            <i class="fas fa-pencil-alt"></i>
-                        </a>
-                        <a href="{% url 'classe_delete' classe.pk %}" class="btn btn-danger btn-sm">
-                            <i class="fas fa-trash-alt"></i>
-                        </a>
-                        <a href="{% url 'classe_detail' classe.pk %}" class="btn btn-danger btn-sm">
-                            <i class="fas fa-trash-alt"></i>
-                        </a>
-                    </td>
-                </tr>
+                {% for class_data in classes_with_counts %}
+                    <tr>
+                        <td>{{ class_data.classe.type.nom }}</td>
+                        <td>{{ class_data.classe.nom }}</td>
+                        <td>{{ class_data.total_students }}({{ class_data.cs_count }}-{{ class_data.py_count }}-{{ class_data.aut_count }})</td>
+                        <td>
+                            <a href="{% url 'classe_update' class_data.classe.pk %}" class="btn btn-warning btn-sm">
+                                <i class="fas fa-pencil-alt"></i>
+                            </a>
+                            <a href="{% url 'classe_delete' class_data.classe.pk %}" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
 
-    <div class="d-flex justify-content-end mb-3">
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addClasseModal">
-            Add Class
-        </button>
-    </div>
+
 </div>
 
 <!-- Add Class Modal -->
@@ -235,29 +255,4 @@
         </div>
     </div>
 </div>
-{% endblock %}
-
-{% block scripts %}
-<script>
-    $(document).ready(function(){
-        $('#add-classe-form').on('submit', function(event){
-            event.preventDefault();
-            var form = $(this);
-            $.ajax({
-                url: form.attr('action'),
-                type: form.attr('method'),
-                data: form.serialize(),
-                success: function(response){
-                    // Close modal and refresh the page or update the list
-                    $('#addClasseModal').modal('hide');
-                    location.reload(); // This will refresh the page
-                },
-                error: function(response){
-                    // Handle error
-                    alert('An error occurred. Please try again.');
-                }
-            });
-        });
-    });
-</script>
 {% endblock %}

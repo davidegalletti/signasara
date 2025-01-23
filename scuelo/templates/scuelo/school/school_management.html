@@ -1,61 +1,25 @@
 {% extends "../../layout.html" %}
 {% load crispy_forms_tags %}
 
-<!-- DataTables CSS and JavaScript -->
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
 
 {% block header %}
-<span class="text-white mb-0 ">manage ecole</span>
-          
-    
-            <!-- Undo and Redo Icons -->
-            <div class="ml-2 d-flex align-items-stretch">
-                <button class="class-card mr-3" id="undo-button" title="Undo">
-                    <i class="fas fa-undo"></i>
-                </button>
-                <button class="class-card mr-3" id="redo-button" title="Redo">
-                    <i class="fas fa-redo"></i>
-                </button>
-                <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
-            </div>
+<span class="text-white mb-0">Manage Schools</span>
+<div class="ml-2 d-flex align-items-stretch">
+    <a href="{% url 'school_create' %}" class="class-card mr-3">
+        Add School
+    </a>
+    <button class="class-card mr-3" id="undo-button" title="Undo">
+        <i class="fas fa-undo"></i>
+    </button>
+    <button class="class-card mr-3" id="redo-button" title="Redo">
+        <i class="fas fa-redo"></i>
+    </button>
+    <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
+</div>
 {% endblock header %}
+
 {% block content %}
-<style>
-    .form-control { border-radius: 20px; padding-left: 20px; padding-right: 40px; }
-    .breadcrumb { background-color: #f8f9fa; border-radius: .25rem; }
-    .breadcrumb-item a { color: #007bff; text-decoration: none; }
-    .breadcrumb-item.active { color: #6c757d; }
-    .container h1 { font-size: 2.5rem; margin-bottom: 20px; text-align: center; color: #343a40; }
-    .btn-success { background-color: #28a745; border-color: #28a745; border-radius: 20px; padding: 10px 20px; font-size: 1rem; }
-    .btn-success:hover { background-color: #218838; border-color: #1e7e34; }
-    .table-container { max-width: 100%; overflow-x: auto; border-radius: 10px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); padding: 20px; background-color: #fff; margin-top: 20px; }
-    table { width: 100%; border-collapse: collapse; font-size: 14px; }
-    th, td { padding: 12px; text-align: center; border: 1px solid #dee2e6; background-color: #f9f9f9; transition: background-color 0.3s; }
-    th { background-color: #007bff; color: #fff; font-weight: bold; }
-    .table tbody tr:hover { background-color: #e9ecef; }
-    .table tbody tr:nth-child(even) { background-color: #f8f9fa; }
-    .btn-info, .btn-warning, .btn-danger { border-radius: 5px; padding: 5px 10px; color: #fff; }
-    .btn-info { background-color: #17a2b8; border: none; }
-    .btn-warning { background-color: #ffc107; border: none; }
-    .btn-danger { background-color: #dc3545; border: none; }
-</style>
-
-
-
-
 <div class="table-container">
-    <h1>Manage Schools</h1>
-    <div class="d-flex justify-content-end mb-3">
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addSchoolModal">
-            Add School
-        </button>
-    </div>
-
     <!-- List of Schools -->
     <div class="table-responsive">
         <table class="table table-striped table-bordered" id="schoolTable">
@@ -95,56 +59,24 @@
     </div>
 </div>
 
-<!-- Add School Modal -->
-<div class="modal fade" id="addSchoolModal" tabindex="-1" aria-labelledby="addSchoolModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addSchoolModalLabel">Add School</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="add-school-form" method="post" action="{% url 'school_create' %}">
-                    {% csrf_token %}
-                    {{ form|crispy }}
-                    <button type="submit" class="btn btn-primary">Add School</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-{% endblock %}
-
-{% block scripts %}
 <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
         $('#schoolTable').DataTable({
-            dom: 'Bfrtip',
-            pageLength: 10,
-            lengthMenu: [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ],
+           // dom: 'Bfrtip',  // Add buttons for export, print, etc.
             buttons: [
-                { extend: 'csv', text: 'Export CSV', className: 'btn btn-success' },
-                { extend: 'excel', text: 'Export Excel', className: 'btn btn-success' },
-                { extend: 'print', text: 'Print', className: 'btn btn-success' }
+                'copy', 'csv', 'excel', 'pdf', 'print'
             ],
-            order: [[ 0, 'asc' ]]
-        });
-
-        $('#add-school-form').on('submit', function(event){
-            event.preventDefault();
-            var form = $(this);
-            $.ajax({
-                url: form.attr('action'),
-                type: form.attr('method'),
-                data: form.serialize(),
-                success: function(response){
-                    $('#addSchoolModal').modal('hide');
-                    location.reload();
-                },
-                error: function(response){
-                    alert('An error occurred. Please try again.');
+            pageLength: 10,  // Show 10 rows per page by default
+            lengthMenu: [10, 25, 50, 100],  // Dropdown for rows per page
+            order: [[0, 'asc']],  // Default sorting by the first column (ascending)
+            responsive: true,  // Enable responsive design
+            language: {
+                search: "Search:",  // Customize search placeholder
+                paginate: {
+                    next: 'Next',  // Customize pagination text
+                    previous: 'Previous'
                 }
-            });
+            }
         });
     });
 </script>
