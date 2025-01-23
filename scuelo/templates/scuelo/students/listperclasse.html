@@ -24,19 +24,44 @@
     <p>Total des paiements pour l'eleve  {{ classe.nom }} en {{ selected_annee_scolaire.nom }} : {{ total_class_payment|intcomma }} FCFA</p>
 {% endcomment %}
 {% block header %}
-<span class="navbar-brand mb-0 h1">Navbar</span>
-          
-    
-            <!-- Undo and Redo Icons -->
-            <div class="ml-2 d-flex align-items-stretch">
-                <button class="class-card mr-3" id="undo-button" title="Undo">
-                    <i class="fas fa-undo"></i>
-                </button>
-                <button class="class-card mr-3" id="redo-button" title="Redo">
-                    <i class="fas fa-redo"></i>
-                </button>
-                <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
-            </div>
+<div class="d-flex justify-content-between align-items-center w-100">
+    <!-- Left-aligned elements -->
+    <div class="d-flex align-items-center">
+        <span class="navbar-brand mb-0 h1 text-white">Gerer classe</span>
+        <span class="navbar-brand mb-0 h1 text-white">
+            {{ classe.nom }} - {{ classe.get_type }} - {{ classe.ecole.nom }}
+        </span>
+    </div>
+
+    <!-- Center-aligned elements (Tot and Total Paid) -->
+    <div class="d-flex align-items-center">
+        <div class="text-white text-right mr-4">
+            <div>Tot(cs-py-aut)</div>
+            <div>{{ student_count_display }}</div>
+        </div>
+        <div class="text-white text-right">
+            <div>Total Paid</div>
+            <div>{{ total_class_payment|format_amount }} </div>
+        </div>
+    </div>
+
+    <!-- Right-aligned elements (Undo, Redo, and Page Identifier) -->
+    <div class="d-flex align-items-stretch">
+        <button class="class-card mr-3" id="print-button" title="Print">
+            <i class="fas fa-print"></i>
+        </button>
+        <button class="class-card mr-3" id="export-button" title="Export to Excel">
+            <i class="fas fa-file-excel"></i>
+        </button>
+        <button class="class-card mr-3" id="undo-button" title="Undo">
+            <i class="fas fa-undo"></i>
+        </button>
+        <button class="class-card mr-3" id="redo-button" title="Redo">
+            <i class="fas fa-redo"></i>
+        </button>
+        <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
+    </div>
+</div>
 {% endblock header %}
 {% block content %}
 <style>
@@ -83,7 +108,14 @@
       }
       .col-note { width : auto}
        
-
+      .navbar-totals {
+        display: flex;
+        align-items: center;
+        gap: 20px; /* Adjust the gap between the two blocks */
+    }
+    .navbar-totals div {
+        line-height: 1.2; /* Adjust line height for better spacing */
+    }
 </style>
 
 
@@ -161,21 +193,50 @@
 
 <script>
     $(document).ready(function() {
-        $('#studentTable').DataTable({
-          //  dom: 'lBfrtip', // Add length menu to the DataTable
-           /// buttons: [
-          ///       'csv', 'excel', 'pdf', 'print'
-          ///  ],
-           // 'copy',
-            //pagingType: 'simple',
-            pageLength: 40, // Number of entries per page
+        // Initialize DataTable
+        var table = $('#studentTable').DataTable({
+           // dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ],
+            pageLength: 40,
             order: [],
+            responsive: true,
             columnDefs: [
                 { targets: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], orderable: true }
             ]
         });
+
+        // Print button functionality
+        $('#print-button').on('click', function() {
+            table.button('.buttons-print').trigger();
+        });
+
+        // Export to Excel button functionality
+        $('#export-button').on('click', function() {
+            table.button('.buttons-excel').trigger();
+        });
     });
-  
-    
 </script>
+{% comment %}
+    <script>
+        $(document).ready(function() {
+            $('#studentTable').DataTable({
+              //  dom: 'lBfrtip', // Add length menu to the DataTable
+               /// buttons: [
+              ///       'csv', 'excel', 'pdf', 'print'
+              ///  ],
+               // 'copy',
+                //pagingType: 'simple',
+                pageLength: 40, // Number of entries per page
+                order: [],
+                columnDefs: [
+                    { targets: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], orderable: true }
+                ]
+            });
+        });
+      
+        
+    </script>
+{% endcomment %}
 {% endblock content %}
