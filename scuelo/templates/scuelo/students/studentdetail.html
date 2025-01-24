@@ -118,6 +118,9 @@
                     {% else %}
                     <h5 style="color: black;">Parent:</h5>
                     {% endif %}
+                  {% comment %}
+                     <h5>Ann ée d'inscription: {{ student.annee_inscription }}</h5> <!-- Added Enrollment Year -->
+                  {% endcomment %}
                     {% if student.note_eleve %}
                     <h5>Notes: {{ student.note_eleve }}</h5>
                     {% else %}
@@ -127,11 +130,16 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="card mb-4">
-                <div class="card-header">
-                    <h4><strong>École:</strong> {{ current_school_name }}</h4>
-                    <h4><strong>Classe:</strong> {{ current_class_name }}</h4>
+            <div class="card school-class-card mb-3">
+                <div class="card-header ">
+                    Informations École et Classe
                 </div>
+                <div class="card-body">
+                    <h5><strong>École:</strong> {{ current_school_name }}</h5>
+                    <h5><strong>Classe:</strong> {{ current_class_name }}</h5>
+                </div>
+            </div>
+            <div class="card mb-4">
                 <div class="card-body">
                     <div class="col-md-12 mb-5">
                         <table id="payments-table" class="table table-striped table-bordered" style="width:100%">
