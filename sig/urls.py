@@ -14,4 +14,7 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path("homepage/", include('scuelo.urls')),
 
-] + static(settings.STATIC_URL)
+]
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+''' + static(settings.STATIC_URL)'''
