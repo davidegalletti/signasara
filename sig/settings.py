@@ -1,12 +1,13 @@
 from pathlib import Path
-from .keep_safe import DEV_DATABASE_PASSWORD, DEV_SECRET_KEY
+#from .keep_safe import DEV_DATABASE_PASSWORD, DEV_SECRET_KEY
+from .keep_safe import STAGE_SECRET_KEY, STAGE_DATABASE_PASSWORD
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = DEV_SECRET_KEY
+SECRET_KEY = STAGE_SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -70,7 +71,7 @@ DATABASES = {
         'NAME': 'sicsnasara_dev',
         'HOST': 'localhost',
         'USER': 'nasara',
-        'PASSWORD': DEV_DATABASE_PASSWORD,
+        'PASSWORD': STAGE_DATABASE_PASSWORD,
         'PORT': '5432',
     }
 }
