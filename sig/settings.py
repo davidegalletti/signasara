@@ -12,7 +12,7 @@ SECRET_KEY = DEV_SECRET_KEY
 DEBUG = True
 
 # Allowed hosts
-ALLOWED_HOSTS = ['sics-stage-cl.nasaraperilburkina.org', '127.0.0.1']
+ALLOWED_HOSTS = ['sics-stage-cl.nasaraperilburkina.org', '127.0.0.1' ,'0.0.0.0']
 
 # Application definition
 INSTALLED_APPS = [
