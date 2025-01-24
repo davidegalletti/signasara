@@ -56,7 +56,7 @@ INSTALLED_APPS = [
     'scuelo',
     'accounts',
     'crispy_forms',
-      
+      "whitenoise.runserver_nostatic",
     'bootstrap5',
     'crispy_bootstrap5',
 ]
@@ -65,8 +65,9 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
      'whitenoise.middleware.WhiteNoiseMiddleware',  # Add this line
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -99,7 +100,6 @@ WSGI_APPLICATION = 'sig.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 # 
-
 
 
 DATABASES = {
