@@ -44,7 +44,7 @@ ALLOWED_HOSTS = ['sics-stage-cl.nasaraperilburkina.org/', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    'jazzmin',
+    #'jazzmin',
      'fontawesomefree',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -238,7 +238,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = 'staticfiles/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Add this below line in settings.py
-
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    #'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    #'compressor.finders.CompressorFinder',
+)
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
@@ -246,3 +250,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 VERSION = '0.0.10'
 VERSION_COMMENT = 'Models from functional_analysis, migrations, mngmnt cmds'
+STATICFILES_IGNORE_PATTERNS = [
+    'jazzmin/*',  # Exclude all static files from the jazzmin package
+]
