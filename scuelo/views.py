@@ -761,6 +761,8 @@ class UniformPaymentListView(ListView):
                     'prenom': student.prenom,
                     'uniform_count': 0,
                     'total_amount': 0,
+                    'amount_paid': 0,  # Initialize amount paid
+                    'condition_eleve': student.condition_eleve,  # Add condition_eleve
                 }
 
             # Determine uniform count based on payment amount, school type, and CS status
@@ -787,6 +789,7 @@ class UniformPaymentListView(ListView):
             # Update student and class data
             classes[classe]['students'][student]['uniform_count'] += uniform_count
             classes[classe]['students'][student]['total_amount'] += payment.montant
+            classes[classe]['students'][student]['amount_paid'] += payment.montant  # Update amount paid
             classes[classe]['total_uniforms'] += uniform_count
             classes[classe]['total_amount'] += payment.montant
             total_uniforms_across_classes += uniform_count
@@ -798,7 +801,6 @@ class UniformPaymentListView(ListView):
         context['total_uniforms'] = total_uniforms_across_classes
         context['total_amount_across_classes'] = total_amount_across_classes  # Add total amount across all classes
         return context
-    
 def student_search(request):
     """API endpoint for filtering students by name."""
     term = request.GET.get('q', '')

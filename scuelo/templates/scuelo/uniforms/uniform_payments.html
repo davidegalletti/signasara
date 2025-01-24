@@ -13,13 +13,15 @@
 
 {% block header %}
 <span class="navbar-brand mb-0 h1 text-white">Uniform Payment</span>
-<h4 class='text-white'>Total Tenu: {{ total_uniforms }}</h4>
+<h4 class='text-white'>Total Tenues: {{ total_uniforms }}</h4>
 <h4 class='text-white'>Total Amount: {{ total_amount_across_classes|format_amount }}</h4>
 
 <!-- Undo and Redo Icons -->
 <div class="ml-2 d-flex align-items-stretch">
-    <button class="class-card mr-3" id="exportBtn"> <i class="fas fa-file-excel"></i></button>
-    <button class="class-card mr-3" id="printBtn"> <i class="fas fa-print"></i></button>
+   {% comment %}
+     <button class="class-card mr-3 buttons-csv" id="exportBtn"> <i class="fas fa-file-excel"></i></button>
+     <button class="class-card mr-3 buttons-print" id="printBtn"> <i class="fas fa-print"></i></button>
+   {% endcomment %}
     <button class="class-card mr-3" id="undo-button" title="Undo">
         <i class="fas fa-undo"></i>
     </button>
@@ -51,22 +53,6 @@
         margin-top: 30px;
         margin-bottom: 20px;
         font-weight: bold;
-    }
-
-    .summary {
-        display: flex;
-        flex-wrap: wrap;
-        background-color: #f4f4f4;
-        padding: 4px !important;
-        border-radius: 5px;
-    }
-
-    .summary p {
-        margin: 0;
-        padding: 0px 0 !important;
-        font-weight: bold;
-        font-size: 14px;
-        flex: 1 1 200px;
     }
 
     .table-container {
@@ -101,30 +87,57 @@
         background-color: #e9ecef;
     }
 
+    /* Style for class header rows */
+    .class-header {
+        background-color: #f4f4f4;
+        font-weight: bold;
+        font-size: 14px  !important;
+    }
+
     /* Fixed column widths */
     .table th:nth-child(1),
     .table td:nth-child(1) {
-        width: 150px; /* Last Name column width */
+        width: 100px; /* Class column width */
     }
 
     .table th:nth-child(2),
     .table td:nth-child(2) {
-        width: 150px; /* First Name column width */
+        width: 50px; /* ID column width */
     }
 
     .table th:nth-child(3),
     .table td:nth-child(3) {
-        width: 100px; /* Number of Uniforms column width */
+        width: 150px; /* Last Name column width */
     }
 
     .table th:nth-child(4),
     .table td:nth-child(4) {
-        width: 120px; /* Total Amount column width */
+        width: 150px; /* First Name column width */
     }
 
     .table th:nth-child(5),
     .table td:nth-child(5) {
-        width: 80px; /* Actions column width */
+        width: 100px; /* Format column width */
+    }
+
+    .table th:nth-child(6),
+    .table td:nth-child(6) {
+        width: 100px; /* Number of Uniforms column width */
+    }
+
+    .table th:nth-child(7),
+    .table td:nth-child(7) {
+        width: 120px; /* Amount Paid column width */
+    }
+
+    .table th:nth-child(8),
+    .table td:nth-child(8) {
+        width: 120px; /* Condition Élève column width */
+    }
+
+    .table th:nth-child(9),
+    .table td:nth-child(9) {
+        width: 80px; /* PS column width */
     }
 
     /* Ensure table headers and cells align properly */
@@ -139,6 +152,9 @@
     .dataTables_wrapper .dataTables_length {
         display: none;
     }
+    .class-uni {
+        font-size: 14px !important;
+    }
 
     @media (max-width: 768px) {
         h2, h3 {
@@ -148,81 +164,91 @@
         th, td {
             padding: 8px; /* Further reduced padding for smaller screens */
         }
-
-        .summary p {
-            flex: 1 1 100%;
-            margin-right: 0;
-        }
     }
 </style>
 
 <div>
-    {% for class_name, class_info in classes.items %}
-        <!-- Summary Section -->
-        <div class="summary">
-            <p>Class: {{ class_name }}</p>
-            <p>Total Students: {{ class_info.students|length }}</p>
-            <p>Total Uniforms Paid: {{ class_info.total_uniforms }}</p>
-            <p>Total Amount Collected: {{ class_info.total_amount|format_amount }}</p>
-        </div>
-
-        <!-- Table Section -->
-        <div class="table-container">
-            <table class="table table-striped table-bordered" id="uniformTable_{{ forloop.counter }}">
-                <thead>
-                    <tr>
-                        <th>Last Name</th>  <!-- Fixed width: 150px -->
-                        <th>First Name</th> <!-- Fixed width: 150px -->
-                        <th>Uniforms</th>   <!-- Fixed width: 100px -->
-                        <th>Total Amount</th> <!-- Fixed width: 120px -->
-                        <th>Actions</th>    <!-- Fixed width: 80px -->
+    <!-- Single Table for All Classes -->
+    <div class="table-container">
+        <table class="table table-striped table-bordered" id="uniformTable">
+            <thead>
+                <tr>
+                    <th>Class</th> <!-- Class column -->
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Format</th>
+                    <th>Num. Tenues</th>
+                    <th>Amount Paid</th> <!-- New column for Amount Paid -->
+                    <th>Condition Élève</th> <!-- New column for Condition Élève -->
+                 
+                </tr>
+            </thead>
+            <tbody>
+                {% for class_name, class_info in classes.items %}
+                    <!-- Class Header Row -->
+                    <tr class="class-header">
+                        <td  class="class-uni" colspan="9"> Class: {{ class_name }} | Total Uniforms: {{ class_info.total_uniforms }}</td>
                     </tr>
-                </thead>
-                <tbody>
+
+                    <!-- Student Rows -->
                     {% for student, details in class_info.students.items %}
                     <tr>
-                        <td>{{ details.nom }}</td>       <!-- Last Name -->
-                        <td>{{ details.prenom }}</td>    <!-- First Name -->
-                        <td>{{ details.uniform_count }}</td>
-                        <td>{{ details.total_amount|format_amount }}</td>
-                        <td>
-                            <a href="{% url 'student_detail' student.id %}">
-                                <i class="fas fa-sync-alt"></i> 
-                            </a>
-                        </td>
+                        <td>{{ class_name }}</td> <!-- Class Name -->
+                        <td>{{ student.id }}</td> <!-- ID -->
+                        <td>{{ details.nom }}</td> <!-- Last Name -->
+                        <td>{{ details.prenom }}</td> <!-- First Name -->
+                        <td>{{ details.format }}</td> <!-- Format -->
+                        <td>{{ details.uniform_count }}</td> <!-- Number of Uniforms -->
+                        <td>{{ details.amount_paid|format_amount }}</td> <!-- Amount Paid -->
+                        <td>{{ details.condition_eleve }}</td> <!-- Condition Élève -->
+                       
                     </tr>
                     {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    {% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+  <h1></h1>
 </div>
 
 <script>
     $(document).ready(function() {
-        // Initialize DataTables for each class-specific table
-        {% for class_name, class_info in classes.items %}
-            $('#uniformTable_{{ forloop.counter }}').DataTable({
-                dom: 't', // Only show the table (no search, length menu, etc.)
-                paging: false, // Disable pagination
-                searching: false, // Disable search
-                info: false, // Disable table info
-                order: [], // Enable sorting
-                columnDefs: [
-                    { targets: '_all', orderable: true } // Allow sorting on all columns
-                ]
-            });
-        {% endfor %}
+        // Initialize DataTables for the single table
+        $('#uniformTable').DataTable({
+            dom: 'Bfrtip', // Add buttons to the DOM
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print' // Add export and print buttons
+            ],
+            paging: false, // Disable pagination
+            searching: false, // Disable search
+            info: false, // Disable table info
+            order: [], // Enable sorting
+            columnDefs: [
+                { targets: '_all', orderable: true }, // Allow sorting on all columns
+                { 
+                    targets: 6, // Target the "Amount Paid" column (index 6)
+                    type: 'num', // Ensure numeric sorting
+                    render: function(data, type, row) {
+                        if (type === 'sort') {
+                            // Remove any non-numeric characters (e.g., currency symbols) for sorting
+                            return parseFloat(data.replace(/[^0-9.]/g, ''));
+                        }
+                        return data;
+                    }
+                }
+            ]
+        });
 
         // Add event listeners for custom Print and Export buttons
         $('#exportBtn').on('click', function() {
-            // Trigger export for the first table (or customize as needed)
-            $('#uniformTable_1').DataTable().button('.buttons-csv').trigger();
+            // Trigger export for the table
+            $('#uniformTable').DataTable().button('.buttons-csv').trigger();
         });
 
         $('#printBtn').on('click', function() {
-            // Trigger print for the first table (or customize as needed)
-            $('#uniformTable_1').DataTable().button('.buttons-print').trigger();
+            // Trigger print for the table
+            $('#uniformTable').DataTable().button('.buttons-print').trigger();
         });
     });
 </script>
