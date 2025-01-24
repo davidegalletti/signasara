@@ -6,7 +6,7 @@ from .keep_safe import DEV_SECRET_KEY, DEV_DATABASE_PASSWORD
 SECRET_KEY = DEV_SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 SITE_NAME = 'SICS NASARA DEV'
 

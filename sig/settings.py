@@ -30,7 +30,7 @@ SECRET_KEY = DEV_SECRET_KEY
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 #SITE_DOMAIN = 'sicscl.nasaraperilburkina.org'
@@ -238,6 +238,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 # Add this below line in settings.py
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
