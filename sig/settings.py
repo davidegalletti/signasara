@@ -65,7 +65,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'sig.wsgi.application'
 
 # Database
-DATABASES = {
+'''DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'sicsnasara_dev',
@@ -73,6 +73,13 @@ DATABASES = {
         'USER': 'nasara',
         'PASSWORD': DEV_DATABASE_PASSWORD,
         'PORT': '5432',
+    }
+}'''
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / "db.sqlite3",
     }
 }
 
@@ -98,7 +105,7 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# CSRF trusted origins
+# CSRF trusted originsssl_sicsnasara_stage_access.log
 CSRF_TRUSTED_ORIGINS = ['https://sics-stage-cl.nasaraperilburkina.org']
 
 # Logging
