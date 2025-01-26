@@ -1,6 +1,6 @@
 from .settings import *
 from .keep_safe import STAGE_SECRET_KEY, STAGE_DATABASE_PASSWORD
-
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = STAGE_SECRET_KEY
