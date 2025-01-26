@@ -1,6 +1,0 @@
-2024-09-14 23:22:44,926 INFO Import SICS START /home/ye/sis/scuelo/export_sics/External students.xlsx
-2024-09-14 23:22:44,981 ERROR Fatal error during import: get() returned more than one AnneeScolaire -- it returned 7!
-2024-09-14 23:24:49,796 INFO Import SICS START /home/ye/sis/scuelo/export_sics/External students.xlsx
-2024-09-14 23:24:49,842 ERROR Fatal error during import: get() returned more than one AnneeScolaire -- it returned 7!
-2024-09-14 23:25:13,167 INFO Import SICS START /home/ye/sis/scuelo/export_sics/External students.xlsx
-2024-09-14 23:25:13,217 ERROR Fatal error during import: get() returned more than one AnneeScolaire -- it returned 7!
