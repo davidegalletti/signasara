@@ -10,6 +10,14 @@ DEBUG = True
 
 SITE_NAME = 'SICS NASARA STAGE'
 
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Directory for collected static files
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),  # Directory for app-specific static files
+]
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Directory for uploaded media files
+
 SITE_DOMAIN = 'sics-stage-cl.nasaraperilburkina.org'
 ALLOWED_HOSTS.append('sics-stage-cl.nasaraperilburkina.org')
 SECRET_KEY = STAGE_SECRET_KEY
