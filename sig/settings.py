@@ -109,7 +109,7 @@ USE_TZ = True
 CSRF_TRUSTED_ORIGINS = ['https://sics-stage-cl.nasaraperilburkina.org']
 
 # Logging
-LOGGING_BASE_DIR = '/var/log/sicsnasara/prod/'
+LOGGING_BASE_DIR = '/var/log/sicsnasara/stage/'
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
