@@ -31,7 +31,14 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'bootstrap5',
     'crispy_bootstrap5',
+    'django_extensions'
 ]
+
+GRAPH_MODELS ={
+    'all_applications': True,
+    'graph_models': True,
+     }
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
