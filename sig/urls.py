@@ -12,6 +12,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('sics/', sics_site.urls),
     path('accounts/', include('accounts.urls')),
+    path('cash/' ,include('cash.urls')),
     path("homepage/", include('scuelo.urls')),
 
 ]

@@ -25,8 +25,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cash',
     'scuelo',
     'accounts',
+
     'crispy_forms',
     'whitenoise.runserver_nostatic',
     'bootstrap5',
