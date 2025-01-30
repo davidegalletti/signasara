@@ -1,29 +1,11 @@
 from django import forms
-from .models import Eleve, Inscription, AnneeScolaire  , Mouvement , Ecole , Classe , Tarif ,UniformReservation , TypeClasse
+from .models import Eleve, Inscription, AnneeScolaire   , Ecole , Classe  ,UniformReservation , TypeClasse
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit, Row, Column
 from django.contrib.auth.models import User, Group 
 from django.contrib.auth.forms import UserCreationForm
 
 
-class PaiementPerStudentForm(forms.ModelForm):
-    class Meta:
-        model = Mouvement
-        fields = ['tarif', 'montant', 'date_paye', 'note']
-        widgets = {
-            'date_paye': forms.DateInput(attrs={'type': 'date'}),
-            'tarif' : forms.Select(attrs={'class': 'form-control'}),
-            'note': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
-
-        }
-
-    def __init__(self, *args, **kwargs):
-        # Expecting a `classe` keyword argument to be passed in the view
-        classe = kwargs.pop('classe', None)
-        super().__init__(*args, **kwargs)
-        
-        if classe:
-            self.fields['tarif'].queryset = Tarif.objects.filter(classe=classe)
 
 class EleveUpdateForm(forms.ModelForm):
     classe = forms.ModelChoiceField(queryset=Classe.objects.all(), required=True)
@@ -45,7 +27,14 @@ class ClasseCreateForm(forms.ModelForm):
             'nom': forms.TextInput(attrs={'class': 'form-control'}),
             'type': forms.Select(attrs={'class': 'form-control'}),
             'legacy_id': forms.TextInput(attrs={'class': 'form-control'}),
-        }    
+        }   
+        
+        
+class UniformReservationForm(forms.ModelForm):
+    class Meta:
+        model = UniformReservation
+        fields = ['student', 'quantity', 'cost_per_uniform', 'status', 'school_year']
+                 
     
 '''class ClassUpgradeForm(forms.Form):
     new_school = forms.ModelChoiceField(queryset=Ecole.objects.all(), required=True, label="Nouvelle École")
@@ -179,30 +168,7 @@ class AnneeScolaireForm(forms.ModelForm):
             'date_finale': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'actuel': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
         }
-class TarifForm(forms.ModelForm):
-    class Meta:
-        model = Tarif
-        fields = ['causal', 'montant', 'date_expiration']
-        widgets = {
-            'date_expiration': forms.TextInput(attrs={'type': 'date'}),
-        }
 
-class MouvementForm(forms.ModelForm):
-    class Meta:
-        model = Mouvement
-        fields = ['montant', 'type', 'causal', 'date_paye', 'note', 'inscription']
-        widgets = {
-            'date_paye': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
-            'montant': forms.NumberInput(attrs={'class': 'form-control'}),
-            'type': forms.Select(attrs={'class': 'form-control'}),
-            'causal': forms.Select(attrs={'class': 'form-control'}),
-            'note': forms.Textarea(attrs={
-                'class': 'form-control note-field',
-                'rows': 4,  # Height control
-                'style': 'width: 100%;',  # Full width
-            }),
-            'inscription': forms.Select(attrs={'class': 'form-control select2'}),  # Added `select2` class
-        }
         
 class ClasseCreateForm(forms.ModelForm):
     class Meta:
@@ -213,10 +179,3 @@ class ClasseCreateForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['type'].queryset = TypeClasse.objects.all()
 
-from django import forms
-from django.utils import timezone
-from .models import UniformReservation, Eleve, AnneeScolaire
-class UniformReservationForm(forms.ModelForm):
-    class Meta:
-        model = UniformReservation
-        fields = ['student', 'quantity', 'cost_per_uniform', 'status', 'school_year']

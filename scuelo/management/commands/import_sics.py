@@ -2,9 +2,9 @@ import logging
 from django.core.management.base import BaseCommand
 from openpyexcel import load_workbook
 from pathlib import Path
-from scuelo.models import AnneeScolaire, Eleve, Inscription, Classe, Mouvement
+from scuelo.models import AnneeScolaire, Eleve, Inscription, Classe
 from datetime import datetime
-
+from cash.models import Mouvement
 # Set up logging configuration
 logging.basicConfig(
     level=logging.INFO,
