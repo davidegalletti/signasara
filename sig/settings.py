@@ -17,6 +17,7 @@ ALLOWED_HOSTS = ['sics-stage-cl.nasaraperilburkina.org', '127.0.0.1' ,'0.0.0.0']
 
 # Application definition
 INSTALLED_APPS = [
+    'jazzmin',
     'fontawesomefree',
     'django.contrib.admin',
     'django.contrib.auth',

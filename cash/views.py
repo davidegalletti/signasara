@@ -33,6 +33,7 @@ from scuelo.forms import (
      EleveUpdateForm,
     EleveCreateForm, EcoleCreateForm, ClasseCreateForm,
      ClassUpgradeForm, SchoolChangeForm ,UniformReservationForm
+     
 )
 from scuelo.models import (
     Eleve, Classe, Inscription, StudentLog,
@@ -40,9 +41,11 @@ from scuelo.models import (
 )
 
 from .models import Mouvement , Tarif 
-from .forms import PaiementPerStudentForm
-
-
+from .forms import (
+    PaiementPerStudentForm , MouvementForm
+    
+    ,TarifForm
+    )
 # =======================
 # 4. Payment Management
 # =======================

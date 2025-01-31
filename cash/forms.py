@@ -29,7 +29,7 @@ class PaiementPerStudentForm(forms.ModelForm):
 class MouvementForm(forms.ModelForm):
     class Meta:
         model = Mouvement
-        fields = ['montant', 'type', 'causal', 'date_paye', 'note', 'inscription']
+        fields = ['montant', 'causal', 'date_paye', 'note', 'inscription']
         widgets = {
             'date_paye': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
             'montant': forms.NumberInput(attrs={'class': 'form-control'}),
