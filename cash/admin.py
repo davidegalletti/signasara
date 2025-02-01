@@ -20,13 +20,9 @@ class PaiementAdmin(admin.ModelAdmin):
 
 class CashierAdmin(admin.ModelAdmin):
     list_display = ('name', 'type', 'is_default', 'balance')
-    list_filter = ('type', 'is_default')
-    search_fields = ('name', 'note')
+    list_filter = ('type', 'is_default' )
+    search_fields = ('name', 'note' )
 
-    def balance(self, obj):
-        # Display the dynamic balance for each cashier
-        return obj.balance
-    balance.short_description = 'Balance'
 
 
 class MouvementAdmin(admin.ModelAdmin):

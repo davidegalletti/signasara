@@ -39,7 +39,7 @@ TYPE_ECOLE = (
     ("L", "LYCEE"),
 )
 
-class TypeClasse(TimeStampedModel):
+class TypeClasse(models.Model):
     nom = models.CharField(max_length=100, null=False)
     ordre = models.IntegerField(default=0)
     type_ecole = models.CharField(max_length=1, choices=TYPE_ECOLE, db_index=True)
@@ -47,7 +47,7 @@ class TypeClasse(TimeStampedModel):
     def __str__(self):
         return self.nom
 
-class Ecole(TimeStampedModel):
+class Ecole(models.Model):
     nom = models.CharField(max_length=100, null=False)
     ville = models.CharField(max_length=100, null=False)
     nom_du_referent = models.CharField(max_length=100, null=False)
@@ -60,7 +60,7 @@ class Ecole(TimeStampedModel):
     def __str__(self):
         return self.nom
 
-class Classe(TimeStampedModel):
+class Classe(models.Model):
     ecole = models.ForeignKey(Ecole, on_delete=models.CASCADE)
     type = models.ForeignKey(TypeClasse, on_delete=models.CASCADE)
     nom = models.CharField(max_length=10, null=False)
@@ -104,7 +104,7 @@ class Classe(TimeStampedModel):
         total_tarifs = Tarif.objects.filter(classe=self).aggregate(total=Sum('montant'))['total'] or 0
         return "{:,}".format(total_tarifs)
 
-class Eleve(TimeStampedModel):
+class Eleve(models.Model):
     nom = models.CharField(max_length=34, null=False)
     prenom = models.CharField(max_length=34, null=False)
     date_enquete = models.DateField(null=True, blank=True)
@@ -167,7 +167,7 @@ class Eleve(TimeStampedModel):
         verbose_name = 'Eleve'
         verbose_name_plural = 'Eleves'
 
-class AnneeScolaire(TimeStampedModel):
+class AnneeScolaire(models.Model):
     nom = models.CharField(max_length=100)
     nom_bref = models.CharField(max_length=10, default='')
     date_initiale = models.DateField(blank=True, null=True)
@@ -182,7 +182,7 @@ class AnneeScolaire(TimeStampedModel):
         if self.actuel:
             AnneeScolaire.objects.filter(actuel=True).exclude(pk=self.pk).update(actuel=False)
 
-class Inscription(TimeStampedModel):
+class Inscription(models.Model):
     eleve = models.ForeignKey(Eleve, on_delete=models.CASCADE , related_name='inscriptions')
     classe = models.ForeignKey(Classe, on_delete=models.CASCADE, blank=True, null=True)
     annee_scolaire = models.ForeignKey(AnneeScolaire, on_delete=models.CASCADE)

@@ -4,13 +4,13 @@ from django.db.models import Q, Sum
 from model_utils.models import TimeStampedModel
 from django.contrib.auth.models import User
 from datetime import datetime
-
+import uuid
 from scuelo.models import (
     Classe , AnneeScolaire , Inscription ,UniformReservation
     ,Eleve
     )
 
-class Cashier(TimeStampedModel):
+class Cashier(models.Model):
     name = models.CharField(max_length=100, null=False)
     type = models.CharField(max_length=10, null=False)  # e.g., "SCO", "BF"
     note = models.TextField(blank=True, null=True)
@@ -19,27 +19,59 @@ class Cashier(TimeStampedModel):
     def __str__(self):
         return self.name
 
+   
     def balance(self, annee_scolaire=None):
-        """
-        Dynamically calculates the balance based on Mouvement (income) and Expense (outflows).
-        Optionally filters by school year.
-        """
         filters = {"cashier": self}
         if annee_scolaire:
             filters["annee_scolaire"] = annee_scolaire
-        # income or expense type should be removed 
-        # the incomes and the outcomes should be determined 
-        # automatically based onto the transaction made 
-        total_income = Mouvement.objects.filter(type="R", **filters).aggregate(total=Sum('montant'))['total'] or 0
+        total_income = Mouvement.objects.filter(causal__in=["INS", "SCO1", "SCO2", "SCO3"], **filters).aggregate(total=Sum('montant'))['total'] or 0
         total_expenses = Expense.objects.filter(**filters).aggregate(total=Sum('amount'))['total'] or 0
         return total_income - total_expenses
 
+    '''    def transfer_to_bf(self, amount, to_cashier):
+        """
+        Transfer money from C_SCO to C_BF when balance exceeds forecasted expenses.
+        """
+        # Ensure transfer is only from SCO to BF
+        if self.type == "SCO" and to_cashier.type == "BF":
+            if self.balance() > amount:
+                transfer = Transfer.objects.create(
+                    amount=amount,
+                    from_cashier=self,
+                    to_cashier=to_cashier,
+                    note="Transfer due to excess balance in C_SCO"
+                )
+                return transfer
+            else:
+                raise ValueError("Insufficient balance in C_SCO for transfer.")
+        else:
+            raise ValueError("Invalid cashier types for transfer.")
+    
+    def transfer_from_bf(self, amount, to_cashier):
+        """
+        Transfer money from C_BF to C_SCO when balance is low.
+        """
+        if self.type == "BF" and to_cashier.type == "SCO":
+            forecasted_expenses = ExpenditureForecast.objects.filter(
+                annee_scolaire=self.annee_scolaire, period__in=["Apr-Sep"]).aggregate(total=Sum('amount'))['total'] or 0
+            if self.balance(annee_scolaire=self.annee_scolaire) < forecasted_expenses:
+                transfer = Transfer.objects.create(
+                    amount=amount,
+                    from_cashier=self,
+                    to_cashier=to_cashier,
+                    note="Transfer from BF to SCO due to low balance"
+                )
+                return transfer
+            else:
+                raise ValueError("Balance in BF is sufficient for current period.")
+        else:
+            raise ValueError("Invalid cashier types for transfer.")'''
     @classmethod
     def get_default_cashier(cls):
         # Returns the default cashier (C_SCO)
         return cls.objects.filter(is_default=True).first()
     
-class Tarif(TimeStampedModel):
+class Tarif(models.Model):
     CAUSAL = (
         ("INS", "Inscription"),
         ("SCO1", "Scolarite 1"),
@@ -59,11 +91,6 @@ class Tarif(TimeStampedModel):
 
     @property
     def progressive_payments_py(self):
-        """
-        Returns a dictionary of progressive payments for PY students.
-        Key: Deadline date
-        Value: Amount to be paid by each PY student at that deadline.
-        """
         payments = {}
         if self.causal in ["INS", "SCO1", "SCO2", "SCO3"]:
             payments[self.date_expiration] = self.montant
@@ -71,9 +98,6 @@ class Tarif(TimeStampedModel):
 
     @property
     def num_py_conf(self):
-        """
-        Returns the number of PY students who have confirmed their enrollment (CONF status).
-        """
         return Eleve.objects.filter(
             inscription__classe=self.classe,
             condition_eleve="CONF",
@@ -82,9 +106,6 @@ class Tarif(TimeStampedModel):
 
     @property
     def num_cs_conf(self):
-        """
-        Returns the number of CS students who have confirmed their enrollment (CONF status).
-        """
         return Eleve.objects.filter(
             inscription__classe=self.classe,
             condition_eleve="CONF",
@@ -93,16 +114,10 @@ class Tarif(TimeStampedModel):
 
     @property
     def expected_collection(self):
-        """
-        Returns the total amount the school expects to collect for the class at various deadlines.
-        """
         return self.montant * self.num_py_conf
 
     @property
     def tenues_ordered_py(self):
-        """
-        Returns the number of uniforms ordered by PY students.
-        """
         return UniformReservation.objects.filter(
             student__inscription__classe=self.classe,
             student__cs_py="P"
@@ -110,9 +125,6 @@ class Tarif(TimeStampedModel):
 
     @property
     def tenues_ordered_cs(self):
-        """
-        Returns the number of uniforms ordered by CS students.
-        """
         return UniformReservation.objects.filter(
             student__inscription__classe=self.classe,
             student__cs_py="C"
@@ -120,16 +132,10 @@ class Tarif(TimeStampedModel):
 
     @property
     def expected_total_class(self):
-        """
-        Returns the total amount expected for the entire class (PY + CS students).
-        """
         return self.montant * (self.num_py_conf + self.num_cs_conf)
 
     @property
     def actual_total_received(self):
-        """
-        Returns the total amount actually received for the entire class (PY + CS students).
-        """
         total_received = Mouvement.objects.filter(
             tarif=self,
             type="R"  # Income
@@ -138,24 +144,18 @@ class Tarif(TimeStampedModel):
 
     @property
     def expected_total_tenues_py(self):
-        """
-        Returns the total amount expected from PY students for uniforms.
-        """
         uniform_cost = 2000  # Example cost per uniform
         return uniform_cost * self.tenues_ordered_py
 
     @property
     def actual_total_received_tenues_py(self):
-        """
-        Returns the total amount actually received from PY students for uniforms.
-        """
         total_received = Mouvement.objects.filter(
             tarif=self,
             type="R",  # Income
             causal="TEN",  # Uniform fee
             inscription__eleve__cs_py="P"  # Only PY students
         ).aggregate(total=Sum('montant'))['total'] or 0
-        return total_received
+        return total_received   
     
     '''
     :progressive par eleve par tranche 
@@ -188,11 +188,8 @@ class Tarif(TimeStampedModel):
         return f"{self.causal} {self.montant:,} {self.classe}"
     
     
-class Mouvement(TimeStampedModel):
-    '''    TYPE = (
-        ("R", "Revenus"),  # Income
-        ("D", "Dépenses"),  # Expense
-    )'''
+class Mouvement(models.Model):
+  
     CAUSAL = (
         ("INS", "Inscription"),
         ("SCO1", "Scolarite 1"),
@@ -201,7 +198,7 @@ class Mouvement(TimeStampedModel):
         ("TEN", "Tenue"),
         ("CAN", "Cantine"),
     )
-    #type = models.CharField(max_length=1, choices=TYPE, db_index=True)
+  
     causal = models.CharField(max_length=5, choices=CAUSAL, db_index=True, null=True, blank=True)
     montant = models.PositiveBigIntegerField()
     date_paye = models.DateField(db_index=True, default=timezone.now)
@@ -232,7 +229,8 @@ class Mouvement(TimeStampedModel):
         return self.date_paye.strftime('%d/%m/%y')
     
     
-class Expense(TimeStampedModel):
+class Expense(models.Model):
+    legacy_id = models.CharField(max_length=36, unique=True ,default='')  # Store UUIDs here
     description = models.CharField(max_length=200, null=False)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     date = models.DateField(default=timezone.now)
@@ -255,7 +253,7 @@ class Expense(TimeStampedModel):
         return f"{self.description} - {self.amount:,}"    
     
     
-class Transfer(TimeStampedModel):
+class Transfer(models.Model):
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     date = models.DateField(default=timezone.now)
     from_cashier = models.ForeignKey(Cashier, on_delete=models.CASCADE, related_name="transfers_out")
