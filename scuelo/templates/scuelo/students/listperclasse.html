@@ -48,10 +48,8 @@
 
     <!-- Right-aligned elements (Undo, Redo, and Page Identifier) -->
     <div class="d-flex align-items-stretch">
-        
-        <a href="{% url 'classe-information' classe.pk %}" class="class-card mr-3">
-             Info Class
-        </a>
+        <a href="{% url 'classe_information' classe.pk %}" class="class-card mr-3">info</a>
+       
         <a href="{% url 'late_payments_per_class' classe.id %}" class="class-card  mr-3">retards Paiement</a>
 
         <button class="class-card mr-3" id="print-button" title="Print">

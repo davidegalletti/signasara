@@ -1,0 +1,149 @@
+{% extends "../../layout.html" %}
+{% load custom_filters %}
+
+{% block header %}
+<div class="d-flex justify-content-between align-items-center w-100">
+    <div class="d-flex align-items-center">
+        <span class="navbar-brand mb-0 h1 text-white">Classe information</span>
+         <!-- Display Total Expense -->
+         <h1 class='navbar-brand mb-0 h1 text-white'>{% now "Y-m-d" %}</h1>
+    </div>
+
+
+    <div class="d-flex align-items-stretch">
+       
+     
+        <button class="class-card mr-3" id="undo-button" title="Undo">
+            <i class="fas fa-undo"></i>
+        </button>
+        <button class="class-card mr-3" id="redo-button" title="Redo">
+            <i class="fas fa-redo"></i>
+        </button>
+        <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
+        
+       
+    </div>
+</div>
+{% endblock header %}
+
+
+{% block content %}
+<div class=" mt-4">
+    <!-- General Information -->
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <h5><strong>École:</strong> {{ school_name }}</h5>
+            <h5><strong>Année Scolaire:</strong> {{ school_year }}</h5>
+            <h5><strong>classe</strong>  {{ classe.nom }}</h5> 
+        </div>
+        <div class="col-md-4 text-end">
+            <div class="card shadow-sm p-3">
+                <h5><strong>Effectif Total:</strong> {{ total_students }}</h5>
+          
+           
+                <ul class="list-group mt-3">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        CS:
+                        <span>{{ total_CS }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        PY:
+                        <span>{{ total_PY }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Autres:
+                        <span>{{ other }}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Data Section -->
+    <div class="row">
+        <!-- Left Column: Tarifs -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm p-3">
+            
+                <table class="table table-striped table-bordered mt-3">
+                    <thead>
+                        <tr>
+                            <th>Causal</th>
+                            <th>Montant</th>
+                            <th>Date d'expiration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for tarif in tarifs %}
+                        <tr>
+                            <td>{{ tarif.causal }}</td>
+                            <td>{{ tarif.montant|format_amount }}</td> <!-- Use your custom format -->
+                            <td>{{ tarif.date_expiration|date:"d/m/y" }}</td> <!-- Format date as DD/MM/YY -->
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="3" class="text-center">Aucun tarif disponible</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Center Column: Expected Payments Calculations -->
+        <div class="col-md-4 mb-4 text-center">
+            <div class="card d-flex shadow-sm p-3">
+                <h5><strong>Calculs des Paiements Attendus</strong></h5>
+
+                <!-- Tranches -->
+                {% if first_tranche or second_tranche or third_tranche %}
+                    <p><strong>1er Trimestre:</strong> {{ first_tranche|format_amount }}</p>
+                    <p><strong>2ème Trimestre:</strong> {{ second_tranche|format_amount }}</p>
+                    <p><strong>3ème Trimestre:</strong> {{ third_tranche|format_amount }}</p>
+                {% else %}
+                    <p>Aucune donnée disponible pour les trimestres.</p>
+                {% endif %}
+                <h2>PY & CONF</h2>
+                <h4> {{ total_students_confirmed }}</h4>
+                <!-- Progressif per Tranche -->
+                {% if progressif_per_tranche %}
+                <h5 class="mt-4">Progressif par Tranche par Élève (PY & CONF)</h5>
+                <ul class="list-group mt-3">
+                    {% for tranche, amount in progressif_per_tranche.items %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        {{ tranche }}:
+                        <span>{{ amount|format_amount }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p>Aucune donnée de progression disponible.</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Right Column: Summary Statistics -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm p-3">
+                <h5><strong>Résumé Financier</strong></h5>
+
+                <!-- Example Financial Summary -->
+                {% if financial_summary %}
+                <ul class="list-group mt-3">
+                    {% for key, value in financial_summary.items %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        {{ key }}:
+                        <span>{{ value|format_amount }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p>Aucune donnée financière disponible.</p>
+                {% endif %}
+            </div>
+        </div>
+
+    </div> <!-- End of row -->
+</div> <!-- End of container -->
+
+{% endblock %}

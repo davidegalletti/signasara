@@ -201,3 +201,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 VERSION = '0.0.10'
 VERSION_COMMENT = 'Models from functional_analysis, migrations, mngmnt cmds'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"

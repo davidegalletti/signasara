@@ -1,24 +1,21 @@
 {% extends "../../layout.html" %}
+{% load custom_filters %}
+
 {% block header %}
 <div class="d-flex justify-content-between align-items-center w-100">
-    <!-- Left-aligned elements -->
     <div class="d-flex align-items-center">
-        <span class="navbar-brand mb-0 h1 text-white">sortie</span>
-    
+        <span class="navbar-brand mb-0 h1 text-white">Sortie</span>
+         <!-- Display Total Expense -->
+         <div class='text-white ml-3'><strong>Total: {{ total_expense|format_amount }}</strong></div> <!-- Format as needed -->
     </div>
 
-    <!-- Center-aligned elements (Tot and Total Paid) -->
-    <div class="d-flex align-items-center">
 
-  
-    <!-- Right-aligned elements (Undo, Redo, and Page Identifier) -->
     <div class="d-flex align-items-stretch">
-<a href="{% url 'expense_create' %}" class="class-card mr-3">Aj sortie</a>
-      
-        <button class="class-card mr-3" id="print-button" title="Print">
+        <a href="{% url 'expense_create' %}" class="class-card mr-3">Ajout Sortie</a>
+        <button class="class-card mr-3 hidden-print" id="print-button" title="Print" onclick="myFunction()">
             <i class="fas fa-print"></i>
         </button>
-        <button class="class-card mr-3" id="export-button" title="Export to Excel">
+        <button class="class-card mr-3 hidden-print" id="export-button" title="Export to Excel" onclick="exportToExcel()">
             <i class="fas fa-file-excel"></i>
         </button>
         <button class="class-card mr-3" id="undo-button" title="Undo">
@@ -28,18 +25,18 @@
             <i class="fas fa-redo"></i>
         </button>
         <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
+        
+       
     </div>
 </div>
 {% endblock header %}
 
 {% block content %}
-
 <style>
     .table-container {
         max-width: 100%;
         overflow-x: auto;
         border-radius: 10px;
-        
     }
 
     .table {
@@ -53,15 +50,7 @@
         padding: 2px 8px !important; /* Further reduced padding */
         text-align: center;
         font-size: 10px; /* Smaller font size */
-      
-      
     }
-    .col-1 {
-       
-        width: 80px !important; /* Adjust as needed */
-      
-    }
-
 
     .table th {
         background-color: #333;
@@ -73,53 +62,54 @@
     .table tbody tr:hover {
         background-color: #e9ecef;
     }
-    .col-sex {
-        width: 1% !important;
-      }
-      .col-note { width : auto}
-       
-      .navbar-totals {
-        display: flex;
-        align-items: center;
-        gap: 20px; /* Adjust the gap between the two blocks */
-    }
-    .navbar-totals div {
-        line-height: 1.2; /* Adjust line height for better spacing */
+
+    .highlight-negative {
+        color: red; /* Highlight negative values in red */
+        font-weight: bold; /* Make it bold for emphasis */
     }
 </style>
+
 <div class="">
- 
-    <table id="expensesTable" class="display compact">
+    <h5>Liste des Dépenses</h5>
+
+    <table id="expensesTable" class="display compact table table-striped table-bordered">
         <thead>
             <tr>
-                <th>Description</th>
-                <th>Amount</th>
                 <th>Date Incurred</th> <!-- Column header -->
-                <th>Actions</th>
+                <th>Description</th>
+                <th>Montant</th>
+                <th>Total Progressif</th> <!-- Column for Progressive Total -->
+               {% comment %}
+                 <th>Actions</th>
+               {% endcomment %}
             </tr>
         </thead>
         <tbody>
-            {% for expense in expenses %}
+            {% for item in expenses %}
             <tr>
-                <td>{{ expense.description }}</td>
-                <td>{{ expense.amount }}</td>
-                <td>{{ expense.formatted_date }}</td> <!-- Display formatted date -->
-                <td>
-                    <a href="{% url 'expense_update' expense.pk %}" ><i class="fas fa-edit"></i></a>
-                    <a href="{% url 'expense_delete' expense.pk %}" ><i class="fas fa-trash"></i></a>
-                </td>
+                <td>{{ item.expense.formatted_date }}</td> <!-- Formatted Date -->
+                <td>{{ item.expense.description }}</td> <!-- Expense Description -->
+                <td>{{ item.expense.amount|format_amount }}</td> <!-- Expense Amount -->
+                <td class="highlight-negative">{{ item.progressive_total|format_amount }}</td> <!-- Progressive Total in Red -->
+               {% comment %}
+                 <td>
+                     <a href="{% url 'expense_update' item.expense.pk %}" title="Edit"><i class="fas fa-edit"></i></a>
+                     <a href="{% url 'expense_delete' item.expense.pk %}" title="Delete"><i class="fas fa-trash"></i></a>
+                 </td>
+               {% endcomment %}
             </tr>
             {% endfor %}
         </tbody>
     </table>
+
 </div>
 
 <script>
 // Initialize DataTable
 $(document).ready(function() {
     $('#expensesTable').DataTable({
-        "order": [[2, "desc"]], // Order by Date Incurred descending
-        "pageLength": 25, // Show 25 rows by default
+        "order": [[0, "desc"]], // Order by Date Incurred descending
+        "pageLength": 36, // Show 25 rows by default
         "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]], // Options for number of rows per page
         "language": {
             "search": "Search:",
@@ -134,6 +124,29 @@ $(document).ready(function() {
         }
     });
 });
+
+// Print function
+function myFunction() {
+    // Get the DataTable instance
+    var table = $('#expensesTable').DataTable();
+
+    // Store the current page length
+    var currentPageLength = table.page.len();
+
+    // Set the page length to -1 (show all records)
+    table.page.len(-1).draw();
+
+    // Trigger the print dialog
+    window.print();
+
+    // Reset the page length back to the original setting
+    table.page.len(currentPageLength).draw();
+}
+
+// Export to Excel function (placeholder)
+function exportToExcel() {
+    alert("Export to Excel functionality is not yet implemented.");
+}
 </script>
 
 {% endblock %}

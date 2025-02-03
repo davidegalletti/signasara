@@ -522,7 +522,7 @@ def student_detail(request, pk):
         payment = get_object_or_404(Mouvement, pk=payment_id)
 
         # Render receipt template to HTML
-        html_string = render_to_string('scuelo/paiements/receipt.html', {'student': student, 'payment': payment})
+        html_string = render_to_string('cash/paiements/receipt.html', {'student': student, 'payment': payment})
 
         # Generate PDF
         html = HTML(string=html_string)
@@ -1068,7 +1068,7 @@ def print_receipt(request, mouvement_id):
         'mouvement': mouvement,
         'receipt_number': f'REC-{mouvement.id:05d}'  # Example receipt number format
     }
-    html_string = render(request, 'scuelo/receipt_template.html', context).content.decode('utf-8')
+    html_string = render(request, 'scuelo/receipt/receipt_template.html', context).content.decode('utf-8')
     html = HTML(string=html_string)
     pdf = html.write_pdf()
 

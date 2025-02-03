@@ -779,7 +779,9 @@ def late_payment_report(request):
                 inscriptions__classe=classe,
                 inscriptions__annee_scolaire=current_annee_scolaire,
                 inscriptions__classe__ecole=school,
-                cs_py='PY'
+                cs_py='PY',
+                condition_eleve= "CONF" or "PROP"
+                 
             ).distinct()
 
             student_data = []
@@ -851,9 +853,26 @@ def late_payment_report(request):
 
 
 from .models import Cashier
+@login_required
 def expense_list(request):
     expenses = Expense.objects.all().order_by('-date')  # Retrieve all expenses ordered by date
-    return render(request, 'cash/expense/expense_list.html', {'expenses': expenses})
+
+    progressive_total = 0  # Initialize a variable to hold the progressive total
+    total_expense = 0      # Initialize a variable to hold the total expense
+    expense_data = []      # Create a list to hold the expense data along with progressive totals
+
+    for expense in expenses:
+        total_expense += expense.amount  # Calculate total expense
+        progressive_total += expense.amount  # Add the current expense amount to the progressive total
+        expense_data.append({
+            'expense': expense,
+            'progressive_total': -abs(progressive_total),  # Store the cumulative total as negative
+        })
+
+    return render(request, 'cash/expense/expense_list.html', {
+        'expenses': expense_data,
+        'total_expense': total_expense,  # Pass the total expense to the template
+    })
 
 def expense_create(request):
     if request.method == "POST":
@@ -1154,3 +1173,90 @@ def payment_delay_per_class(request, pk):
         'total_diff_sco': total_diff_sco,
         'total_diff_can': total_diff_can,
     })
+
+
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from .models import Classe, Tarif, Eleve, AnneeScolaire
+
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from .models import Classe, Tarif, Eleve, AnneeScolaire
+
+@login_required
+def classe_information(request, pk):
+    classe = get_object_or_404(Classe, id=pk)  # Fetch the specific class
+    school_name = classe.ecole.nom  # Assuming 'ecole' is a ForeignKey in Classe
+    school_year = AnneeScolaire.objects.filter(actuel=True).first()  # Get current school year
+    tarifs = Tarif.objects.filter(classe=classe)  # Get all tarifs related to this class
+
+    # Count total students in the class
+    total_students = Eleve.objects.filter(inscriptions__classe=classe).count()
+
+    # Count confirmed students (PY & CONF)
+    #total_students_confirmed = Eleve.objects.filter(inscriptions__classe=classe, condition_eleve='CONF').count()
+    total_students_confirmed = Eleve.objects.filter(
+    inscriptions__classe=classe,
+    condition_eleve='CONF',
+    cs_py='PY'
+    ).count()
+
+    # Count students by categories
+    total_CS = Eleve.objects.filter(inscriptions__classe=classe, cs_py='CS').count()
+    total_PY = Eleve.objects.filter(inscriptions__classe=classe, cs_py='PY').count()
+    other =  total_students - (total_PY + total_CS )
+
+    # Calculate expected payments based on tranches
+    sco1 = tarifs.filter(causal="SCO1").aggregate(total=models.Sum('montant'))['total'] or 0
+    sco2 = tarifs.filter(causal="SCO2").aggregate(total=models.Sum('montant'))['total'] or 0
+    sco3 = tarifs.filter(causal="SCO3").aggregate(total=models.Sum('montant'))['total'] or 0
+
+    first_tranche = sco1
+    second_tranche = sco1 + sco2
+    third_tranche = sco1 + sco2 + sco3
+
+    # Calculate progressif per tranche (PY & CONF)
+    progressif_per_tranche = {
+        '1er': first_tranche * total_students_confirmed,
+        '2eme': second_tranche * total_students_confirmed,
+        '3eme': third_tranche * total_students_confirmed,
+    }
+
+    return render(request, 'cash/tarif/classe_information.html', {
+        'classe': classe,
+        'school_name': school_name,
+        'school_year': school_year,
+        'tarifs': tarifs,
+        'total_students': total_students,
+        'total_students_confirmed': total_students_confirmed,
+        'total_CS': total_CS,
+        'total_PY': total_PY,
+        'other':other,
+        'progressif_per_tranche': progressif_per_tranche,
+        'first_tranche': first_tranche,
+        'second_tranche': second_tranche,
+        'third_tranche': third_tranche,
+    })
+
+
+@login_required
+def tarif_update(request, pk):
+    tarif = get_object_or_404(Tarif, pk=pk)  # Fetch the specific tarif
+    if request.method == 'POST':
+        form = TarifForm(request.POST, instance=tarif)  # Bind the form with the existing instance
+        if form.is_valid():
+            form.save()  # Save the updated tarif
+            return redirect('classe_information', pk=tarif.classe.pk)  # Redirect back to class information page
+    else:
+        form = TarifForm(instance=tarif)  # Pre-fill the form with existing data
+
+    return render(request, 'cash/tarif_form.html', {'form': form})    
+
+@login_required
+def tarif_delete(request, pk):
+    tarif = get_object_or_404(Tarif, pk=pk)  # Fetch the specific tarif
+    if request.method == 'POST':
+        tarif.delete()  # Delete the tarif
+        return redirect('classe_information', pk=tarif.classe.pk)  # Redirect back to class information page
+
+    return render(request, 'cash/tarif_confirm_delete.html', {'tarif': tarif})

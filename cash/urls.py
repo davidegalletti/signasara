@@ -36,13 +36,13 @@ urlpatterns = [
  # Accounting Report - Bi-Monthly
     path('c_sco/accounting/bi_monthly/', views.accounting_c_sco_report, {'period': 'bi_monthly'}, name='accounting_c_sco_report_bi_monthly'),
     
-       path('expenses/', views.expense_list, name='expense_list'),
+    path('expenses/', views.expense_list, name='expense_list'),
     path('expenses/new/', views.expense_create, name='expense_create'),
     path('expenses/edit/<int:pk>/', views.expense_update, name='expense_update'),
     path('expenses/delete/<int:pk>/', views.expense_delete, name='expense_delete'),
      path('entree-sortie/', views.entree_sortie, name='entree_sortie'), 
      
-        path('transfers/', views.transfer_list, name='transfer_list'),
+    path('transfers/', views.transfer_list, name='transfer_list'),
     path('transfers/create/', views.create_transfer, name='create_transfer'),
     path('transfers/update/<int:pk>/', views.update_transfer, name='update_transfer'),
     path('transfers/delete/<int:pk>/', views.delete_transfer, name='delete_transfer'),
@@ -52,5 +52,7 @@ urlpatterns = [
     path('cashiers/update/<int:pk>/', views.update_cashier, name='update_cashier'),
     path('cashiers/delete/<int:pk>/', views.delete_cashier, name='delete_cashier'),
  path('class/<int:pk>/late-payments/', views.payment_delay_per_class, name='late_payments_per_class'),
-
+     path('classe/<int:pk>/information/', views.classe_information, name='classe_information'),
+    path('tarif/update/<int:pk>/', views.tarif_update, name='tarif_update'),  # Update tarif
+    path('tarif/delete/<int:pk>/', views.tarif_delete, name='tarif_delete'),  # Delete tarif
 ]
