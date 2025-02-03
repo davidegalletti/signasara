@@ -61,10 +61,11 @@ class TransferAdmin(admin.ModelAdmin):
 
 class TarifAdmin(admin.ModelAdmin):
     list_display = (
-        'causal', 'montant', 'classe', 'annee_scolaire', 'date_expiration',
-        'expected_total_class', 'actual_total_received',
-        'expected_total_tenues_py', 'actual_total_received_tenues_py'
+        'causal', 'montant', 'classe', 'annee_scolaire', 'date_expiration'
     )
+    '''    'expected_total_class', 'actual_total_received',
+        'expected_total_tenues_py', 'actual_total_received_tenues_py'''
+        
     list_filter = ('causal', 'classe', 'annee_scolaire')
     search_fields = ('classe__nom', 'annee_scolaire__nom')
     '''    readonly_fields = (

@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import Classe, Eleve, AnneeScolaire, Inscription , StudentLog , UniformReservation
+from .models import ( Classe, Eleve, AnneeScolaire, 
+                     Inscription , StudentLog , 
+                     UniformReservation , Ecole )
 from django.contrib.auth.models import User, Group
 
 
@@ -90,4 +92,5 @@ sics_site.register(AnneeScolaire)
 sics_site.register(Inscription, InscriptionAdmin)
 sics_site.register(User)
 sics_site.register(Group)
+sics_site.register(Ecole)
 sics_site.register(StudentLog)

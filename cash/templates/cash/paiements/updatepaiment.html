@@ -1,24 +1,93 @@
 {% extends "../../layout.html" %}
 {% block header %}
-<span class="navbar-brand mb-0 h1 text-white">Navbar</span>
-          
+<div class="d-flex justify-content-between align-items-center w-100">
+    <!-- Left-aligned elements -->
+    <div class="d-flex align-items-center">
+        <span class="navbar-brand mb-0 h1 text-white">mise a jours paiement</span>
     
-            <!-- Undo and Redo Icons -->
-            <div class="ml-2 d-flex align-items-stretch">
-                <button class="class-card mr-3" id="undo-button" title="Undo">
-                    <i class="fas fa-undo"></i>
-                </button>
-                <button class="class-card mr-3" id="redo-button" title="Redo">
-                    <i class="fas fa-redo"></i>
-                </button>
-                <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
-            </div>
+    </div>
+
+    <!-- Center-aligned elements (Tot and Total Paid) -->
+    <div class="d-flex align-items-center">
+
+  
+    <!-- Right-aligned elements (Undo, Redo, and Page Identifier) -->
+    <div class="d-flex align-items-stretch">
+        <a href="{% url 'student_detail' student.id %}" class="class-card mr-3">annul</a> 
+        <button class="class-card mr-3" id="undo-button" title="Undo">
+            <i class="fas fa-undo"></i>
+        </button>
+        <button class="class-card mr-3" id="redo-button" title="Redo">
+            <i class="fas fa-redo"></i>
+        </button>
+        <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
+    </div>
+</div>
 {% endblock header %}
 {% block content %}
-<h2>Update Payment for {{ student.nom }} {{ student.prenom }}</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Update Payment</button>
-</form>
+<div class="container mt-4">
+
+    
+    <!-- Display Student Information -->
+    <div class="alert alert-info">
+        
+        <strong>ID:</strong> {{ student.id }}<br>
+        <strong>Name:</strong> {{ student.nom }} {{ student.prenom }}<br>
+        <strong>Class:</strong> {{ class_type }}<br>
+        <strong>School:</strong> {{ school_name }}<br>
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+        
+        <!-- Causal Field -->
+        <div class="form-group">
+            <label for="id_causal">Causal:</label>
+            {{ form.causal }} <!-- Render causal field as a dropdown -->
+            {% if form.causal.errors %}
+                <div class="invalid-feedback">
+                    {{ form.causal.errors.0 }}
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Montant Field -->
+        <div class="form-group">
+            <label for="id_montant">Amount:</label>
+            {{ form.montant }} <!-- Render montant field -->
+            {% if form.montant.errors %}
+                <div class="invalid-feedback">
+                    {{ form.montant.errors.0 }}
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Date Paye Field -->
+        <div class="form-group">
+            <label for="id_date_paye">Date of Payment:</label>
+            {{ form.date_paye }} <!-- This should render as an input field -->
+            {% if form.date_paye.errors %}
+                <div class="invalid-feedback">
+                    {{ form.date_paye.errors.0 }}
+                </div>
+            {% endif %}
+        </div>
+        
+        
+
+        <!-- Note Field as Textarea -->
+        <div class="form-group">
+            <label for="id_note">Note:</label>
+            {{ form.note }} <!-- Render note field as textarea -->
+            {% if form.note.errors %}
+                <div class="invalid-feedback">
+                    {{ form.note.errors.0 }}
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Update Payment</button>
+    </form>
+</div>
 {% endblock %}

@@ -153,17 +153,26 @@
                     <div class="class-grid">
                         <a href="#" class="class-card">
                             <i class="fas fa-tshirt"></i>
-                            <span>entre/sorties</span>
+                            <span>sorties</span>
                         </a>
-                        <a href="#" class="class-card">
+                        <a href="{% url 'expense_list' %}" class="class-card">
                             <i class="fas fa-user-friends"></i>
                             <span>sortie</span>
                         </a>
-                        <a href="#" class="class-card">
+                        
+                        <a href="{% url 'entree_sortie' %}" class="class-card">
                             <i class="fas fa-users"></i>
-                            <span>sortie d'argent</span>
+                            <span>entree/sortie</span>
                         </a>
-                     
+                        <a href="{% url 'transfer_list' %}" class="class-card">
+                            <i class="fas fa-users"></i>
+                            <span>transfert</span>
+                        </a>
+                        <a href="{% url 'cashier_list' %}" class="class-card">
+                            <i class="fas fa-users"></i>
+                            <span>cashier</span>
+                        </a>
+                        
                     </div>
                 </div>
                 </div>

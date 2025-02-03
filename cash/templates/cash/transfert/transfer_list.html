@@ -1,0 +1,41 @@
+{% extends "../../layout.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Transfers</h2>
+    <a href="{% url 'create_transfer' %}" class="btn btn-primary">Add New Transfer</a>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>From Cashier</th>
+                <th>To Cashier</th>
+                <th>Amount</th>
+                <th>Note</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transfer in transfers %}
+            <tr>
+                <td>{{ transfer.date }}</td>
+                <td>{{ transfer.from_cashier }}</td>
+                <td>{{ transfer.to_cashier }}</td>
+                <td>{{ transfer.amount }}</td>
+                <td>{{ transfer.note }}</td>
+                <td>
+                    <a href="{% url 'update_transfer' transfer.pk %}" class="btn btn-warning">Edit</a>
+                    <a href="{% url 'delete_transfer' transfer.pk %}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">No transfers available.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}

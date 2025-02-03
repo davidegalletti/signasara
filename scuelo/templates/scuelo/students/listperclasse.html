@@ -35,6 +35,7 @@
 
     <!-- Center-aligned elements (Tot and Total Paid) -->
     <div class="d-flex align-items-center">
+
         <div class="text-white text-right mr-4">
             <div>Tot(cs-py-aut)</div>
             <div>{{ student_count_display }}</div>
@@ -47,6 +48,12 @@
 
     <!-- Right-aligned elements (Undo, Redo, and Page Identifier) -->
     <div class="d-flex align-items-stretch">
+        
+        <a href="{% url 'classe-information' classe.pk %}" class="class-card mr-3">
+            View Class Information
+        </a>
+        <a href="{% url 'payment_delay_per_class' %}">View Payment Delays by Class</a>
+
         <button class="class-card mr-3" id="print-button" title="Print">
             <i class="fas fa-print"></i>
         </button>

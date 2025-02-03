@@ -240,6 +240,249 @@ def class_detail(request, pk):
         'page_identifier': 'S02'  # Unique page identifier
     })
 
+
+from django.db.models import Count
+'''
+class ClasseInformation(DetailView):
+    model = Classe
+    template_name = 'scuelo/classe/classe_information.html'
+    context_object_name = 'classe'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        
+        # Fetch the current class object
+        classe = self.object
+        
+        # Fetch the school name and class name
+        context['nom_ecole'] = classe.ecole  # Assuming 'ecole' is a field in the Classe model
+        context['nom_classe'] = classe.nom  # Assuming 'nom' is the field for the class name
+        
+        # Fetch all tariffs (tarifs) related to the class
+        context['tarifs'] = Tarif.objects.filter(classe=classe)
+
+        # Count PY students with uniform reservations
+        context['num_py_with_reservation'] = Eleve.objects.filter(
+            inscriptions__classe=classe,
+            cs_py='P'
+        ).prefetch_related('uniform_reservations').annotate(
+            num_reservations=Count('uniform_reservations')
+        ).filter(num_reservations__gt=0).count()
+
+        # Count CS students with uniform reservations
+        context['num_cs_with_reservation'] = Eleve.objects.filter(
+            inscriptions__classe=classe,
+            cs_py='C'
+        ).prefetch_related('uniform_reservations').annotate(
+            num_reservations=Count('uniform_reservations')
+        ).filter(num_reservations__gt=0).count()
+
+        # Total fee calculations for PY & CS students based on reservations
+        # Filter students with uniform reservations (this assumes that status 'reserved', 'delivered', or 'paid' are acceptable statuses)
+        context['num_py_reserved'] = Eleve.objects.filter(
+            inscriptions__classe=classe,
+            cs_py='P'
+        ).filter(
+            uniform_reservations__status__in=['reserved', 'delivered', 'paid']
+        ).count()
+
+        context['num_cs_reserved'] = Eleve.objects.filter(
+            inscriptions__classe=classe,
+            cs_py='C'
+        ).filter(
+            uniform_reservations__status__in=['reserved', 'delivered', 'paid']
+        ).count()
+
+        # Fetch the total expected amount based on PY and CS students
+        sco1 = Tarif.objects.filter(classe=classe, causal='SCO1').first()
+        sco2 = Tarif.objects.filter(classe=classe, causal='SCO2').first()
+        sco3 = Tarif.objects.filter(classe=classe, causal='SCO3').first()
+
+        total_fee_py = ((sco1.montant if sco1 else 0) + 
+                        (sco2.montant if sco2 else 0) + 
+                        (sco3.montant if sco3 else 0)) * context['num_py_reserved']
+        
+        total_fee_cs = ((sco1.montant if sco1 else 0) + 
+                        (sco2.montant if sco2 else 0) + 
+                        (sco3.montant if sco3 else 0)) * context['num_cs_reserved']
+
+        context['total_fee_py'] = total_fee_py
+        context['total_fee_cs'] = total_fee_cs
+
+        # Additional calculation for CS costs for external students
+        context['external_cs_total'] = total_fee_cs  # Adjust this as per your requirements
+
+        return context
+'''
+
+from django.shortcuts import render
+from django.db.models import Sum
+from django.utils import timezone
+from django.views.generic import DetailView
+from django.shortcuts import get_object_or_404
+from django.db.models import Sum
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import DetailView
+
+from django.shortcuts import get_object_or_404
+from django.db.models import Sum
+from django.views.generic import DetailView
+
+
+class ClasseInformation(LoginRequiredMixin, DetailView):
+    model = Classe
+    template_name = "scuelo/classe/classe_information.html"
+    context_object_name = "classe"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        # Get the selected academic year (annee_scolaire)
+        selected_annee_scolaire_id = self.request.GET.get('annee_scolaire')
+        selected_annee_scolaire = get_object_or_404(AnneeScolaire, pk=selected_annee_scolaire_id) if selected_annee_scolaire_id else AnneeScolaire.objects.get(actuel=True)
+
+        classe = self.get_object()
+
+        # Get students registered in this class during the selected academic year
+        inscriptions = Inscription.objects.filter(classe=classe, annee_scolaire=selected_annee_scolaire)
+        students = [inscription.eleve for inscription in inscriptions]
+
+        # Calculate total payments for each student and get details of each payment
+        # We can now calculate payments and categorize them all in one go
+        total_class_payment = 0
+        total_paid_cs = 0
+        total_paid_py = 0
+        total_paid_conf = 0
+        total_paid_aut = 0
+        
+        cs_students = []
+        py_students = []
+        conf_students = []
+        aut_students = []
+
+        for student in students:
+            # Get payments for the student
+            
+            payments = Mouvement.objects.filter(
+        inscription__in=student.inscriptions.filter(
+            classe=classe, 
+            annee_scolaire=selected_annee_scolaire
+        )
+    )
+
+            student.total_payment = payments.aggregate(total=Sum('montant'))['total'] or 0
+            student.payment_details = payments.values('causal', 'montant', 'date_paye')
+            student.tenues = payments.filter(causal='TEN').values('montant')  # Only "tenues" payments
+            student.notes = student.note_eleve  # Assuming `note_eleve` is a related field, or handling it appropriately
+
+            # Categorize students
+            if student.get_cs_py_display() == 'CS':
+                cs_students.append(student)
+                total_paid_cs += student.total_payment
+            elif student.get_cs_py_display() == 'PY':
+                py_students.append(student)
+                total_paid_py += student.total_payment
+            elif student.condition_eleve == 'CONF':
+                conf_students.append(student)
+                total_paid_conf += student.total_payment
+            else:
+                aut_students.append(student)
+                total_paid_aut += student.total_payment
+
+            total_class_payment += student.total_payment
+
+        # Get tarifs related to this class for the selected academic year
+        tarifs = Tarif.objects.filter(classe=classe, annee_scolaire=selected_annee_scolaire)
+
+        # Total number of students in each category
+        cs_count = len(cs_students)
+        py_count = len(py_students)
+        conf_count = len(conf_students)
+        aut_count = len(aut_students)
+        total_students = len(students)
+
+        student_count_display = f"{total_students} ({cs_count}-{py_count}-{conf_count}-{aut_count})"
+
+        # Calculate the expected total for the class (for now, assuming it's a placeholder calculation)
+        expected_total_class = self.calculate_expected_total(classe)
+
+        
+         # 1. PY + CONF students count
+        py_conf_count = py_count + conf_count
+
+        # 2. Progressive fees from tariffs
+        progressive_fee_1 = Tarif.objects.filter(
+            classe=classe,
+            causal='SCO1',
+            annee_scolaire=selected_annee_scolaire
+        ).aggregate(total=Sum('montant'))['total'] or 0
+
+        progressive_fee_2 = Tarif.objects.filter(
+            classe=classe,
+            causal='SCO2',
+            annee_scolaire=selected_annee_scolaire
+        ).aggregate(total=Sum('montant'))['total'] or 0
+
+        progressive_fee_3 = Tarif.objects.filter(
+            classe=classe,
+            causal='SCO3', 
+            annee_scolaire=selected_annee_scolaire
+        ).aggregate(total=Sum('montant'))['total'] or 0
+
+        # 3. Payment percentage calculation
+        expected_total_class = classe.get_expected_payment()  # Use existing method
+        total_payment_percentage = round((total_class_payment / expected_total_class * 100), 2) if expected_total_class else 0
+
+        # 4. Tenues payments for PY students
+        total_tenues_py = sum(
+            sum(p['montant'] for p in student.tenues)
+            for student in py_students
+        )
+
+        # 5. Expected tenues for PY students
+        tenues_tarif = Tarif.objects.filter(
+            classe=classe,
+            causal='TEN',
+            annee_scolaire=selected_annee_scolaire
+        ).aggregate(total=Sum('montant'))['total'] or 0
+        expected_total_tenues_py = tenues_tarif * py_count
+        context.update({
+            'students': students,
+            'tarifs': tarifs,
+            'breadcrumbs': [('/', 'Home'), ('#', classe.nom)],
+            'total_class_payment': total_class_payment,
+            'student_count_display': student_count_display,
+            'cs_count': cs_count,
+            'py_count': py_count,
+            'conf_count': conf_count,
+            'aut_count': aut_count,
+            'total_paid_cs': total_paid_cs,
+            'total_paid_py': total_paid_py,
+            'total_paid_conf': total_paid_conf,
+            'total_paid_aut': total_paid_aut,
+            'all_annee_scolaires': AnneeScolaire.objects.all(),
+            'selected_annee_scolaire': selected_annee_scolaire,
+            'expected_total_class': expected_total_class,  # Placeholder, replace with actual calculation if needed
+            
+                   'py_conf_count': py_conf_count,
+        'progressive_fee_1': progressive_fee_1,
+        'progressive_fee_2': progressive_fee_2,
+        'progressive_fee_3': progressive_fee_3,
+        'total_payment_percentage': total_payment_percentage,
+        'actual_total_received': total_class_payment,  # Same as total_class_payment
+        'actual_total_received_tenues_py': total_tenues_py,
+        'expected_total_tenues_py': expected_total_tenues_py,
+        })
+
+        return context
+
+    def calculate_expected_total(self, classe):
+        # Placeholder function to calculate expected total for the class
+        # You can replace this with actual logic based on your tarif system
+        return 10000  # Example placeholder value
+
+
+        
 @login_required
 def student_detail(request, pk):
     student = get_object_or_404(Eleve, pk=pk)

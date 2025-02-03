@@ -1,0 +1,58 @@
+{% extends "../../layout.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Entrées et Sorties (C-SCO Cashier)</h2>
+
+    <table id="entreeSortieTable" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Entree (Income)</th>
+                <th>Sortie (Outcome)</th>
+                <th>Progressive Balance</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in entries %}
+            <tr>
+                <td>{{ entry.date }}</td>
+                <td>{{ entry.description }}</td>
+                <td>{{ entry.entree|default:"0" }}</td> <!-- Display income -->
+                <td>{{ entry.sortie|default:"0" }}</td> <!-- Display outcome -->
+                <td>{{ entry.progressive|default:"0" }}</td> <!-- Display progressive balance -->
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">No entries available.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+<script>
+// Initialize DataTable
+$(document).ready(function() {
+    $('#entreeSortieTable').DataTable({
+        "order": [[0, "desc"]], // Order by date descending
+        "pageLength": 10, // Default rows per page
+        "lengthMenu": [[5, 10, 25, -1], [5, 10, 25, "All"]],
+        "language": {
+            "search": "Search:",
+            "lengthMenu": "Display _MENU_ records per page",
+            "info": "Showing page _PAGE_ of _PAGES_",
+            "infoEmpty": "No records available",
+            "zeroRecords": "No matching records found",
+            "paginate": {
+                "next": "Next",
+                "previous": "Previous"
+            }
+        }
+    });
+});
+</script>
+
+{% endblock %}

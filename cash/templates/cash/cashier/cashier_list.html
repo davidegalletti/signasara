@@ -1,0 +1,39 @@
+{% extends "../../layout.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Cashiers</h2>
+    <a href="{% url 'create_cashier' %}" class="btn btn-primary">Add New Cashier</a>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Note</th>
+                <th>Default</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cashier in cashiers %}
+            <tr>
+                <td>{{ cashier.name }}</td>
+                <td>{{ cashier.type }}</td>
+                <td>{{ cashier.note }}</td>
+                <td>{{ cashier.is_default|yesno:"Yes,No" }}</td> <!-- Display Yes/No -->
+                <td>
+                    <a href="{% url 'update_cashier' cashier.pk %}" class="btn btn-warning">Edit</a>
+                    <a href="{% url 'delete_cashier' cashier.pk %}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">No cashiers available.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}

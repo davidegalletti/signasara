@@ -1,0 +1,13 @@
+{% extends "../../layout.html" %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2>Confirm Delete</h2>
+  <p>Are you sure you want to delete "{{ expense.description }}"?</p>
+  <form method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger">Confirm</button>
+  </form>
+  <a href="{% url 'expense_list' %}" class="btn btn-secondary">Cancel</a>
+</div>
+{% endblock %}

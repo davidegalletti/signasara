@@ -4,7 +4,7 @@ from django.db.models import Q, Sum
 from model_utils.models import TimeStampedModel
 from django.contrib.auth.models import User
 from datetime import datetime
-
+#from cash.models import  Tarif
 
 CONDITION_ELEVE = (
     ("CONF", "CONF"),
@@ -69,6 +69,13 @@ class Classe(models.Model):
     def __str__(self):
         return '%s %s' % (self.nom, self.type.get_type_ecole_display())
 
+    @property
+    def num_py_conf(self):
+        return Eleve.objects.filter(
+            inscriptions__classe=self,
+            condition_eleve="CONF",
+            cs_py="P"
+        ).count()
     def get_latest_tariffs(self):
         return self.tarifs.order_by('-version').distinct('causal')
 

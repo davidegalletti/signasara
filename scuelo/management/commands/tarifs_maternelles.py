@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand
-from scuelo.models import Classe, Tarif, AnneeScolaire, TypeClasse
+from scuelo.models import Classe, AnneeScolaire, TypeClasse
 from django.utils import timezone
+from cash.models import Tarif
 
 class Command(BaseCommand):
     help = 'Upload tarifs for Maternelle'

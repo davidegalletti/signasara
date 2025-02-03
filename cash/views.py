@@ -40,11 +40,11 @@ from scuelo.models import (
     AnneeScolaire, Ecole  ,UniformReservation
 )
 
-from .models import Mouvement , Tarif 
+from .models import Mouvement , Tarif  , Expense
 from .forms import (
     PaiementPerStudentForm , MouvementForm
     
-    ,TarifForm
+    ,TarifForm ,ExpenseForm , TransferForm , CashierForm
     )
 # =======================
 # 4. Payment Management
@@ -53,59 +53,78 @@ from .forms import (
 @login_required
 def add_payment(request, pk):
     student = get_object_or_404(Eleve, pk=pk)
+    inscription = Inscription.objects.filter(eleve=student).last()  # Get the last inscription for the student
+    school_name = inscription.classe.ecole.nom if inscription and inscription.classe else "Unknown School"
+    class_type = inscription.classe.type.nom if inscription and inscription.classe else "Unknown Class"
+
     if request.method == 'POST':
         form = PaiementPerStudentForm(request.POST)
         if form.is_valid():
-            paiement = form.save(commit=False)
-            paiement.inscription = Inscription.objects.filter(eleve=student).last()
-
-            # Ensure the causal is set from the selected tariff
-            if paiement.tarif:
-                paiement.causal = paiement.tarif.causal
-            else:
-                # Handle the case where tarif is not set
-                paiement.causal = "Unknown"
-
-            paiement.save()
-
-            # Log the payment
-            StudentLog.objects.create(
-                student=student,
-                user=request.user,
-                action="Added Payment",
-                old_value="",
-                new_value=f"{paiement.causal} - {paiement.montant} - {paiement.note} - {paiement.date_paye}"
-            )
+            mouvement = form.save(commit=False)  # Don't save yet; we need to set additional fields
             
-            # Redirect to the student's detail page after successful payment
-            return redirect('student_detail', pk=student.pk)
+            if inscription:
+                mouvement.inscription = inscription
+                
+                # Set causal based on user selection from the form
+                mouvement.causal = form.cleaned_data['causal']  # Get causal from cleaned data
+                
+                mouvement.save()  # Now save it to the database
+
+                # Log the payment
+                StudentLog.objects.create(
+                    student=student,
+                    user=request.user,
+                    action="Added Payment",
+                    old_value="",
+                    new_value=f"Payment - {mouvement.montant} - {mouvement.note} - {mouvement.date_paye}"
+                )
+
+                # Redirect to the student's detail page after successful payment
+                return redirect('student_detail', pk=student.pk)
+            else:
+                form.add_error(None, "No active inscription found for this student.")
     else:
         form = PaiementPerStudentForm()
 
-    return render(request, 'cash/paiements/add_payment.html', {'form': form, 'student': student ,
-                                                                 'page_identifier': 'S07'})
+    return render(request, 'cash/paiements/add_payment.html', {
+        'form': form,
+        'student': student,
+        'school_name': school_name,
+        'class_type': class_type,
+        'page_identifier': 'S07'
+    })
 @login_required
 def update_paiement(request, pk):
     paiement = get_object_or_404(Mouvement, pk=pk)
-    student = paiement.inscription.eleve
+    student = paiement.inscription.eleve  # Get associated student
+    school_name = paiement.inscription.classe.ecole.nom if paiement.inscription.classe else "Unknown School"
+    class_type = paiement.inscription.classe.type.nom if paiement.inscription.classe else "Unknown Class"
+
     if request.method == 'POST':
         form = PaiementPerStudentForm(request.POST, instance=paiement)
         if form.is_valid():
-            form.save()
+            old_value = f"{paiement.causal} - {paiement.montant} - {paiement.note} - {paiement.date_paye}"
+            updated_payment = form.save()  # Save updated payment
+            
             # Log the update
             StudentLog.objects.create(
                 student=student,
                 user=request.user,
                 action="Updated Payment",
-                old_value=f"{paiement.causal} - {paiement.montant} - {paiement.note} - {paiement.date_paye}",
-                new_value=f"{paiement.causal} - {form.cleaned_data['montant']} - {form.cleaned_data['note']} - {form.cleaned_data['date_paye']}"
+                old_value=old_value,
+                new_value=f"{updated_payment.causal} - {form.cleaned_data['montant']} - {form.cleaned_data['note']} - {form.cleaned_data['date_paye']}"
             )
             return redirect('student_detail', pk=student.pk)
     else:
         form = PaiementPerStudentForm(instance=paiement)
 
-    return render(request, 'cash/paiements/updatepaiment.html',
-                  {'form': form, 'student': student ,'page_identifier': 'S07'})
+    return render(request, 'cash/paiements/updatepaiment.html', {
+        'form': form,
+        'student': student,
+        'school_name': school_name,
+        'class_type': class_type,
+        'page_identifier': 'S07'
+    })
     
 @method_decorator(login_required, name='dispatch')
 class UniformPaymentListView(ListView):
@@ -739,7 +758,7 @@ def late_payment_report(request):
             'error': 'No current school year is set.',
         })
 
-    # Fetch all schools
+    # Fetch all schools with related classes and inscriptions
     schools = Ecole.objects.prefetch_related(
         Prefetch(
             'classe_set',
@@ -765,6 +784,8 @@ def late_payment_report(request):
 
             student_data = []
             total_class_remaining = 0
+            total_diff_sco = 0  # Initialize total diff SCO for the class
+            total_diff_can = 0  # Initialize total diff CAN for the class
 
             for student in students:
                 # Calculate SCO and CAN payments and expectations
@@ -785,6 +806,12 @@ def late_payment_report(request):
                         100 * (sco_paid + can_paid) / (sco_exigible + can_exigible)
                     ) if (sco_exigible + can_exigible) > 0 else 0
 
+                    # Calculate remaining percentage to pay
+                    total_exigible = sco_exigible + can_exigible
+                    remaining_percentage = (
+                        (retards / total_exigible * 100) if total_exigible > 0 else 0
+                    )
+
                     student_data.append({
                         'id': student.id,
                         'nom': student.nom,
@@ -799,15 +826,22 @@ def late_payment_report(request):
                         'diff_can': diff_can,
                         'retards': retards,
                         'percentage_paid': percentage_paid,
+                        'remaining_percentage': remaining_percentage, # Add remaining percentage
                         'note': student.note_eleve,
                     })
+
+                    # Accumulate totals for the class
+                    total_diff_sco += diff_sco
+                    total_diff_can += diff_can
 
                 total_class_remaining += retards
 
             if student_data:
                 class_data[classe.nom] = {
                     'students': student_data,
-                    'total_class_remaining': total_class_remaining
+                    'total_class_remaining': total_class_remaining,
+                    'total_diff_sco': total_diff_sco,  # Add total diff SCO for the class
+                    'total_diff_can': total_diff_can   # Add total diff CAN for the class
                 }
 
         if class_data:
@@ -815,3 +849,322 @@ def late_payment_report(request):
 
     return render(request, 'cash/late_payment.html', {'data': data})
 
+
+from .models import Cashier
+def expense_list(request):
+    expenses = Expense.objects.all().order_by('-date')  # Retrieve all expenses ordered by date
+    return render(request, 'cash/expense/expense_list.html', {'expenses': expenses})
+
+def expense_create(request):
+    if request.method == "POST":
+        form = ExpenseForm(request.POST)
+        if form.is_valid():
+            # Save the expense with C_SCO as the default cashier
+            expense = form.save(commit=False)
+            expense.cashier = Cashier.get_default_cashier()  # Assign C_SCO automatically
+            expense.save()
+            return redirect('expense_list')  # Redirect to your expense list view
+    else:
+        form = ExpenseForm()
+
+    return render(request, 'cash/expense/expense_form.html', {'form': form})
+
+def expense_update(request, pk):
+    expense = get_object_or_404(Expense, pk=pk)
+    if request.method == "POST":
+        form = ExpenseForm(request.POST, instance=expense)
+        if form.is_valid():
+            form.save()
+            return redirect('expense_list')
+    else:
+        form = ExpenseForm(instance=expense)
+    return render(request, 'cash/expense/expense_form.html', {'form': form})
+
+def expense_delete(request, pk):
+    expense = get_object_or_404(Expense, pk=pk)
+    if request.method == "POST":
+        expense.delete()
+        return redirect('expense_list')
+    return render(request, 'cash/expense/expense_confirm_delete.html', {'expense': expense})
+
+
+   
+def entree_sortie(request):
+    # Fetch the C_SCO cashier
+    cashier = get_object_or_404(Cashier, name="C_SCO")
+
+    # Fetch all incomes (Mouvement) for this cashier
+    incomes = Mouvement.objects.filter(cashier=cashier, montant__gt=0).order_by('date_paye')
+
+    # Fetch all outcomes (Mouvement with negative amounts) for this cashier
+    outcomes_from_mouvement = Mouvement.objects.filter(cashier=cashier, montant__lt=0).order_by('date_paye')
+
+    # Fetch all expenses (Expense) for this cashier
+    expenses = Expense.objects.filter(cashier=cashier).order_by('date')
+
+    # Prepare a combined list of entries
+    entries = []
+
+    # Add income entries
+    for income in incomes:
+        student_name = f"{income.inscription.eleve.nom} {income.inscription.eleve.prenom}" if income.inscription else "Unknown Student"
+        description = f"{income.causal} - {student_name}"
+        entries.append({
+            'date': income.date_paye,
+            'description': description,
+            'entree': income.montant,
+            'sortie': 0,
+        })
+
+    # Add outcome entries from Mouvement
+    for outcome in outcomes_from_mouvement:
+        student_name = f"{outcome.inscription.eleve.nom} {outcome.inscription.eleve.prenom}" if outcome.inscription else "Unknown Student"
+        description = f"{outcome.causal} - {student_name}"
+        entries.append({
+            'date': outcome.date_paye,
+            'description': description,
+            'entree': 0,
+            'sortie': abs(outcome.montant),  # Convert to positive for display
+        })
+
+    # Add expense entries
+    for expense in expenses:
+        description = expense.description or "Expense"
+        entries.append({
+            'date': expense.date,
+            'description': description,
+            'entree': 0,
+            'sortie': expense.amount,
+        })
+
+    # Sort entries by date
+    entries.sort(key=lambda x: x['date'])
+
+    # Calculate progressive balance
+    progressive_balance = 0
+    for entry in entries:
+        progressive_balance += entry['entree'] - entry['sortie']
+        entry['progressive'] = progressive_balance
+
+    return render(request, 'cash/inoutflows/entree_sortie.html', {
+        'entries': entries,
+        'cashier': cashier,
+        'balance': cashier.balance(),  # Use the balance method from Cashier model
+    })
+    
+    
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Transfer, Cashier
+from .forms import TransferForm
+from django.contrib import messages
+
+# List all transfers
+def transfer_list(request):
+    transfers = Transfer.objects.all().order_by('-date')  # Order by date descending
+    return render(request, 'cash/transfert/transfer_list.html', {'transfers': transfers})
+
+# Create a new transfer
+def create_transfer(request):
+    if request.method == 'POST':
+        form = TransferForm(request.POST)
+        if form.is_valid():
+            transfer = form.save()
+            # Update balances
+            from_cashier = transfer.from_cashier
+            to_cashier = transfer.to_cashier
+            
+            from_cashier.balance -= transfer.amount
+            from_cashier.save()
+            
+            to_cashier.balance += transfer.amount
+            to_cashier.save()
+
+            messages.success(request, "Transfer created successfully!")
+            return redirect('transfer_list')
+    else:
+        form = TransferForm()
+
+    return render(request, 'cash/transfert/create_transfert.html', {'form': form})
+
+# Update an existing transfer
+def update_transfer(request, pk):
+    transfer = get_object_or_404(Transfer, pk=pk)
+    
+    if request.method == 'POST':
+        form = TransferForm(request.POST, instance=transfer)
+        if form.is_valid():
+            # Update balances before saving the updated transfer
+            original_from_cashier = transfer.from_cashier
+            original_to_cashier = transfer.to_cashier
+            
+            # Adjust balances back before updating
+            original_from_cashier.balance += transfer.amount  # Add back original amount
+            original_to_cashier.balance -= transfer.amount  # Subtract original amount
+            
+            # Save the updated transfer
+            transfer = form.save()
+            
+            # Update balances after saving the new amount
+            original_from_cashier.balance -= transfer.amount  # Deduct new amount from sender
+            original_to_cashier.balance += transfer.amount  # Add new amount to receiver
+            
+            original_from_cashier.save()
+            original_to_cashier.save()
+
+            messages.success(request, "Transfer updated successfully!")
+            return redirect('transfer_list')
+    else:
+        form = TransferForm(instance=transfer)
+
+    return render(request, 'cash/transfert/update_transfer.html', {'form': form})
+
+# Delete a transfer
+def delete_transfer(request, pk):
+    transfer = get_object_or_404(Transfer, pk=pk)
+    
+    if request.method == 'POST':
+        # Adjust balances before deletion
+        from_cashier = transfer.from_cashier
+        to_cashier = transfer.to_cashier
+        
+        from_cashier.balance += transfer.amount  # Restore balance for sender
+        to_cashier.balance -= transfer.amount  # Deduct balance for receiver
+        
+        from_cashier.save()
+        to_cashier.save()
+        
+        transfer.delete()
+        messages.success(request, "Transfer deleted successfully!")
+        return redirect('transfer_list')
+
+    return render(request, 'cash/transfert/delete_transfer.html', {'transfer': transfer})
+
+
+# List all cashiers
+def cashier_list(request):
+    cashiers = Cashier.objects.all().order_by('name')  # Order by name
+    return render(request, 'cash/cashier/cashier_list.html', {'cashiers': cashiers})
+
+# Create a new cashier
+def create_cashier(request):
+    if request.method == 'POST':
+        form = CashierForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Cashier created successfully!")
+            return redirect('cashier_list')
+    else:
+        form = CashierForm()
+
+    return render(request, 'cash/cashier/create_cashier.html', {'form': form})
+
+# Update an existing cashier
+def update_cashier(request, pk):
+    cashier = get_object_or_404(Cashier, pk=pk)
+    
+    if request.method == 'POST':
+        form = CashierForm(request.POST, instance=cashier)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Cashier updated successfully!")
+            return redirect('cashier_list')
+    else:
+        form = CashierForm(instance=cashier)
+
+    return render(request, 'cash/cashier/update_cashier.html', {'form': form})
+
+# Delete a cashier
+def delete_cashier(request, pk):
+    cashier = get_object_or_404(Cashier, pk=pk)
+    
+    if request.method == 'POST':
+        cashier.delete()
+        messages.success(request, "Cashier deleted successfully!")
+        return redirect('cashier_list')
+
+    return render(request, 'cash/cashier/delete_cashier.html', {'cashier': cashier})
+
+
+
+@login_required
+def payment_delay_per_class(request):
+    data = {}
+
+    # Get the current school year
+    try:
+        current_annee_scolaire = AnneeScolaire.objects.get(actuel=True)
+    except AnneeScolaire.DoesNotExist:
+        return render(request, 'cash/payment_delay_per_class.html', {
+            'data': data,
+            'error': 'No current school year is set.',
+        })
+
+    # Fetch all schools with related classes and inscriptions
+    schools = Ecole.objects.prefetch_related(
+        Prefetch(
+            'classe_set',
+            queryset=Classe.objects.prefetch_related(
+                Prefetch(
+                    'inscription_set',
+                    queryset=Inscription.objects.select_related('eleve')
+                )
+            )
+        )
+    )
+
+    for school in schools:
+        for classe in school.classe_set.all():
+            # Fetch students linked to this class through inscriptions
+            students = Eleve.objects.filter(
+                inscriptions__classe=classe,
+                inscriptions__annee_scolaire=current_annee_scolaire,
+                cs_py='PY'
+            ).distinct()
+
+            student_data = []
+            total_diff_sco = 0
+            total_diff_can = 0
+
+            for student in students:
+                # Calculate SCO and CAN payments and expectations
+                payments = Mouvement.objects.filter(inscription__eleve=student)
+                sco_paid = payments.aggregate(Sum('montant'))['montant__sum'] or 0
+                can_paid = payments.filter(causal='CAN').aggregate(Sum('montant'))['montant__sum'] or 0
+
+                tarifs = Tarif.objects.filter(classe=classe, annee_scolaire=current_annee_scolaire)
+                sco_exigible = tarifs.filter(causal__in=['SCO1', 'SCO2', 'SCO3']).aggregate(Sum('montant'))['montant__sum'] or 0
+                can_exigible = tarifs.filter(causal='CAN').aggregate(Sum('montant'))['montant__sum'] or 0
+
+                diff_sco = sco_exigible - sco_paid
+                diff_can = can_exigible - can_paid
+
+                # Only include students with payment delays
+                if diff_sco > 0 or diff_can > 0:
+                    student_data.append({
+                        'id': student.id,
+                        'nom': student.nom,
+                        'prenom': student.prenom,
+                        'condition_eleve': student.condition_eleve,  # Use condition_eleve here
+                        'sex': student.sex,
+                        'sco_paid': sco_paid,
+                        'sco_exigible': sco_exigible,
+                        'diff_sco': diff_sco,
+                        'can_paid': can_paid,
+                        'can_exigible': can_exigible,
+                        'diff_can': diff_can,
+                    })
+
+                    total_diff_sco += diff_sco
+                    total_diff_can += diff_can
+
+            if student_data:
+                data[school.nom] = {
+                    
+                    'students': student_data,
+                    'total_diff_sco': total_diff_sco,
+                    'total_diff_can': total_diff_can,
+                     
+                }
+
+    return render(request, 'cash/payment_delay_per_class.html', {'data': data
+                                                                 ,'class_name': classe.nom,})

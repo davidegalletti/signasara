@@ -1,0 +1,176 @@
+{% extends "../../layout.html" %}
+{% load crispy_forms_tags humanize %}
+
+{% block header %}
+<span class="navbar-brand mb-0 h1 text-white">Informations sur la classe</span>
+{% endblock header %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card shadow-sm p-4">
+        <!-- Class Header Section -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h1 class="display-6">{{ classe.nom }}</h1>
+                <h2 class="h4 text-muted">{{ classe.ecole }}</h2>
+            </div>
+            <div class="text-end">
+                <div class="d-grid gap-2 d-md-block">
+                    <span class="badge bg-primary fs-6">{{ total_students }} Élèves</span>
+                </div>
+                <small class="text-muted">Année scolaire: {{ selected_annee_scolaire.nom }}</small>
+            </div>
+        </div>
+
+        <!-- Statistics Cards -->
+        <div class="row mb-4 g-4">
+            <div class="col-md-3">
+                <div class="card border-primary h-100">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">CS</h5>
+                        <p class="card-text fs-4">{{ cs_count }}</p>
+                        <small class="text-muted">Total payé: {{ total_paid_cs|intcomma }}</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-success h-100">
+                    <div class="card-body">
+                        <h5 class="card-title text-success">PY</h5>
+                        <p class="card-text fs-4">{{ py_count }}</p>
+                        <small class="text-muted">Total payé: {{ total_paid_py|intcomma }}</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-warning h-100">
+                    <div class="card-body">
+                        <h5 class="card-title text-warning">CONF</h5>
+                        <p class="card-text fs-4">{{ conf_count }}</p>
+                        <small class="text-muted">Total payé: {{ total_paid_conf|intcomma }}</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-danger h-100">
+                    <div class="card-body">
+                        <h5 class="card-title text-danger">AUT</h5>
+                        <p class="card-text fs-4">{{ aut_count }}</p>
+                        <small class="text-muted">Total payé: {{ total_paid_aut|intcomma }}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Sections -->
+        <div class="row g-4">
+            <!-- Frais par élève -->
+            <div class="col-lg-4">
+                <div class="card h-100">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="card-title mb-0">Frais par élève</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Montant</th>
+                                        <th>Échéance</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for tarif in tarifs %}
+                                    <tr>
+                                        <td>{{ tarif.get_causal_display }}</td>
+                                        <td>{{ tarif.montant|intcomma }}</td>
+                                        <td>{{ tarif.date_expiration|date:"d/m/Y" }}</td>
+                                    </tr>
+                                    {% empty %}
+                                    <tr>
+                                        <td colspan="3" class="text-center text-muted">Aucun tarif défini</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progressif par tranche -->
+            <div class="col-lg-4">
+                <div class="card h-100">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="card-title mb-0">Progressif par tranche</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="badge bg-dark">Élèves PY & CONF: {{ py_conf_count }}</span>
+                        </div>
+                        <div class="list-group">
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <span>1ère tranche</span>
+                                <span class="badge bg-primary rounded-pill">{{ progressive_fee_1|intcomma }}</span>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <span>2ème tranche</span>
+                                <span class="badge bg-primary rounded-pill">{{ progressive_fee_2|intcomma }}</span>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <span>3ème tranche</span>
+                                <span class="badge bg-primary rounded-pill">{{ progressive_fee_3|intcomma }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Frais Total -->
+            <div class="col-lg-4">
+                <div class="card h-100">
+                    <div class="card-header bg-warning text-dark">
+                        <h5 class="card-title mb-0">Frais Totaux</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-4">
+                            <h6 class="text-uppercase text-muted small">Scolarité</h6>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span>Attendus:</span>
+                                <strong>{{ expected_total_class|intcomma }}</strong>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>Perçus:</span>
+                                <strong class="text-success">{{ actual_total_received|intcomma }}</strong>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <h6 class="text-uppercase text-muted small">Tenues</h6>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span>Attendus:</span>
+                                <strong>{{ expected_total_tenues_py|intcomma }}</strong>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>Perçus:</span>
+                                <strong class="text-success">{{ actual_total_received_tenues_py|intcomma }}</strong>
+                            </div>
+                        </div>
+
+                        <div class="progress mt-3" style="height: 8px;">
+                            <div class="progress-bar bg-success" role="progressbar" 
+                                 style="width: {{ total_payment_percentage }}%" 
+                                 aria-valuenow="{{ total_payment_percentage }}" 
+                                 aria-valuemin="0" 
+                                 aria-valuemax="100">
+                            </div>
+                        </div>
+                        <small class="text-muted">Progression totale: {{ total_payment_percentage }}%</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

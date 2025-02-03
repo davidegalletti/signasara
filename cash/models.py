@@ -88,74 +88,58 @@ class Tarif(models.Model):
 
     def __str__(self):
         return f"{self.causal} {self.montant:,} {self.classe} ({self.annee_scolaire})"
-
-    @property
-    def progressive_payments_py(self):
-        payments = {}
-        if self.causal in ["INS", "SCO1", "SCO2", "SCO3"]:
-            payments[self.date_expiration] = self.montant
-        return payments
-
+   
     @property
     def num_py_conf(self):
         return Eleve.objects.filter(
-            inscription__classe=self.classe,
+            inscriptions__classe=self,
             condition_eleve="CONF",
             cs_py="P"
-        ).count()
+        ).count() #Ensure it returns an integer, not a queryset
+
 
     @property
-    def num_cs_conf(self):
-        return Eleve.objects.filter(
-            inscription__classe=self.classe,
-            condition_eleve="CONF",
-            cs_py="C"
-        ).count()
+    def progressive_fee_1(self):
+        """Returns the first installment (SCO1)."""
+        sco1 = Tarif.objects.filter(classe=self.classe, annee_scolaire=self.annee_scolaire, causal='SCO1').first()
+        return sco1.montant if sco1 else 0
 
     @property
-    def expected_collection(self):
-        return self.montant * self.num_py_conf
+    def progressive_fee_2(self):
+        """Returns the cumulative fee for SCO1 + SCO2."""
+        sco1 = Tarif.objects.filter(classe=self.classe, annee_scolaire=self.annee_scolaire, causal='SCO1').first()
+        sco2 = Tarif.objects.filter(classe=self.classe, annee_scolaire=self.annee_scolaire, causal='SCO2').first()
+        return (sco1.montant if sco1 else 0) + (sco2.montant if sco2 else 0)
 
     @property
-    def tenues_ordered_py(self):
-        return UniformReservation.objects.filter(
-            student__inscription__classe=self.classe,
-            student__cs_py="P"
-        ).count()
+    def progressive_fee_3(self):
+        """Returns the cumulative fee for SCO1 + SCO2 + SCO3."""
+        sco1 = Tarif.objects.filter(classe=self.classe, annee_scolaire=self.annee_scolaire, causal='SCO1').first()
+        sco2 = Tarif.objects.filter(classe=self.classe, annee_scolaire=self.annee_scolaire, causal='SCO2').first()
+        sco3 = Tarif.objects.filter(classe=self.classe, annee_scolaire=self.annee_scolaire, causal='SCO3').first()
+        return (sco1.montant if sco1 else 0) + (sco2.montant if sco2 else 0) + (sco3.montant if sco3 else 0)
+    
+    @property
+    def total_fee_1st(self):
+        """Total amount for the 1st installment for 40 students"""
+        sco1 = Tarif.objects.filter(classe=self.classe, annee_scolaire=self.annee_scolaire, causal='SCO1').first()
+        return (sco1.montant if sco1 else 0) * self.num_py_conf  # num_py_conf should be an integer, not a queryset
+
 
     @property
-    def tenues_ordered_cs(self):
-        return UniformReservation.objects.filter(
-            student__inscription__classe=self.classe,
-            student__cs_py="C"
-        ).count()
+    def total_fee_2nd(self):
+        """Total amount for the 2nd installment for 40 students"""
+        sco1 = Tarif.objects.filter(classe=self.classe, annee_scolaire=self.annee_scolaire, causal='SCO1').first()
+        sco2 = Tarif.objects.filter(classe=self.classe, annee_scolaire=self.annee_scolaire, causal='SCO2').first()
+        return ((sco1.montant if sco1 else 0) + (sco2.montant if sco2 else 0)) * self.num_py_conf
 
     @property
-    def expected_total_class(self):
-        return self.montant * (self.num_py_conf + self.num_cs_conf)
-
-    @property
-    def actual_total_received(self):
-        total_received = Mouvement.objects.filter(
-            tarif=self,
-            type="R"  # Income
-        ).aggregate(total=Sum('montant'))['total'] or 0
-        return total_received
-
-    @property
-    def expected_total_tenues_py(self):
-        uniform_cost = 2000  # Example cost per uniform
-        return uniform_cost * self.tenues_ordered_py
-
-    @property
-    def actual_total_received_tenues_py(self):
-        total_received = Mouvement.objects.filter(
-            tarif=self,
-            type="R",  # Income
-            causal="TEN",  # Uniform fee
-            inscription__eleve__cs_py="P"  # Only PY students
-        ).aggregate(total=Sum('montant'))['total'] or 0
-        return total_received   
+    def total_fee_3rd(self):
+        """Total amount for the 3rd installment for 40 students"""
+        sco1 = Tarif.objects.filter(classe=self.classe, annee_scolaire=self.annee_scolaire, causal='SCO1').first()
+        sco2 = Tarif.objects.filter(classe=self.classe, annee_scolaire=self.annee_scolaire, causal='SCO2').first()
+        sco3 = Tarif.objects.filter(classe=self.classe, annee_scolaire=self.annee_scolaire, causal='SCO3').first()
+        return ((sco1.montant if sco1 else 0) + (sco2.montant if sco2 else 0) + (sco3.montant if sco3 else 0)) * self.num_py_conf
     
     '''
     :progressive par eleve par tranche 
@@ -223,6 +207,17 @@ class Mouvement(models.Model):
 
     def __str__(self):
         return f"{self.causal} {self.montant:,}"
+     # New method for progressive amount
+    def get_progressive_amount(self):
+        """
+        Calculate the cumulative income (progressive amount) up to this payment's date.
+        """
+        return Mouvement.objects.filter(
+            date_paye__lte=self.date_paye  # Include all payments up to this date
+        ).aggregate(total=Sum('montant'))['total'] or 0
+
+    def __str__(self):
+        return f"{self.causal} {self.montant:,}"
 
     @property
     def formatted_date_paye(self):
@@ -252,7 +247,10 @@ class Expense(models.Model):
     def __str__(self):
         return f"{self.description} - {self.amount:,}"    
     
-    
+    @property
+    def formatted_date(self):
+        # Format the date as "DD/MM/YYYY"
+        return self.date.strftime('%d/%m/%Y')
 class Transfer(models.Model):
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     date = models.DateField(default=timezone.now)

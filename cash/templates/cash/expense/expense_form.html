@@ -1,0 +1,100 @@
+{% extends "../../layout.html" %}
+{% block header %}
+<span class="navbar-brand mb-0 h1 text-white">sortie</span>
+
+
+<!-- Undo and Redo Icons -->
+<div class="ml-2 d-flex align-items-stretch">
+   {% comment %}
+     <button class="class-card mr-3 buttons-csv" id="exportBtn"> <i class="fas fa-file-excel"></i></button>
+     <button class="class-card mr-3 buttons-print" id="printBtn"> <i class="fas fa-print"></i></button>
+   {% endcomment %}
+    <button class="class-card mr-3" id="undo-button" title="Undo">
+        <i class="fas fa-undo"></i>
+    </button>
+    <button class="class-card mr-3" id="redo-button" title="Redo">
+        <i class="fas fa-redo"></i>
+    </button>
+    <h1 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h1>
+</div>
+{% endblock header %}
+
+{% block content %}
+<div class="container mt-4">
+
+    <form method="post" class="needs-validation" novalidate>
+        {% csrf_token %}
+        
+        <!-- Description Field -->
+        <div class="form-group">
+            <label for="id_description">Description:</label>
+            {{ form.description }}
+            {% if form.description.errors %}
+                <div class="invalid-feedback">
+                    {{ form.description.errors.0 }}
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Amount Field -->
+        <div class="form-group">
+            <label for="id_amount">Amount:</label>
+            {{ form.amount }}
+            {% if form.amount.errors %}
+                <div class="invalid-feedback">
+                    {{ form.amount.errors.0 }}
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Date Field -->
+        <div class="form-group">
+            <label for="id_date">Date:</label>
+            {{ form.date }}
+            {% if form.date.errors %}
+                <div class="invalid-feedback">
+                    {{ form.date.errors.0 }}
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Note Field -->
+        <div class="form-group">
+            <label for="id_note">Note:</label>
+            {{ form.note }}
+            {% if form.note.errors %}
+                <div class="invalid-feedback">
+                    {{ form.note.errors.0 }}
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- C_SCO Balance Field -->
+        <div class="form-group">
+            <label for="id_c_sco_balance">C_SCO Balance:</label>
+            {{ form.c_sco_balance }}
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Save Expense</button>
+    </form>
+</div>
+
+<script>
+    // Optional: Add JavaScript for Bootstrap validation
+    (function () {
+        'use strict'
+        var forms = document.querySelectorAll('.needs-validation')
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+</script>
+{% endblock %}

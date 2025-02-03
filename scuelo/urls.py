@@ -3,7 +3,7 @@ from . import views
 from .views import (
     StudentListView, StudentCreateView, SchoolManagementView, SchoolCreateView,
     SchoolUpdateView, SchoolDeleteView, SchoolDetailView,ClassCreateView ,
-    ClasseDetailView, ClasseUpdateView, ClasseDeleteView
+    ClasseDetailView, ClasseUpdateView, ClasseDeleteView ,ClasseInformation
      , print_receipt  
       , login_view , SchoolYearManagementView ,AddSchoolYearView , DeleteSchoolYearView , EditSchoolYearView ,
   
@@ -40,6 +40,7 @@ urlpatterns = [
     path('classes/update/<int:pk>/', ClasseUpdateView.as_view(), name='classe_update'),
     path('classes/delete/<int:pk>/', ClasseDeleteView.as_view(), name='classe_delete'),
     path('load_classes/', views.load_classes, name='load_classes'),
+     path('classe/<int:pk>/information/', ClasseInformation.as_view(), name='classe-information'),
     
     # path('cash/accounting_export/', views.cash_accounting_export, name='cash_accounting_export'),
     path('student/<int:pk>/', views.student_detail, name='student_detail'),
