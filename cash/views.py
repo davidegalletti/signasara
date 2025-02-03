@@ -1085,86 +1085,72 @@ def delete_cashier(request, pk):
     return render(request, 'cash/cashier/delete_cashier.html', {'cashier': cashier})
 
 
+ 
 
 @login_required
-def payment_delay_per_class(request):
-    data = {}
-
+def payment_delay_per_class(request, pk):
     # Get the current school year
     try:
         current_annee_scolaire = AnneeScolaire.objects.get(actuel=True)
     except AnneeScolaire.DoesNotExist:
         return render(request, 'cash/payment_delay_per_class.html', {
-            'data': data,
             'error': 'No current school year is set.',
         })
 
-    # Fetch all schools with related classes and inscriptions
-    schools = Ecole.objects.prefetch_related(
-        Prefetch(
-            'classe_set',
-            queryset=Classe.objects.prefetch_related(
-                Prefetch(
-                    'inscription_set',
-                    queryset=Inscription.objects.select_related('eleve')
-                )
-            )
-        )
-    )
+    # Fetch the specific class
+    try:
+        classe = Classe.objects.get(id=pk)
+    except Classe.DoesNotExist:
+        return render(request, 'cash/payment_delay_per_class.html', {
+            'error': 'Class not found.',
+        })
 
-    for school in schools:
-        for classe in school.classe_set.all():
-            # Fetch students linked to this class through inscriptions
-            students = Eleve.objects.filter(
-                inscriptions__classe=classe,
-                inscriptions__annee_scolaire=current_annee_scolaire,
-                cs_py='PY'
-            ).distinct()
+    # Fetch students linked to this class through inscriptions
+    students = Eleve.objects.filter(
+        inscriptions__classe=classe,
+        inscriptions__annee_scolaire=current_annee_scolaire,
+        cs_py='PY'
+    ).distinct()
 
-            student_data = []
-            total_diff_sco = 0
-            total_diff_can = 0
+    student_data = []
+    total_diff_sco = 0
+    total_diff_can = 0
 
-            for student in students:
-                # Calculate SCO and CAN payments and expectations
-                payments = Mouvement.objects.filter(inscription__eleve=student)
-                sco_paid = payments.aggregate(Sum('montant'))['montant__sum'] or 0
-                can_paid = payments.filter(causal='CAN').aggregate(Sum('montant'))['montant__sum'] or 0
+    for student in students:
+        # Calculate SCO and CAN payments and expectations
+        payments = Mouvement.objects.filter(inscription__eleve=student)
+        sco_paid = payments.aggregate(Sum('montant'))['montant__sum'] or 0
+        can_paid = payments.filter(causal='CAN').aggregate(Sum('montant'))['montant__sum'] or 0
 
-                tarifs = Tarif.objects.filter(classe=classe, annee_scolaire=current_annee_scolaire)
-                sco_exigible = tarifs.filter(causal__in=['SCO1', 'SCO2', 'SCO3']).aggregate(Sum('montant'))['montant__sum'] or 0
-                can_exigible = tarifs.filter(causal='CAN').aggregate(Sum('montant'))['montant__sum'] or 0
+        tarifs = Tarif.objects.filter(classe=classe, annee_scolaire=current_annee_scolaire)
+        sco_exigible = tarifs.filter(causal__in=['SCO1', 'SCO2', 'SCO3']).aggregate(Sum('montant'))['montant__sum'] or 0
+        can_exigible = tarifs.filter(causal='CAN').aggregate(Sum('montant'))['montant__sum'] or 0
 
-                diff_sco = sco_exigible - sco_paid
-                diff_can = can_exigible - can_paid
+        diff_sco = sco_exigible - sco_paid
+        diff_can = can_exigible - can_paid
 
-                # Only include students with payment delays
-                if diff_sco > 0 or diff_can > 0:
-                    student_data.append({
-                        'id': student.id,
-                        'nom': student.nom,
-                        'prenom': student.prenom,
-                        'condition_eleve': student.condition_eleve,  # Use condition_eleve here
-                        'sex': student.sex,
-                        'sco_paid': sco_paid,
-                        'sco_exigible': sco_exigible,
-                        'diff_sco': diff_sco,
-                        'can_paid': can_paid,
-                        'can_exigible': can_exigible,
-                        'diff_can': diff_can,
-                    })
+        # Only include students with payment delays
+        if diff_sco > 0 or diff_can > 0:
+            student_data.append({
+                'id': student.id,
+                'nom': student.nom,
+                'prenom': student.prenom,
+                'condition_eleve': student.condition_eleve,
+                'sex': student.sex,
+                'sco_paid': sco_paid,
+                'sco_exigible': sco_exigible,
+                'diff_sco': diff_sco,
+                'can_paid': can_paid,
+                'can_exigible': can_exigible,
+                'diff_can': diff_can,
+            })
 
-                    total_diff_sco += diff_sco
-                    total_diff_can += diff_can
+            total_diff_sco += diff_sco
+            total_diff_can += diff_can
 
-            if student_data:
-                data[school.nom] = {
-                    
-                    'students': student_data,
-                    'total_diff_sco': total_diff_sco,
-                    'total_diff_can': total_diff_can,
-                     
-                }
-
-    return render(request, 'cash/payment_delay_per_class.html', {'data': data
-                                                                 ,'class_name': classe.nom,})
+    return render(request, 'cash/payment_delay_per_class.html', {
+        'classe': classe,
+        'students': student_data,
+        'total_diff_sco': total_diff_sco,
+        'total_diff_can': total_diff_can,
+    })

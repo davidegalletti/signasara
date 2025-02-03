@@ -51,5 +51,6 @@ urlpatterns = [
     path('cashiers/create/', views.create_cashier, name='create_cashier'),
     path('cashiers/update/<int:pk>/', views.update_cashier, name='update_cashier'),
     path('cashiers/delete/<int:pk>/', views.delete_cashier, name='delete_cashier'),
-  path('payment-delay-per-class/', views.payment_delay_per_class, name='payment_delay_per_class'), 
+ path('class/<int:pk>/late-payments/', views.payment_delay_per_class, name='late_payments_per_class'),
+
 ]
