@@ -1,5 +1,36 @@
 {% extends "../../layout.html" %}
+{% block header %}
+<div class="d-flex justify-content-between align-items-center w-100">
+    <div class="d-flex align-items-center">
+        <span class="navbar-brand mb-0 h1 text-white">Sortie</span>
+         <!-- Display Total Expense -->
+         
+    </div>
 
+
+    <div class="d-flex align-items-stretch">
+        <a href="{% url 'create_transfer' %}" class="class-card mr-3">Add New Transfer</a>
+
+        <button class="class-card mr-3 hidden-print" id="print-button" title="Print" onclick="myFunction()">
+            <i class="fas fa-print"></i>
+        </button>
+      {% comment %}
+          <button class="class-card mr-3 hidden-print" id="export-button" title="Export to Excel" onclick="exportToExcel()">
+              <i class="fas fa-file-excel"></i>
+          </button>
+      {% endcomment %}
+        <button class="class-card mr-3" id="undo-button" title="Undo">
+            <i class="fas fa-undo"></i>
+        </button>
+        <button class="class-card mr-3" id="redo-button" title="Redo">
+            <i class="fas fa-redo"></i>
+        </button>
+        <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
+        
+       
+    </div>
+</div>
+{% endblock header %}
 {% block content %}
 <div class="container mt-4">
     <h2>Update Transfer</h2>

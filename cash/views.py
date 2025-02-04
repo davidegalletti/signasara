@@ -129,7 +129,7 @@ def update_paiement(request, pk):
 @method_decorator(login_required, name='dispatch')
 class UniformPaymentListView(ListView):
     model = Mouvement
-    template_name = 'cash/uniforms/uniform_payments.html'
+    template_name = 'scuelo/uniforms/uniform_payments.html'
     context_object_name = 'payments'
 
     def get_queryset(self):
