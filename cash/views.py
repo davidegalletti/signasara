@@ -907,26 +907,36 @@ def expense_delete(request, pk):
     return render(request, 'cash/expense/expense_confirm_delete.html', {'expense': expense})
 
 
-   
+from django.shortcuts import render, get_object_or_404
+from django.db.models import Sum
+from .models import Cashier, Mouvement, Expense
+from datetime import timedelta
+
+
 def entree_sortie(request):
     # Fetch the C_SCO cashier
     cashier = get_object_or_404(Cashier, name="C_SCO")
 
-    # Fetch all incomes (Mouvement) for this cashier
-    incomes = Mouvement.objects.filter(cashier=cashier, montant__gt=0).order_by('date_paye')
+    # Fetch all incomes (Mouvement with positive amounts) for this cashier
+    incomes = Mouvement.objects.filter( montant__gt=0).order_by('date_paye')
 
-    # Fetch all outcomes (Mouvement with negative amounts) for this cashier
-    outcomes_from_mouvement = Mouvement.objects.filter(cashier=cashier, montant__lt=0).order_by('date_paye')
+    # Debugging output
+    print("Incomes Count:", incomes.count())
+    for income in incomes:
+        print(f" {income.causal}, Amount: {income.montant}")
 
-    # Fetch all expenses (Expense) for this cashier
-    expenses = Expense.objects.filter(cashier=cashier).order_by('date')
+    # Fetch all outcomes (Expense) for this cashier
+    expenses = Expense.objects.filter().order_by('date')
 
-    # Prepare a combined list of entries
+    # Prepare entries for the report
     entries = []
 
     # Add income entries
     for income in incomes:
-        student_name = f"{income.inscription.eleve.nom} {income.inscription.eleve.prenom}" if income.inscription else "Unknown Student"
+        student_name = (
+            f"{income.inscription.eleve.nom} {income.inscription.eleve.prenom}"
+            if income.inscription else "Unknown Student"
+        )
         description = f"{income.causal} - {student_name}"
         entries.append({
             'date': income.date_paye,
@@ -935,20 +945,9 @@ def entree_sortie(request):
             'sortie': 0,
         })
 
-    # Add outcome entries from Mouvement
-    for outcome in outcomes_from_mouvement:
-        student_name = f"{outcome.inscription.eleve.nom} {outcome.inscription.eleve.prenom}" if outcome.inscription else "Unknown Student"
-        description = f"{outcome.causal} - {student_name}"
-        entries.append({
-            'date': outcome.date_paye,
-            'description': description,
-            'entree': 0,
-            'sortie': abs(outcome.montant),  # Convert to positive for display
-        })
-
-    # Add expense entries
+    # Add expense entries as outcomes
     for expense in expenses:
-        description = expense.description or "Expense"
+        description = f" {expense.description or ''}"
         entries.append({
             'date': expense.date,
             'description': description,
@@ -970,12 +969,126 @@ def entree_sortie(request):
         'cashier': cashier,
         'balance': cashier.balance(),  # Use the balance method from Cashier model
     })
+
+
+
+from datetime import date, timedelta
+def rapport_comptable(request):
+    # Fetch the C_SCO cashier
+    cashier = get_object_or_404(Cashier, name="C_SCO")
+
+    # Get current date
+    today = date.today()
+
+    # Fetch all incomes (Mouvement) for this cashier
+    incomes = Mouvement.objects.filter(cashier=cashier, montant__gt=0)
+
+    # Prepare data for accounting report
+    accounting_data = generate_accounting_report(incomes)
+
+    return render(request, 'cash/inoutflows/rapport_comptable.html', {
+        'cashier': cashier,
+        'accounting_data': accounting_data,
+        'balance': cashier.balance(),  # Use the balance method from Cashier model
+    })
+
+def generate_accounting_report(incomes):
+    """
+    Generate accounting report data grouped by type and period.
     
+    :param incomes: QuerySet of income movements.
+    :return: A list of dictionaries with grouped income data.
+    """
+    
+    grouped_incomes = {}
+
+    for income in incomes:
+        # Determine grouping based on your requirement
+        week_start = income.date_paye - timedelta(days=income.date_paye.weekday())  # Start of week (Monday)
+        if income.date_paye.day <= 15:
+            period_key = f"{income.date_paye.year}-{income.date_paye.month}-01"  # First half of the month
+        else:
+            period_key = f"{income.date_paye.year}-{income.date_paye.month}-16"  # Second half of the month
+        
+        if period_key not in grouped_incomes:
+            grouped_incomes[period_key] = {
+                'total_amount': 0,
+                'type': income.causal,
+                'entries': []
+            }
+        
+        grouped_incomes[period_key]['total_amount'] += income.montant
+        grouped_incomes[period_key]['entries'].append(income)
+
+    return grouped_incomes
+
+import csv
+from django.http import HttpResponse
+
+def export_entree_sortie(request):
+    # Fetch the C_SCO cashier
+    cashier = get_object_or_404(Cashier, name="C_SCO")
+
+    # Fetch all transactions (Mouvement) for this cashier
+    mouvements = Mouvement.objects.filter().order_by('date_paye')
+
+    # Create a CSV response
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="entree_sortie_report.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['Date', 'Description', 'Entrée (Income)', 'Sortie (Outcome)', 'Solde Progressif'])
+
+    progressive_balance = 0
+
+    # Write data rows
+    for mouvement in mouvements:
+        if mouvement.montant > 0:  # Income
+            description = f"Income - {mouvement.causal}"
+            entry = [mouvement.date_paye, description, mouvement.montant, 0, progressive_balance + mouvement.montant]
+            progressive_balance += mouvement.montant
+        else:  # Outcome
+            description = f"Outcome - {mouvement.causal}"
+            entry = [mouvement.date_paye, description, 0, abs(mouvement.montant), progressive_balance]
+            progressive_balance -= abs(mouvement.montant)
+
+        writer.writerow(entry)
+
+    return response
+def export_rapport_comptable(request):
+    # Fetch the C_SCO cashier
+    cashier = get_object_or_404(Cashier, name="C_SCO")
+
+    # Fetch all incomes (Mouvement) for this cashier
+    incomes = Mouvement.objects.filter(cashier=cashier, montant__gt=0)
+
+    # Create a CSV response
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="rapport_comptable_report.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['Période', 'Type', 'Total Entrées'])
+
+    grouped_incomes = generate_accounting_report(incomes)
+
+    # Write data rows
+    for period, data in grouped_incomes.items():
+        writer.writerow([period, data['type'], data['total_amount']])
+
+    return response
+
     
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Transfer, Cashier
 from .forms import TransferForm
 from django.contrib import messages
+
+
+
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
+from .models import Transfer, Cashier
+from .forms import TransferForm, CashierForm
 
 # List all transfers
 def transfer_list(request):
@@ -988,15 +1101,13 @@ def create_transfer(request):
         form = TransferForm(request.POST)
         if form.is_valid():
             transfer = form.save()
-            # Update balances
+            # Update balances after saving the transfer
             from_cashier = transfer.from_cashier
             to_cashier = transfer.to_cashier
             
-            from_cashier.balance -= transfer.amount
-            from_cashier.save()
-            
-            to_cashier.balance += transfer.amount
-            to_cashier.save()
+            # Adjust balances
+            from_cashier.balance(from_cashier)  # Deduct amount from sender's balance
+            to_cashier.balance(to_cashier)      # Add amount to receiver's balance
 
             messages.success(request, "Transfer created successfully!")
             return redirect('transfer_list')
@@ -1017,19 +1128,16 @@ def update_transfer(request, pk):
             original_to_cashier = transfer.to_cashier
             
             # Adjust balances back before updating
-            original_from_cashier.balance += transfer.amount  # Add back original amount
-            original_to_cashier.balance -= transfer.amount  # Subtract original amount
+            original_from_cashier.balance(original_from_cashier)  # Add back original amount
+            original_to_cashier.balance(original_to_cashier)      # Subtract original amount
             
             # Save the updated transfer
             transfer = form.save()
             
             # Update balances after saving the new amount
-            original_from_cashier.balance -= transfer.amount  # Deduct new amount from sender
-            original_to_cashier.balance += transfer.amount  # Add new amount to receiver
+            original_from_cashier.balance(original_from_cashier)  # Deduct new amount from sender
+            original_to_cashier.balance(original_to_cashier)      # Add new amount to receiver
             
-            original_from_cashier.save()
-            original_to_cashier.save()
-
             messages.success(request, "Transfer updated successfully!")
             return redirect('transfer_list')
     else:
@@ -1046,18 +1154,14 @@ def delete_transfer(request, pk):
         from_cashier = transfer.from_cashier
         to_cashier = transfer.to_cashier
         
-        from_cashier.balance += transfer.amount  # Restore balance for sender
-        to_cashier.balance -= transfer.amount  # Deduct balance for receiver
-        
-        from_cashier.save()
-        to_cashier.save()
+        from_cashier.balance(from_cashier)  # Restore balance for sender
+        to_cashier.balance(to_cashier)      # Deduct balance for receiver
         
         transfer.delete()
         messages.success(request, "Transfer deleted successfully!")
         return redirect('transfer_list')
 
     return render(request, 'cash/transfert/delete_transfer.html', {'transfer': transfer})
-
 
 # List all cashiers
 def cashier_list(request):
@@ -1103,8 +1207,159 @@ def delete_cashier(request, pk):
 
     return render(request, 'cash/cashier/delete_cashier.html', {'cashier': cashier})
 
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
+from .models import Transfer, Cashier
+from .forms import TransferForm, CashierForm
 
- 
+# List all transfers
+def transfer_list(request):
+    transfers = Transfer.objects.all().order_by('-date')  # Order by date descending
+    return render(request, 'cash/transfert/transfer_list.html', {'transfers': transfers})
+
+def create_transfer(request):
+    if request.method == 'POST':
+        form = TransferForm(request.POST)
+        if form.is_valid():
+            transfer = form.save(commit=False)  # Do not save to DB yet
+            
+            # Automatically assign the current AnneeScolaire
+            current_year = AnneeScolaire.get_current_year()
+            if current_year:
+                transfer.annee_scolaire = current_year
+            else:
+                messages.error(request, "No active school year found.")
+                return redirect('transfer_list')
+
+            # Save the transfer and update balances
+            transfer.save()
+
+            # Update balances for cashiers involved in the transfer
+            from_cashier = transfer.from_cashier
+            to_cashier = transfer.to_cashier
+            
+            from_cashier.balance()  # Recalculate balance for sender
+            to_cashier.balance()    # Recalculate balance for receiver
+
+            messages.success(request, "Transfer created successfully!")
+            return redirect('transfer_list')
+    else:
+        form = TransferForm()
+
+    return render(request, 'cash/transfert/create_transfert.html', {'form': form})
+
+# Update an existing transfer
+def update_transfer(request, pk):
+    transfer = get_object_or_404(Transfer, pk=pk)
+    
+    if request.method == 'POST':
+        form = TransferForm(request.POST, instance=transfer)
+        if form.is_valid():
+            # Update balances before saving the updated transfer
+            original_from_cashier = transfer.from_cashier
+            original_to_cashier = transfer.to_cashier
+            
+            # Adjust balances back before updating
+            original_from_cashier.balance(original_from_cashier)  # Add back original amount
+            original_to_cashier.balance(original_to_cashier)      # Subtract original amount
+            
+            # Save the updated transfer
+            transfer = form.save()
+            
+            # Update balances after saving the new amount
+            original_from_cashier.balance(original_from_cashier)  # Deduct new amount from sender
+            original_to_cashier.balance(original_to_cashier)      # Add new amount to receiver
+            
+            messages.success(request, "Transfer updated successfully!")
+            return redirect('transfer_list')
+    else:
+        form = TransferForm(instance=transfer)
+
+    return render(request, 'cash/transfert/update_transfer.html', {'form': form})
+
+# Delete a transfer
+def delete_transfer(request, pk):
+    transfer = get_object_or_404(Transfer, pk=pk)
+    
+    if request.method == 'POST':
+        # Adjust balances before deletion
+        from_cashier = transfer.from_cashier
+        to_cashier = transfer.to_cashier
+        
+        from_cashier.balance(from_cashier)  # Restore balance for sender
+        to_cashier.balance(to_cashier)      # Deduct balance for receiver
+        
+        transfer.delete()
+        messages.success(request, "Transfer deleted successfully!")
+        return redirect('transfer_list')
+
+    return render(request, 'cash/transfert/delete_transfer.html', {'transfer': transfer})
+
+# List all cashiers
+def cashier_list(request):
+    cashiers = Cashier.objects.all().order_by('name')  # Order by name
+    return render(request, 'cash/cashier/cashier_list.html', {'cashiers': cashiers})
+
+# Create a new cashier
+def create_cashier(request):
+    if request.method == 'POST':
+        form = CashierForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Cashier created successfully!")
+            return redirect('cashier_list')
+    else:
+        form = CashierForm()
+
+    return render(request, 'cash/cashier/create_cashier.html', {'form': form})
+
+# Update an existing cashier
+def update_cashier(request, pk):
+    cashier = get_object_or_404(Cashier, pk=pk)
+    
+    if request.method == 'POST':
+        form = CashierForm(request.POST, instance=cashier)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Cashier updated successfully!")
+            return redirect('cashier_list')
+    else:
+        form = CashierForm(instance=cashier)
+
+    return render(request, 'cash/cashier/update_cashier.html', {'form': form})
+
+
+# Delete a cashier
+def delete_cashier(request, pk):
+    cashier = get_object_or_404(Cashier, pk=pk)
+    
+    if request.method == 'POST':
+        cashier.delete()
+        messages.success(request, "Cashier deleted successfully!")
+        return redirect('cashier_list')
+
+    return render(request, 'cash/cashier/delete_cashier.html', {'cashier': cashier})
+
+from django.shortcuts import render, get_object_or_404
+from .models import Cashier, Transfer
+
+# Cashier detail view
+def cashier_detail(request, pk):
+    cashier = get_object_or_404(Cashier, pk=pk)
+    
+    # Get the balance of the cashier
+    balance = cashier.balance()  # Assuming this method is defined in your Cashier model
+
+    # Get transfers involving this cashier
+    transfers_out = Transfer.objects.filter(from_cashier=cashier).order_by('-date')
+    transfers_in = Transfer.objects.filter(to_cashier=cashier).order_by('-date')
+
+    return render(request, 'cash/cashier/cashier_detail.html', {
+        'cashier': cashier,
+        'balance': balance,
+        'transfers_out': transfers_out,
+        'transfers_in': transfers_in
+    })
 
 @login_required
 def payment_delay_per_class(request, pk):

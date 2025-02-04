@@ -1,0 +1,41 @@
+{% extends "../../layout.html" %}
+{% load custom_filters %}
+
+{% block header %}
+<div class="d-flex justify-content-between align-items-center w-100 bg-primary p-3">
+    <h5 class="navbar-brand mb-0 h1 text-white">Rapport Comptable - {{ cashier.name }}</h5>
+</div>
+{% endblock header %}
+
+{% block content %}
+<div class="container mt-4">
+    
+    <h5><strong>Solde Actuel:</strong> {{ balance|format_amount }}</h5>
+
+    <h5><strong>Entrées par Type et Période</strong></h5>
+    
+    <table class="table table-striped table-bordered mt-3">
+        <thead>
+            <tr>
+                <th>Période</th>
+                <th>Type</th>
+                <th>Total Entrées</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for period, data in accounting_data.items %}
+            <tr>
+                <td>{{ period }}</td>
+                <td>{{ data.type }}</td>
+                <td>{{ data.total_amount|format_amount }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3" class="text-center">Aucune entrée disponible pour le rapport comptable</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div><!-- End of container -->
+{% endblock %}

@@ -1,9 +1,27 @@
 {% extends "../../layout.html" %}
+{% block header %}
+<span class="navbar-brand mb-0 h1 text-white">cashier management</span>
+          
+    
+            <!-- Undo and Redo Icons -->
+            <div class="ml-2 d-flex align-items-stretch">
+                <a href="{% url 'create_cashier' %}" class="class-card mr-3">Add New Cashier</a>
+                <button class="class-card mr-3 hidden-print" onclick="myFunction()"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print</button>
+                <a href="{% url 'home' %}" class="class-card mr-3">Cancel</a>
+                <button class="class-card mr-3" id="undo-button" title="Undo">
+                    <i class="fas fa-undo"></i>
+                </button>
+                <button class="class-card mr-3" id="redo-button" title="Redo">
+                    <i class="fas fa-redo"></i>
+                </button>
+                <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
+            </div>
+{% endblock header %}
 
 {% block content %}
 <div class="container mt-4">
     <h2>Cashiers</h2>
-    <a href="{% url 'create_cashier' %}" class="btn btn-primary">Add New Cashier</a>
+  
 
     <table class="table table-striped">
         <thead>
@@ -23,8 +41,10 @@
                 <td>{{ cashier.note }}</td>
                 <td>{{ cashier.is_default|yesno:"Yes,No" }}</td> <!-- Display Yes/No -->
                 <td>
+                    
                     <a href="{% url 'update_cashier' cashier.pk %}" class="btn btn-warning">Edit</a>
                     <a href="{% url 'delete_cashier' cashier.pk %}" class="btn btn-danger">Delete</a>
+                    <a href="{% url 'cashier_detail' cashier.pk %}" class="btn btn-danger">detail</a>
                 </td>
             </tr>
             {% empty %}

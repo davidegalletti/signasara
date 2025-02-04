@@ -1,31 +1,115 @@
 {% extends "../../layout.html" %}
+{% load custom_filters %}
+
+{% block header %}
+<div class="d-flex justify-content-between align-items-center w-100">
+    <div class="d-flex align-items-center">
+        <h2 class='navbar-brand mb-0 h1 text-white'>Entrées et Sorties (C-SCO Cashier)</h2>
+        <p class='navbar-brand mb-0 h1 text-white'> {{ user.username }}</p>
+    </div>
+
+    <div class="d-flex align-items-stretch">
+        <button class="class-card mr-3 hidden-print" id="print-button" title="Print" onclick="myFunction()">   <i class="fas fa-print"></i></button>
+       
+{% comment %}
+            <button class="class-card mr-3 hidden-print" id="export-button" title="Export to Excel" onclick="exportToExcel()">
+                <i class="fas fa-file-excel"></i>
+            </button>
+{% endcomment %}
+        <button class="class-card mr-3" id="undo-button" title="Undo">
+            <i class="fas fa-undo"></i>
+        </button>
+        <button class="class-card mr-3" id="redo-button" title="Redo">
+            <i class="fas fa-redo"></i>
+        </button>
+        <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
+    </div>
+</div>
+{% endblock header %}
 
 {% block content %}
-<div class="container mt-4">
-    <h2>Entrées et Sorties (C-SCO Cashier)</h2>
+<style>
+    .table-container {
+        max-width: 100%;
+        overflow-x: auto;
+        border-radius: 10px;
+        
+    }
 
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    .table th,
+    .table td {
+        padding: 2px 8px !important; /* Further reduced padding */
+        text-align: center;
+        font-size: 10px; /* Smaller font size */
+      
+      
+    }
+    .col-1 {
+       
+        width: 80px !important; /* Adjust as needed */
+      
+    }
+
+
+    .table th {
+        background-color: #333;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .table tbody tr:hover {
+        background-color: #e9ecef;
+    }
+    .col-sex {
+        width: 1% !important;
+      }
+      .col-note { width : auto}
+       
+      .navbar-totals {
+        display: flex;
+        align-items: center;
+        gap: 20px; /* Adjust the gap between the two blocks */
+    }
+    .navbar-totals div {
+        line-height: 1.2; /* Adjust line height for better spacing */
+    }
+</style>
+<div>
     <table id="entreeSortieTable" class="table table-striped">
         <thead>
             <tr>
                 <th>Date</th>
                 <th>Description</th>
-                <th>Entree (Income)</th>
+                <th>Entrée (Income)</th>
                 <th>Sortie (Outcome)</th>
-                <th>Progressive Balance</th>
+                <th>Solde Progressif</th>
             </tr>
         </thead>
         <tbody>
             {% for entry in entries %}
             <tr>
-                <td>{{ entry.date }}</td>
+                <td>{{ entry.date|date:"d/m/Y" }}</td>
                 <td>{{ entry.description }}</td>
-                <td>{{ entry.entree|default:"0" }}</td> <!-- Display income -->
-                <td>{{ entry.sortie|default:"0" }}</td> <!-- Display outcome -->
-                <td>{{ entry.progressive|default:"0" }}</td> <!-- Display progressive balance -->
+
+                <!-- Display income or '-' if zero -->
+                <td>{% if entry.entree > 0 %}{{ entry.entree|format_amount }}{% else %}-{% endif %}</td>
+
+                <!-- Display outcome or '-' if zero -->
+                <td>{% if entry.sortie > 0 %}{{ entry.sortie|format_amount }}{% else %}-{% endif %}</td>
+
+                <!-- Display progressive balance -->
+                <td>{{ entry.progressive|default:"0"|format_amount }}</td> 
             </tr>
             {% empty %}
             <tr>
-                <td colspan="5">No entries available.</td>
+                <td colspan="5">Aucune entrée disponible.</td>
             </tr>
             {% endfor %}
         </tbody>
@@ -38,7 +122,7 @@
 $(document).ready(function() {
     $('#entreeSortieTable').DataTable({
         "order": [[0, "desc"]], // Order by date descending
-        "pageLength": 10, // Default rows per page
+        "pageLength": 40, // Default rows per page
         "lengthMenu": [[5, 10, 25, -1], [5, 10, 25, "All"]],
         "language": {
             "search": "Search:",
@@ -53,6 +137,28 @@ $(document).ready(function() {
         }
     });
 });
+// Print function
+function myFunction() {
+    // Get the DataTable instance
+    var table = $('#entreeSortieTable').DataTable();
+
+    // Store the current page length
+    var currentPageLength = table.page.len();
+
+    // Set the page length to -1 (show all records)
+    table.page.len(-1).draw();
+
+    // Trigger the print dialog
+    window.print();
+
+    // Reset the page length back to the original setting
+    table.page.len(currentPageLength).draw();
+}
+
+// Export to Excel function (placeholder)
+function exportToExcel() {
+    alert("Export to Excel functionality is not yet implemented.");
+}
 </script>
 
 {% endblock %}

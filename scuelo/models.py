@@ -188,6 +188,9 @@ class AnneeScolaire(models.Model):
         super().save(*args, **kwargs)
         if self.actuel:
             AnneeScolaire.objects.filter(actuel=True).exclude(pk=self.pk).update(actuel=False)
+    @classmethod
+    def get_current_year(cls):
+        return cls.objects.filter(actuel=True).first()  # Adjust based         
 
 class Inscription(models.Model):
     eleve = models.ForeignKey(Eleve, on_delete=models.CASCADE , related_name='inscriptions')

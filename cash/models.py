@@ -18,16 +18,30 @@ class Cashier(models.Model):
 
     def __str__(self):
         return self.name
-
-   
     def balance(self, annee_scolaire=None):
         filters = {"cashier": self}
         if annee_scolaire:
             filters["annee_scolaire"] = annee_scolaire
+        
+        # Calculate total income and expenses
         total_income = Mouvement.objects.filter(causal__in=["INS", "SCO1", "SCO2", "SCO3"], **filters).aggregate(total=Sum('montant'))['total'] or 0
         total_expenses = Expense.objects.filter(**filters).aggregate(total=Sum('amount'))['total'] or 0
-        return total_income - total_expenses
-
+        
+        # Calculate total transfers affecting this cashier
+        total_transfers_out = Transfer.objects.filter(from_cashier=self).aggregate(total=Sum('amount'))['total'] or 0
+        total_transfers_in = Transfer.objects.filter(to_cashier=self).aggregate(total=Sum('amount'))['total'] or 0
+        
+        # Calculate balance
+        return total_income - total_expenses - total_transfers_out + total_transfers_in
+   
+    '''    def balance(self, annee_scolaire=None):
+            filters = {"cashier": self}
+            if annee_scolaire:
+                filters["annee_scolaire"] = annee_scolaire
+            total_income = Mouvement.objects.filter(causal__in=["INS", "SCO1", "SCO2", "SCO3"], **filters).aggregate(total=Sum('montant'))['total'] or 0
+            total_expenses = Expense.objects.filter(**filters).aggregate(total=Sum('amount'))['total'] or 0
+            return total_income - total_expenses
+    '''
     '''    def transfer_to_bf(self, amount, to_cashier):
         """
         Transfer money from C_SCO to C_BF when balance exceeds forecasted expenses.
