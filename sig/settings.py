@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'whitenoise.runserver_nostatic',
     'bootstrap5',
+    'widget_tweaks',
     'crispy_bootstrap5',
     'django_extensions'
 ]

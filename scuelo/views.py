@@ -42,6 +42,18 @@ from scuelo.models import (
 from cash.forms import PaiementPerStudentForm
 from cash.models import Mouvement , Tarif
 
+from django.shortcuts import render
+from django.db.models import Sum
+from django.utils import timezone
+from django.views.generic import DetailView
+from django.shortcuts import get_object_or_404
+from django.db.models import Sum
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import DetailView
+
+from django.shortcuts import get_object_or_404
+from django.db.models import Sum
+from django.views.generic import DetailView
 
 
 # =======================
@@ -64,7 +76,6 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('login')
-
 
 
 # =======================
@@ -241,92 +252,7 @@ def class_detail(request, pk):
     })
 
 
-from django.db.models import Count
-'''
-class ClasseInformation(DetailView):
-    model = Classe
-    template_name = 'scuelo/classe/classe_information.html'
-    context_object_name = 'classe'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        
-        # Fetch the current class object
-        classe = self.object
-        
-        # Fetch the school name and class name
-        context['nom_ecole'] = classe.ecole  # Assuming 'ecole' is a field in the Classe model
-        context['nom_classe'] = classe.nom  # Assuming 'nom' is the field for the class name
-        
-        # Fetch all tariffs (tarifs) related to the class
-        context['tarifs'] = Tarif.objects.filter(classe=classe)
-
-        # Count PY students with uniform reservations
-        context['num_py_with_reservation'] = Eleve.objects.filter(
-            inscriptions__classe=classe,
-            cs_py='P'
-        ).prefetch_related('uniform_reservations').annotate(
-            num_reservations=Count('uniform_reservations')
-        ).filter(num_reservations__gt=0).count()
-
-        # Count CS students with uniform reservations
-        context['num_cs_with_reservation'] = Eleve.objects.filter(
-            inscriptions__classe=classe,
-            cs_py='C'
-        ).prefetch_related('uniform_reservations').annotate(
-            num_reservations=Count('uniform_reservations')
-        ).filter(num_reservations__gt=0).count()
-
-        # Total fee calculations for PY & CS students based on reservations
-        # Filter students with uniform reservations (this assumes that status 'reserved', 'delivered', or 'paid' are acceptable statuses)
-        context['num_py_reserved'] = Eleve.objects.filter(
-            inscriptions__classe=classe,
-            cs_py='P'
-        ).filter(
-            uniform_reservations__status__in=['reserved', 'delivered', 'paid']
-        ).count()
-
-        context['num_cs_reserved'] = Eleve.objects.filter(
-            inscriptions__classe=classe,
-            cs_py='C'
-        ).filter(
-            uniform_reservations__status__in=['reserved', 'delivered', 'paid']
-        ).count()
-
-        # Fetch the total expected amount based on PY and CS students
-        sco1 = Tarif.objects.filter(classe=classe, causal='SCO1').first()
-        sco2 = Tarif.objects.filter(classe=classe, causal='SCO2').first()
-        sco3 = Tarif.objects.filter(classe=classe, causal='SCO3').first()
-
-        total_fee_py = ((sco1.montant if sco1 else 0) + 
-                        (sco2.montant if sco2 else 0) + 
-                        (sco3.montant if sco3 else 0)) * context['num_py_reserved']
-        
-        total_fee_cs = ((sco1.montant if sco1 else 0) + 
-                        (sco2.montant if sco2 else 0) + 
-                        (sco3.montant if sco3 else 0)) * context['num_cs_reserved']
-
-        context['total_fee_py'] = total_fee_py
-        context['total_fee_cs'] = total_fee_cs
-
-        # Additional calculation for CS costs for external students
-        context['external_cs_total'] = total_fee_cs  # Adjust this as per your requirements
-
-        return context
-'''
-
-from django.shortcuts import render
-from django.db.models import Sum
-from django.utils import timezone
-from django.views.generic import DetailView
-from django.shortcuts import get_object_or_404
-from django.db.models import Sum
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import DetailView
-
-from django.shortcuts import get_object_or_404
-from django.db.models import Sum
-from django.views.generic import DetailView
 
 
 class ClasseInformation(LoginRequiredMixin, DetailView):
@@ -463,15 +389,14 @@ class ClasseInformation(LoginRequiredMixin, DetailView):
             'all_annee_scolaires': AnneeScolaire.objects.all(),
             'selected_annee_scolaire': selected_annee_scolaire,
             'expected_total_class': expected_total_class,  # Placeholder, replace with actual calculation if needed
-            
-                   'py_conf_count': py_conf_count,
-        'progressive_fee_1': progressive_fee_1,
-        'progressive_fee_2': progressive_fee_2,
-        'progressive_fee_3': progressive_fee_3,
-        'total_payment_percentage': total_payment_percentage,
-        'actual_total_received': total_class_payment,  # Same as total_class_payment
-        'actual_total_received_tenues_py': total_tenues_py,
-        'expected_total_tenues_py': expected_total_tenues_py,
+            'py_conf_count': py_conf_count,
+            'progressive_fee_1': progressive_fee_1,
+            'progressive_fee_2': progressive_fee_2,
+            'progressive_fee_3': progressive_fee_3,
+            'total_payment_percentage': total_payment_percentage,
+            'actual_total_received': total_class_payment,  # Same as total_class_payment
+            'actual_total_received_tenues_py': total_tenues_py,
+            'expected_total_tenues_py': expected_total_tenues_py,
         })
 
         return context
@@ -551,6 +476,40 @@ def student_detail(request, pk):
 def student_update(request, pk):
     student = get_object_or_404(Eleve, pk=pk)
     old_values = student.__dict__.copy()
+    
+    if request.method == 'POST':
+        form = EleveUpdateForm(request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+            # Log changes
+            new_values = student.__dict__.copy()
+            for field, old_value in old_values.items():
+                new_value = new_values.get(field)
+                if old_value != new_value:
+                    StudentLog.objects.create(
+                        student=student,
+                        user=request.user,
+                        action=f"Updated {field}",
+                        old_value=str(old_value),
+                        new_value=str(new_value)
+                    )
+            return redirect('student_detail', pk=student.pk)
+    else:
+        form = EleveUpdateForm(instance=student)
+    
+    # Set the current year for annee_inscr automatically
+    current_year = datetime.now().year
+    form.fields['annee_inscr'].initial = current_year
+
+    return render(request, 'scuelo/students/studentupdate.html', {
+        'form': form,
+        'student': student,
+        'page_identifier': 'S13'
+    })
+'''@login_required
+def student_update(request, pk):
+    student = get_object_or_404(Eleve, pk=pk)
+    old_values = student.__dict__.copy()
     if request.method == 'POST':
         form = EleveUpdateForm(request.POST, instance=student)
         if form.is_valid():
@@ -573,7 +532,7 @@ def student_update(request, pk):
     
     return render(request, 'scuelo/students/studentupdate.html', {'form': form, 'student': student,
                                                                   'page_identifier': 'S13'  })
-
+'''
 @method_decorator(login_required, name='dispatch')
 class StudentListView(ListView):
     model = Eleve
@@ -797,7 +756,7 @@ def offsite_students(request):
         messages.error(request, "An error occurred while fetching data. Please try again later.")
         return redirect('some_fallback_view')  # Redirect to a fallback view
 
-@method_decorator(login_required, name='dispatch')
+'''@method_decorator(login_required, name='dispatch')
 class StudentCreateView(CreateView):
     model = Eleve
     form_class = EleveCreateForm
@@ -820,7 +779,29 @@ class StudentCreateView(CreateView):
         Inscription.objects.create(eleve=eleve, classe=classe, annee_scolaire=annee_scolaire)
         return super().form_valid(form)
 
+'''
 
+@method_decorator(login_required, name='dispatch')
+class StudentCreateView(CreateView):
+    model = Eleve
+    form_class = EleveCreateForm
+    template_name = 'scuelo/students/new_student.html'
+    success_url = reverse_lazy('home')
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        data['breadcrumbs'] = [('/', 'Home'), ('/students/create/', 'Ajouter élève')]
+        data['page_identifier'] = 'S15'  # Unique identifier for this page
+        data['classes'] = Classe.objects.all()  # Fetch available classes
+        return data
+
+    def form_valid(self, form):
+        eleve = form.save(commit=False)
+        eleve.save()
+        classe = form.cleaned_data['classe']
+        annee_scolaire = form.cleaned_data['annee_scolaire']
+        Inscription.objects.create(eleve=eleve, classe=classe, annee_scolaire=annee_scolaire)
+        return super().form_valid(form)
 # =======================
 # 3. Class Management
 # =======================

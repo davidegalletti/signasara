@@ -1,8 +1,9 @@
 {% extends "../../layout.html" %}
+{% load custom_filters %}
 {% block header %}
 <div class="d-flex justify-content-between align-items-center w-100">
     <div class="d-flex align-items-center">
-        <span class="navbar-brand mb-0 h1 text-white">Sortie</span>
+        <span class="navbar-brand mb-0 h1 text-white">Transfers</span>
          <!-- Display Total Expense -->
          
     </div>
@@ -34,7 +35,7 @@
 
 {% block content %}
 <div class="container mt-4">
-    <h2>Transfers</h2>
+ 
 
     <table class="table table-striped">
         <thead>
@@ -50,10 +51,10 @@
         <tbody>
             {% for transfer in transfers %}
             <tr>
-                <td>{{ transfer.date }}</td>
+                <td>{{ transfer.date|date:"d/m/Y"  }}</td>
                 <td>{{ transfer.from_cashier }}</td>
                 <td>{{ transfer.to_cashier }}</td>
-                <td>{{ transfer.amount }}</td>
+                <td>{{ transfer.amount|format_amount }}</td>
                 <td>{{ transfer.note }}</td>
                 <td>
                     <a href="{% url 'update_transfer' transfer.pk %}" class="btn btn-warning">Edit</a>

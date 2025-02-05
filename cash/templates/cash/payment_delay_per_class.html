@@ -116,10 +116,12 @@
            <!-- Total Row -->
            <tr class="class-header-row">
                <td colspan="6"><strong>Total Differences:</strong></td>
-               <td>{{ total_diff_sco }}</td> <!-- Total Diff SCO -->
-               <td>-</td> <!-- Placeholder for CAN Paid -->
+               
+               <td></td> <!-- Placeholder for CAN Paid -->
+               <td class='highlight-negative '> - {{ total_diff_sco }}</td> <!-- Total Diff SCO -->
                <td>-</td> <!-- Placeholder for CAN Exigible -->
-               <td>{{ total_diff_can }}</td> <!-- Total Diff CAN -->
+               <td>-</td>
+               <td class='highlight-negative '>{{ total_diff_can }}</td> <!-- Total Diff CAN -->
            </tr>
 
        </tbody>

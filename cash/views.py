@@ -1079,16 +1079,9 @@ def export_rapport_comptable(request):
 
     
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Transfer, Cashier
-from .forms import TransferForm
+from .models import Transfer, Cashier 
+from .forms import TransferForm ,CashierForm
 from django.contrib import messages
-
-
-
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib import messages
-from .models import Transfer, Cashier
-from .forms import TransferForm, CashierForm
 
 # List all transfers
 def transfer_list(request):
@@ -1207,10 +1200,7 @@ def delete_cashier(request, pk):
 
     return render(request, 'cash/cashier/delete_cashier.html', {'cashier': cashier})
 
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib import messages
-from .models import Transfer, Cashier
-from .forms import TransferForm, CashierForm
+
 
 # List all transfers
 def transfer_list(request):
@@ -1340,8 +1330,6 @@ def delete_cashier(request, pk):
 
     return render(request, 'cash/cashier/delete_cashier.html', {'cashier': cashier})
 
-from django.shortcuts import render, get_object_or_404
-from .models import Cashier, Transfer
 
 # Cashier detail view
 def cashier_detail(request, pk):
@@ -1383,7 +1371,8 @@ def payment_delay_per_class(request, pk):
     students = Eleve.objects.filter(
         inscriptions__classe=classe,
         inscriptions__annee_scolaire=current_annee_scolaire,
-        cs_py='PY'
+        cs_py='PY',
+        condition_eleve='CONF'
     ).distinct()
 
     student_data = []
@@ -1430,13 +1419,7 @@ def payment_delay_per_class(request, pk):
     })
 
 
-from django.shortcuts import render, get_object_or_404
-from django.contrib.auth.decorators import login_required
-from .models import Classe, Tarif, Eleve, AnneeScolaire
 
-from django.shortcuts import render, get_object_or_404
-from django.contrib.auth.decorators import login_required
-from .models import Classe, Tarif, Eleve, AnneeScolaire
 
 @login_required
 def classe_information(request, pk):
