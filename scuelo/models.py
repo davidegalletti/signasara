@@ -39,7 +39,7 @@ TYPE_ECOLE = (
     ("L", "LYCEE"),
 )
 
-class TypeClasse(models.Model):
+class TypeClasse(TimeStampedModel):
     nom = models.CharField(max_length=100, null=False)
     ordre = models.IntegerField(default=0)
     type_ecole = models.CharField(max_length=1, choices=TYPE_ECOLE, db_index=True)
@@ -47,7 +47,7 @@ class TypeClasse(models.Model):
     def __str__(self):
         return self.nom
 
-class Ecole(models.Model):
+class Ecole(TimeStampedModel):
     nom = models.CharField(max_length=100, null=False)
     ville = models.CharField(max_length=100, null=False)
     nom_du_referent = models.CharField(max_length=100, null=False)
@@ -60,7 +60,7 @@ class Ecole(models.Model):
     def __str__(self):
         return self.nom
 
-class Classe(models.Model):
+class Classe(TimeStampedModel):
     ecole = models.ForeignKey(Ecole, on_delete=models.CASCADE)
     type = models.ForeignKey(TypeClasse, on_delete=models.CASCADE)
     nom = models.CharField(max_length=10, null=False)
@@ -111,7 +111,7 @@ class Classe(models.Model):
         total_tarifs = Tarif.objects.filter(classe=self).aggregate(total=Sum('montant'))['total'] or 0
         return "{:,}".format(total_tarifs)
 
-class Eleve(models.Model):
+class Eleve(TimeStampedModel):
     nom = models.CharField(max_length=34, null=False)
     prenom = models.CharField(max_length=34, null=False)
     date_enquete = models.DateField(null=True, blank=True)
@@ -174,7 +174,7 @@ class Eleve(models.Model):
         verbose_name = 'Eleve'
         verbose_name_plural = 'Eleves'
 
-class AnneeScolaire(models.Model):
+class AnneeScolaire(TimeStampedModel):
     nom = models.CharField(max_length=100)
     nom_bref = models.CharField(max_length=10, default='')
     date_initiale = models.DateField(blank=True, null=True)
@@ -192,7 +192,7 @@ class AnneeScolaire(models.Model):
     def get_current_year(cls):
         return cls.objects.filter(actuel=True).first()  # Adjust based         
 
-class Inscription(models.Model):
+class Inscription(TimeStampedModel):
     eleve = models.ForeignKey(Eleve, on_delete=models.CASCADE , related_name='inscriptions')
     classe = models.ForeignKey(Classe, on_delete=models.CASCADE, blank=True, null=True)
     annee_scolaire = models.ForeignKey(AnneeScolaire, on_delete=models.CASCADE)
@@ -209,7 +209,7 @@ class Inscription(models.Model):
             Inscription.objects.filter(eleve=self.eleve, annee_scolaire__actuel=True).exclude(pk=self.pk).delete()
         super().save(*args, **kwargs)
 
-class UniformReservation(models.Model):
+class UniformReservation(TimeStampedModel):
     STATUS_CHOICES = [
         ('reserved', 'Reserved'),
         ('delivered', 'Delivered'),
@@ -246,7 +246,7 @@ class UniformReservation(models.Model):
 
 
 
-class StudentLog(models.Model):
+class StudentLog(TimeStampedModel):
     student = models.ForeignKey(Eleve, on_delete=models.CASCADE, related_name='logs')
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     action = models.CharField(max_length=255)

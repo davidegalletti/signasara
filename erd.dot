@@ -1,6 +1,6 @@
 digraph model_graph {
   // Dotfile by Django-Extensions graph_models
-  // Created: 2025-01-30 19:17
+  // Created: 2025-02-01 09:38
   // Cli Options: -a
 
   fontname = "Roboto"
@@ -458,37 +458,11 @@ digraph model_graph {
 
 
 
-  model_utils_models_TimeStampedModel [label=<
-    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
-    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
-    <FONT FACE="Roboto" COLOR="white" POINT-SIZE="10"><B>
-    TimeStampedModel
-    </B></FONT></TD></TR>
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto">created</FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto">AutoCreatedField</FONT>
-    </TD></TR>
-  
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto">modified</FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto">AutoLastModifiedField</FONT>
-    </TD></TR>
-  
-  
-    </TABLE>
-    >]
-
   cash_models_Cashier [label=<
     <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
     <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
     <FONT FACE="Roboto" COLOR="white" POINT-SIZE="10"><B>
-    Cashier<BR/>&lt;<FONT FACE="Roboto"><I>TimeStampedModel</I></FONT>&gt;
+    Cashier
     </B></FONT></TD></TR>
   
   
@@ -501,25 +475,9 @@ digraph model_graph {
   
   
     <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto"><I>created</I></FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto"><I>AutoCreatedField</I></FONT>
-    </TD></TR>
-  
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
     <FONT FACE="Roboto">is_default</FONT>
     </TD><TD ALIGN="LEFT">
     <FONT FACE="Roboto">BooleanField</FONT>
-    </TD></TR>
-  
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto"><I>modified</I></FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto"><I>AutoLastModifiedField</I></FONT>
     </TD></TR>
   
   
@@ -554,7 +512,7 @@ digraph model_graph {
     <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
     <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
     <FONT FACE="Roboto" COLOR="white" POINT-SIZE="10"><B>
-    Tarif<BR/>&lt;<FONT FACE="Roboto"><I>TimeStampedModel</I></FONT>&gt;
+    Tarif
     </B></FONT></TD></TR>
   
   
@@ -591,25 +549,9 @@ digraph model_graph {
   
   
     <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto"><I>created</I></FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto"><I>AutoCreatedField</I></FONT>
-    </TD></TR>
-  
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
     <FONT FACE="Roboto">date_expiration</FONT>
     </TD><TD ALIGN="LEFT">
     <FONT FACE="Roboto">DateField</FONT>
-    </TD></TR>
-  
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto"><I>modified</I></FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto"><I>AutoLastModifiedField</I></FONT>
     </TD></TR>
   
   
@@ -628,7 +570,7 @@ digraph model_graph {
     <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
     <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
     <FONT FACE="Roboto" COLOR="white" POINT-SIZE="10"><B>
-    Mouvement<BR/>&lt;<FONT FACE="Roboto"><I>TimeStampedModel</I></FONT>&gt;
+    Mouvement
     </B></FONT></TD></TR>
   
   
@@ -681,25 +623,9 @@ digraph model_graph {
   
   
     <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto"><I>created</I></FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto"><I>AutoCreatedField</I></FONT>
-    </TD></TR>
-  
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
     <FONT FACE="Roboto">date_paye</FONT>
     </TD><TD ALIGN="LEFT">
     <FONT FACE="Roboto">DateField</FONT>
-    </TD></TR>
-  
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto"><I>modified</I></FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto"><I>AutoLastModifiedField</I></FONT>
     </TD></TR>
   
   
@@ -726,7 +652,7 @@ digraph model_graph {
     <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
     <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
     <FONT FACE="Roboto" COLOR="white" POINT-SIZE="10"><B>
-    Expense<BR/>&lt;<FONT FACE="Roboto"><I>TimeStampedModel</I></FONT>&gt;
+    Expense
     </B></FONT></TD></TR>
   
   
@@ -763,14 +689,6 @@ digraph model_graph {
   
   
     <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto"><I>created</I></FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto"><I>AutoCreatedField</I></FONT>
-    </TD></TR>
-  
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
     <FONT FACE="Roboto">date</FONT>
     </TD><TD ALIGN="LEFT">
     <FONT FACE="Roboto">DateField</FONT>
@@ -782,14 +700,6 @@ digraph model_graph {
     <FONT FACE="Roboto">description</FONT>
     </TD><TD ALIGN="LEFT">
     <FONT FACE="Roboto">CharField</FONT>
-    </TD></TR>
-  
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto"><I>modified</I></FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto"><I>AutoLastModifiedField</I></FONT>
     </TD></TR>
   
   
@@ -808,7 +718,7 @@ digraph model_graph {
     <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
     <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
     <FONT FACE="Roboto" COLOR="white" POINT-SIZE="10"><B>
-    Transfer<BR/>&lt;<FONT FACE="Roboto"><I>TimeStampedModel</I></FONT>&gt;
+    Transfer
     </B></FONT></TD></TR>
   
   
@@ -845,25 +755,9 @@ digraph model_graph {
   
   
     <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto"><I>created</I></FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto"><I>AutoCreatedField</I></FONT>
-    </TD></TR>
-  
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
     <FONT FACE="Roboto">date</FONT>
     </TD><TD ALIGN="LEFT">
     <FONT FACE="Roboto">DateField</FONT>
-    </TD></TR>
-  
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto"><I>modified</I></FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto"><I>AutoLastModifiedField</I></FONT>
     </TD></TR>
   
   
@@ -881,37 +775,11 @@ digraph model_graph {
 
 
 
-  model_utils_models_TimeStampedModel [label=<
-    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
-    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
-    <FONT FACE="Roboto" COLOR="white" POINT-SIZE="10"><B>
-    TimeStampedModel
-    </B></FONT></TD></TR>
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto">created</FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto">AutoCreatedField</FONT>
-    </TD></TR>
-  
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto">modified</FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto">AutoLastModifiedField</FONT>
-    </TD></TR>
-  
-  
-    </TABLE>
-    >]
-
   scuelo_models_TypeClasse [label=<
     <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
     <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
     <FONT FACE="Roboto" COLOR="white" POINT-SIZE="10"><B>
-    TypeClasse<BR/>&lt;<FONT FACE="Roboto"><I>TimeStampedModel</I></FONT>&gt;
+    TypeClasse
     </B></FONT></TD></TR>
   
   
@@ -919,22 +787,6 @@ digraph model_graph {
     <FONT FACE="Roboto"><B>id</B></FONT>
     </TD><TD ALIGN="LEFT">
     <FONT FACE="Roboto"><B>BigAutoField</B></FONT>
-    </TD></TR>
-  
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto"><I>created</I></FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto"><I>AutoCreatedField</I></FONT>
-    </TD></TR>
-  
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto"><I>modified</I></FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto"><I>AutoLastModifiedField</I></FONT>
     </TD></TR>
   
   
@@ -969,7 +821,7 @@ digraph model_graph {
     <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
     <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
     <FONT FACE="Roboto" COLOR="white" POINT-SIZE="10"><B>
-    Ecole<BR/>&lt;<FONT FACE="Roboto"><I>TimeStampedModel</I></FONT>&gt;
+    Ecole
     </B></FONT></TD></TR>
   
   
@@ -977,14 +829,6 @@ digraph model_graph {
     <FONT FACE="Roboto"><B>id</B></FONT>
     </TD><TD ALIGN="LEFT">
     <FONT FACE="Roboto"><B>BigAutoField</B></FONT>
-    </TD></TR>
-  
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto"><I>created</I></FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto"><I>AutoCreatedField</I></FONT>
     </TD></TR>
   
   
@@ -1001,14 +845,6 @@ digraph model_graph {
     <FONT FACE="Roboto">externe</FONT>
     </TD><TD ALIGN="LEFT">
     <FONT FACE="Roboto">BooleanField</FONT>
-    </TD></TR>
-  
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto"><I>modified</I></FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto"><I>AutoLastModifiedField</I></FONT>
     </TD></TR>
   
   
@@ -1067,7 +903,7 @@ digraph model_graph {
     <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
     <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
     <FONT FACE="Roboto" COLOR="white" POINT-SIZE="10"><B>
-    Classe<BR/>&lt;<FONT FACE="Roboto"><I>TimeStampedModel</I></FONT>&gt;
+    Classe
     </B></FONT></TD></TR>
   
   
@@ -1096,25 +932,9 @@ digraph model_graph {
   
   
     <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto"><I>created</I></FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto"><I>AutoCreatedField</I></FONT>
-    </TD></TR>
-  
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
     <FONT COLOR="#7B7B7B" FACE="Roboto">legacy_id</FONT>
     </TD><TD ALIGN="LEFT">
     <FONT COLOR="#7B7B7B" FACE="Roboto">CharField</FONT>
-    </TD></TR>
-  
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto"><I>modified</I></FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto"><I>AutoLastModifiedField</I></FONT>
     </TD></TR>
   
   
@@ -1133,7 +953,7 @@ digraph model_graph {
     <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
     <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
     <FONT FACE="Roboto" COLOR="white" POINT-SIZE="10"><B>
-    Eleve<BR/>&lt;<FONT FACE="Roboto"><I>TimeStampedModel</I></FONT>&gt;
+    Eleve
     </B></FONT></TD></TR>
   
   
@@ -1157,14 +977,6 @@ digraph model_graph {
     <FONT FACE="Roboto">condition_eleve</FONT>
     </TD><TD ALIGN="LEFT">
     <FONT FACE="Roboto">CharField</FONT>
-    </TD></TR>
-  
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto"><I>created</I></FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto"><I>AutoCreatedField</I></FONT>
     </TD></TR>
   
   
@@ -1205,14 +1017,6 @@ digraph model_graph {
     <FONT COLOR="#7B7B7B" FACE="Roboto">legacy_id</FONT>
     </TD><TD ALIGN="LEFT">
     <FONT COLOR="#7B7B7B" FACE="Roboto">CharField</FONT>
-    </TD></TR>
-  
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto"><I>modified</I></FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto"><I>AutoLastModifiedField</I></FONT>
     </TD></TR>
   
   
@@ -1271,7 +1075,7 @@ digraph model_graph {
     <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
     <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
     <FONT FACE="Roboto" COLOR="white" POINT-SIZE="10"><B>
-    AnneeScolaire<BR/>&lt;<FONT FACE="Roboto"><I>TimeStampedModel</I></FONT>&gt;
+    AnneeScolaire
     </B></FONT></TD></TR>
   
   
@@ -1292,14 +1096,6 @@ digraph model_graph {
   
   
     <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto"><I>created</I></FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto"><I>AutoCreatedField</I></FONT>
-    </TD></TR>
-  
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
     <FONT COLOR="#7B7B7B" FACE="Roboto">date_finale</FONT>
     </TD><TD ALIGN="LEFT">
     <FONT COLOR="#7B7B7B" FACE="Roboto">DateField</FONT>
@@ -1311,14 +1107,6 @@ digraph model_graph {
     <FONT COLOR="#7B7B7B" FACE="Roboto">date_initiale</FONT>
     </TD><TD ALIGN="LEFT">
     <FONT COLOR="#7B7B7B" FACE="Roboto">DateField</FONT>
-    </TD></TR>
-  
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto"><I>modified</I></FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto"><I>AutoLastModifiedField</I></FONT>
     </TD></TR>
   
   
@@ -1345,7 +1133,7 @@ digraph model_graph {
     <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
     <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
     <FONT FACE="Roboto" COLOR="white" POINT-SIZE="10"><B>
-    Inscription<BR/>&lt;<FONT FACE="Roboto"><I>TimeStampedModel</I></FONT>&gt;
+    Inscription
     </B></FONT></TD></TR>
   
   
@@ -1382,25 +1170,9 @@ digraph model_graph {
   
   
     <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto"><I>created</I></FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto"><I>AutoCreatedField</I></FONT>
-    </TD></TR>
-  
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
     <FONT FACE="Roboto">date_inscription</FONT>
     </TD><TD ALIGN="LEFT">
     <FONT FACE="Roboto">DateTimeField</FONT>
-    </TD></TR>
-  
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto"><I>modified</I></FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto"><I>AutoLastModifiedField</I></FONT>
     </TD></TR>
   
   
@@ -1606,17 +1378,11 @@ digraph model_graph {
   [label=" abstract\ninheritance"] [arrowhead=empty, arrowtail=none, dir=both];
 
 
-  cash_models_Cashier -> model_utils_models_TimeStampedModel
-  [label=" abstract\ninheritance"] [arrowhead=empty, arrowtail=none, dir=both];
-
   cash_models_Tarif -> scuelo_models_Classe
   [label=" classe (tarifs)"] [arrowhead=none, arrowtail=dot, dir=both];
 
   cash_models_Tarif -> scuelo_models_AnneeScolaire
   [label=" annee_scolaire (tarif)"] [arrowhead=none, arrowtail=dot, dir=both];
-
-  cash_models_Tarif -> model_utils_models_TimeStampedModel
-  [label=" abstract\ninheritance"] [arrowhead=empty, arrowtail=none, dir=both];
 
   cash_models_Mouvement -> scuelo_models_Inscription
   [label=" inscription (mouvement)"] [arrowhead=none, arrowtail=dot, dir=both];
@@ -1630,17 +1396,11 @@ digraph model_graph {
   cash_models_Mouvement -> scuelo_models_AnneeScolaire
   [label=" annee_scolaire (mouvement)"] [arrowhead=none, arrowtail=dot, dir=both];
 
-  cash_models_Mouvement -> model_utils_models_TimeStampedModel
-  [label=" abstract\ninheritance"] [arrowhead=empty, arrowtail=none, dir=both];
-
   cash_models_Expense -> cash_models_Cashier
   [label=" cashier (expense)"] [arrowhead=none, arrowtail=dot, dir=both];
 
   cash_models_Expense -> scuelo_models_AnneeScolaire
   [label=" annee_scolaire (expense)"] [arrowhead=none, arrowtail=dot, dir=both];
-
-  cash_models_Expense -> model_utils_models_TimeStampedModel
-  [label=" abstract\ninheritance"] [arrowhead=empty, arrowtail=none, dir=both];
 
   cash_models_Transfer -> cash_models_Cashier
   [label=" from_cashier (transfers_out)"] [arrowhead=none, arrowtail=dot, dir=both];
@@ -1648,30 +1408,12 @@ digraph model_graph {
   cash_models_Transfer -> cash_models_Cashier
   [label=" to_cashier (transfers_in)"] [arrowhead=none, arrowtail=dot, dir=both];
 
-  cash_models_Transfer -> model_utils_models_TimeStampedModel
-  [label=" abstract\ninheritance"] [arrowhead=empty, arrowtail=none, dir=both];
-
-
-  scuelo_models_TypeClasse -> model_utils_models_TimeStampedModel
-  [label=" abstract\ninheritance"] [arrowhead=empty, arrowtail=none, dir=both];
-
-  scuelo_models_Ecole -> model_utils_models_TimeStampedModel
-  [label=" abstract\ninheritance"] [arrowhead=empty, arrowtail=none, dir=both];
 
   scuelo_models_Classe -> scuelo_models_Ecole
   [label=" ecole (classe)"] [arrowhead=none, arrowtail=dot, dir=both];
 
   scuelo_models_Classe -> scuelo_models_TypeClasse
   [label=" type (classe)"] [arrowhead=none, arrowtail=dot, dir=both];
-
-  scuelo_models_Classe -> model_utils_models_TimeStampedModel
-  [label=" abstract\ninheritance"] [arrowhead=empty, arrowtail=none, dir=both];
-
-  scuelo_models_Eleve -> model_utils_models_TimeStampedModel
-  [label=" abstract\ninheritance"] [arrowhead=empty, arrowtail=none, dir=both];
-
-  scuelo_models_AnneeScolaire -> model_utils_models_TimeStampedModel
-  [label=" abstract\ninheritance"] [arrowhead=empty, arrowtail=none, dir=both];
 
   scuelo_models_Inscription -> scuelo_models_Eleve
   [label=" eleve (inscriptions)"] [arrowhead=none, arrowtail=dot, dir=both];
@@ -1681,9 +1423,6 @@ digraph model_graph {
 
   scuelo_models_Inscription -> scuelo_models_AnneeScolaire
   [label=" annee_scolaire (inscription)"] [arrowhead=none, arrowtail=dot, dir=both];
-
-  scuelo_models_Inscription -> model_utils_models_TimeStampedModel
-  [label=" abstract\ninheritance"] [arrowhead=empty, arrowtail=none, dir=both];
 
   scuelo_models_UniformReservation -> scuelo_models_Eleve
   [label=" student (uniform_reservations)"] [arrowhead=none, arrowtail=dot, dir=both];

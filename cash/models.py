@@ -10,7 +10,7 @@ from scuelo.models import (
     ,Eleve
     )
 
-class Cashier(models.Model):
+class Cashier(TimeStampedModel):
     name = models.CharField(max_length=100, null=False)
     type = models.CharField(max_length=10, null=False)  # e.g., "SCO", "BF"
     note = models.TextField(blank=True, null=True)
@@ -85,7 +85,7 @@ class Cashier(models.Model):
         # Returns the default cashier (C_SCO)
         return cls.objects.filter(is_default=True).first()
     
-class Tarif(models.Model):
+class Tarif(TimeStampedModel):
     CAUSAL = (
         ("INS", "Inscription"),
         ("SCO1", "Scolarite 1"),
@@ -186,7 +186,7 @@ class Tarif(models.Model):
         return f"{self.causal} {self.montant:,} {self.classe}"
     
     
-class Mouvement(models.Model):
+class Mouvement(TimeStampedModel):
   
     CAUSAL = (
         ("INS", "Inscription"),
@@ -238,7 +238,7 @@ class Mouvement(models.Model):
         return self.date_paye.strftime('%d/%m/%y')
     
     
-class Expense(models.Model):
+class Expense(TimeStampedModel):
     legacy_id = models.CharField(max_length=36, unique=True ,default='')  # Store UUIDs here
     description = models.CharField(max_length=200, null=False)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
@@ -265,7 +265,7 @@ class Expense(models.Model):
     def formatted_date(self):
         # Format the date as "DD/MM/YYYY"
         return self.date.strftime('%d/%m/%Y')
-class Transfer(models.Model):
+class Transfer(TimeStampedModel):
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     date = models.DateField(default=timezone.now)
     from_cashier = models.ForeignKey(Cashier, on_delete=models.CASCADE, related_name="transfers_out")
