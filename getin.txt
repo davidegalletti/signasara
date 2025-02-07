@@ -1,0 +1,3 @@
+
+# to the in sics stage database 
+psql -U nasara -d sicsnasara_stage
