@@ -205,7 +205,7 @@ class Mouvement(TimeStampedModel):
     tarif = models.ForeignKey(Tarif, on_delete=models.SET_NULL, null=True, blank=True)
     cashier = models.ForeignKey(Cashier, on_delete=models.CASCADE, null=True, blank=True)
     annee_scolaire = models.ForeignKey(AnneeScolaire, on_delete=models.CASCADE, null=True, blank=True)  # Add this field
-
+    
     #mouvement is a student base payment registering model 
     # 
     def save(self, *args, **kwargs):

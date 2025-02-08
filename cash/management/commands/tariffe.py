@@ -10,8 +10,8 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         # Get the current school year
         try:
-            #annee_scolaire = AnneeScolaire.objects.get(nom='Année scolaire 2023-24')
-            annee_scolaire = AnneeScolaire.objects.get(nom='2023 2024')
+            annee_scolaire = AnneeScolaire.objects.get(nom='Année scolaire 2023-24')
+            #annee_scolaire = AnneeScolaire.objects.get(nom='2023 2024')
         except AnneeScolaire.DoesNotExist:
             self.stdout.write(self.style.ERROR("Année scolaire 2023-24 not found."))
             return
