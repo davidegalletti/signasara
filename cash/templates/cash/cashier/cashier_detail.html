@@ -3,37 +3,77 @@
 
 {% block header %}
 <span class="navbar-brand mb-0 h1 text-white">cashier management {{ cashier.name }}</span>
-          
-    
-            <!-- Undo and Redo Icons -->
-            <div class="ml-2 d-flex align-items-stretch">
-             
-                <button class="class-card mr-3 hidden-print" onclick="myFunction()"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print</button>
-           
-                <button class="class-card mr-3" id="undo-button" title="Undo">
-                    <i class="fas fa-undo"></i>
-                </button>
-                <button class="class-card mr-3" id="redo-button" title="Redo">
-                    <i class="fas fa-redo"></i>
-                </button>
-                <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
-            </div>
+
+<!-- Undo and Redo Icons -->
+<div class="ml-2 d-flex align-items-stretch">
+    <button class="class-card mr-3 hidden-print" onclick="myFunction()"><span class="glyphicon glyphicon-print"
+            aria-hidden="true"></span> Print</button>
+    <button class="class-card mr-3" id="undo-button" title="Undo">
+        <i class="fas fa-undo"></i>
+    </button>
+    <button class="class-card mr-3" id="redo-button" title="Redo">
+        <i class="fas fa-redo"></i>
+    </button>
+    <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
+</div>
 {% endblock header %}
 
 {% block content %}
-<div class="container mt-4">
+<style>
+    .table-container {
+        max-width: 100%;
+        overflow-x: auto;
+        border-radius: 10px;
+        
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    .table th,
+    .table td {
+        padding: 2px 8px !important; /* Further reduced padding */
+        text-align: center;
+        font-size: 10px; /* Smaller font size */
+      
+      
+    }
+    .col-1 {
+       
+        width: 80px !important; /* Adjust as needed */
+      
+    }
+
+
+    .table th {
+        background-color: #333;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .table tbody tr:hover {
+        background-color: #e9ecef;
+    }</style>
+<div class=" mt-4">
     <h5><strong>Informations sur le Caissier</strong></h5>
-    
+
     <div class="card shadow-sm p-3 mb-4">
         <h6><strong>Nom:</strong> {{ cashier.name }}</h6>
         <h6><strong>Type:</strong> {{ cashier.type }}</h6>
         <h6><strong>Note:</strong> {{ cashier.note|default:"Aucune note" }}</h6>
         <h6><strong>Par Défaut:</strong> {{ cashier.is_default|yesno:"Oui,Non" }}</h6>
-        <h6><strong>Solde:</strong> {{ balance|format_amount }}</h6>
+        <h6 id="balance"><strong>Solde:</strong> {{ balance|format_amount }}</h6>
     </div>
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.1.1/css/buttons.dataTables.min.css">
+
     <h5><strong>Transferts Sortants</strong></h5>
-    <table class="table table-striped table-bordered mt-3">
+    <table id="transfersOutTable" class="table table-striped table-bordered mt-3" style="width:100%">
         <thead>
             <tr>
                 <th>Date</th>
@@ -59,7 +99,7 @@
     </table>
 
     <h5><strong>Transferts Entrants</strong></h5>
-    <table class="table table-striped table-bordered mt-3">
+    <table id="transfersInTable" class="table table-striped table-bordered mt-3" style="width:100%">
         <thead>
             <tr>
                 <th>Date</th>
@@ -83,6 +123,35 @@
             {% endfor %}
         </tbody>
     </table>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.1.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.1.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.1.1/js/buttons.print.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#transfersOutTable').DataTable({
+                //dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'print'
+                ]
+            });
+
+            $('#transfersInTable').DataTable({
+                //dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'print'
+                ]
+            });
+        });
+
+        function myFunction() {
+            window.print();
+        }
+    </script>
 
 </div><!-- End of container -->
 {% endblock %}

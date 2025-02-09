@@ -1203,10 +1203,17 @@ def delete_cashier(request, pk):
 
 
 # List all transfers
-def transfer_list(request):
+'''def transfer_list(request):
     transfers = Transfer.objects.all().order_by('-date')  # Order by date descending
     return render(request, 'cash/transfert/transfer_list.html', {'transfers': transfers})
+'''
 
+def transfer_list(request):
+    transfers = Transfer.objects.all().order_by('-date').select_related('from_cashier', 'to_cashier')  # Order by date descending, select related cashiers for efficient query
+    for transfer in transfers:
+        transfer.from_cashier_balance = transfer.from_cashier.balance()  # Calculate balance
+        transfer.to_cashier_balance = transfer.to_cashier.balance() # Calculate balance
+    return render(request, 'cash/transfert/transfer_list.html', {'transfers': transfers})
 def create_transfer(request):
     if request.method == 'POST':
         form = TransferForm(request.POST)
@@ -1348,7 +1355,17 @@ def cashier_detail(request, pk):
         'transfers_out': transfers_out,
         'transfers_in': transfers_in
     })
-
+def get_cashier_balance(request):
+    cashier_id = request.GET.get('cashier_id')
+    try:
+        cashier = Cashier.objects.get(pk=cashier_id)
+        balance = cashier.balance()  # Assuming you have a balance() method
+        return JsonResponse({'balance': balance})
+    except Cashier.DoesNotExist:
+        return JsonResponse({'error': 'Cashier not found'}, status=404)
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)
+    
 @login_required
 def payment_delay_per_class(request, pk):
     # Get the current school year
@@ -1459,7 +1476,20 @@ def classe_information(request, pk):
         '2eme': second_tranche * total_students_confirmed,
         '3eme': third_tranche * total_students_confirmed,
     }
-
+    expected_total_school_fees = third_tranche * total_students_confirmed  
+    total_py_uniforms_received = Mouvement.objects.filter(
+        inscription__classe=classe,
+        inscription__annee_scolaire=school_year,
+        inscription__eleve__cs_py='P',  # Filter for PY students
+        causal='TEN'  # Assuming TEN is the causal for uniforms
+    ).aggregate(total=Sum('montant'))['total'] or 0
+    actual_total_school_fees_received = Mouvement.objects.filter(
+        inscription__classe=classe,
+        inscription__annee_scolaire=school_year,
+        causal__in=['SCO1', 'SCO2', 'SCO3']
+    ).aggregate(total=Sum('montant'))['total'] or 0
+    cost_per_uniform = UniformReservation.objects.filter(student_type='P').first().cost_per_uniform if UniformReservation.objects.filter(student_type='P').first() else 0 # 
+    total_py_uniforms_expected = total_students_confirmed * cost_per_uniform
     return render(request, 'cash/tarif/classe_information.html', {
         'classe': classe,
         'school_name': school_name,
@@ -1474,7 +1504,13 @@ def classe_information(request, pk):
         'first_tranche': first_tranche,
         'second_tranche': second_tranche,
         'third_tranche': third_tranche,
+        'total_py_uniforms_received':total_py_uniforms_received,
+        'actual_total_school_fees_received':actual_total_school_fees_received,
+        'expected_total_school_fees':expected_total_school_fees,
+        'total_py_uniforms_expected':total_py_uniforms_expected
+        
     })
+
 
 
 @login_required

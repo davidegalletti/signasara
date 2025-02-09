@@ -8,9 +8,11 @@
 {% block header %}
 <span class="navbar-brand mb-0 h1 text-white">eleves externes</span>
           
-    <h3 class='text-white'>  {{ total}} </h3>
+    <h3 class='text-white'> Total extern :  {{ total}} </h3>
             <!-- Undo and Redo Icons -->
             <div class="ml-2 d-flex align-items-stretch">
+
+                <button class="class-card mr-3 hidden-print" onclick="myFunction()"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print</button>
                 <button class="class-card mr-3" id="undo-button" title="Undo">
                     <i class="fas fa-undo"></i>
                 </button>
@@ -145,7 +147,9 @@
 
 <!-- Initialize DataTables -->
 <script>
-  
+    function myFunction() {
+        window.print();
+    }
     $(document).ready(function() {
         $('#offsiteStudentsTable').DataTable({
            // dom: 'Bfrtip',
@@ -154,13 +158,17 @@
             buttons: [
                 { extend: 'csv', text: 'Export CSV', className: 'btn btn-success' },
                 { extend: 'excel', text: 'Export Excel', className: 'btn btn-success' },
-                { extend: 'print', text: 'Print', className: 'btn btn-success' }
+                { extend: 'print', text: 'Print', className: 'class-card' }
             ],
             order: [],
             columnDefs: [
                 { targets: '_all', orderable: true }
             ]
         });
+        $('#print-button').on('click', function() {
+            table.button('.buttons-print').trigger();
+        });
     });
+   
 </script>
 {% endblock %}

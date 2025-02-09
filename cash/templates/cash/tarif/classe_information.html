@@ -64,13 +64,13 @@
         <!-- Left Column: Tarifs -->
         <div class="col-md-4 mb-4">
             <div class="card shadow-sm p-3">
-            
+                <h5><strong>frais par eleve</strong></h5>
                 <table class="table table-striped table-bordered mt-3">
                     <thead>
                         <tr>
                             <th>Causal</th>
                             <th>Montant</th>
-                            <th>Date d'expiration</th>
+                            <th>tranches</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -96,6 +96,8 @@
                 <h5><strong>Calculs des Paiements Attendus</strong></h5>
 
                 <!-- Tranches -->
+                <h5>Progressif par eleve par tranche</h5>
+
                 {% if first_tranche or second_tranche or third_tranche %}
                     <p><strong>1er Trimestre:</strong> {{ first_tranche|format_amount }}</p>
                     <p><strong>2ème Trimestre:</strong> {{ second_tranche|format_amount }}</p>
@@ -126,21 +128,33 @@
         <div class="col-md-4 mb-4">
             <div class="card shadow-sm p-3">
                 <h5><strong>Résumé Financier</strong></h5>
-
-                <!-- Example Financial Summary -->
-                {% if financial_summary %}
-                <ul class="list-group mt-3">
-                    {% for key, value in financial_summary.items %}
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        {{ key }}:
-                        <span>{{ value|format_amount }}</span>
-                    </li>
-                    {% endfor %}
-                </ul>
-                {% else %}
-                <p>Aucune donnée financière disponible.</p>
-                {% endif %}
-            </div>
+               {% comment %}
+                 <span> tot tenu rec  {{ total_py_uniforms_received |format_amount }}</span>
+               {% endcomment %}
+                {% comment %}
+                    <span> actual tot received {{ actual_total_school_fees_received|format_amount }}</span>
+                {% endcomment %}
+                <span> total exp school fees {{ expected_total_school_fees|format_amount }}</span>
+               {% comment %}
+                 <span> total uniform expeected {{ total_py_uniforms_expected }}</span>
+               {% endcomment %}
+                <!-- Exa
+                    mple Financial Summary -->
+            {% comment %}
+                    {% if financial_summary %}
+                    <ul class="list-group mt-3">
+                        {% for key, value in financial_summary.items %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{ key }}:
+                            <span>{{ value|format_amount }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <p>Aucune donnée financière disponible.</p>
+                    {% endif %}
+                </div>
+            {% endcomment %}
         </div>
 
     </div> <!-- End of row -->

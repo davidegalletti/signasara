@@ -1,15 +1,60 @@
 {% extends "../../layout.html" %}
+{% block header %}
+<div class="d-flex justify-content-between align-items-center w-100">
+    <!-- Left-aligned elements -->
+    <div class="d-flex align-items-center">
+        <span class="navbar-brand mb-0 h1 text-white">creer cashier </span>
+     
+        <p class='navbar-brand mb-0 h1 text-white'> {{ user.username }}</p>
+    </div>
 
+ 
+
+    <!-- Right-aligned elements (Undo, Redo, and Page Identifier) -->
+    <div class="d-flex align-items-stretch">
+        <a href="{% url 'cashier_list' %}" class="class-card mr-3">Cancel</a>
+        
+        <button class="class-card mr-3" id="undo-button" title="Undo">
+            <i class="fas fa-undo"></i>
+        </button>
+        <button class="class-card mr-3" id="redo-button" title="Redo">
+            <i class="fas fa-redo"></i>
+        </button>
+        <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
+    </div>
+</div>
+{% endblock header %}
 {% block content %}
 <div class="container mt-4">
-    <h2>Create Cashier</h2>
 
-    <form method="post">
+    <form method="post" class="form">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Create Cashier</button>
-    </form>
 
-    <a href="{% url 'cashier_list' %}" class="btn btn-secondary">Cancel</a>
+        {% if form.errors %}
+            <div class="alert alert-danger">
+                Please correct the errors below.
+            </div>
+        {% endif %}
+
+        {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% if field.help_text %}
+                    <small class="form-text text-muted">{{ field.help_text }}</small>
+                {% endif %}
+                {% if field.errors %}
+                    <div class="invalid-feedback d-block">
+                        {% for error in field.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        <button type="submit" class="btn btn-primary">Creer</button>
+
+    </form>
 </div>
 {% endblock %}

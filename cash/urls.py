@@ -52,6 +52,7 @@ urlpatterns = [
     path('cashiers/update/<int:pk>/', views.update_cashier, name='update_cashier'),
     path('cashiers/delete/<int:pk>/', views.delete_cashier, name='delete_cashier'),
      path('cashiers/<int:pk>/', views.cashier_detail, name='cashier_detail'),  
+      path('get_cashier_balance/', views.get_cashier_balance, name='get_cashier_balance'),
  path('class/<int:pk>/late-payments/', views.payment_delay_per_class, name='late_payments_per_class'),
      path('classe/<int:pk>/information/', views.classe_information, name='classe_information'),
     path('tarif/update/<int:pk>/', views.tarif_update, name='tarif_update'),  # Update tarif

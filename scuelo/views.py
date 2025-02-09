@@ -657,7 +657,7 @@ def change_school(request, pk):
                     'page_identifier': 'S05' })
 
 
-@login_required
+'''@login_required
 def offsite_students(request):
     """
     View to display students who are associated with schools where `externe` is True.
@@ -748,13 +748,85 @@ def offsite_students(request):
             'total': total,
         }
 
-        return render(request, 'scuelo/offsite_students.html', context)
+        return render(request, 'scuelo/offsite_students.html', context)'''
 
-    except Exception as e:
+from django.db.models import Q
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+
+from .models import Eleve, Inscription
+
+
+@login_required
+def offsite_students(request):
+    """
+    View to display students associated with schools where `externe` is True,
+    avoiding duplicate student entries.
+    """
+    # 1. Fetch all relevant student IDs using a single, combined query
+    offsite_student_ids = Inscription.objects.filter(
+        classe__ecole__externe=True,
+        classe__isnull=False,
+        classe__ecole__isnull=False
+    ).values_list('eleve_id', flat=True)
+
+    #Also include students where `annee_inscr` is Null
+    offsite_student_ids_null_annee = Eleve.objects.filter(
+        inscriptions__classe__ecole__externe=True,
+        inscriptions__classe__isnull=False,
+        inscriptions__classe__ecole__isnull=False,
+        annee_inscr__isnull=True
+    ).distinct().values_list('id', flat=True)
+
+
+    all_offsite_student_ids = set(list(offsite_student_ids) + list(offsite_student_ids_null_annee))
+
+
+    # 2. Fetch all unique offsite students in a single query
+    offsite_students = Eleve.objects.filter(id__in=all_offsite_student_ids).prefetch_related(
+        'inscriptions__classe__ecole'
+    )
+
+    # 3. Prepare the data for the template
+    student_data_list = []
+    for student in offsite_students:
+        # Get the latest inscription to fetch school name
+        latest_inscription = student.inscriptions.filter(
+            classe__ecole__externe=True,
+            classe__isnull=False,
+            classe__ecole__isnull=False
+        ).order_by('-date_inscription').first()
+
+        school_name = latest_inscription.classe.ecole.nom if latest_inscription else "No School Assigned"
+
+        student_data = {
+            'id': student.id,
+            'nom': student.nom,
+            'prenom': student.prenom,
+            'condition_eleve': student.get_condition_eleve_display(),
+            'sex': student.get_sex_display(),
+            'date_naissance': student.date_naissance,
+            'cs_py': student.get_cs_py_display(),
+            'school_name': school_name,
+            'hand': student.get_hand_display(),
+            'note_eleve': student.note_eleve,
+        }
+        student_data_list.append(student_data)
+
+    # 4. Prepare the context
+    context = {
+        'all_offsite_students': student_data_list,
+        'page_identifier': 'S06',
+        'total': len(student_data_list),
+    }
+
+    return render(request, 'scuelo/offsite_students.html', context)
+
+'''    except Exception as e:
         # Log the error and display a user-friendly message
         print(f"An error occurred: {e}")
         messages.error(request, "An error occurred while fetching data. Please try again later.")
-        return redirect('some_fallback_view')  # Redirect to a fallback view
+        return redirect('some_fallback_view')  # Redirect to a fallback view'''
 
 '''@method_decorator(login_required, name='dispatch')
 class StudentCreateView(CreateView):

@@ -5,7 +5,7 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit, Row, Column
 from django.contrib.auth.models import User, Group 
 from django.contrib.auth.forms import UserCreationForm
-
+from scuelo.models import AnneeScolaire
 class PaiementPerStudentForm(forms.ModelForm):
     class Meta:
         model = Mouvement
@@ -33,6 +33,13 @@ class MouvementForm(forms.ModelForm):
             }),
             'inscription': forms.Select(attrs={'class': 'form-control select2'}),  # Added `select2` class
         }            
+        
+class ChangeSchoolYearForm(forms.Form):
+    new_annee_scolaire = forms.ModelChoiceField(
+        queryset=AnneeScolaire.objects.filter(nom="2023 2024"), # Filter by name
+        label="New School Year",
+        required=True,
+    )
         
 class TarifForm(forms.ModelForm):
     class Meta:
@@ -75,9 +82,42 @@ class ExpenseForm(forms.ModelForm):
 class TransferForm(forms.ModelForm):
     class Meta:
         model = Transfer
-        fields = ['amount', 'from_cashier', 'to_cashier', 'note']            
-        
+        fields = ['amount', 'from_cashier', 'to_cashier', 'note']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        # Apply Bootstrap styling to all fields
+        for field_name, field in self.fields.items():
+            field.widget.attrs.update({'class': 'form-control'})
+
+        # Customize specific fields (optional)
+        self.fields['note'].widget = forms.Textarea(attrs={'class': 'form-control', 'rows': 3})
+        self.fields['amount'].widget.attrs.update({'placeholder': 'Enter Amount', 'min': 0})
+        self.fields['from_cashier'].label = "From"
+        self.fields['to_cashier'].label = "To"
+
+
+        # Filter the 'to_cashier' queryset based on the 'from_cashier' value
+        if 'from_cashier' in self.data:
+            try:
+                from_cashier_id = int(self.data.get('from_cashier'))
+                self.fields['to_cashier'].queryset = Cashier.objects.exclude(pk=from_cashier_id)
+            except (ValueError, TypeError):
+                pass  # Invalid input, ignore
+        else:
+            # Initial state: Exclude no cashiers
+            self.fields['to_cashier'].queryset = Cashier.objects.all()
 class CashierForm(forms.ModelForm):
     class Meta:
         model = Cashier
-        fields = ['name', 'type', 'note', 'is_default']        
+        fields = ['name', 'type', 'note', 'is_default']  # Specify the fields you want
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs.update({'class': 'form-control'})
+
+        # Optionally, customize individual fields further
+        self.fields['note'].widget = forms.Textarea(attrs={'class': 'form-control', 'rows': 3})  # For better note input
+        self.fields['is_default'].widget.attrs.update({'class': 'form-check-input'}) #style the is_default checkbox

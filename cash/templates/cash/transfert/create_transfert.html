@@ -1,44 +1,88 @@
 {% extends "../../layout.html" %}
+{% load custom_filters %}
 {% block header %}
 <div class="d-flex justify-content-between align-items-center w-100">
     <div class="d-flex align-items-center">
-        <span class="navbar-brand mb-0 h1 text-white">Sortie</span>
-         <!-- Display Total Expense -->
-         
+        <span class="navbar-brand mb-0 h1 text-white">Transfert</span>
+        <!-- Display the balance here -->
+        <span class="text-white ml-3">Balance: <strong id="cashier-balance"> </strong> FCFA</span>
     </div>
 
-
     <div class="d-flex align-items-stretch">
-        <a href="{% url 'create_transfer' %}" class="class-card mr-3">Add New Transfer</a>
+        
+     >
 
-        <button class="class-card mr-3 hidden-print" id="print-button" title="Print" onclick="myFunction()">
-            <i class="fas fa-print"></i>
-        </button>
-      {% comment %}
-          <button class="class-card mr-3 hidden-print" id="export-button" title="Export to Excel" onclick="exportToExcel()">
-              <i class="fas fa-file-excel"></i>
-          </button>
-      {% endcomment %}
-        <button class="class-card mr-3" id="undo-button" title="Undo">
+        <button class="class-card mr-3" id="undo-button" title="Annuler">
             <i class="fas fa-undo"></i>
         </button>
-        <button class="class-card mr-3" id="redo-button" title="Redo">
+        <button class="class-card mr-3" id="redo-button" title="Refaire">
             <i class="fas fa-redo"></i>
         </button>
         <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
-        
-       
     </div>
 </div>
 {% endblock header %}
+
 {% block content %}
 <div class="container mt-4">
-    <h2>Create Transfer</h2>
-    
-    <form method="post">
+    <h2>Créer un Transfert</h2>
+
+    <form method="post" class="form">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Transfer</button>
+
+        {% if form.errors %}
+            <div class="alert alert-danger">
+                Veuillez corriger les erreurs ci-dessous.
+            </div>
+        {% endif %}
+
+        {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% if field.help_text %}
+                    <small class="form-text text-muted">{{ field.help_text }}</small>
+                {% endif %}
+                {% if field.errors %}
+                    <div class="invalid-feedback d-block">
+                        {% for error in field.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        <button type="submit" class="btn btn-primary">Transférer</button>
     </form>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('#id_from_cashier').change(function() {
+            var cashierId = $(this).val();
+            if (cashierId) {
+                $.ajax({
+                    url: "{% url 'get_cashier_balance' %}",
+                    data: {'cashier_id': cashierId},
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data.balance !== undefined) {
+                            $('#cashier-balance').text(data.balance);
+                        } else if (data.error) {
+                            $('#cashier-balance').text('Error: ' + data.error);
+                        } else {
+                            $('#cashier-balance').text('N/A');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        $('#cashier-balance').text('Error loading balance.');
+                    }
+                });
+            } else {
+                $('#cashier-balance').text(''); // Clear balance if no cashier is selected
+            }
+        });
+    });
+</script>
 {% endblock %}

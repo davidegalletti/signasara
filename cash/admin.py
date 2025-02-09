@@ -1,7 +1,11 @@
 from django.contrib import admin
 from scuelo.admin import sics_site 
+from scuelo.models import AnneeScolaire
+from .forms import  ChangeSchoolYearForm
 from .models import Cashier, Mouvement, Expense, Transfer ,Tarif
 from django.db import models
+from django.contrib import messages
+from django.shortcuts import redirect
 from django.shortcuts import render
 class PaiementAdmin(admin.ModelAdmin):
     list_display = [
@@ -116,7 +120,59 @@ class TarifAdmin(admin.ModelAdmin):
         'expected_total_class', 'actual_total_received',
         'expected_total_tenues_py', 'actual_total_received_tenues_py'
     )'''
+    actions = ['change_school_year']
+    def get_form(self, request, obj=None, **kwargs):
+        if request.method == 'GET' and 'action' in request.GET and request.GET['action'] == 'change_school_year':
+            self.form = ChangeSchoolYearForm
+        else:
+            self.form = None
+        return super().get_form(request, obj, **kwargs)
 
+    def changelist_view(self, request, extra_context=None):
+        extra_context = extra_context or {}
+
+        if request.method == 'POST' and 'action' in request.POST and request.POST['action'] == 'change_school_year':
+            form = ChangeSchoolYearForm(request.POST)
+
+            if form.is_valid():
+                new_annee_scolaire = form.cleaned_data['new_annee_scolaire']
+
+                selected = request.POST.getlist('_selected_action')
+                queryset = self.model.objects.filter(pk__in=selected)
+
+                updated_count = 0
+                for tarif in queryset:
+                    tarif.annee_scolaire = new_annee_scolaire
+                    tarif.save()
+                    updated_count += 1
+
+                self.message_user(request, f"Successfully updated the school year for {updated_count} tariffs to {new_annee_scolaire}", level=messages.SUCCESS)
+                return redirect("admin:cash_tarif_changelist")
+
+            else:
+                extra_context['form'] = form
+                messages.error(request, "There was an error in the form. Please correct it.")
+        else:
+            form = ChangeSchoolYearForm()
+            extra_context['form'] = form
+
+        return super().changelist_view(request, extra_context=extra_context)
+
+    @admin.action(description='Change school year for selected tariffs to 2023 2024')
+    def change_school_year(self, request, queryset):
+        """
+        Admin action to change the annee_scolaire for selected Tarif entries to "2023 2024"
+        """
+        # Get the target AnneeScolaire instance
+        try:
+            target_annee_scolaire = AnneeScolaire.objects.get(nom="2023 2024")
+        except AnneeScolaire.DoesNotExist:
+            self.message_user(request, "Error: No AnneeScolaire found with name '2023 2024'.", level=messages.ERROR)
+            return
+
+        # Update the selected Tarif entries
+        updated_count = queryset.update(annee_scolaire=target_annee_scolaire)
+        self.message_user(request, f"Successfully updated the school year for {updated_count} tariffs to '2023 2024'.", level=messages.SUCCESS)
     def get_queryset(self, request):
         # Optimize database queries by prefetching related objects
         return super().get_queryset(request).select_related('classe', 'annee_scolaire')
