@@ -4106,3 +4106,2057 @@
 2025-01-31 00:36:07,569 - ERROR - Inscription for Eleve ID 1059 in Année scolaire 2024-25 not found.
 2025-01-31 00:36:07,570 - ERROR - Inscription for Eleve ID 1134 in Année scolaire 2024-25 not found.
 2025-01-31 00:36:07,570 - INFO - Import SICS END
+2025-02-08 19:14:18,019 - INFO - Starting import from /home/ye/sis/scuelo/export_sics/Export SICS 2.1.75 V2.xlsx
+2025-02-08 19:14:18,121 - INFO - Eleve 1582 already exists.
+2025-02-08 19:14:18,121 - INFO - Eleve 1302 already exists.
+2025-02-08 19:14:18,122 - INFO - Eleve 1307 already exists.
+2025-02-08 19:14:18,123 - INFO - Eleve 1308 already exists.
+2025-02-08 19:14:18,124 - INFO - Eleve 1309 already exists.
+2025-02-08 19:14:18,125 - INFO - Eleve 1311 already exists.
+2025-02-08 19:14:18,126 - INFO - Eleve 1314 already exists.
+2025-02-08 19:14:18,127 - INFO - Eleve 1315 already exists.
+2025-02-08 19:14:18,128 - INFO - Eleve 1335 already exists.
+2025-02-08 19:14:18,129 - INFO - Eleve 1338 already exists.
+2025-02-08 19:14:18,130 - INFO - Eleve 1339 already exists.
+2025-02-08 19:14:18,131 - INFO - Eleve 1342 already exists.
+2025-02-08 19:14:18,131 - INFO - Eleve 1343 already exists.
+2025-02-08 19:14:18,132 - INFO - Eleve 1344 already exists.
+2025-02-08 19:14:18,133 - INFO - Eleve 1349 already exists.
+2025-02-08 19:14:18,134 - INFO - Eleve 1350 already exists.
+2025-02-08 19:14:18,135 - INFO - Eleve 1357 already exists.
+2025-02-08 19:14:18,136 - INFO - Eleve 1362 already exists.
+2025-02-08 19:14:18,137 - INFO - Eleve 1366 already exists.
+2025-02-08 19:14:18,138 - INFO - Eleve 1369 already exists.
+2025-02-08 19:14:18,139 - INFO - Eleve 1371 already exists.
+2025-02-08 19:14:18,141 - INFO - Eleve 1142 already exists.
+2025-02-08 19:14:18,142 - INFO - Eleve 1155 already exists.
+2025-02-08 19:14:18,144 - INFO - Eleve 1188 already exists.
+2025-02-08 19:14:18,145 - INFO - Eleve 1194 already exists.
+2025-02-08 19:14:18,146 - INFO - Eleve 1214 already exists.
+2025-02-08 19:14:18,147 - INFO - Eleve 1216 already exists.
+2025-02-08 19:14:18,147 - INFO - Eleve 1218 already exists.
+2025-02-08 19:14:18,148 - INFO - Eleve 1219 already exists.
+2025-02-08 19:14:18,149 - INFO - Eleve 1220 already exists.
+2025-02-08 19:14:18,150 - INFO - Eleve 1221 already exists.
+2025-02-08 19:14:18,151 - INFO - Eleve 1222 already exists.
+2025-02-08 19:14:18,151 - INFO - Eleve 1223 already exists.
+2025-02-08 19:14:18,152 - INFO - Eleve 1224 already exists.
+2025-02-08 19:14:18,153 - INFO - Eleve 1225 already exists.
+2025-02-08 19:14:18,155 - INFO - Eleve 1226 already exists.
+2025-02-08 19:14:18,156 - INFO - Eleve 1227 already exists.
+2025-02-08 19:14:18,157 - INFO - Eleve 1228 already exists.
+2025-02-08 19:14:18,158 - INFO - Eleve 1229 already exists.
+2025-02-08 19:14:18,159 - INFO - Eleve 1230 already exists.
+2025-02-08 19:14:18,160 - INFO - Eleve 1231 already exists.
+2025-02-08 19:14:18,161 - INFO - Eleve 1232 already exists.
+2025-02-08 19:14:18,162 - INFO - Eleve 1233 already exists.
+2025-02-08 19:14:18,163 - INFO - Eleve 1235 already exists.
+2025-02-08 19:14:18,164 - INFO - Eleve 1236 already exists.
+2025-02-08 19:14:18,165 - INFO - Eleve 1238 already exists.
+2025-02-08 19:14:18,165 - INFO - Eleve 1239 already exists.
+2025-02-08 19:14:18,166 - INFO - Eleve 1241 already exists.
+2025-02-08 19:14:18,167 - INFO - Eleve 1242 already exists.
+2025-02-08 19:14:18,168 - INFO - Eleve 1243 already exists.
+2025-02-08 19:14:18,169 - INFO - Eleve 1244 already exists.
+2025-02-08 19:14:18,169 - INFO - Eleve 1245 already exists.
+2025-02-08 19:14:18,170 - INFO - Eleve 1246 already exists.
+2025-02-08 19:14:18,171 - INFO - Eleve 1247 already exists.
+2025-02-08 19:14:18,173 - INFO - Eleve 1248 already exists.
+2025-02-08 19:14:18,174 - INFO - Eleve 1249 already exists.
+2025-02-08 19:14:18,176 - INFO - Eleve 1250 already exists.
+2025-02-08 19:14:18,177 - INFO - Eleve 1251 already exists.
+2025-02-08 19:14:18,177 - INFO - Eleve 1253 already exists.
+2025-02-08 19:14:18,178 - INFO - Eleve 1254 already exists.
+2025-02-08 19:14:18,179 - INFO - Eleve 1255 already exists.
+2025-02-08 19:14:18,180 - INFO - Eleve 1256 already exists.
+2025-02-08 19:14:18,181 - INFO - Eleve 1257 already exists.
+2025-02-08 19:14:18,182 - INFO - Eleve 1258 already exists.
+2025-02-08 19:14:18,183 - INFO - Eleve 1259 already exists.
+2025-02-08 19:14:18,185 - INFO - Eleve 1260 already exists.
+2025-02-08 19:14:18,186 - INFO - Eleve 1261 already exists.
+2025-02-08 19:14:18,187 - INFO - Eleve 1262 already exists.
+2025-02-08 19:14:18,189 - INFO - Eleve 1263 already exists.
+2025-02-08 19:14:18,190 - INFO - Eleve 1265 already exists.
+2025-02-08 19:14:18,191 - INFO - Eleve 1266 already exists.
+2025-02-08 19:14:18,193 - INFO - Eleve 1269 already exists.
+2025-02-08 19:14:18,195 - INFO - Eleve 1270 already exists.
+2025-02-08 19:14:18,196 - INFO - Eleve 1271 already exists.
+2025-02-08 19:14:18,197 - INFO - Eleve 1272 already exists.
+2025-02-08 19:14:18,198 - INFO - Eleve 1273 already exists.
+2025-02-08 19:14:18,200 - INFO - Eleve 1275 already exists.
+2025-02-08 19:14:18,202 - INFO - Eleve 1276 already exists.
+2025-02-08 19:14:18,203 - INFO - Eleve 1277 already exists.
+2025-02-08 19:14:18,205 - INFO - Eleve 1281 already exists.
+2025-02-08 19:14:18,206 - INFO - Eleve 1282 already exists.
+2025-02-08 19:14:18,208 - INFO - Eleve 1283 already exists.
+2025-02-08 19:14:18,209 - INFO - Eleve 1286 already exists.
+2025-02-08 19:14:18,210 - INFO - Eleve 1290 already exists.
+2025-02-08 19:14:18,212 - INFO - Eleve 1291 already exists.
+2025-02-08 19:14:18,214 - INFO - Eleve 1293 already exists.
+2025-02-08 19:14:18,215 - INFO - Eleve 1138 already exists.
+2025-02-08 19:14:18,216 - INFO - Eleve 1139 already exists.
+2025-02-08 19:14:18,218 - INFO - Eleve 1140 already exists.
+2025-02-08 19:14:18,219 - INFO - Eleve 1141 already exists.
+2025-02-08 19:14:18,220 - INFO - Eleve 1144 already exists.
+2025-02-08 19:14:18,222 - INFO - Eleve 1145 already exists.
+2025-02-08 19:14:18,223 - INFO - Eleve 1146 already exists.
+2025-02-08 19:14:18,224 - INFO - Eleve 1147 already exists.
+2025-02-08 19:14:18,225 - INFO - Eleve 1148 already exists.
+2025-02-08 19:14:18,227 - INFO - Eleve 1150 already exists.
+2025-02-08 19:14:18,228 - INFO - Eleve 1151 already exists.
+2025-02-08 19:14:18,229 - INFO - Eleve 1152 already exists.
+2025-02-08 19:14:18,230 - INFO - Eleve 1153 already exists.
+2025-02-08 19:14:18,231 - INFO - Eleve 1156 already exists.
+2025-02-08 19:14:18,232 - INFO - Eleve 1157 already exists.
+2025-02-08 19:14:18,233 - INFO - Eleve 1158 already exists.
+2025-02-08 19:14:18,234 - INFO - Eleve 1159 already exists.
+2025-02-08 19:14:18,235 - INFO - Eleve 1160 already exists.
+2025-02-08 19:14:18,237 - INFO - Eleve 1162 already exists.
+2025-02-08 19:14:18,238 - INFO - Eleve 1164 already exists.
+2025-02-08 19:14:18,240 - INFO - Eleve 1165 already exists.
+2025-02-08 19:14:18,241 - INFO - Eleve 1166 already exists.
+2025-02-08 19:14:18,242 - INFO - Eleve 1167 already exists.
+2025-02-08 19:14:18,244 - INFO - Eleve 1168 already exists.
+2025-02-08 19:14:18,245 - INFO - Eleve 1169 already exists.
+2025-02-08 19:14:18,247 - INFO - Eleve 1170 already exists.
+2025-02-08 19:14:18,248 - INFO - Eleve 1171 already exists.
+2025-02-08 19:14:18,249 - INFO - Eleve 1173 already exists.
+2025-02-08 19:14:18,251 - INFO - Eleve 1175 already exists.
+2025-02-08 19:14:18,252 - INFO - Eleve 1176 already exists.
+2025-02-08 19:14:18,253 - INFO - Eleve 1177 already exists.
+2025-02-08 19:14:18,256 - INFO - Eleve 1178 already exists.
+2025-02-08 19:14:18,257 - INFO - Eleve 1179 already exists.
+2025-02-08 19:14:18,258 - INFO - Eleve 1180 already exists.
+2025-02-08 19:14:18,259 - INFO - Eleve 1181 already exists.
+2025-02-08 19:14:18,260 - INFO - Eleve 1182 already exists.
+2025-02-08 19:14:18,261 - INFO - Eleve 1183 already exists.
+2025-02-08 19:14:18,262 - INFO - Eleve 1184 already exists.
+2025-02-08 19:14:18,263 - INFO - Eleve 1185 already exists.
+2025-02-08 19:14:18,264 - INFO - Eleve 1186 already exists.
+2025-02-08 19:14:18,265 - INFO - Eleve 1187 already exists.
+2025-02-08 19:14:18,265 - INFO - Eleve 1189 already exists.
+2025-02-08 19:14:18,266 - INFO - Eleve 1190 already exists.
+2025-02-08 19:14:18,267 - INFO - Eleve 1191 already exists.
+2025-02-08 19:14:18,268 - INFO - Eleve 1192 already exists.
+2025-02-08 19:14:18,269 - INFO - Eleve 1193 already exists.
+2025-02-08 19:14:18,271 - INFO - Eleve 1195 already exists.
+2025-02-08 19:14:18,272 - INFO - Eleve 1198 already exists.
+2025-02-08 19:14:18,273 - INFO - Eleve 1199 already exists.
+2025-02-08 19:14:18,275 - INFO - Eleve 1202 already exists.
+2025-02-08 19:14:18,276 - INFO - Eleve 1203 already exists.
+2025-02-08 19:14:18,277 - INFO - Eleve 1204 already exists.
+2025-02-08 19:14:18,278 - INFO - Eleve 1205 already exists.
+2025-02-08 19:14:18,279 - INFO - Eleve 1206 already exists.
+2025-02-08 19:14:18,280 - INFO - Eleve 1207 already exists.
+2025-02-08 19:14:18,281 - INFO - Eleve 1209 already exists.
+2025-02-08 19:14:18,282 - INFO - Eleve 1210 already exists.
+2025-02-08 19:14:18,282 - INFO - Eleve 1211 already exists.
+2025-02-08 19:14:18,283 - INFO - Eleve 1212 already exists.
+2025-02-08 19:14:18,285 - INFO - Eleve 1213 already exists.
+2025-02-08 19:14:18,285 - INFO - Eleve 1071 already exists.
+2025-02-08 19:14:18,286 - INFO - Eleve 1072 already exists.
+2025-02-08 19:14:18,288 - INFO - Eleve 1073 already exists.
+2025-02-08 19:14:18,289 - INFO - Eleve 1074 already exists.
+2025-02-08 19:14:18,290 - INFO - Eleve 1075 already exists.
+2025-02-08 19:14:18,292 - INFO - Eleve 1076 already exists.
+2025-02-08 19:14:18,293 - INFO - Eleve 1077 already exists.
+2025-02-08 19:14:18,294 - INFO - Eleve 1078 already exists.
+2025-02-08 19:14:18,295 - INFO - Eleve 1079 already exists.
+2025-02-08 19:14:18,296 - INFO - Eleve 1080 already exists.
+2025-02-08 19:14:18,297 - INFO - Eleve 1081 already exists.
+2025-02-08 19:14:18,297 - INFO - Eleve 1082 already exists.
+2025-02-08 19:14:18,298 - INFO - Eleve 1083 already exists.
+2025-02-08 19:14:18,300 - INFO - Eleve 1084 already exists.
+2025-02-08 19:14:18,301 - INFO - Eleve 1085 already exists.
+2025-02-08 19:14:18,302 - INFO - Eleve 1086 already exists.
+2025-02-08 19:14:18,302 - INFO - Eleve 1087 already exists.
+2025-02-08 19:14:18,303 - INFO - Eleve 1088 already exists.
+2025-02-08 19:14:18,305 - INFO - Eleve 1089 already exists.
+2025-02-08 19:14:18,307 - INFO - Eleve 1090 already exists.
+2025-02-08 19:14:18,308 - INFO - Eleve 1091 already exists.
+2025-02-08 19:14:18,309 - INFO - Eleve 1092 already exists.
+2025-02-08 19:14:18,310 - INFO - Eleve 1093 already exists.
+2025-02-08 19:14:18,311 - INFO - Eleve 1094 already exists.
+2025-02-08 19:14:18,312 - INFO - Eleve 1095 already exists.
+2025-02-08 19:14:18,314 - INFO - Eleve 1096 already exists.
+2025-02-08 19:14:18,314 - INFO - Eleve 1097 already exists.
+2025-02-08 19:14:18,315 - INFO - Eleve 1098 already exists.
+2025-02-08 19:14:18,316 - INFO - Eleve 1099 already exists.
+2025-02-08 19:14:18,317 - INFO - Eleve 1100 already exists.
+2025-02-08 19:14:18,318 - INFO - Eleve 1101 already exists.
+2025-02-08 19:14:18,318 - INFO - Eleve 1102 already exists.
+2025-02-08 19:14:18,319 - INFO - Eleve 1103 already exists.
+2025-02-08 19:14:18,320 - INFO - Eleve 1104 already exists.
+2025-02-08 19:14:18,321 - INFO - Eleve 1106 already exists.
+2025-02-08 19:14:18,322 - INFO - Eleve 1107 already exists.
+2025-02-08 19:14:18,324 - INFO - Eleve 1108 already exists.
+2025-02-08 19:14:18,325 - INFO - Eleve 1109 already exists.
+2025-02-08 19:14:18,326 - INFO - Eleve 1110 already exists.
+2025-02-08 19:14:18,328 - INFO - Eleve 1111 already exists.
+2025-02-08 19:14:18,329 - INFO - Eleve 1113 already exists.
+2025-02-08 19:14:18,330 - INFO - Eleve 1114 already exists.
+2025-02-08 19:14:18,331 - INFO - Eleve 1115 already exists.
+2025-02-08 19:14:18,331 - INFO - Eleve 1116 already exists.
+2025-02-08 19:14:18,332 - INFO - Eleve 1117 already exists.
+2025-02-08 19:14:18,333 - INFO - Eleve 1118 already exists.
+2025-02-08 19:14:18,334 - INFO - Eleve 1119 already exists.
+2025-02-08 19:14:18,335 - INFO - Eleve 1120 already exists.
+2025-02-08 19:14:18,336 - INFO - Eleve 1121 already exists.
+2025-02-08 19:14:18,337 - INFO - Eleve 1122 already exists.
+2025-02-08 19:14:18,338 - INFO - Eleve 1123 already exists.
+2025-02-08 19:14:18,339 - INFO - Eleve 1124 already exists.
+2025-02-08 19:14:18,341 - INFO - Eleve 1125 already exists.
+2025-02-08 19:14:18,342 - INFO - Eleve 1126 already exists.
+2025-02-08 19:14:18,343 - INFO - Eleve 1127 already exists.
+2025-02-08 19:14:18,344 - INFO - Eleve 1128 already exists.
+2025-02-08 19:14:18,345 - INFO - Eleve 1129 already exists.
+2025-02-08 19:14:18,346 - INFO - Eleve 1130 already exists.
+2025-02-08 19:14:18,347 - INFO - Eleve 1131 already exists.
+2025-02-08 19:14:18,348 - INFO - Eleve 1132 already exists.
+2025-02-08 19:14:18,349 - INFO - Eleve 1133 already exists.
+2025-02-08 19:14:18,350 - INFO - Eleve 1134 already exists.
+2025-02-08 19:14:18,351 - INFO - Eleve 1135 already exists.
+2025-02-08 19:14:18,352 - INFO - Eleve 1136 already exists.
+2025-02-08 19:14:18,353 - INFO - Eleve 1137 already exists.
+2025-02-08 19:14:18,354 - INFO - Eleve 1161 already exists.
+2025-02-08 19:14:18,355 - INFO - Eleve 1196 already exists.
+2025-02-08 19:14:18,356 - INFO - Eleve 1215 already exists.
+2025-02-08 19:14:18,358 - INFO - Eleve 1234 already exists.
+2025-02-08 19:14:18,359 - INFO - Eleve 1237 already exists.
+2025-02-08 19:14:18,360 - INFO - Eleve 1252 already exists.
+2025-02-08 19:14:18,361 - INFO - Eleve 1264 already exists.
+2025-02-08 19:14:18,362 - INFO - Eleve 1305 already exists.
+2025-02-08 19:14:18,363 - INFO - Eleve 1306 already exists.
+2025-02-08 19:14:18,364 - INFO - Eleve 1322 already exists.
+2025-02-08 19:14:18,365 - INFO - Eleve 1333 already exists.
+2025-02-08 19:14:18,366 - INFO - Eleve 1347 already exists.
+2025-02-08 19:14:18,366 - INFO - Eleve 1348 already exists.
+2025-02-08 19:14:18,367 - INFO - Eleve 1354 already exists.
+2025-02-08 19:14:18,368 - INFO - Eleve 1355 already exists.
+2025-02-08 19:14:18,369 - INFO - Eleve 1356 already exists.
+2025-02-08 19:14:18,370 - INFO - Eleve 1363 already exists.
+2025-02-08 19:14:18,372 - INFO - Eleve 1373 already exists.
+2025-02-08 19:14:18,373 - INFO - Eleve 1376 already exists.
+2025-02-08 19:14:18,374 - INFO - Eleve 1001 already exists.
+2025-02-08 19:14:18,376 - INFO - Eleve 1002 already exists.
+2025-02-08 19:14:18,377 - INFO - Eleve 1003 already exists.
+2025-02-08 19:14:18,378 - INFO - Eleve 1004 already exists.
+2025-02-08 19:14:18,379 - INFO - Eleve 1005 already exists.
+2025-02-08 19:14:18,380 - INFO - Eleve 1006 already exists.
+2025-02-08 19:14:18,381 - INFO - Eleve 1007 already exists.
+2025-02-08 19:14:18,382 - INFO - Eleve 1008 already exists.
+2025-02-08 19:14:18,383 - INFO - Eleve 1009 already exists.
+2025-02-08 19:14:18,384 - INFO - Eleve 1010 already exists.
+2025-02-08 19:14:18,385 - INFO - Eleve 1011 already exists.
+2025-02-08 19:14:18,386 - INFO - Eleve 1012 already exists.
+2025-02-08 19:14:18,387 - INFO - Eleve 1013 already exists.
+2025-02-08 19:14:18,389 - INFO - Eleve 1014 already exists.
+2025-02-08 19:14:18,390 - INFO - Eleve 1015 already exists.
+2025-02-08 19:14:18,391 - INFO - Eleve 1016 already exists.
+2025-02-08 19:14:18,392 - INFO - Eleve 1017 already exists.
+2025-02-08 19:14:18,393 - INFO - Eleve 1018 already exists.
+2025-02-08 19:14:18,394 - INFO - Eleve 1019 already exists.
+2025-02-08 19:14:18,395 - INFO - Eleve 1020 already exists.
+2025-02-08 19:14:18,396 - INFO - Eleve 1021 already exists.
+2025-02-08 19:14:18,397 - INFO - Eleve 1022 already exists.
+2025-02-08 19:14:18,398 - INFO - Eleve 1023 already exists.
+2025-02-08 19:14:18,399 - INFO - Eleve 1024 already exists.
+2025-02-08 19:14:18,400 - INFO - Eleve 1025 already exists.
+2025-02-08 19:14:18,401 - INFO - Eleve 1026 already exists.
+2025-02-08 19:14:18,402 - INFO - Eleve 1027 already exists.
+2025-02-08 19:14:18,403 - INFO - Eleve 1028 already exists.
+2025-02-08 19:14:18,404 - INFO - Eleve 1029 already exists.
+2025-02-08 19:14:18,405 - INFO - Eleve 1030 already exists.
+2025-02-08 19:14:18,406 - INFO - Eleve 1031 already exists.
+2025-02-08 19:14:18,408 - INFO - Eleve 1032 already exists.
+2025-02-08 19:14:18,410 - INFO - Eleve 1033 already exists.
+2025-02-08 19:14:18,410 - INFO - Eleve 1034 already exists.
+2025-02-08 19:14:18,411 - INFO - Eleve 1035 already exists.
+2025-02-08 19:14:18,412 - INFO - Eleve 1036 already exists.
+2025-02-08 19:14:18,413 - INFO - Eleve 1037 already exists.
+2025-02-08 19:14:18,414 - INFO - Eleve 1038 already exists.
+2025-02-08 19:14:18,416 - INFO - Eleve 1039 already exists.
+2025-02-08 19:14:18,417 - INFO - Eleve 1040 already exists.
+2025-02-08 19:14:18,417 - INFO - Eleve 1041 already exists.
+2025-02-08 19:14:18,418 - INFO - Eleve 1042 already exists.
+2025-02-08 19:14:18,419 - INFO - Eleve 1043 already exists.
+2025-02-08 19:14:18,420 - INFO - Eleve 1044 already exists.
+2025-02-08 19:14:18,422 - INFO - Eleve 1045 already exists.
+2025-02-08 19:14:18,423 - INFO - Eleve 1046 already exists.
+2025-02-08 19:14:18,424 - INFO - Eleve 1047 already exists.
+2025-02-08 19:14:18,426 - INFO - Eleve 1048 already exists.
+2025-02-08 19:14:18,426 - INFO - Eleve 1049 already exists.
+2025-02-08 19:14:18,427 - INFO - Eleve 1050 already exists.
+2025-02-08 19:14:18,429 - INFO - Eleve 1051 already exists.
+2025-02-08 19:14:18,430 - INFO - Eleve 1052 already exists.
+2025-02-08 19:14:18,430 - INFO - Eleve 1053 already exists.
+2025-02-08 19:14:18,431 - INFO - Eleve 1054 already exists.
+2025-02-08 19:14:18,432 - INFO - Eleve 1055 already exists.
+2025-02-08 19:14:18,433 - INFO - Eleve 1056 already exists.
+2025-02-08 19:14:18,434 - INFO - Eleve 1057 already exists.
+2025-02-08 19:14:18,435 - INFO - Eleve 1058 already exists.
+2025-02-08 19:14:18,436 - INFO - Eleve 1059 already exists.
+2025-02-08 19:14:18,437 - INFO - Eleve 1060 already exists.
+2025-02-08 19:14:18,438 - INFO - Eleve 1061 already exists.
+2025-02-08 19:14:18,439 - INFO - Eleve 1062 already exists.
+2025-02-08 19:14:18,441 - INFO - Eleve 1063 already exists.
+2025-02-08 19:14:18,442 - INFO - Eleve 1064 already exists.
+2025-02-08 19:14:18,444 - INFO - Eleve 1065 already exists.
+2025-02-08 19:14:18,445 - INFO - Eleve 1066 already exists.
+2025-02-08 19:14:18,446 - INFO - Eleve 1067 already exists.
+2025-02-08 19:14:18,447 - INFO - Eleve 1068 already exists.
+2025-02-08 19:14:18,448 - INFO - Eleve 1069 already exists.
+2025-02-08 19:14:18,448 - INFO - Eleve 1070 already exists.
+2025-02-08 19:14:18,449 - INFO - Eleve 1105 already exists.
+2025-02-08 19:14:18,450 - INFO - Eleve 1112 already exists.
+2025-02-08 19:14:18,450 - INFO - Eleve 1143 already exists.
+2025-02-08 19:14:18,451 - INFO - Eleve 1149 already exists.
+2025-02-08 19:14:18,452 - INFO - Eleve 1154 already exists.
+2025-02-08 19:14:18,453 - INFO - Eleve 1163 already exists.
+2025-02-08 19:14:18,454 - INFO - Eleve 1172 already exists.
+2025-02-08 19:14:18,456 - INFO - Eleve 1174 already exists.
+2025-02-08 19:14:18,457 - INFO - Eleve 1197 already exists.
+2025-02-08 19:14:18,458 - INFO - Eleve 1200 already exists.
+2025-02-08 19:14:18,459 - INFO - Eleve 1201 already exists.
+2025-02-08 19:14:18,460 - INFO - Eleve 1208 already exists.
+2025-02-08 19:14:18,462 - INFO - Eleve 1217 already exists.
+2025-02-08 19:14:18,463 - INFO - Eleve 1267 already exists.
+2025-02-08 19:14:18,464 - INFO - Eleve 1268 already exists.
+2025-02-08 19:14:18,464 - INFO - Eleve 1274 already exists.
+2025-02-08 19:14:18,465 - INFO - Eleve 1278 already exists.
+2025-02-08 19:14:18,466 - INFO - Eleve 1279 already exists.
+2025-02-08 19:14:18,467 - INFO - Eleve 1280 already exists.
+2025-02-08 19:14:18,468 - INFO - Eleve 1284 already exists.
+2025-02-08 19:14:18,468 - INFO - Eleve 1285 already exists.
+2025-02-08 19:14:18,469 - INFO - Eleve 1287 already exists.
+2025-02-08 19:14:18,471 - INFO - Eleve 1288 already exists.
+2025-02-08 19:14:18,472 - INFO - Eleve 1289 already exists.
+2025-02-08 19:14:18,473 - INFO - Eleve 1292 already exists.
+2025-02-08 19:14:18,474 - INFO - Eleve 1294 already exists.
+2025-02-08 19:14:18,476 - INFO - Eleve 1296 already exists.
+2025-02-08 19:14:18,477 - INFO - Eleve 1297 already exists.
+2025-02-08 19:14:18,478 - INFO - Eleve 1298 already exists.
+2025-02-08 19:14:18,478 - INFO - Eleve 1299 already exists.
+2025-02-08 19:14:18,479 - INFO - Eleve 1304 already exists.
+2025-02-08 19:14:18,480 - INFO - Eleve 1312 already exists.
+2025-02-08 19:14:18,481 - INFO - Eleve 1318 already exists.
+2025-02-08 19:14:18,482 - INFO - Eleve 1320 already exists.
+2025-02-08 19:14:18,482 - INFO - Eleve 1328 already exists.
+2025-02-08 19:14:18,483 - INFO - Eleve 1334 already exists.
+2025-02-08 19:14:18,484 - INFO - Eleve 1336 already exists.
+2025-02-08 19:14:18,485 - INFO - Eleve 1340 already exists.
+2025-02-08 19:14:18,486 - INFO - Eleve 1345 already exists.
+2025-02-08 19:14:18,487 - INFO - Eleve 1364 already exists.
+2025-02-08 19:14:18,488 - INFO - Eleve 1370 already exists.
+2025-02-08 19:14:18,489 - INFO - Eleve 1372 already exists.
+2025-02-08 19:14:18,490 - INFO - Eleve 1377 already exists.
+2025-02-08 19:14:18,491 - INFO - Eleve 1378 already exists.
+2025-02-08 19:14:18,492 - INFO - Eleve 1385 already exists.
+2025-02-08 19:14:18,493 - INFO - Eleve 1387 already exists.
+2025-02-08 19:14:18,494 - INFO - Eleve 1393 already exists.
+2025-02-08 19:14:18,494 - INFO - Eleve 1396 already exists.
+2025-02-08 19:14:18,495 - INFO - Eleve 1398 already exists.
+2025-02-08 19:14:18,496 - INFO - Eleve 1401 already exists.
+2025-02-08 19:14:18,496 - INFO - Eleve 1402 already exists.
+2025-02-08 19:14:18,497 - INFO - Eleve 1403 already exists.
+2025-02-08 19:14:18,497 - INFO - Eleve 1406 already exists.
+2025-02-08 19:14:18,497 - INFO - Eleve 1407 already exists.
+2025-02-08 19:14:18,498 - INFO - Eleve 1420 already exists.
+2025-02-08 19:14:18,498 - INFO - Eleve 1421 already exists.
+2025-02-08 19:14:18,499 - INFO - Eleve 1424 already exists.
+2025-02-08 19:14:18,499 - INFO - Eleve 1425 already exists.
+2025-02-08 19:14:18,501 - INFO - Eleve 1432 already exists.
+2025-02-08 19:14:18,502 - INFO - Eleve 1435 already exists.
+2025-02-08 19:14:18,503 - INFO - Eleve 1436 already exists.
+2025-02-08 19:14:18,504 - INFO - Eleve 1437 already exists.
+2025-02-08 19:14:18,505 - INFO - Eleve 1439 already exists.
+2025-02-08 19:14:18,506 - INFO - Eleve 1441 already exists.
+2025-02-08 19:14:18,507 - INFO - Eleve 1442 already exists.
+2025-02-08 19:14:18,507 - INFO - Eleve 1443 already exists.
+2025-02-08 19:14:18,508 - INFO - Eleve 1446 already exists.
+2025-02-08 19:14:18,509 - INFO - Eleve 1450 already exists.
+2025-02-08 19:14:18,509 - INFO - Eleve 1455 already exists.
+2025-02-08 19:14:18,510 - INFO - Eleve 1458 already exists.
+2025-02-08 19:14:18,510 - INFO - Eleve 1460 already exists.
+2025-02-08 19:14:18,511 - INFO - Eleve 1461 already exists.
+2025-02-08 19:14:18,511 - INFO - Eleve 1465 already exists.
+2025-02-08 19:14:18,512 - INFO - Eleve 1466 already exists.
+2025-02-08 19:14:18,512 - INFO - Eleve 1467 already exists.
+2025-02-08 19:14:18,513 - INFO - Eleve 1468 already exists.
+2025-02-08 19:14:18,514 - INFO - Eleve 1469 already exists.
+2025-02-08 19:14:18,514 - INFO - Eleve 1470 already exists.
+2025-02-08 19:14:18,515 - INFO - Eleve 1473 already exists.
+2025-02-08 19:14:18,515 - INFO - Eleve 1475 already exists.
+2025-02-08 19:14:18,516 - INFO - Eleve 1476 already exists.
+2025-02-08 19:14:18,516 - INFO - Eleve 1477 already exists.
+2025-02-08 19:14:18,517 - INFO - Eleve 1481 already exists.
+2025-02-08 19:14:18,517 - INFO - Eleve 1482 already exists.
+2025-02-08 19:14:18,518 - INFO - Eleve 1483 already exists.
+2025-02-08 19:14:18,518 - INFO - Eleve 1487 already exists.
+2025-02-08 19:14:18,519 - INFO - Eleve 1488 already exists.
+2025-02-08 19:14:18,519 - INFO - Eleve 1492 already exists.
+2025-02-08 19:14:18,520 - INFO - Eleve 1500 already exists.
+2025-02-08 19:14:18,521 - INFO - Eleve 1501 already exists.
+2025-02-08 19:14:18,522 - INFO - Eleve 1502 already exists.
+2025-02-08 19:14:18,522 - INFO - Eleve 1505 already exists.
+2025-02-08 19:14:18,523 - INFO - Eleve 1506 already exists.
+2025-02-08 19:14:18,524 - INFO - Eleve 1515 already exists.
+2025-02-08 19:14:18,524 - INFO - Eleve 1527 already exists.
+2025-02-08 19:14:18,525 - INFO - Eleve 1529 already exists.
+2025-02-08 19:14:18,526 - INFO - Eleve 1535 already exists.
+2025-02-08 19:14:18,526 - INFO - Eleve 1536 already exists.
+2025-02-08 19:14:18,527 - INFO - Eleve 1540 already exists.
+2025-02-08 19:14:18,527 - INFO - Eleve 1544 already exists.
+2025-02-08 19:14:18,528 - INFO - Eleve 1546 already exists.
+2025-02-08 19:14:18,529 - INFO - Eleve 1547 already exists.
+2025-02-08 19:14:18,529 - INFO - Eleve 1549 already exists.
+2025-02-08 19:14:18,530 - INFO - Eleve 1550 already exists.
+2025-02-08 19:14:18,530 - INFO - Eleve 1553 already exists.
+2025-02-08 19:14:18,531 - INFO - Eleve 1554 already exists.
+2025-02-08 19:14:18,531 - INFO - Eleve 1555 already exists.
+2025-02-08 19:14:18,532 - INFO - Eleve 1556 already exists.
+2025-02-08 19:14:18,532 - INFO - Eleve 1559 already exists.
+2025-02-08 19:14:18,533 - INFO - Eleve 1563 already exists.
+2025-02-08 19:14:18,533 - INFO - Eleve 1564 already exists.
+2025-02-08 19:14:18,534 - INFO - Eleve 1565 already exists.
+2025-02-08 19:14:18,535 - INFO - Eleve 1566 already exists.
+2025-02-08 19:14:18,535 - INFO - Eleve 1568 already exists.
+2025-02-08 19:14:18,536 - INFO - Eleve 1569 already exists.
+2025-02-08 19:14:18,536 - INFO - Eleve 1572 already exists.
+2025-02-08 19:14:18,537 - INFO - Eleve 1575 already exists.
+2025-02-08 19:14:18,538 - INFO - Eleve 1576 already exists.
+2025-02-08 19:14:18,538 - INFO - Eleve 1578 already exists.
+2025-02-08 19:14:18,539 - INFO - Eleve 1579 already exists.
+2025-02-08 19:14:18,540 - INFO - Eleve 1580 already exists.
+2025-02-08 19:14:18,540 - INFO - Eleve 1584 already exists.
+2025-02-08 19:14:18,541 - INFO - Eleve 1585 already exists.
+2025-02-08 19:14:18,542 - INFO - Eleve 1586 already exists.
+2025-02-08 19:14:18,542 - INFO - Eleve 1587 already exists.
+2025-02-08 19:14:18,543 - INFO - Eleve 1588 already exists.
+2025-02-08 19:14:18,543 - INFO - Eleve 1589 already exists.
+2025-02-08 19:14:18,544 - INFO - Eleve 1551 already exists.
+2025-02-08 19:14:18,545 - INFO - Eleve 1577 already exists.
+2025-02-08 19:14:18,545 - INFO - Eleve 1623 already exists.
+2025-02-08 19:14:18,546 - INFO - Eleve 1624 already exists.
+2025-02-08 19:14:18,546 - INFO - Eleve 1625 already exists.
+2025-02-08 19:14:18,547 - INFO - Eleve 1626 already exists.
+2025-02-08 19:14:18,547 - INFO - Eleve 1627 already exists.
+2025-02-08 19:14:18,548 - INFO - Eleve 1628 already exists.
+2025-02-08 19:14:18,548 - INFO - Eleve 1629 already exists.
+2025-02-08 19:14:18,549 - INFO - Eleve 1630 already exists.
+2025-02-08 19:14:18,549 - INFO - Eleve 1631 already exists.
+2025-02-08 19:14:18,550 - INFO - Eleve 1632 already exists.
+2025-02-08 19:14:18,551 - INFO - Eleve 1633 already exists.
+2025-02-08 19:14:18,551 - INFO - Eleve 1634 already exists.
+2025-02-08 19:14:18,552 - INFO - Eleve 1635 already exists.
+2025-02-08 19:14:18,552 - INFO - Eleve 1636 already exists.
+2025-02-08 19:14:18,553 - INFO - Eleve 1637 already exists.
+2025-02-08 19:14:18,554 - INFO - Eleve 1638 already exists.
+2025-02-08 19:14:18,554 - INFO - Eleve 1639 already exists.
+2025-02-08 19:14:18,555 - INFO - Eleve 1640 already exists.
+2025-02-08 19:14:18,555 - INFO - Eleve 1641 already exists.
+2025-02-08 19:14:18,556 - INFO - Eleve 1642 already exists.
+2025-02-08 19:14:18,557 - INFO - Eleve 1643 already exists.
+2025-02-08 19:14:18,557 - INFO - Eleve 1644 already exists.
+2025-02-08 19:14:18,558 - INFO - Eleve 1645 already exists.
+2025-02-08 19:14:18,559 - INFO - Eleve 1646 already exists.
+2025-02-08 19:14:18,559 - INFO - Eleve 1647 already exists.
+2025-02-08 19:14:18,560 - INFO - Eleve 1648 already exists.
+2025-02-08 19:14:18,560 - INFO - Eleve 1649 already exists.
+2025-02-08 19:14:18,561 - INFO - Eleve 1650 already exists.
+2025-02-08 19:14:18,561 - INFO - Eleve 1651 already exists.
+2025-02-08 19:14:18,562 - INFO - Eleve 1652 already exists.
+2025-02-08 19:14:18,562 - INFO - Eleve 1653 already exists.
+2025-02-08 19:14:18,563 - INFO - Eleve 1654 already exists.
+2025-02-08 19:14:18,563 - INFO - Eleve 1655 already exists.
+2025-02-08 19:14:18,564 - INFO - Eleve 1656 already exists.
+2025-02-08 19:14:18,564 - INFO - Eleve 1657 already exists.
+2025-02-08 19:14:18,565 - INFO - Eleve 1658 already exists.
+2025-02-08 19:14:18,566 - INFO - Eleve 1659 already exists.
+2025-02-08 19:14:18,566 - INFO - Eleve 1660 already exists.
+2025-02-08 19:14:18,567 - INFO - Eleve 1661 already exists.
+2025-02-08 19:14:18,567 - INFO - Eleve 1662 already exists.
+2025-02-08 19:14:18,568 - INFO - Eleve 1663 already exists.
+2025-02-08 19:14:18,568 - INFO - Eleve 1664 already exists.
+2025-02-08 19:14:18,569 - INFO - Eleve 1665 already exists.
+2025-02-08 19:14:18,570 - INFO - Eleve 1666 already exists.
+2025-02-08 19:14:18,571 - INFO - Eleve 1667 already exists.
+2025-02-08 19:14:18,572 - INFO - Eleve 1668 already exists.
+2025-02-08 19:14:18,573 - INFO - Eleve 1669 already exists.
+2025-02-08 19:14:18,575 - INFO - Eleve 1670 already exists.
+2025-02-08 19:14:18,576 - INFO - Eleve 1671 already exists.
+2025-02-08 19:14:18,577 - INFO - Eleve 1672 already exists.
+2025-02-08 19:14:18,577 - INFO - Eleve 1673 already exists.
+2025-02-08 19:14:18,578 - INFO - Eleve 1674 already exists.
+2025-02-08 19:14:18,579 - INFO - Eleve 1675 already exists.
+2025-02-08 19:14:18,579 - INFO - Eleve 1676 already exists.
+2025-02-08 19:14:18,580 - INFO - Eleve 1677 already exists.
+2025-02-08 19:14:18,581 - INFO - Eleve 1678 already exists.
+2025-02-08 19:14:18,581 - INFO - Eleve 1679 already exists.
+2025-02-08 19:14:18,582 - INFO - Eleve 1680 already exists.
+2025-02-08 19:14:18,583 - INFO - Eleve 1681 already exists.
+2025-02-08 19:14:18,584 - INFO - Eleve 1682 already exists.
+2025-02-08 19:14:18,585 - INFO - Eleve 1683 already exists.
+2025-02-08 19:14:18,586 - INFO - Eleve 1684 already exists.
+2025-02-08 19:14:18,587 - INFO - Eleve 1685 already exists.
+2025-02-08 19:14:18,589 - INFO - Eleve 1686 already exists.
+2025-02-08 19:14:18,590 - INFO - Eleve 1687 already exists.
+2025-02-08 19:14:18,592 - INFO - Eleve 1688 already exists.
+2025-02-08 19:14:18,593 - INFO - Eleve 1689 already exists.
+2025-02-08 19:14:18,594 - INFO - Eleve 1690 already exists.
+2025-02-08 19:14:18,596 - INFO - Eleve 1691 already exists.
+2025-02-08 19:14:18,597 - INFO - Eleve 1692 already exists.
+2025-02-08 19:14:18,598 - INFO - Eleve 1693 already exists.
+2025-02-08 19:14:18,600 - INFO - Eleve 1694 already exists.
+2025-02-08 19:14:18,602 - INFO - Eleve 1695 already exists.
+2025-02-08 19:14:18,603 - INFO - Eleve 1696 already exists.
+2025-02-08 19:14:18,605 - INFO - Eleve 1697 already exists.
+2025-02-08 19:14:18,606 - INFO - Eleve 1698 already exists.
+2025-02-08 19:14:18,608 - INFO - Eleve 1699 already exists.
+2025-02-08 19:14:18,609 - INFO - Eleve 1700 already exists.
+2025-02-08 19:14:18,611 - INFO - Eleve 1701 already exists.
+2025-02-08 19:14:18,612 - INFO - Eleve 1702 already exists.
+2025-02-08 19:14:18,614 - INFO - Eleve 1703 already exists.
+2025-02-08 19:14:18,616 - INFO - Eleve 1704 already exists.
+2025-02-08 19:14:18,617 - INFO - Eleve 1705 already exists.
+2025-02-08 19:14:18,619 - INFO - Eleve 1706 already exists.
+2025-02-08 19:14:18,621 - INFO - Eleve 1707 already exists.
+2025-02-08 19:14:18,623 - INFO - Eleve 1708 already exists.
+2025-02-08 19:14:18,625 - INFO - Eleve 1709 already exists.
+2025-02-08 19:14:18,626 - INFO - Eleve 1710 already exists.
+2025-02-08 19:14:18,627 - INFO - Eleve 1711 already exists.
+2025-02-08 19:14:18,629 - INFO - Eleve 1712 already exists.
+2025-02-08 19:14:18,630 - INFO - Eleve 1240 already exists.
+2025-02-08 19:14:18,632 - INFO - Eleve 1295 already exists.
+2025-02-08 19:14:18,634 - INFO - Eleve 1300 already exists.
+2025-02-08 19:14:18,635 - INFO - Eleve 1301 already exists.
+2025-02-08 19:14:18,637 - INFO - Eleve 1303 already exists.
+2025-02-08 19:14:18,638 - INFO - Eleve 1310 already exists.
+2025-02-08 19:14:18,639 - INFO - Eleve 1313 already exists.
+2025-02-08 19:14:18,641 - INFO - Eleve 1316 already exists.
+2025-02-08 19:14:18,643 - INFO - Eleve 1317 already exists.
+2025-02-08 19:14:18,644 - INFO - Eleve 1319 already exists.
+2025-02-08 19:14:18,645 - INFO - Eleve 1321 already exists.
+2025-02-08 19:14:18,647 - INFO - Eleve 1323 already exists.
+2025-02-08 19:14:18,648 - INFO - Eleve 1324 already exists.
+2025-02-08 19:14:18,650 - INFO - Eleve 1325 already exists.
+2025-02-08 19:14:18,651 - INFO - Eleve 1326 already exists.
+2025-02-08 19:14:18,652 - INFO - Eleve 1327 already exists.
+2025-02-08 19:14:18,654 - INFO - Eleve 1329 already exists.
+2025-02-08 19:14:18,655 - INFO - Eleve 1330 already exists.
+2025-02-08 19:14:18,656 - INFO - Eleve 1331 already exists.
+2025-02-08 19:14:18,658 - INFO - Eleve 1332 already exists.
+2025-02-08 19:14:18,659 - INFO - Eleve 1337 already exists.
+2025-02-08 19:14:18,660 - INFO - Eleve 1341 already exists.
+2025-02-08 19:14:18,662 - INFO - Eleve 1346 already exists.
+2025-02-08 19:14:18,663 - INFO - Eleve 1351 already exists.
+2025-02-08 19:14:18,664 - INFO - Eleve 1352 already exists.
+2025-02-08 19:14:18,666 - INFO - Eleve 1353 already exists.
+2025-02-08 19:14:18,668 - INFO - Eleve 1358 already exists.
+2025-02-08 19:14:18,670 - INFO - Eleve 1359 already exists.
+2025-02-08 19:14:18,672 - INFO - Eleve 1360 already exists.
+2025-02-08 19:14:18,674 - INFO - Eleve 1361 already exists.
+2025-02-08 19:14:18,675 - INFO - Eleve 1365 already exists.
+2025-02-08 19:14:18,677 - INFO - Eleve 1367 already exists.
+2025-02-08 19:14:18,679 - INFO - Eleve 1368 already exists.
+2025-02-08 19:14:18,680 - INFO - Eleve 1374 already exists.
+2025-02-08 19:14:18,681 - INFO - Eleve 1375 already exists.
+2025-02-08 19:14:18,682 - INFO - Eleve 1379 already exists.
+2025-02-08 19:14:18,684 - INFO - Eleve 1380 already exists.
+2025-02-08 19:14:18,685 - INFO - Eleve 1381 already exists.
+2025-02-08 19:14:18,687 - INFO - Eleve 1382 already exists.
+2025-02-08 19:14:18,689 - INFO - Eleve 1383 already exists.
+2025-02-08 19:14:18,690 - INFO - Eleve 1384 already exists.
+2025-02-08 19:14:18,692 - INFO - Eleve 1386 already exists.
+2025-02-08 19:14:18,694 - INFO - Eleve 1388 already exists.
+2025-02-08 19:14:18,695 - INFO - Eleve 1389 already exists.
+2025-02-08 19:14:18,697 - INFO - Eleve 1390 already exists.
+2025-02-08 19:14:18,698 - INFO - Eleve 1391 already exists.
+2025-02-08 19:14:18,699 - INFO - Eleve 1392 already exists.
+2025-02-08 19:14:18,700 - INFO - Eleve 1394 already exists.
+2025-02-08 19:14:18,701 - INFO - Eleve 1395 already exists.
+2025-02-08 19:14:18,703 - INFO - Eleve 1397 already exists.
+2025-02-08 19:14:18,704 - INFO - Eleve 1399 already exists.
+2025-02-08 19:14:18,705 - INFO - Eleve 1400 already exists.
+2025-02-08 19:14:18,706 - INFO - Eleve 1404 already exists.
+2025-02-08 19:14:18,707 - INFO - Eleve 1405 already exists.
+2025-02-08 19:14:18,708 - INFO - Eleve 1416 already exists.
+2025-02-08 19:14:18,710 - INFO - Eleve 1417 already exists.
+2025-02-08 19:14:18,711 - INFO - Eleve 1418 already exists.
+2025-02-08 19:14:18,712 - INFO - Eleve 1419 already exists.
+2025-02-08 19:14:18,713 - INFO - Eleve 1422 already exists.
+2025-02-08 19:14:18,714 - INFO - Eleve 1423 already exists.
+2025-02-08 19:14:18,714 - INFO - Eleve 1426 already exists.
+2025-02-08 19:14:18,715 - INFO - Eleve 1427 already exists.
+2025-02-08 19:14:18,716 - INFO - Eleve 1428 already exists.
+2025-02-08 19:14:18,717 - INFO - Eleve 1429 already exists.
+2025-02-08 19:14:18,718 - INFO - Eleve 1430 already exists.
+2025-02-08 19:14:18,719 - INFO - Eleve 1431 already exists.
+2025-02-08 19:14:18,720 - INFO - Eleve 1433 already exists.
+2025-02-08 19:14:18,722 - INFO - Eleve 1434 already exists.
+2025-02-08 19:14:18,723 - INFO - Eleve 1438 already exists.
+2025-02-08 19:14:18,724 - INFO - Eleve 1440 already exists.
+2025-02-08 19:14:18,726 - INFO - Eleve 1444 already exists.
+2025-02-08 19:14:18,727 - INFO - Eleve 1445 already exists.
+2025-02-08 19:14:18,728 - INFO - Eleve 1447 already exists.
+2025-02-08 19:14:18,729 - INFO - Eleve 1448 already exists.
+2025-02-08 19:14:18,730 - INFO - Eleve 1449 already exists.
+2025-02-08 19:14:18,731 - INFO - Eleve 1451 already exists.
+2025-02-08 19:14:18,731 - INFO - Eleve 1452 already exists.
+2025-02-08 19:14:18,732 - INFO - Eleve 1453 already exists.
+2025-02-08 19:14:18,733 - INFO - Eleve 1454 already exists.
+2025-02-08 19:14:18,734 - INFO - Eleve 1456 already exists.
+2025-02-08 19:14:18,735 - INFO - Eleve 1457 already exists.
+2025-02-08 19:14:18,736 - INFO - Eleve 1459 already exists.
+2025-02-08 19:14:18,737 - INFO - Eleve 1462 already exists.
+2025-02-08 19:14:18,738 - INFO - Eleve 1463 already exists.
+2025-02-08 19:14:18,740 - INFO - Eleve 1464 already exists.
+2025-02-08 19:14:18,741 - INFO - Eleve 1471 already exists.
+2025-02-08 19:14:18,742 - INFO - Eleve 1472 already exists.
+2025-02-08 19:14:18,743 - INFO - Eleve 1474 already exists.
+2025-02-08 19:14:18,744 - INFO - Eleve 1478 already exists.
+2025-02-08 19:14:18,746 - INFO - Eleve 1480 already exists.
+2025-02-08 19:14:18,746 - INFO - Eleve 1484 already exists.
+2025-02-08 19:14:18,747 - INFO - Eleve 1485 already exists.
+2025-02-08 19:14:18,748 - INFO - Eleve 1486 already exists.
+2025-02-08 19:14:18,749 - INFO - Eleve 1489 already exists.
+2025-02-08 19:14:18,749 - INFO - Eleve 1490 already exists.
+2025-02-08 19:14:18,751 - INFO - Eleve 1491 already exists.
+2025-02-08 19:14:18,752 - INFO - Eleve 1493 already exists.
+2025-02-08 19:14:18,752 - INFO - Eleve 1494 already exists.
+2025-02-08 19:14:18,754 - INFO - Eleve 1495 already exists.
+2025-02-08 19:14:18,755 - INFO - Eleve 1496 already exists.
+2025-02-08 19:14:18,757 - INFO - Eleve 1498 already exists.
+2025-02-08 19:14:18,758 - INFO - Eleve 1499 already exists.
+2025-02-08 19:14:18,759 - INFO - Eleve 1503 already exists.
+2025-02-08 19:14:18,760 - INFO - Eleve 1504 already exists.
+2025-02-08 19:14:18,761 - INFO - Eleve 1507 already exists.
+2025-02-08 19:14:18,762 - INFO - Eleve 1508 already exists.
+2025-02-08 19:14:18,763 - INFO - Eleve 1509 already exists.
+2025-02-08 19:14:18,764 - INFO - Eleve 1510 already exists.
+2025-02-08 19:14:18,765 - INFO - Eleve 1511 already exists.
+2025-02-08 19:14:18,765 - INFO - Eleve 1512 already exists.
+2025-02-08 19:14:18,766 - INFO - Eleve 1513 already exists.
+2025-02-08 19:14:18,767 - INFO - Eleve 1514 already exists.
+2025-02-08 19:14:18,768 - INFO - Eleve 1516 already exists.
+2025-02-08 19:14:18,769 - INFO - Eleve 1517 already exists.
+2025-02-08 19:14:18,770 - INFO - Eleve 1518 already exists.
+2025-02-08 19:14:18,771 - INFO - Eleve 1519 already exists.
+2025-02-08 19:14:18,772 - INFO - Eleve 1520 already exists.
+2025-02-08 19:14:18,774 - INFO - Eleve 1521 already exists.
+2025-02-08 19:14:18,775 - INFO - Eleve 1522 already exists.
+2025-02-08 19:14:18,776 - INFO - Eleve 1523 already exists.
+2025-02-08 19:14:18,777 - INFO - Eleve 1524 already exists.
+2025-02-08 19:14:18,778 - INFO - Eleve 1525 already exists.
+2025-02-08 19:14:18,779 - INFO - Eleve 1526 already exists.
+2025-02-08 19:14:18,779 - INFO - Eleve 1528 already exists.
+2025-02-08 19:14:18,780 - INFO - Eleve 1530 already exists.
+2025-02-08 19:14:18,781 - INFO - Eleve 1531 already exists.
+2025-02-08 19:14:18,782 - INFO - Eleve 1532 already exists.
+2025-02-08 19:14:18,783 - INFO - Eleve 1533 already exists.
+2025-02-08 19:14:18,784 - INFO - Eleve 1534 already exists.
+2025-02-08 19:14:18,785 - INFO - Eleve 1537 already exists.
+2025-02-08 19:14:18,786 - INFO - Eleve 1538 already exists.
+2025-02-08 19:14:18,786 - INFO - Eleve 1539 already exists.
+2025-02-08 19:14:18,788 - INFO - Eleve 1541 already exists.
+2025-02-08 19:14:18,789 - INFO - Eleve 1542 already exists.
+2025-02-08 19:14:18,790 - INFO - Eleve 1543 already exists.
+2025-02-08 19:14:18,791 - INFO - Eleve 1545 already exists.
+2025-02-08 19:14:18,792 - INFO - Eleve 1548 already exists.
+2025-02-08 19:14:18,793 - INFO - Eleve 1552 already exists.
+2025-02-08 19:14:18,794 - INFO - Eleve 1557 already exists.
+2025-02-08 19:14:18,795 - INFO - Eleve 1558 already exists.
+2025-02-08 19:14:18,796 - INFO - Eleve 1560 already exists.
+2025-02-08 19:14:18,796 - INFO - Eleve 1561 already exists.
+2025-02-08 19:14:18,797 - INFO - Eleve 1562 already exists.
+2025-02-08 19:14:18,797 - INFO - Eleve 1567 already exists.
+2025-02-08 19:14:18,798 - INFO - Eleve 1570 already exists.
+2025-02-08 19:14:18,798 - INFO - Eleve 1571 already exists.
+2025-02-08 19:14:18,799 - INFO - Eleve 1573 already exists.
+2025-02-08 19:14:18,799 - INFO - Eleve 1574 already exists.
+2025-02-08 19:14:18,800 - INFO - Eleve 1581 already exists.
+2025-02-08 19:14:18,801 - INFO - Eleve 1583 already exists.
+2025-02-08 19:14:18,803 - ERROR - Inscription for Eleve ID 1529 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,805 - ERROR - Inscription for Eleve ID 1544 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,807 - ERROR - Inscription for Eleve ID 1547 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,810 - ERROR - Inscription for Eleve ID 1551 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,812 - ERROR - Inscription for Eleve ID 1553 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,813 - ERROR - Inscription for Eleve ID 1554 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,815 - ERROR - Inscription for Eleve ID 1555 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,816 - ERROR - Inscription for Eleve ID 1556 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,818 - ERROR - Inscription for Eleve ID 1559 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,819 - ERROR - Inscription for Eleve ID 1564 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,821 - ERROR - Inscription for Eleve ID 1565 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,824 - ERROR - Inscription for Eleve ID 1569 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,825 - ERROR - Inscription for Eleve ID 1572 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,827 - ERROR - Inscription for Eleve ID 1585 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,829 - ERROR - Inscription for Eleve ID 1586 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,830 - ERROR - Inscription for Eleve ID 1587 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,831 - ERROR - Inscription for Eleve ID 1588 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,832 - ERROR - Inscription for Eleve ID 1589 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,833 - ERROR - Inscription for Eleve ID 1458 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,835 - ERROR - Inscription for Eleve ID 1464 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,837 - ERROR - Inscription for Eleve ID 1465 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,839 - ERROR - Inscription for Eleve ID 1466 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,841 - ERROR - Inscription for Eleve ID 1467 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,843 - ERROR - Inscription for Eleve ID 1468 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,845 - ERROR - Inscription for Eleve ID 1469 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,846 - ERROR - Inscription for Eleve ID 1470 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,847 - ERROR - Inscription for Eleve ID 1473 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,848 - ERROR - Inscription for Eleve ID 1475 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,849 - ERROR - Inscription for Eleve ID 1477 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,851 - ERROR - Inscription for Eleve ID 1478 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,852 - ERROR - Inscription for Eleve ID 1480 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,855 - ERROR - Inscription for Eleve ID 1481 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,857 - ERROR - Inscription for Eleve ID 1482 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,859 - ERROR - Inscription for Eleve ID 1487 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,860 - ERROR - Inscription for Eleve ID 1488 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,862 - ERROR - Inscription for Eleve ID 1501 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,863 - ERROR - Inscription for Eleve ID 1502 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,864 - ERROR - Inscription for Eleve ID 1506 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,865 - ERROR - Inscription for Eleve ID 1510 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,866 - ERROR - Inscription for Eleve ID 1513 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,867 - ERROR - Inscription for Eleve ID 1515 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,868 - ERROR - Inscription for Eleve ID 1526 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,869 - ERROR - Inscription for Eleve ID 1526 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,871 - ERROR - Inscription for Eleve ID 1392 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,872 - ERROR - Inscription for Eleve ID 1396 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,873 - ERROR - Inscription for Eleve ID 1406 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,875 - ERROR - Inscription for Eleve ID 1407 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,875 - ERROR - Eleve with ID 1409 does not exist.
+2025-02-08 19:14:18,876 - ERROR - Eleve with ID 1414 does not exist.
+2025-02-08 19:14:18,877 - ERROR - Eleve with ID 1414 does not exist.
+2025-02-08 19:14:18,878 - ERROR - Inscription for Eleve ID 1420 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,879 - ERROR - Inscription for Eleve ID 1421 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,880 - ERROR - Inscription for Eleve ID 1425 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,881 - ERROR - Inscription for Eleve ID 1432 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,881 - ERROR - Inscription for Eleve ID 1435 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,882 - ERROR - Inscription for Eleve ID 1437 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,883 - ERROR - Inscription for Eleve ID 1441 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,884 - ERROR - Inscription for Eleve ID 1442 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,885 - ERROR - Inscription for Eleve ID 1448 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,886 - ERROR - Inscription for Eleve ID 1298 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,887 - ERROR - Inscription for Eleve ID 1312 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,888 - ERROR - Inscription for Eleve ID 1318 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,890 - ERROR - Inscription for Eleve ID 1325 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,891 - ERROR - Inscription for Eleve ID 1331 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,892 - ERROR - Inscription for Eleve ID 1336 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,894 - ERROR - Inscription for Eleve ID 1345 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,895 - ERROR - Inscription for Eleve ID 1353 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,896 - ERROR - Inscription for Eleve ID 1364 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,896 - ERROR - Inscription for Eleve ID 1374 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,897 - ERROR - Inscription for Eleve ID 1374 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,898 - ERROR - Inscription for Eleve ID 1381 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,899 - ERROR - Inscription for Eleve ID 1382 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,900 - ERROR - Inscription for Eleve ID 1383 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,901 - ERROR - Inscription for Eleve ID 1384 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,902 - ERROR - Inscription for Eleve ID 1217 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,903 - ERROR - Inscription for Eleve ID 1222 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,904 - ERROR - Inscription for Eleve ID 1222 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,906 - ERROR - Inscription for Eleve ID 1227 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,907 - ERROR - Inscription for Eleve ID 1232 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,909 - ERROR - Inscription for Eleve ID 1232 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,910 - ERROR - Inscription for Eleve ID 1249 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,911 - ERROR - Inscription for Eleve ID 1249 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,912 - ERROR - Inscription for Eleve ID 1253 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,913 - ERROR - Inscription for Eleve ID 1270 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,914 - ERROR - Inscription for Eleve ID 1270 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,915 - ERROR - Inscription for Eleve ID 1272 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,916 - ERROR - Inscription for Eleve ID 1273 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,917 - ERROR - Inscription for Eleve ID 1274 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,918 - ERROR - Inscription for Eleve ID 1274 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,919 - ERROR - Inscription for Eleve ID 1279 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,920 - ERROR - Inscription for Eleve ID 1281 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,922 - ERROR - Inscription for Eleve ID 1284 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,923 - ERROR - Inscription for Eleve ID 1285 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,924 - ERROR - Inscription for Eleve ID 1287 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,925 - ERROR - Inscription for Eleve ID 1291 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,927 - ERROR - Inscription for Eleve ID 1138 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,928 - ERROR - Inscription for Eleve ID 1141 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,929 - ERROR - Inscription for Eleve ID 1142 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,930 - ERROR - Inscription for Eleve ID 1146 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,931 - ERROR - Inscription for Eleve ID 1146 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,932 - ERROR - Inscription for Eleve ID 1148 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,932 - ERROR - Inscription for Eleve ID 1149 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,934 - ERROR - Inscription for Eleve ID 1149 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,935 - ERROR - Inscription for Eleve ID 1153 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,937 - ERROR - Inscription for Eleve ID 1156 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,939 - ERROR - Inscription for Eleve ID 1164 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,942 - ERROR - Inscription for Eleve ID 1165 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,944 - ERROR - Inscription for Eleve ID 1165 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,946 - ERROR - Inscription for Eleve ID 1166 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,947 - ERROR - Inscription for Eleve ID 1168 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,949 - ERROR - Inscription for Eleve ID 1174 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,950 - ERROR - Inscription for Eleve ID 1177 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,952 - ERROR - Inscription for Eleve ID 1178 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,953 - ERROR - Inscription for Eleve ID 1181 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,956 - ERROR - Inscription for Eleve ID 1182 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,958 - ERROR - Inscription for Eleve ID 1185 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,960 - ERROR - Inscription for Eleve ID 1189 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,962 - ERROR - Inscription for Eleve ID 1189 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,963 - ERROR - Inscription for Eleve ID 1193 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,965 - ERROR - Inscription for Eleve ID 1193 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,966 - ERROR - Inscription for Eleve ID 1195 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,967 - ERROR - Inscription for Eleve ID 1199 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,969 - ERROR - Inscription for Eleve ID 1202 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,971 - ERROR - Inscription for Eleve ID 1202 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,974 - ERROR - Inscription for Eleve ID 1213 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,976 - ERROR - Inscription for Eleve ID 1096 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,978 - ERROR - Inscription for Eleve ID 1096 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,979 - ERROR - Inscription for Eleve ID 1097 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,980 - ERROR - Inscription for Eleve ID 1097 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,982 - ERROR - Inscription for Eleve ID 1103 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,983 - ERROR - Inscription for Eleve ID 1103 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,985 - ERROR - Inscription for Eleve ID 1112 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,986 - ERROR - Inscription for Eleve ID 1114 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,989 - ERROR - Inscription for Eleve ID 1114 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,991 - ERROR - Inscription for Eleve ID 1115 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,993 - ERROR - Inscription for Eleve ID 1115 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,994 - ERROR - Inscription for Eleve ID 1119 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,996 - ERROR - Inscription for Eleve ID 1119 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,997 - ERROR - Inscription for Eleve ID 1120 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:18,999 - ERROR - Inscription for Eleve ID 1120 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,000 - ERROR - Inscription for Eleve ID 1127 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,002 - ERROR - Inscription for Eleve ID 1127 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,004 - ERROR - Inscription for Eleve ID 1127 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,007 - ERROR - Inscription for Eleve ID 1128 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,008 - ERROR - Inscription for Eleve ID 1128 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,010 - ERROR - Inscription for Eleve ID 1136 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,012 - ERROR - Inscription for Eleve ID 1136 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,013 - ERROR - Inscription for Eleve ID 1044 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,014 - ERROR - Inscription for Eleve ID 1044 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,016 - ERROR - Inscription for Eleve ID 1043 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,017 - ERROR - Inscription for Eleve ID 1043 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,019 - ERROR - Inscription for Eleve ID 1041 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,021 - ERROR - Inscription for Eleve ID 1049 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,023 - ERROR - Inscription for Eleve ID 1051 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,025 - ERROR - Inscription for Eleve ID 1052 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,027 - ERROR - Inscription for Eleve ID 1052 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,029 - ERROR - Inscription for Eleve ID 1060 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,030 - ERROR - Inscription for Eleve ID 1060 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,031 - ERROR - Inscription for Eleve ID 1061 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,032 - ERROR - Inscription for Eleve ID 1061 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,034 - ERROR - Inscription for Eleve ID 1069 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,035 - ERROR - Inscription for Eleve ID 1069 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,037 - ERROR - Inscription for Eleve ID 1032 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,039 - ERROR - Inscription for Eleve ID 1032 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,041 - ERROR - Inscription for Eleve ID 1313 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,043 - ERROR - Inscription for Eleve ID 1042 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,044 - ERROR - Inscription for Eleve ID 1042 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,046 - ERROR - Inscription for Eleve ID 1235 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,047 - ERROR - Inscription for Eleve ID 1324 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,048 - ERROR - Inscription for Eleve ID 1443 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,049 - ERROR - Inscription for Eleve ID 1436 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,051 - ERROR - Inscription for Eleve ID 1225 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,052 - ERROR - Inscription for Eleve ID 1576 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,054 - ERROR - Inscription for Eleve ID 1068 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,057 - ERROR - Inscription for Eleve ID 1068 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,059 - ERROR - Inscription for Eleve ID 1439 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,061 - ERROR - Inscription for Eleve ID 1257 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,062 - ERROR - Inscription for Eleve ID 1184 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,064 - ERROR - Inscription for Eleve ID 1393 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,065 - ERROR - Inscription for Eleve ID 1144 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,067 - ERROR - Inscription for Eleve ID 1144 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,068 - ERROR - Inscription for Eleve ID 1379 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,070 - ERROR - Inscription for Eleve ID 1250 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,072 - ERROR - Inscription for Eleve ID 1134 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,074 - ERROR - Inscription for Eleve ID 1550 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,076 - ERROR - Inscription for Eleve ID 1055 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,078 - ERROR - Inscription for Eleve ID 1055 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,079 - ERROR - Inscription for Eleve ID 1104 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,081 - ERROR - Inscription for Eleve ID 1104 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,082 - ERROR - Inscription for Eleve ID 1399 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,083 - ERROR - Inscription for Eleve ID 1399 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,085 - ERROR - Inscription for Eleve ID 1385 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,086 - ERROR - Inscription for Eleve ID 1256 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,089 - ERROR - Inscription for Eleve ID 1104 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,091 - ERROR - Inscription for Eleve ID 1260 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,093 - ERROR - Inscription for Eleve ID 1471 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,094 - ERROR - Inscription for Eleve ID 1106 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,096 - ERROR - Inscription for Eleve ID 1106 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,097 - ERROR - Inscription for Eleve ID 1134 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,098 - ERROR - Inscription for Eleve ID 1134 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,100 - ERROR - Inscription for Eleve ID 1623 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,101 - ERROR - Inscription for Eleve ID 1623 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,103 - ERROR - Inscription for Eleve ID 1623 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,105 - ERROR - Inscription for Eleve ID 1623 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,108 - ERROR - Inscription for Eleve ID 1624 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,109 - ERROR - Inscription for Eleve ID 1624 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,111 - ERROR - Inscription for Eleve ID 1624 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,112 - ERROR - Inscription for Eleve ID 1624 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,114 - ERROR - Inscription for Eleve ID 1626 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,115 - ERROR - Inscription for Eleve ID 1626 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,116 - ERROR - Inscription for Eleve ID 1626 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,117 - ERROR - Inscription for Eleve ID 1626 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,119 - ERROR - Inscription for Eleve ID 1625 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,121 - ERROR - Inscription for Eleve ID 1625 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,123 - ERROR - Inscription for Eleve ID 1625 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,125 - ERROR - Inscription for Eleve ID 1625 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,127 - ERROR - Inscription for Eleve ID 1627 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,128 - ERROR - Inscription for Eleve ID 1627 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,129 - ERROR - Inscription for Eleve ID 1627 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,130 - ERROR - Inscription for Eleve ID 1627 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,130 - ERROR - Inscription for Eleve ID 1628 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,131 - ERROR - Inscription for Eleve ID 1628 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,132 - ERROR - Inscription for Eleve ID 1628 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,133 - ERROR - Inscription for Eleve ID 1628 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,134 - ERROR - Inscription for Eleve ID 1629 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,135 - ERROR - Inscription for Eleve ID 1629 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,135 - ERROR - Inscription for Eleve ID 1633 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,137 - ERROR - Inscription for Eleve ID 1633 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,138 - ERROR - Inscription for Eleve ID 1633 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,139 - ERROR - Inscription for Eleve ID 1633 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,141 - ERROR - Inscription for Eleve ID 1630 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,143 - ERROR - Inscription for Eleve ID 1630 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,145 - ERROR - Inscription for Eleve ID 1630 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,146 - ERROR - Inscription for Eleve ID 1630 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,147 - ERROR - Inscription for Eleve ID 1632 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,149 - ERROR - Inscription for Eleve ID 1632 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,150 - ERROR - Inscription for Eleve ID 1632 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,151 - ERROR - Inscription for Eleve ID 1632 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,153 - ERROR - Inscription for Eleve ID 1631 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,155 - ERROR - Inscription for Eleve ID 1631 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,156 - ERROR - Inscription for Eleve ID 1631 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,158 - ERROR - Inscription for Eleve ID 1631 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,159 - ERROR - Inscription for Eleve ID 1634 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,160 - ERROR - Inscription for Eleve ID 1634 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,161 - ERROR - Inscription for Eleve ID 1634 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,162 - ERROR - Inscription for Eleve ID 1635 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,163 - ERROR - Inscription for Eleve ID 1635 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,164 - ERROR - Inscription for Eleve ID 1635 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,165 - ERROR - Inscription for Eleve ID 1635 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,166 - ERROR - Inscription for Eleve ID 1636 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,167 - ERROR - Inscription for Eleve ID 1636 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,168 - ERROR - Inscription for Eleve ID 1636 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,169 - ERROR - Inscription for Eleve ID 1636 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,170 - ERROR - Inscription for Eleve ID 1637 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,171 - ERROR - Inscription for Eleve ID 1637 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,173 - ERROR - Inscription for Eleve ID 1637 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,174 - ERROR - Inscription for Eleve ID 1637 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,175 - ERROR - Inscription for Eleve ID 1638 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,176 - ERROR - Inscription for Eleve ID 1638 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,177 - ERROR - Inscription for Eleve ID 1638 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,178 - ERROR - Inscription for Eleve ID 1638 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,179 - ERROR - Inscription for Eleve ID 1639 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,180 - ERROR - Inscription for Eleve ID 1639 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,181 - ERROR - Inscription for Eleve ID 1639 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,182 - ERROR - Inscription for Eleve ID 1639 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,182 - ERROR - Inscription for Eleve ID 1640 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,183 - ERROR - Inscription for Eleve ID 1640 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,184 - ERROR - Inscription for Eleve ID 1640 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,185 - ERROR - Inscription for Eleve ID 1640 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,186 - ERROR - Inscription for Eleve ID 1641 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,188 - ERROR - Inscription for Eleve ID 1641 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,191 - ERROR - Inscription for Eleve ID 1641 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,193 - ERROR - Inscription for Eleve ID 1641 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,194 - ERROR - Inscription for Eleve ID 1642 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,196 - ERROR - Inscription for Eleve ID 1642 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,196 - ERROR - Inscription for Eleve ID 1642 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,197 - ERROR - Inscription for Eleve ID 1642 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,198 - ERROR - Inscription for Eleve ID 1646 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,199 - ERROR - Inscription for Eleve ID 1646 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,200 - ERROR - Inscription for Eleve ID 1646 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,201 - ERROR - Inscription for Eleve ID 1646 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,202 - ERROR - Inscription for Eleve ID 1644 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,203 - ERROR - Inscription for Eleve ID 1644 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,206 - ERROR - Inscription for Eleve ID 1644 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,209 - ERROR - Inscription for Eleve ID 1644 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,210 - ERROR - Inscription for Eleve ID 1643 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,212 - ERROR - Inscription for Eleve ID 1643 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,213 - ERROR - Inscription for Eleve ID 1643 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,213 - ERROR - Inscription for Eleve ID 1643 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,214 - ERROR - Inscription for Eleve ID 1645 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,215 - ERROR - Inscription for Eleve ID 1645 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,217 - ERROR - Inscription for Eleve ID 1645 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,218 - ERROR - Inscription for Eleve ID 1645 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,219 - ERROR - Inscription for Eleve ID 1648 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,220 - ERROR - Inscription for Eleve ID 1648 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,222 - ERROR - Inscription for Eleve ID 1648 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,223 - ERROR - Inscription for Eleve ID 1648 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,224 - ERROR - Inscription for Eleve ID 1647 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,225 - ERROR - Inscription for Eleve ID 1647 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,226 - ERROR - Inscription for Eleve ID 1647 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,227 - ERROR - Inscription for Eleve ID 1647 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,228 - ERROR - Inscription for Eleve ID 1647 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,230 - ERROR - Inscription for Eleve ID 1652 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,231 - ERROR - Inscription for Eleve ID 1652 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,231 - ERROR - Inscription for Eleve ID 1652 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,232 - ERROR - Inscription for Eleve ID 1652 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,233 - ERROR - Inscription for Eleve ID 1651 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,234 - ERROR - Inscription for Eleve ID 1651 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,235 - ERROR - Inscription for Eleve ID 1651 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,236 - ERROR - Inscription for Eleve ID 1651 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,238 - ERROR - Inscription for Eleve ID 1649 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,239 - ERROR - Inscription for Eleve ID 1649 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,241 - ERROR - Inscription for Eleve ID 1649 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,242 - ERROR - Inscription for Eleve ID 1649 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,243 - ERROR - Inscription for Eleve ID 1650 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,244 - ERROR - Inscription for Eleve ID 1650 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,245 - ERROR - Inscription for Eleve ID 1650 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,246 - ERROR - Inscription for Eleve ID 1650 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,247 - ERROR - Inscription for Eleve ID 1653 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,248 - ERROR - Inscription for Eleve ID 1653 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,249 - ERROR - Inscription for Eleve ID 1653 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,249 - ERROR - Inscription for Eleve ID 1653 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,251 - ERROR - Inscription for Eleve ID 1654 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,252 - ERROR - Inscription for Eleve ID 1654 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,253 - ERROR - Inscription for Eleve ID 1654 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,255 - ERROR - Inscription for Eleve ID 1654 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,256 - ERROR - Inscription for Eleve ID 1655 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,258 - ERROR - Inscription for Eleve ID 1655 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,259 - ERROR - Inscription for Eleve ID 1655 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,260 - ERROR - Inscription for Eleve ID 1655 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,261 - ERROR - Inscription for Eleve ID 1655 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,262 - ERROR - Inscription for Eleve ID 1656 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,263 - ERROR - Inscription for Eleve ID 1656 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,264 - ERROR - Inscription for Eleve ID 1656 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,264 - ERROR - Inscription for Eleve ID 1656 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,265 - ERROR - Inscription for Eleve ID 1656 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,266 - ERROR - Inscription for Eleve ID 1657 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,267 - ERROR - Inscription for Eleve ID 1657 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,268 - ERROR - Inscription for Eleve ID 1657 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,269 - ERROR - Inscription for Eleve ID 1657 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,270 - ERROR - Inscription for Eleve ID 1657 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,271 - ERROR - Inscription for Eleve ID 1658 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,272 - ERROR - Inscription for Eleve ID 1658 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,274 - ERROR - Inscription for Eleve ID 1658 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,275 - ERROR - Inscription for Eleve ID 1658 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,276 - ERROR - Inscription for Eleve ID 1659 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,277 - ERROR - Inscription for Eleve ID 1659 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,278 - ERROR - Inscription for Eleve ID 1659 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,279 - ERROR - Inscription for Eleve ID 1659 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,280 - ERROR - Inscription for Eleve ID 1660 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,280 - ERROR - Inscription for Eleve ID 1660 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,281 - ERROR - Inscription for Eleve ID 1660 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,282 - ERROR - Inscription for Eleve ID 1660 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,283 - ERROR - Inscription for Eleve ID 1661 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,284 - ERROR - Inscription for Eleve ID 1661 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,285 - ERROR - Inscription for Eleve ID 1661 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,286 - ERROR - Inscription for Eleve ID 1661 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,287 - ERROR - Inscription for Eleve ID 1662 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,288 - ERROR - Inscription for Eleve ID 1662 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,290 - ERROR - Inscription for Eleve ID 1662 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,291 - ERROR - Inscription for Eleve ID 1662 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,292 - ERROR - Inscription for Eleve ID 1663 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,293 - ERROR - Inscription for Eleve ID 1663 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,294 - ERROR - Inscription for Eleve ID 1663 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,295 - ERROR - Inscription for Eleve ID 1663 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,296 - ERROR - Inscription for Eleve ID 1665 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,296 - ERROR - Inscription for Eleve ID 1665 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,297 - ERROR - Inscription for Eleve ID 1665 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,298 - ERROR - Inscription for Eleve ID 1665 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,299 - ERROR - Inscription for Eleve ID 1664 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,300 - ERROR - Inscription for Eleve ID 1664 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,300 - ERROR - Inscription for Eleve ID 1664 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,301 - ERROR - Inscription for Eleve ID 1664 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,302 - ERROR - Inscription for Eleve ID 1666 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,303 - ERROR - Inscription for Eleve ID 1666 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,305 - ERROR - Inscription for Eleve ID 1666 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,306 - ERROR - Inscription for Eleve ID 1666 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,307 - ERROR - Inscription for Eleve ID 1116 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,308 - ERROR - Inscription for Eleve ID 1116 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,309 - ERROR - Inscription for Eleve ID 1171 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,310 - ERROR - Inscription for Eleve ID 1119 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,311 - ERROR - Inscription for Eleve ID 1535 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,312 - ERROR - Inscription for Eleve ID 1535 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,313 - ERROR - Inscription for Eleve ID 1450 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,314 - ERROR - Inscription for Eleve ID 1450 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,315 - ERROR - Inscription for Eleve ID 1447 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,315 - ERROR - Inscription for Eleve ID 1447 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,316 - ERROR - Inscription for Eleve ID 1228 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,317 - ERROR - Inscription for Eleve ID 1124 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,318 - ERROR - Inscription for Eleve ID 1124 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,319 - ERROR - Inscription for Eleve ID 1216 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,320 - ERROR - Inscription for Eleve ID 1205 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,322 - ERROR - Inscription for Eleve ID 1130 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,323 - ERROR - Inscription for Eleve ID 1130 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,324 - ERROR - Inscription for Eleve ID 1036 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,325 - ERROR - Inscription for Eleve ID 1036 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,326 - ERROR - Inscription for Eleve ID 1224 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,328 - ERROR - Inscription for Eleve ID 1242 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,329 - ERROR - Inscription for Eleve ID 1341 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,330 - ERROR - Inscription for Eleve ID 1341 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,330 - ERROR - Inscription for Eleve ID 1341 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,331 - ERROR - Inscription for Eleve ID 1303 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,332 - ERROR - Inscription for Eleve ID 1303 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,333 - ERROR - Inscription for Eleve ID 1163 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,334 - ERROR - Inscription for Eleve ID 1401 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,335 - ERROR - Inscription for Eleve ID 1403 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,335 - ERROR - Inscription for Eleve ID 1233 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,337 - ERROR - Inscription for Eleve ID 1398 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,338 - ERROR - Inscription for Eleve ID 1050 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,340 - ERROR - Inscription for Eleve ID 1050 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,341 - ERROR - Inscription for Eleve ID 1143 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,342 - ERROR - Inscription for Eleve ID 1143 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,343 - ERROR - Inscription for Eleve ID 1143 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,344 - ERROR - Inscription for Eleve ID 1420 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,345 - ERROR - Inscription for Eleve ID 1421 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,346 - ERROR - Inscription for Eleve ID 1370 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,347 - ERROR - Inscription for Eleve ID 1515 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,348 - ERROR - Inscription for Eleve ID 1399 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,349 - ERROR - Inscription for Eleve ID 1244 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,350 - ERROR - Inscription for Eleve ID 1244 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,351 - ERROR - Inscription for Eleve ID 1131 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,352 - ERROR - Inscription for Eleve ID 1132 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,353 - ERROR - Inscription for Eleve ID 1301 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,355 - ERROR - Inscription for Eleve ID 1660 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,356 - ERROR - Inscription for Eleve ID 1310 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,357 - ERROR - Inscription for Eleve ID 1101 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,358 - ERROR - Inscription for Eleve ID 1298 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,359 - ERROR - Inscription for Eleve ID 1142 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,360 - ERROR - Inscription for Eleve ID 1453 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,361 - ERROR - Inscription for Eleve ID 1365 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,362 - ERROR - Inscription for Eleve ID 1649 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,363 - ERROR - Inscription for Eleve ID 1424 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,364 - ERROR - Inscription for Eleve ID 1034 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,364 - ERROR - Inscription for Eleve ID 1034 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,365 - ERROR - Inscription for Eleve ID 1063 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,366 - ERROR - Inscription for Eleve ID 1066 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,367 - ERROR - Inscription for Eleve ID 1066 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,368 - ERROR - Inscription for Eleve ID 1375 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,368 - ERROR - Inscription for Eleve ID 1170 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,369 - ERROR - Inscription for Eleve ID 1056 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,370 - ERROR - Inscription for Eleve ID 1056 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,372 - ERROR - Inscription for Eleve ID 1056 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,373 - ERROR - Inscription for Eleve ID 1433 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,374 - ERROR - Inscription for Eleve ID 1433 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,375 - ERROR - Inscription for Eleve ID 1433 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,376 - ERROR - Inscription for Eleve ID 1054 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,377 - ERROR - Inscription for Eleve ID 1278 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,377 - ERROR - Inscription for Eleve ID 1169 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,379 - ERROR - Inscription for Eleve ID 1107 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,380 - ERROR - Inscription for Eleve ID 1117 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,380 - ERROR - Inscription for Eleve ID 1117 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,381 - ERROR - Inscription for Eleve ID 1233 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,382 - ERROR - Inscription for Eleve ID 1102 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,383 - ERROR - Inscription for Eleve ID 1296 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,384 - ERROR - Inscription for Eleve ID 1297 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,385 - ERROR - Inscription for Eleve ID 1390 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,385 - ERROR - Inscription for Eleve ID 1165 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,387 - ERROR - Inscription for Eleve ID 1589 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,388 - ERROR - Inscription for Eleve ID 1383 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,389 - ERROR - Inscription for Eleve ID 1212 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,390 - ERROR - Inscription for Eleve ID 1416 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,392 - ERROR - Inscription for Eleve ID 1223 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,393 - ERROR - Inscription for Eleve ID 1337 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,394 - ERROR - Inscription for Eleve ID 1484 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,395 - ERROR - Inscription for Eleve ID 1208 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,395 - ERROR - Inscription for Eleve ID 1580 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,396 - ERROR - Inscription for Eleve ID 1519 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,397 - ERROR - Inscription for Eleve ID 1100 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,398 - ERROR - Inscription for Eleve ID 1100 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,398 - ERROR - Inscription for Eleve ID 1100 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,399 - ERROR - Inscription for Eleve ID 1634 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,400 - ERROR - Inscription for Eleve ID 1254 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,401 - ERROR - Inscription for Eleve ID 1254 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,402 - ERROR - Inscription for Eleve ID 1133 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,403 - ERROR - Inscription for Eleve ID 1451 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,405 - ERROR - Inscription for Eleve ID 1035 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,406 - ERROR - Inscription for Eleve ID 1035 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,407 - ERROR - Inscription for Eleve ID 1053 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,408 - ERROR - Inscription for Eleve ID 1053 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,409 - ERROR - Inscription for Eleve ID 1053 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,410 - ERROR - Inscription for Eleve ID 1045 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,411 - ERROR - Inscription for Eleve ID 1045 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,412 - ERROR - Inscription for Eleve ID 1108 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,413 - ERROR - Inscription for Eleve ID 1108 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,414 - ERROR - Inscription for Eleve ID 1266 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,415 - ERROR - Inscription for Eleve ID 1245 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,416 - ERROR - Inscription for Eleve ID 1048 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,416 - ERROR - Inscription for Eleve ID 1048 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,417 - ERROR - Inscription for Eleve ID 1166 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,418 - ERROR - Inscription for Eleve ID 1060 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,419 - ERROR - Inscription for Eleve ID 1037 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,420 - ERROR - Inscription for Eleve ID 1037 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,421 - ERROR - Inscription for Eleve ID 1170 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,423 - ERROR - Inscription for Eleve ID 1378 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,424 - ERROR - Inscription for Eleve ID 1113 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,425 - ERROR - Inscription for Eleve ID 1113 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,426 - ERROR - Inscription for Eleve ID 1113 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,427 - ERROR - Inscription for Eleve ID 1252 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,428 - ERROR - Inscription for Eleve ID 1252 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,429 - ERROR - Inscription for Eleve ID 1041 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,430 - ERROR - Inscription for Eleve ID 1041 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,431 - ERROR - Inscription for Eleve ID 1288 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,431 - ERROR - Inscription for Eleve ID 1288 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,432 - ERROR - Inscription for Eleve ID 1584 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,433 - ERROR - Inscription for Eleve ID 1584 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,434 - ERROR - Inscription for Eleve ID 1334 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,435 - ERROR - Inscription for Eleve ID 1387 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,436 - ERROR - Inscription for Eleve ID 1387 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,437 - ERROR - Inscription for Eleve ID 1387 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,438 - ERROR - Inscription for Eleve ID 1506 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,440 - ERROR - Inscription for Eleve ID 1267 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,441 - ERROR - Inscription for Eleve ID 1062 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,442 - ERROR - Inscription for Eleve ID 1062 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,443 - ERROR - Inscription for Eleve ID 1062 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,445 - ERROR - Inscription for Eleve ID 1271 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,445 - ERROR - Inscription for Eleve ID 1367 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,446 - ERROR - Inscription for Eleve ID 1064 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,447 - ERROR - Inscription for Eleve ID 1064 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,448 - ERROR - Inscription for Eleve ID 1265 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,448 - ERROR - Inscription for Eleve ID 1540 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,449 - ERROR - Inscription for Eleve ID 1327 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,450 - ERROR - Inscription for Eleve ID 1153 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,451 - ERROR - Inscription for Eleve ID 1269 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,452 - ERROR - Inscription for Eleve ID 1269 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,453 - ERROR - Inscription for Eleve ID 1125 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,454 - ERROR - Inscription for Eleve ID 1549 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,455 - ERROR - Inscription for Eleve ID 1247 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,456 - ERROR - Inscription for Eleve ID 1416 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,457 - ERROR - Eleve with ID 1412 does not exist.
+2025-02-08 19:14:19,457 - ERROR - Eleve with ID 1412 does not exist.
+2025-02-08 19:14:19,459 - ERROR - Inscription for Eleve ID 1046 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,460 - ERROR - Inscription for Eleve ID 1046 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,460 - ERROR - Inscription for Eleve ID 1046 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,462 - ERROR - Inscription for Eleve ID 1426 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,462 - ERROR - Inscription for Eleve ID 1637 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,463 - ERROR - Inscription for Eleve ID 1451 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,464 - ERROR - Inscription for Eleve ID 1451 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,465 - ERROR - Inscription for Eleve ID 1133 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,466 - ERROR - Inscription for Eleve ID 1133 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,466 - ERROR - Inscription for Eleve ID 1058 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,468 - ERROR - Inscription for Eleve ID 1058 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,468 - ERROR - Inscription for Eleve ID 1098 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,470 - ERROR - Inscription for Eleve ID 1098 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,471 - ERROR - Inscription for Eleve ID 1517 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,472 - ERROR - Inscription for Eleve ID 1517 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,473 - ERROR - Inscription for Eleve ID 1057 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,475 - ERROR - Inscription for Eleve ID 1057 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,476 - ERROR - Inscription for Eleve ID 1057 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,477 - ERROR - Inscription for Eleve ID 1065 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,477 - ERROR - Inscription for Eleve ID 1065 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,478 - ERROR - Inscription for Eleve ID 1228 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,479 - ERROR - Inscription for Eleve ID 1233 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,481 - ERROR - Inscription for Eleve ID 1200 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,482 - ERROR - Inscription for Eleve ID 1483 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,483 - ERROR - Inscription for Eleve ID 1483 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,484 - ERROR - Inscription for Eleve ID 1579 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,485 - ERROR - Inscription for Eleve ID 1568 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,487 - ERROR - Inscription for Eleve ID 1500 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,488 - ERROR - Inscription for Eleve ID 1375 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,489 - ERROR - Inscription for Eleve ID 1293 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,491 - ERROR - Inscription for Eleve ID 1461 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,492 - ERROR - Inscription for Eleve ID 1225 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,493 - ERROR - Inscription for Eleve ID 1332 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,495 - ERROR - Inscription for Eleve ID 1332 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,496 - ERROR - Inscription for Eleve ID 1361 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,497 - ERROR - Inscription for Eleve ID 1222 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,498 - ERROR - Inscription for Eleve ID 1096 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,498 - ERROR - Inscription for Eleve ID 1641 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,499 - ERROR - Inscription for Eleve ID 1326 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,500 - ERROR - Inscription for Eleve ID 1635 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,501 - ERROR - Inscription for Eleve ID 1667 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,502 - ERROR - Inscription for Eleve ID 1667 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,504 - ERROR - Inscription for Eleve ID 1667 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,505 - ERROR - Inscription for Eleve ID 1667 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,507 - ERROR - Inscription for Eleve ID 1221 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,508 - ERROR - Inscription for Eleve ID 1095 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,510 - ERROR - Inscription for Eleve ID 1070 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,512 - ERROR - Inscription for Eleve ID 1070 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,513 - ERROR - Inscription for Eleve ID 1070 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,514 - ERROR - Inscription for Eleve ID 1686 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,515 - ERROR - Inscription for Eleve ID 1696 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,516 - ERROR - Inscription for Eleve ID 1696 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,517 - ERROR - Inscription for Eleve ID 1696 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,518 - ERROR - Inscription for Eleve ID 1696 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,519 - ERROR - Inscription for Eleve ID 1460 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,521 - ERROR - Inscription for Eleve ID 1320 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,523 - ERROR - Inscription for Eleve ID 1320 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,524 - ERROR - Inscription for Eleve ID 1321 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,526 - ERROR - Inscription for Eleve ID 1321 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,527 - ERROR - Inscription for Eleve ID 1505 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,528 - ERROR - Inscription for Eleve ID 1099 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,531 - ERROR - Inscription for Eleve ID 1508 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,532 - ERROR - Inscription for Eleve ID 1659 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,532 - ERROR - Inscription for Eleve ID 1698 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,534 - ERROR - Inscription for Eleve ID 1699 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,535 - ERROR - Inscription for Eleve ID 1188 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,536 - ERROR - Inscription for Eleve ID 1704 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,538 - ERROR - Inscription for Eleve ID 1704 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,539 - ERROR - Inscription for Eleve ID 1704 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,541 - ERROR - Inscription for Eleve ID 1704 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,542 - ERROR - Inscription for Eleve ID 1702 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,543 - ERROR - Inscription for Eleve ID 1702 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,544 - ERROR - Inscription for Eleve ID 1702 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,546 - ERROR - Inscription for Eleve ID 1702 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,547 - ERROR - Inscription for Eleve ID 1701 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,548 - ERROR - Inscription for Eleve ID 1701 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,549 - ERROR - Inscription for Eleve ID 1701 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,550 - ERROR - Inscription for Eleve ID 1701 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,552 - ERROR - Inscription for Eleve ID 1700 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,553 - ERROR - Inscription for Eleve ID 1700 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,554 - ERROR - Inscription for Eleve ID 1700 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,556 - ERROR - Inscription for Eleve ID 1700 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,558 - ERROR - Inscription for Eleve ID 1700 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,560 - ERROR - Inscription for Eleve ID 1705 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,561 - ERROR - Inscription for Eleve ID 1705 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,563 - ERROR - Inscription for Eleve ID 1705 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,564 - ERROR - Inscription for Eleve ID 1705 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,564 - ERROR - Inscription for Eleve ID 1706 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,565 - ERROR - Inscription for Eleve ID 1706 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,566 - ERROR - Inscription for Eleve ID 1706 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,568 - ERROR - Inscription for Eleve ID 1268 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,571 - ERROR - Inscription for Eleve ID 1268 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,573 - ERROR - Inscription for Eleve ID 1268 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,576 - ERROR - Inscription for Eleve ID 1707 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,578 - ERROR - Inscription for Eleve ID 1181 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,579 - ERROR - Inscription for Eleve ID 1182 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,580 - ERROR - Inscription for Eleve ID 1536 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,582 - ERROR - Inscription for Eleve ID 1319 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,583 - ERROR - Inscription for Eleve ID 1153 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,586 - ERROR - Inscription for Eleve ID 1664 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,588 - ERROR - Inscription for Eleve ID 1040 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,590 - ERROR - Inscription for Eleve ID 1040 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,593 - ERROR - Inscription for Eleve ID 1040 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,595 - ERROR - Inscription for Eleve ID 1162 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,596 - ERROR - Inscription for Eleve ID 1162 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,598 - ERROR - Inscription for Eleve ID 1487 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,599 - ERROR - Inscription for Eleve ID 1553 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,601 - ERROR - Inscription for Eleve ID 1112 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,603 - ERROR - Inscription for Eleve ID 1112 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,606 - ERROR - Inscription for Eleve ID 1569 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,608 - ERROR - Inscription for Eleve ID 1510 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,609 - ERROR - Inscription for Eleve ID 1114 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,610 - ERROR - Inscription for Eleve ID 1578 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,611 - ERROR - Inscription for Eleve ID 1340 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,613 - ERROR - Inscription for Eleve ID 1177 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,614 - ERROR - Inscription for Eleve ID 1039 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,615 - ERROR - Inscription for Eleve ID 1039 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,616 - ERROR - Inscription for Eleve ID 1212 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,617 - ERROR - Inscription for Eleve ID 1707 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,619 - ERROR - Inscription for Eleve ID 1707 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,621 - ERROR - Inscription for Eleve ID 1044 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,622 - ERROR - Inscription for Eleve ID 1233 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,624 - ERROR - Inscription for Eleve ID 1069 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,627 - ERROR - Inscription for Eleve ID 1710 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,629 - ERROR - Inscription for Eleve ID 1278 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,631 - ERROR - Inscription for Eleve ID 1441 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,633 - ERROR - Inscription for Eleve ID 1453 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,634 - ERROR - Inscription for Eleve ID 1332 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,636 - ERROR - Inscription for Eleve ID 1512 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,638 - ERROR - Inscription for Eleve ID 1512 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,641 - ERROR - Inscription for Eleve ID 1275 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,643 - ERROR - Inscription for Eleve ID 1275 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,645 - ERROR - Inscription for Eleve ID 1444 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,647 - ERROR - Inscription for Eleve ID 1445 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,649 - ERROR - Inscription for Eleve ID 1360 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,651 - ERROR - Inscription for Eleve ID 1119 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,652 - ERROR - Eleve with ID 1411 does not exist.
+2025-02-08 19:14:19,654 - ERROR - Inscription for Eleve ID 1566 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,656 - ERROR - Inscription for Eleve ID 1378 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,658 - ERROR - Inscription for Eleve ID 1550 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,660 - ERROR - Inscription for Eleve ID 1711 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,662 - ERROR - Inscription for Eleve ID 1271 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,664 - ERROR - Inscription for Eleve ID 1367 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,665 - ERROR - Inscription for Eleve ID 1508 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,667 - ERROR - Inscription for Eleve ID 1710 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,669 - ERROR - Inscription for Eleve ID 1711 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,671 - ERROR - Inscription for Eleve ID 1707 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,673 - ERROR - Inscription for Eleve ID 1067 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,676 - ERROR - Inscription for Eleve ID 1328 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,678 - ERROR - Inscription for Eleve ID 1386 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,680 - ERROR - Inscription for Eleve ID 1310 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,682 - ERROR - Inscription for Eleve ID 1564 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,684 - ERROR - Inscription for Eleve ID 1352 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,687 - ERROR - Inscription for Eleve ID 1292 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,690 - ERROR - Inscription for Eleve ID 1258 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,692 - ERROR - Inscription for Eleve ID 1478 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,695 - ERROR - Inscription for Eleve ID 1168 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,697 - ERROR - Inscription for Eleve ID 1197 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,700 - ERROR - Inscription for Eleve ID 1145 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,702 - ERROR - Inscription for Eleve ID 1522 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,705 - ERROR - Inscription for Eleve ID 1200 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,708 - ERROR - Inscription for Eleve ID 1200 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,711 - ERROR - Inscription for Eleve ID 1229 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,713 - ERROR - Inscription for Eleve ID 1110 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,715 - ERROR - Inscription for Eleve ID 1110 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,718 - ERROR - Inscription for Eleve ID 1158 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,720 - ERROR - Inscription for Eleve ID 1158 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,723 - ERROR - Inscription for Eleve ID 1629 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,726 - ERROR - Inscription for Eleve ID 1629 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,728 - ERROR - Inscription for Eleve ID 1577 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,730 - ERROR - Inscription for Eleve ID 1572 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,733 - ERROR - Inscription for Eleve ID 1095 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,736 - ERROR - Inscription for Eleve ID 1064 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,738 - ERROR - Inscription for Eleve ID 1107 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,741 - ERROR - Inscription for Eleve ID 1285 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,743 - ERROR - Inscription for Eleve ID 1628 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,746 - ERROR - Inscription for Eleve ID 1492 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,748 - ERROR - Inscription for Eleve ID 1422 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,751 - ERROR - Inscription for Eleve ID 1346 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,754 - ERROR - Inscription for Eleve ID 1295 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,756 - ERROR - Inscription for Eleve ID 1509 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,759 - ERROR - Inscription for Eleve ID 1434 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,761 - ERROR - Inscription for Eleve ID 1527 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,764 - ERROR - Inscription for Eleve ID 1194 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,767 - ERROR - Inscription for Eleve ID 1330 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,768 - ERROR - Eleve with ID 1410 does not exist.
+2025-02-08 19:14:19,770 - ERROR - Inscription for Eleve ID 1312 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,773 - ERROR - Inscription for Eleve ID 1372 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,776 - ERROR - Inscription for Eleve ID 1390 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,778 - ERROR - Inscription for Eleve ID 1503 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,781 - ERROR - Inscription for Eleve ID 1254 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,783 - ERROR - Inscription for Eleve ID 1181 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,786 - ERROR - Inscription for Eleve ID 1182 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,789 - ERROR - Inscription for Eleve ID 1585 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,792 - ERROR - Inscription for Eleve ID 1169 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,793 - ERROR - Eleve with ID 1410 does not exist.
+2025-02-08 19:14:19,796 - ERROR - Inscription for Eleve ID 1638 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,799 - ERROR - Inscription for Eleve ID 1047 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,802 - ERROR - Inscription for Eleve ID 1047 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,805 - ERROR - Inscription for Eleve ID 1038 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,808 - ERROR - Inscription for Eleve ID 1038 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,811 - ERROR - Inscription for Eleve ID 1059 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,813 - ERROR - Inscription for Eleve ID 1059 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,816 - ERROR - Inscription for Eleve ID 1035 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,819 - ERROR - Inscription for Eleve ID 1686 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,821 - ERROR - Inscription for Eleve ID 1686 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,824 - ERROR - Inscription for Eleve ID 1131 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,826 - ERROR - Inscription for Eleve ID 1132 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,828 - ERROR - Inscription for Eleve ID 1663 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,831 - ERROR - Inscription for Eleve ID 1054 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,834 - ERROR - Inscription for Eleve ID 1101 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,839 - ERROR - Inscription for Eleve ID 1102 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,842 - ERROR - Inscription for Eleve ID 1133 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,845 - ERROR - Inscription for Eleve ID 1425 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,847 - ERROR - Inscription for Eleve ID 1444 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,852 - ERROR - Inscription for Eleve ID 1445 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,856 - ERROR - Inscription for Eleve ID 1518 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,859 - ERROR - Inscription for Eleve ID 1283 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,860 - ERROR - Eleve with ID 1409 does not exist.
+2025-02-08 19:14:19,862 - ERROR - Inscription for Eleve ID 1099 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,864 - ERROR - Inscription for Eleve ID 1099 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,867 - ERROR - Inscription for Eleve ID 1467 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,869 - ERROR - Inscription for Eleve ID 1712 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,872 - ERROR - Inscription for Eleve ID 1407 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,874 - ERROR - Inscription for Eleve ID 1051 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,876 - ERROR - Inscription for Eleve ID 1503 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,878 - ERROR - Inscription for Eleve ID 1556 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,880 - ERROR - Inscription for Eleve ID 1588 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,882 - ERROR - Inscription for Eleve ID 1041 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,884 - ERROR - Inscription for Eleve ID 1662 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,886 - ERROR - Inscription for Eleve ID 1116 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,889 - ERROR - Inscription for Eleve ID 1476 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,891 - ERROR - Inscription for Eleve ID 1476 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,894 - ERROR - Inscription for Eleve ID 1701 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,896 - ERROR - Inscription for Eleve ID 1131 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,897 - ERROR - Inscription for Eleve ID 1132 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,900 - ERROR - Inscription for Eleve ID 1642 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,902 - ERROR - Inscription for Eleve ID 1033 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,904 - ERROR - Inscription for Eleve ID 1033 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,906 - ERROR - Inscription for Eleve ID 1058 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,909 - ERROR - Inscription for Eleve ID 1648 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,911 - ERROR - Inscription for Eleve ID 1102 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,913 - ERROR - Inscription for Eleve ID 1378 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,915 - ERROR - Inscription for Eleve ID 1063 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,917 - ERROR - Inscription for Eleve ID 1063 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,919 - ERROR - Inscription for Eleve ID 1447 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,921 - ERROR - Inscription for Eleve ID 1712 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,923 - ERROR - Inscription for Eleve ID 1435 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,926 - ERROR - Inscription for Eleve ID 1636 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,928 - ERROR - Inscription for Eleve ID 1043 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,930 - ERROR - Inscription for Eleve ID 1406 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,933 - ERROR - Inscription for Eleve ID 1148 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,934 - ERROR - Inscription for Eleve ID 1061 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,936 - ERROR - Inscription for Eleve ID 1645 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,938 - ERROR - Inscription for Eleve ID 1036 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,941 - ERROR - Inscription for Eleve ID 1224 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,943 - ERROR - Inscription for Eleve ID 1651 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,945 - ERROR - Inscription for Eleve ID 1056 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,946 - ERROR - Inscription for Eleve ID 1658 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,948 - ERROR - Inscription for Eleve ID 1278 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,950 - ERROR - Inscription for Eleve ID 1242 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,951 - ERROR - Inscription for Eleve ID 1544 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,953 - ERROR - Inscription for Eleve ID 1181 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,956 - ERROR - Inscription for Eleve ID 1182 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,958 - ERROR - Inscription for Eleve ID 1138 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,960 - ERROR - Inscription for Eleve ID 1227 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,962 - ERROR - Inscription for Eleve ID 1469 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,964 - ERROR - Inscription for Eleve ID 1392 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,966 - ERROR - Inscription for Eleve ID 1627 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,968 - ERROR - Inscription for Eleve ID 1653 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,969 - ERROR - Inscription for Eleve ID 1312 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,972 - ERROR - Inscription for Eleve ID 1205 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,974 - ERROR - Inscription for Eleve ID 1130 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,976 - ERROR - Inscription for Eleve ID 1043 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,979 - ERROR - Inscription for Eleve ID 1406 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,980 - ERROR - Inscription for Eleve ID 1382 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,982 - ERROR - Inscription for Eleve ID 1163 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,984 - ERROR - Inscription for Eleve ID 1401 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,986 - ERROR - Inscription for Eleve ID 1403 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,988 - ERROR - Inscription for Eleve ID 1213 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,990 - ERROR - Inscription for Eleve ID 1527 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,992 - ERROR - Inscription for Eleve ID 1042 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,994 - ERROR - Inscription for Eleve ID 1184 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,997 - ERROR - Inscription for Eleve ID 1108 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:19,998 - ERROR - Inscription for Eleve ID 1260 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,000 - ERROR - Inscription for Eleve ID 1149 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,002 - ERROR - Inscription for Eleve ID 1096 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,004 - ERROR - Inscription for Eleve ID 1222 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,006 - ERROR - Inscription for Eleve ID 1068 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,009 - ERROR - Inscription for Eleve ID 1416 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,011 - ERROR - Inscription for Eleve ID 1037 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,013 - ERROR - Inscription for Eleve ID 1327 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,014 - ERROR - Inscription for Eleve ID 1654 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,016 - ERROR - Inscription for Eleve ID 1199 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,017 - ERROR - Inscription for Eleve ID 1228 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,019 - ERROR - Inscription for Eleve ID 1252 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,021 - ERROR - Inscription for Eleve ID 1166 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,024 - ERROR - Inscription for Eleve ID 1156 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,026 - ERROR - Inscription for Eleve ID 1164 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,028 - ERROR - Inscription for Eleve ID 1195 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,030 - ERROR - Inscription for Eleve ID 1569 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,032 - ERROR - Inscription for Eleve ID 1510 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,033 - ERROR - Inscription for Eleve ID 1115 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,035 - ERROR - Inscription for Eleve ID 1200 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,037 - ERROR - Inscription for Eleve ID 1267 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,039 - ERROR - Inscription for Eleve ID 1439 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,042 - ERROR - Inscription for Eleve ID 1223 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,044 - ERROR - Inscription for Eleve ID 1171 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,046 - ERROR - Inscription for Eleve ID 1054 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,047 - ERROR - Inscription for Eleve ID 1665 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,049 - ERROR - Inscription for Eleve ID 1289 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,051 - ERROR - Inscription for Eleve ID 1153 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,052 - ERROR - Inscription for Eleve ID 1035 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,055 - ERROR - Inscription for Eleve ID 1298 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,057 - ERROR - Inscription for Eleve ID 1142 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,059 - ERROR - Inscription for Eleve ID 1652 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,061 - ERROR - Inscription for Eleve ID 1062 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,063 - ERROR - Inscription for Eleve ID 1271 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,065 - ERROR - Inscription for Eleve ID 1367 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,066 - ERROR - Inscription for Eleve ID 1508 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,068 - ERROR - Inscription for Eleve ID 1633 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,070 - ERROR - Inscription for Eleve ID 1398 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,072 - ERROR - Inscription for Eleve ID 1372 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,075 - ERROR - Inscription for Eleve ID 1432 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,077 - ERROR - Inscription for Eleve ID 1265 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,079 - ERROR - Inscription for Eleve ID 1370 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,080 - ERROR - Inscription for Eleve ID 1256 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,082 - ERROR - Inscription for Eleve ID 1393 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,084 - ERROR - Inscription for Eleve ID 1442 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,085 - ERROR - Inscription for Eleve ID 1444 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,087 - ERROR - Inscription for Eleve ID 1269 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,090 - ERROR - Inscription for Eleve ID 1630 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,092 - ERROR - Inscription for Eleve ID 1055 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,094 - ERROR - Inscription for Eleve ID 1384 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,096 - ERROR - Inscription for Eleve ID 1639 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,098 - ERROR - Inscription for Eleve ID 1646 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,100 - ERROR - Inscription for Eleve ID 1117 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,101 - ERROR - Inscription for Eleve ID 1045 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,103 - ERROR - Inscription for Eleve ID 1632 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,106 - ERROR - Inscription for Eleve ID 1120 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,108 - ERROR - Inscription for Eleve ID 1500 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,110 - ERROR - Inscription for Eleve ID 1178 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,112 - ERROR - Inscription for Eleve ID 1136 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,114 - ERROR - Inscription for Eleve ID 1383 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,115 - ERROR - Inscription for Eleve ID 1589 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,117 - ERROR - Inscription for Eleve ID 1202 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,119 - ERROR - Inscription for Eleve ID 1522 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,121 - ERROR - Inscription for Eleve ID 1232 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,124 - ERROR - Inscription for Eleve ID 1141 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,126 - ERROR - Inscription for Eleve ID 1067 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,128 - ERROR - Inscription for Eleve ID 1067 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,130 - ERROR - Inscription for Eleve ID 1666 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,132 - ERROR - Inscription for Eleve ID 1291 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,133 - ERROR - Inscription for Eleve ID 1586 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,135 - ERROR - Inscription for Eleve ID 1626 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,137 - ERROR - Inscription for Eleve ID 1133 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,140 - ERROR - Inscription for Eleve ID 1451 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,142 - ERROR - Inscription for Eleve ID 1623 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,144 - ERROR - Inscription for Eleve ID 1050 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,146 - ERROR - Inscription for Eleve ID 1272 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,147 - ERROR - Inscription for Eleve ID 1125 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,149 - ERROR - Inscription for Eleve ID 1549 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,151 - ERROR - Inscription for Eleve ID 1247 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,153 - ERROR - Inscription for Eleve ID 1471 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,155 - ERROR - Inscription for Eleve ID 1106 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,158 - ERROR - Inscription for Eleve ID 1340 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,160 - ERROR - Inscription for Eleve ID 1034 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,162 - ERROR - Inscription for Eleve ID 1148 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,163 - ERROR - Inscription for Eleve ID 1707 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,166 - ERROR - Inscription for Eleve ID 1650 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,167 - ERROR - Inscription for Eleve ID 1318 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,169 - ERROR - Inscription for Eleve ID 1529 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,171 - ERROR - Inscription for Eleve ID 1051 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,174 - ERROR - Inscription for Eleve ID 1667 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,176 - ERROR - Inscription for Eleve ID 1377 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,177 - ERROR - Inscription for Eleve ID 1110 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,179 - ERROR - Inscription for Eleve ID 1460 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,181 - ERROR - Inscription for Eleve ID 1385 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,183 - ERROR - Inscription for Eleve ID 1587 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,185 - ERROR - Inscription for Eleve ID 1301 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,187 - ERROR - Inscription for Eleve ID 1145 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,189 - ERROR - Inscription for Eleve ID 1100 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,192 - ERROR - Inscription for Eleve ID 1426 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,193 - ERROR - Inscription for Eleve ID 1624 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,195 - ERROR - Inscription for Eleve ID 1710 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,197 - ERROR - Inscription for Eleve ID 1185 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,199 - ERROR - Inscription for Eleve ID 1216 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,201 - ERROR - Inscription for Eleve ID 1478 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,203 - ERROR - Inscription for Eleve ID 1168 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,205 - ERROR - Inscription for Eleve ID 1424 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,208 - ERROR - Inscription for Eleve ID 1273 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,210 - ERROR - Inscription for Eleve ID 1057 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,212 - ERROR - Inscription for Eleve ID 1107 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,214 - ERROR - Inscription for Eleve ID 1488 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,216 - ERROR - Inscription for Eleve ID 1555 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,218 - ERROR - Inscription for Eleve ID 1436 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,220 - ERROR - Inscription for Eleve ID 1330 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,222 - ERROR - Inscription for Eleve ID 1346 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,225 - ERROR - Inscription for Eleve ID 1422 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,227 - ERROR - Inscription for Eleve ID 1625 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,228 - ERROR - Inscription for Eleve ID 1576 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,230 - ERROR - Inscription for Eleve ID 1698 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,232 - ERROR - Inscription for Eleve ID 1699 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,233 - ERROR - Inscription for Eleve ID 1702 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,234 - ERROR - Inscription for Eleve ID 1053 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,236 - ERROR - Inscription for Eleve ID 1249 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,237 - ERROR - Eleve with ID 1414 does not exist.
+2025-02-08 19:14:20,239 - ERROR - Inscription for Eleve ID 1696 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,242 - ERROR - Inscription for Eleve ID 1711 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,243 - ERROR - Inscription for Eleve ID 1257 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,245 - ERROR - Inscription for Eleve ID 1634 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,246 - ERROR - Inscription for Eleve ID 1643 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,248 - ERROR - Inscription for Eleve ID 1144 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,249 - ERROR - Inscription for Eleve ID 1704 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,251 - ERROR - Inscription for Eleve ID 1065 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,252 - ERROR - Inscription for Eleve ID 1121 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,254 - ERROR - Inscription for Eleve ID 1121 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,257 - ERROR - Inscription for Eleve ID 1513 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,259 - ERROR - Inscription for Eleve ID 1661 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,260 - ERROR - Inscription for Eleve ID 1565 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,262 - ERROR - Inscription for Eleve ID 1101 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,263 - ERROR - Inscription for Eleve ID 1103 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,265 - ERROR - Inscription for Eleve ID 1114 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,266 - ERROR - Inscription for Eleve ID 1319 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,267 - ERROR - Inscription for Eleve ID 1536 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,269 - ERROR - Inscription for Eleve ID 1458 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,271 - ERROR - Inscription for Eleve ID 1170 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,273 - ERROR - Inscription for Eleve ID 1585 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,275 - ERROR - Inscription for Eleve ID 1483 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,277 - ERROR - Inscription for Eleve ID 1212 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,279 - ERROR - Inscription for Eleve ID 1515 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,280 - ERROR - Inscription for Eleve ID 1451 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,282 - ERROR - Inscription for Eleve ID 1540 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,283 - ERROR - Inscription for Eleve ID 1468 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,285 - ERROR - Inscription for Eleve ID 1568 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,286 - ERROR - Inscription for Eleve ID 1509 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,289 - ERROR - Inscription for Eleve ID 1396 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,291 - ERROR - Inscription for Eleve ID 1265 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,293 - ERROR - Inscription for Eleve ID 1517 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,294 - ERROR - Inscription for Eleve ID 1505 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,296 - ERROR - Inscription for Eleve ID 1587 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,298 - ERROR - Inscription for Eleve ID 1197 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,299 - ERROR - Inscription for Eleve ID 1266 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,300 - ERROR - Inscription for Eleve ID 1194 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,302 - ERROR - Inscription for Eleve ID 1551 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,304 - ERROR - Inscription for Eleve ID 1174 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,306 - ERROR - Inscription for Eleve ID 1464 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,309 - ERROR - Inscription for Eleve ID 1258 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,311 - ERROR - Inscription for Eleve ID 1292 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,312 - ERROR - Inscription for Eleve ID 1360 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,314 - ERROR - Inscription for Eleve ID 1295 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,315 - ERROR - Inscription for Eleve ID 1384 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,317 - ERROR - Inscription for Eleve ID 1435 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,318 - ERROR - Inscription for Eleve ID 1477 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,320 - ERROR - Inscription for Eleve ID 1644 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,322 - ERROR - Inscription for Eleve ID 1070 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,325 - ERROR - Inscription for Eleve ID 1522 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,327 - ERROR - Inscription for Eleve ID 1125 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,328 - ERROR - Inscription for Eleve ID 1125 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,330 - ERROR - Inscription for Eleve ID 1258 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,331 - ERROR - Inscription for Eleve ID 1420 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,333 - ERROR - Inscription for Eleve ID 1421 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,334 - ERROR - Inscription for Eleve ID 1381 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,335 - ERROR - Inscription for Eleve ID 1127 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,338 - ERROR - Inscription for Eleve ID 1642 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,340 - ERROR - Inscription for Eleve ID 1640 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,341 - ERROR - Eleve with ID 1411 does not exist.
+2025-02-08 19:14:20,343 - ERROR - Inscription for Eleve ID 1097 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,345 - ERROR - Inscription for Eleve ID 1473 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,346 - ERROR - Inscription for Eleve ID 1503 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,348 - ERROR - Inscription for Eleve ID 1443 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,349 - ERROR - Inscription for Eleve ID 1169 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,351 - ERROR - Inscription for Eleve ID 1095 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,352 - ERROR - Inscription for Eleve ID 1221 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,354 - ERROR - Inscription for Eleve ID 1115 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,357 - ERROR - Inscription for Eleve ID 1208 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,359 - ERROR - Inscription for Eleve ID 1554 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,360 - ERROR - Inscription for Eleve ID 1470 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,362 - ERROR - Inscription for Eleve ID 1434 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,364 - ERROR - Inscription for Eleve ID 1102 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,366 - ERROR - Inscription for Eleve ID 1441 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,367 - ERROR - Inscription for Eleve ID 1229 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,368 - ERROR - Inscription for Eleve ID 1549 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,370 - ERROR - Inscription for Eleve ID 1513 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,373 - ERROR - Inscription for Eleve ID 1250 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,375 - ERROR - Inscription for Eleve ID 1235 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,377 - ERROR - Inscription for Eleve ID 1324 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,378 - ERROR - Inscription for Eleve ID 1386 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,380 - ERROR - Inscription for Eleve ID 1526 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,382 - ERROR - Inscription for Eleve ID 1481 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,383 - ERROR - Inscription for Eleve ID 1228 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,385 - ERROR - Inscription for Eleve ID 1453 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,387 - ERROR - Inscription for Eleve ID 1244 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,389 - ERROR - Inscription for Eleve ID 1519 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,391 - ERROR - Inscription for Eleve ID 1580 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,393 - ERROR - Inscription for Eleve ID 1320 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,394 - ERROR - Inscription for Eleve ID 1321 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,396 - ERROR - Inscription for Eleve ID 1328 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,398 - ERROR - Inscription for Eleve ID 1044 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,400 - ERROR - Inscription for Eleve ID 1406 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,401 - ERROR - Inscription for Eleve ID 1465 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,403 - ERROR - Inscription for Eleve ID 1466 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,405 - ERROR - Inscription for Eleve ID 1461 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,408 - ERROR - Inscription for Eleve ID 1492 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,410 - ERROR - Inscription for Eleve ID 1310 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,412 - ERROR - Inscription for Eleve ID 1038 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,413 - ERROR - Inscription for Eleve ID 1664 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,415 - ERROR - Inscription for Eleve ID 1625 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,416 - ERROR - Inscription for Eleve ID 1651 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,418 - ERROR - Inscription for Eleve ID 1169 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,420 - ERROR - Inscription for Eleve ID 1059 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,421 - ERROR - Inscription for Eleve ID 1686 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,424 - ERROR - Inscription for Eleve ID 1098 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,426 - ERROR - Inscription for Eleve ID 1099 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,428 - ERROR - Inscription for Eleve ID 1066 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,430 - ERROR - Inscription for Eleve ID 1578 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,431 - ERROR - Inscription for Eleve ID 1284 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,433 - ERROR - Inscription for Eleve ID 1037 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,434 - ERROR - Inscription for Eleve ID 1269 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,435 - ERROR - Inscription for Eleve ID 1460 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,437 - ERROR - Inscription for Eleve ID 1705 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,439 - ERROR - Inscription for Eleve ID 1313 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,442 - ERROR - Inscription for Eleve ID 1361 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,443 - ERROR - Inscription for Eleve ID 1540 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,445 - ERROR - Eleve with ID 1410 does not exist.
+2025-02-08 19:14:20,446 - ERROR - Inscription for Eleve ID 1475 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,448 - ERROR - Inscription for Eleve ID 1188 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,449 - ERROR - Inscription for Eleve ID 1045 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,450 - ERROR - Inscription for Eleve ID 1579 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,452 - ERROR - Inscription for Eleve ID 1287 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,454 - ERROR - Inscription for Eleve ID 1070 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,456 - ERROR - Inscription for Eleve ID 1296 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,458 - ERROR - Inscription for Eleve ID 1297 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,460 - ERROR - Inscription for Eleve ID 1634 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,461 - ERROR - Inscription for Eleve ID 1337 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,463 - ERROR - Inscription for Eleve ID 1484 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,464 - ERROR - Inscription for Eleve ID 1285 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,466 - ERROR - Inscription for Eleve ID 1432 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,467 - ERROR - Inscription for Eleve ID 1056 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,469 - ERROR - Inscription for Eleve ID 1502 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,471 - ERROR - Inscription for Eleve ID 1047 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,474 - ERROR - Inscription for Eleve ID 1043 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,475 - ERROR - Inscription for Eleve ID 1033 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,477 - ERROR - Inscription for Eleve ID 1103 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,478 - ERROR - Inscription for Eleve ID 1624 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,480 - ERROR - Inscription for Eleve ID 1654 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,481 - ERROR - Inscription for Eleve ID 1641 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,483 - ERROR - Inscription for Eleve ID 1482 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,484 - ERROR - Inscription for Eleve ID 1069 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,486 - ERROR - Inscription for Eleve ID 1696 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,489 - ERROR - Inscription for Eleve ID 1632 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,491 - ERROR - Inscription for Eleve ID 1068 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,493 - ERROR - Inscription for Eleve ID 1662 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,494 - ERROR - Inscription for Eleve ID 1659 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,496 - ERROR - Inscription for Eleve ID 1200 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,497 - ERROR - Inscription for Eleve ID 1328 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,499 - ERROR - Inscription for Eleve ID 1501 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,501 - ERROR - Inscription for Eleve ID 1055 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,502 - ERROR - Inscription for Eleve ID 1117 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,504 - ERROR - Inscription for Eleve ID 1646 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,506 - ERROR - Inscription for Eleve ID 1577 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,509 - ERROR - Inscription for Eleve ID 1051 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,511 - ERROR - Inscription for Eleve ID 1130 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,512 - ERROR - Inscription for Eleve ID 1422 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,514 - ERROR - Inscription for Eleve ID 1346 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,516 - ERROR - Inscription for Eleve ID 1625 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,517 - ERROR - Inscription for Eleve ID 1638 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,518 - ERROR - Inscription for Eleve ID 1104 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,520 - ERROR - Inscription for Eleve ID 1058 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,523 - ERROR - Inscription for Eleve ID 1544 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,525 - ERROR - Inscription for Eleve ID 1242 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,527 - ERROR - Inscription for Eleve ID 1057 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,529 - ERROR - Inscription for Eleve ID 1518 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,530 - ERROR - Inscription for Eleve ID 1283 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,532 - ERROR - Inscription for Eleve ID 1450 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,533 - ERROR - Inscription for Eleve ID 1370 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,535 - ERROR - Inscription for Eleve ID 1666 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,537 - ERROR - Inscription for Eleve ID 1291 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,539 - ERROR - Inscription for Eleve ID 1586 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,541 - ERROR - Inscription for Eleve ID 1648 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,543 - ERROR - Inscription for Eleve ID 1686 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,545 - ERROR - Inscription for Eleve ID 1686 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,547 - ERROR - Inscription for Eleve ID 1470 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,548 - ERROR - Inscription for Eleve ID 1447 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,549 - ERROR - Inscription for Eleve ID 1458 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,551 - ERROR - Inscription for Eleve ID 1653 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,552 - ERROR - Inscription for Eleve ID 1045 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,555 - ERROR - Inscription for Eleve ID 1184 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,557 - ERROR - Inscription for Eleve ID 1626 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,559 - ERROR - Inscription for Eleve ID 1665 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,561 - ERROR - Inscription for Eleve ID 1099 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,563 - ERROR - Inscription for Eleve ID 1529 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,564 - ERROR - Inscription for Eleve ID 1383 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,566 - ERROR - Inscription for Eleve ID 1589 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,567 - ERROR - Inscription for Eleve ID 1467 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,569 - ERROR - Inscription for Eleve ID 1223 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,571 - ERROR - Inscription for Eleve ID 1385 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,574 - ERROR - Inscription for Eleve ID 1407 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,576 - ERROR - Inscription for Eleve ID 1663 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,577 - ERROR - Inscription for Eleve ID 1224 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,579 - ERROR - Inscription for Eleve ID 1036 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,581 - ERROR - Inscription for Eleve ID 1500 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,582 - ERROR - Inscription for Eleve ID 1120 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,583 - ERROR - Inscription for Eleve ID 1166 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,585 - ERROR - Inscription for Eleve ID 1393 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,587 - ERROR - Inscription for Eleve ID 1435 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,589 - ERROR - Inscription for Eleve ID 1399 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,592 - ERROR - Inscription for Eleve ID 1095 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,594 - ERROR - Inscription for Eleve ID 1221 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,596 - ERROR - Inscription for Eleve ID 1515 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,597 - ERROR - Inscription for Eleve ID 1540 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,599 - ERROR - Inscription for Eleve ID 1327 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,600 - ERROR - Inscription for Eleve ID 1390 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,602 - ERROR - Inscription for Eleve ID 1587 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,604 - ERROR - Inscription for Eleve ID 1445 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,606 - ERROR - Inscription for Eleve ID 1313 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,608 - ERROR - Inscription for Eleve ID 1361 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,610 - ERROR - Inscription for Eleve ID 1035 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,611 - ERROR - Inscription for Eleve ID 1273 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,613 - ERROR - Inscription for Eleve ID 1131 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,614 - ERROR - Inscription for Eleve ID 1132 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,616 - ERROR - Inscription for Eleve ID 1551 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,617 - ERROR - Inscription for Eleve ID 1174 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,619 - ERROR - Inscription for Eleve ID 1247 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,621 - ERROR - Inscription for Eleve ID 1353 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,622 - ERROR - Eleve with ID 1409 does not exist.
+2025-02-08 19:14:20,625 - ERROR - Inscription for Eleve ID 1372 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,626 - ERROR - Inscription for Eleve ID 1053 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,628 - ERROR - Inscription for Eleve ID 1185 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,630 - ERROR - Inscription for Eleve ID 1260 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,631 - ERROR - Inscription for Eleve ID 1101 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,633 - ERROR - Inscription for Eleve ID 1296 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,634 - ERROR - Inscription for Eleve ID 1297 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,636 - ERROR - Inscription for Eleve ID 1640 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,638 - ERROR - Inscription for Eleve ID 1461 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,641 - ERROR - Inscription for Eleve ID 1478 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,642 - ERROR - Inscription for Eleve ID 1168 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,644 - ERROR - Inscription for Eleve ID 1352 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,646 - ERROR - Inscription for Eleve ID 1318 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,647 - ERROR - Inscription for Eleve ID 1334 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,649 - ERROR - Inscription for Eleve ID 1652 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,650 - ERROR - Inscription for Eleve ID 1062 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,652 - ERROR - Inscription for Eleve ID 1702 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,653 - ERROR - Inscription for Eleve ID 1216 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,656 - ERROR - Inscription for Eleve ID 1136 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,658 - ERROR - Inscription for Eleve ID 1067 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,660 - ERROR - Inscription for Eleve ID 1164 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,662 - ERROR - Inscription for Eleve ID 1271 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,664 - ERROR - Inscription for Eleve ID 1367 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,665 - ERROR - Inscription for Eleve ID 1508 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,667 - ERROR - Inscription for Eleve ID 1661 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,668 - ERROR - Inscription for Eleve ID 1453 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,670 - ERROR - Inscription for Eleve ID 1576 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,671 - ERROR - Inscription for Eleve ID 1698 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,673 - ERROR - Inscription for Eleve ID 1699 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,675 - ERROR - Inscription for Eleve ID 1232 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,677 - ERROR - Inscription for Eleve ID 1178 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,678 - ERROR - Inscription for Eleve ID 1513 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,680 - ERROR - Inscription for Eleve ID 1442 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,682 - ERROR - Inscription for Eleve ID 1156 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,685 - ERROR - Inscription for Eleve ID 1249 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,686 - ERROR - Eleve with ID 1414 does not exist.
+2025-02-08 19:14:20,688 - ERROR - Inscription for Eleve ID 1483 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,690 - ERROR - Inscription for Eleve ID 1569 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,692 - ERROR - Inscription for Eleve ID 1510 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,694 - ERROR - Inscription for Eleve ID 1443 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,696 - ERROR - Inscription for Eleve ID 1048 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,698 - ERROR - Inscription for Eleve ID 1245 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,700 - ERROR - Inscription for Eleve ID 1138 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,702 - ERROR - Inscription for Eleve ID 1416 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,705 - ERROR - Inscription for Eleve ID 1360 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,707 - ERROR - Inscription for Eleve ID 1194 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,709 - ERROR - Inscription for Eleve ID 1382 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,711 - ERROR - Inscription for Eleve ID 1310 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,712 - ERROR - Inscription for Eleve ID 1470 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,714 - ERROR - Inscription for Eleve ID 1184 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,716 - ERROR - Inscription for Eleve ID 1510 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,718 - ERROR - Inscription for Eleve ID 1569 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,720 - ERROR - Inscription for Eleve ID 1225 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,722 - ERROR - Inscription for Eleve ID 1407 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,724 - ERROR - Inscription for Eleve ID 1406 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,725 - ERROR - Inscription for Eleve ID 1330 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,726 - ERROR - Inscription for Eleve ID 1287 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,728 - ERROR - Inscription for Eleve ID 1420 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,729 - ERROR - Inscription for Eleve ID 1421 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,731 - ERROR - Inscription for Eleve ID 1471 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,733 - ERROR - Inscription for Eleve ID 1522 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,734 - ERROR - Inscription for Eleve ID 1292 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,736 - ERROR - Inscription for Eleve ID 1193 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,738 - ERROR - Inscription for Eleve ID 1164 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,740 - ERROR - Inscription for Eleve ID 1401 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,741 - ERROR - Inscription for Eleve ID 1403 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,743 - ERROR - Inscription for Eleve ID 1163 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,744 - ERROR - Inscription for Eleve ID 1265 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,746 - ERROR - Inscription for Eleve ID 1424 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,747 - ERROR - Inscription for Eleve ID 1436 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,749 - ERROR - Inscription for Eleve ID 1425 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,751 - ERROR - Inscription for Eleve ID 1124 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,754 - ERROR - Inscription for Eleve ID 1477 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,755 - ERROR - Inscription for Eleve ID 1272 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,758 - ERROR - Inscription for Eleve ID 1337 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,759 - ERROR - Inscription for Eleve ID 1484 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,761 - ERROR - Inscription for Eleve ID 1386 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,763 - ERROR - Inscription for Eleve ID 1464 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,764 - ERROR - Inscription for Eleve ID 1475 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,766 - ERROR - Inscription for Eleve ID 1284 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,768 - ERROR - Inscription for Eleve ID 1153 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,770 - ERROR - Inscription for Eleve ID 1522 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,772 - ERROR - Inscription for Eleve ID 1227 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,774 - ERROR - Inscription for Eleve ID 1469 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,776 - ERROR - Inscription for Eleve ID 1587 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,777 - ERROR - Inscription for Eleve ID 1385 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,779 - ERROR - Inscription for Eleve ID 1197 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,781 - ERROR - Inscription for Eleve ID 1468 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,783 - ERROR - Inscription for Eleve ID 1212 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,785 - ERROR - Inscription for Eleve ID 1162 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,787 - ERROR - Inscription for Eleve ID 1585 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,789 - ERROR - Inscription for Eleve ID 1518 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,791 - ERROR - Inscription for Eleve ID 1283 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,792 - ERROR - Inscription for Eleve ID 1340 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,794 - ERROR - Inscription for Eleve ID 1034 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,795 - ERROR - Inscription for Eleve ID 1288 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,797 - ERROR - Inscription for Eleve ID 1584 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,799 - ERROR - Inscription for Eleve ID 1266 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,800 - ERROR - Inscription for Eleve ID 1447 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,803 - ERROR - Inscription for Eleve ID 1106 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,805 - ERROR - Inscription for Eleve ID 1181 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,807 - ERROR - Inscription for Eleve ID 1182 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,809 - ERROR - Inscription for Eleve ID 1250 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,811 - ERROR - Inscription for Eleve ID 1145 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,813 - ERROR - Inscription for Eleve ID 1580 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,815 - ERROR - Inscription for Eleve ID 1519 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,817 - ERROR - Inscription for Eleve ID 1579 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,819 - ERROR - Inscription for Eleve ID 1556 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,822 - ERROR - Inscription for Eleve ID 1565 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,824 - ERROR - Inscription for Eleve ID 1577 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,827 - ERROR - Inscription for Eleve ID 1555 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,829 - ERROR - Inscription for Eleve ID 1488 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,831 - ERROR - Inscription for Eleve ID 1566 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,833 - ERROR - Inscription for Eleve ID 1658 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,835 - ERROR - Inscription for Eleve ID 1346 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,838 - ERROR - Inscription for Eleve ID 1422 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,841 - ERROR - Inscription for Eleve ID 1039 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,843 - ERROR - Inscription for Eleve ID 1169 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,845 - ERROR - Inscription for Eleve ID 1047 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,847 - ERROR - Inscription for Eleve ID 1420 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,849 - ERROR - Inscription for Eleve ID 1421 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,851 - ERROR - Inscription for Eleve ID 1058 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,854 - ERROR - Inscription for Eleve ID 1100 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,856 - ERROR - Inscription for Eleve ID 1040 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,858 - ERROR - Inscription for Eleve ID 1292 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,861 - ERROR - Inscription for Eleve ID 1108 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,863 - ERROR - Inscription for Eleve ID 1396 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,865 - ERROR - Inscription for Eleve ID 1481 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,867 - ERROR - Inscription for Eleve ID 1465 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,870 - ERROR - Inscription for Eleve ID 1466 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,872 - ERROR - Inscription for Eleve ID 1710 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,875 - ERROR - Inscription for Eleve ID 1444 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,877 - ERROR - Inscription for Eleve ID 1050 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,878 - ERROR - Inscription for Eleve ID 1318 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,879 - ERROR - Eleve with ID 1410 does not exist.
+2025-02-08 19:14:20,881 - ERROR - Inscription for Eleve ID 1097 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,883 - ERROR - Inscription for Eleve ID 1133 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,885 - ERROR - Inscription for Eleve ID 1441 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,887 - ERROR - Inscription for Eleve ID 1352 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,889 - ERROR - Inscription for Eleve ID 1325 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,891 - ERROR - Inscription for Eleve ID 1468 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,892 - ERROR - Inscription for Eleve ID 1228 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,893 - ERROR - Inscription for Eleve ID 1213 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,895 - ERROR - Inscription for Eleve ID 1527 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,897 - ERROR - Inscription for Eleve ID 1385 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,899 - ERROR - Inscription for Eleve ID 1381 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,901 - ERROR - Inscription for Eleve ID 1568 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,902 - ERROR - Eleve with ID 1411 does not exist.
+2025-02-08 19:14:20,904 - ERROR - Inscription for Eleve ID 1320 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,906 - ERROR - Inscription for Eleve ID 1321 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,908 - ERROR - Inscription for Eleve ID 1295 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,909 - ERROR - Inscription for Eleve ID 1469 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,910 - ERROR - Inscription for Eleve ID 1144 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,912 - ERROR - Inscription for Eleve ID 1704 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,915 - ERROR - Inscription for Eleve ID 1284 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,917 - ERROR - Inscription for Eleve ID 1177 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,919 - ERROR - Inscription for Eleve ID 1488 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,922 - ERROR - Inscription for Eleve ID 1630 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,924 - ERROR - Inscription for Eleve ID 1643 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,926 - ERROR - Inscription for Eleve ID 1503 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,928 - ERROR - Inscription for Eleve ID 1059 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,930 - ERROR - Inscription for Eleve ID 1257 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,933 - ERROR - Inscription for Eleve ID 1060 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,936 - ERROR - Inscription for Eleve ID 1070 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,938 - ERROR - Inscription for Eleve ID 1033 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,940 - ERROR - Inscription for Eleve ID 1067 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,943 - ERROR - Inscription for Eleve ID 1377 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,946 - ERROR - Inscription for Eleve ID 1296 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,948 - ERROR - Inscription for Eleve ID 1297 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,951 - ERROR - Inscription for Eleve ID 1566 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,953 - ERROR - Inscription for Eleve ID 1426 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,956 - ERROR - Inscription for Eleve ID 1372 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,957 - ERROR - Inscription for Eleve ID 1502 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,960 - ERROR - Inscription for Eleve ID 1034 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,962 - ERROR - Inscription for Eleve ID 1644 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,963 - ERROR - Inscription for Eleve ID 1047 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,965 - ERROR - Inscription for Eleve ID 1258 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,966 - ERROR - Inscription for Eleve ID 1377 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,969 - ERROR - Inscription for Eleve ID 1434 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,971 - ERROR - Inscription for Eleve ID 1705 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,973 - ERROR - Inscription for Eleve ID 1188 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,976 - ERROR - Inscription for Eleve ID 1513 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,978 - ERROR - Inscription for Eleve ID 1107 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,980 - ERROR - Inscription for Eleve ID 1098 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,982 - ERROR - Inscription for Eleve ID 1125 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,985 - ERROR - Inscription for Eleve ID 1509 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,987 - ERROR - Inscription for Eleve ID 1272 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,990 - ERROR - Inscription for Eleve ID 1269 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,992 - ERROR - Inscription for Eleve ID 1208 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,994 - ERROR - Inscription for Eleve ID 1296 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,997 - ERROR - Inscription for Eleve ID 1297 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:20,999 - ERROR - Inscription for Eleve ID 1577 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,001 - ERROR - Inscription for Eleve ID 1577 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,003 - ERROR - Inscription for Eleve ID 1328 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,005 - ERROR - Inscription for Eleve ID 1461 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,007 - ERROR - Inscription for Eleve ID 1208 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,009 - ERROR - Inscription for Eleve ID 1289 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,011 - ERROR - Inscription for Eleve ID 1229 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,013 - ERROR - Inscription for Eleve ID 1473 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,015 - ERROR - Inscription for Eleve ID 1711 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,017 - ERROR - Inscription for Eleve ID 1585 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,018 - ERROR - Inscription for Eleve ID 1134 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,021 - ERROR - Inscription for Eleve ID 1550 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,023 - ERROR - Inscription for Eleve ID 1269 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,025 - ERROR - Inscription for Eleve ID 1267 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,027 - ERROR - Inscription for Eleve ID 1037 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,028 - ERROR - Inscription for Eleve ID 1492 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,030 - ERROR - Inscription for Eleve ID 1121 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,033 - ERROR - Inscription for Eleve ID 1063 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,035 - ERROR - Inscription for Eleve ID 1142 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,037 - ERROR - Inscription for Eleve ID 1298 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,039 - ERROR - Inscription for Eleve ID 1223 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,041 - ERROR - Inscription for Eleve ID 1467 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,043 - ERROR - Inscription for Eleve ID 1644 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,045 - ERROR - Inscription for Eleve ID 1048 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,046 - ERROR - Inscription for Eleve ID 1245 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,048 - ERROR - Inscription for Eleve ID 1229 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,049 - ERROR - Inscription for Eleve ID 1478 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,051 - ERROR - Inscription for Eleve ID 1168 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,053 - ERROR - Inscription for Eleve ID 1549 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,055 - ERROR - Inscription for Eleve ID 1700 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,057 - ERROR - Inscription for Eleve ID 1038 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,060 - ERROR - Inscription for Eleve ID 1197 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,061 - ERROR - Inscription for Eleve ID 1326 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,062 - ERROR - Inscription for Eleve ID 1267 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,064 - ERROR - Inscription for Eleve ID 1059 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,065 - ERROR - Inscription for Eleve ID 1134 in Année scolaire 2024-25 not found.
+2025-02-08 19:14:21,065 - INFO - Import SICS END

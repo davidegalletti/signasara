@@ -830,6 +830,7 @@ def late_payment_report(request):
                         'percentage_paid': percentage_paid,
                         'remaining_percentage': remaining_percentage, # Add remaining percentage
                         'note': student.note_eleve,
+                        'page_identifier': 'S30'
                     })
 
                     # Accumulate totals for the class
@@ -871,7 +872,8 @@ def expense_list(request):
 
     return render(request, 'cash/expense/expense_list.html', {
         'expenses': expense_data,
-        'total_expense': total_expense,  # Pass the total expense to the template
+        'total_expense': total_expense, 
+        'page_identifier': 'S31'# Pass the total expense to the template
     })
 
 def expense_create(request):
@@ -886,7 +888,8 @@ def expense_create(request):
     else:
         form = ExpenseForm()
 
-    return render(request, 'cash/expense/expense_form.html', {'form': form})
+    return render(request, 'cash/expense/expense_form.html', {'form': form ,
+                                                              'page_identifier': 'S32'})
 
 def expense_update(request, pk):
     expense = get_object_or_404(Expense, pk=pk)
@@ -897,14 +900,14 @@ def expense_update(request, pk):
             return redirect('expense_list')
     else:
         form = ExpenseForm(instance=expense)
-    return render(request, 'cash/expense/expense_form.html', {'form': form})
+    return render(request, 'cash/expense/expense_form.html', {'form': form ,'page_identifier': 'S33'})
 
 def expense_delete(request, pk):
     expense = get_object_or_404(Expense, pk=pk)
     if request.method == "POST":
         expense.delete()
         return redirect('expense_list')
-    return render(request, 'cash/expense/expense_confirm_delete.html', {'expense': expense})
+    return render(request, 'cash/expense/expense_confirm_delete.html', {'expense': expense , 'page_identifier': 'S34'})
 
 
 from django.shortcuts import render, get_object_or_404
@@ -967,7 +970,8 @@ def entree_sortie(request):
     return render(request, 'cash/inoutflows/entree_sortie.html', {
         'entries': entries,
         'cashier': cashier,
-        'balance': cashier.balance(),  # Use the balance method from Cashier model
+        'balance': cashier.balance(),
+        'page_identifier': 'S35'# Use the balance method from Cashier model
     })
 
 
@@ -989,7 +993,8 @@ def rapport_comptable(request):
     return render(request, 'cash/inoutflows/rapport_comptable.html', {
         'cashier': cashier,
         'accounting_data': accounting_data,
-        'balance': cashier.balance(),  # Use the balance method from Cashier model
+        'balance': cashier.balance(), 
+        'page_identifier': 'S36'# Use the balance method from Cashier model
     })
 
 def generate_accounting_report(incomes):
@@ -1086,7 +1091,7 @@ from django.contrib import messages
 # List all transfers
 def transfer_list(request):
     transfers = Transfer.objects.all().order_by('-date')  # Order by date descending
-    return render(request, 'cash/transfert/transfer_list.html', {'transfers': transfers})
+    return render(request, 'cash/transfert/transfer_list.html', {'transfers': transfers , 'page_identifier': 'S37'})
 
 # Create a new transfer
 def create_transfer(request):
@@ -1107,7 +1112,7 @@ def create_transfer(request):
     else:
         form = TransferForm()
 
-    return render(request, 'cash/transfert/create_transfert.html', {'form': form})
+    return render(request, 'cash/transfert/create_transfert.html', {'form': form , 'page_identifier': 'S38'})
 
 # Update an existing transfer
 def update_transfer(request, pk):
@@ -1136,7 +1141,8 @@ def update_transfer(request, pk):
     else:
         form = TransferForm(instance=transfer)
 
-    return render(request, 'cash/transfert/update_transfer.html', {'form': form})
+    return render(request, 'cash/transfert/update_transfer.html',
+                  {'form': form , 'page_identifier': 'S39'})
 
 # Delete a transfer
 def delete_transfer(request, pk):
@@ -1154,12 +1160,14 @@ def delete_transfer(request, pk):
         messages.success(request, "Transfer deleted successfully!")
         return redirect('transfer_list')
 
-    return render(request, 'cash/transfert/delete_transfer.html', {'transfer': transfer})
+    return render(request, 'cash/transfert/delete_transfer.html', 
+                  {'transfer': transfer , 'page_identifier': 'S40'})
 
 # List all cashiers
 def cashier_list(request):
     cashiers = Cashier.objects.all().order_by('name')  # Order by name
-    return render(request, 'cash/cashier/cashier_list.html', {'cashiers': cashiers})
+    return render(request, 'cash/cashier/cashier_list.html', {'cashiers': cashiers
+                                             ,'page_identifier': 'S41'                 })
 
 # Create a new cashier
 def create_cashier(request):
@@ -1172,7 +1180,7 @@ def create_cashier(request):
     else:
         form = CashierForm()
 
-    return render(request, 'cash/cashier/create_cashier.html', {'form': form})
+    return render(request, 'cash/cashier/create_cashier.html', {'form': form      ,'page_identifier': 'S42'       })
 
 # Update an existing cashier
 def update_cashier(request, pk):
@@ -1187,7 +1195,7 @@ def update_cashier(request, pk):
     else:
         form = CashierForm(instance=cashier)
 
-    return render(request, 'cash/cashier/update_cashier.html', {'form': form})
+    return render(request, 'cash/cashier/update_cashier.html', {'form': form      ,'page_identifier': 'S43'       })
 
 # Delete a cashier
 def delete_cashier(request, pk):
@@ -1198,7 +1206,7 @@ def delete_cashier(request, pk):
         messages.success(request, "Cashier deleted successfully!")
         return redirect('cashier_list')
 
-    return render(request, 'cash/cashier/delete_cashier.html', {'cashier': cashier})
+    return render(request, 'cash/cashier/delete_cashier.html', {'cashier': cashier      ,'page_identifier': 'S44'       })
 
 
 
@@ -1209,11 +1217,11 @@ def delete_cashier(request, pk):
 '''
 
 def transfer_list(request):
-    transfers = Transfer.objects.all().order_by('-date').select_related('from_cashier', 'to_cashier')  # Order by date descending, select related cashiers for efficient query
+    transfers = Transfer.objects.all().order_by('-date').select_related('from_cashier', 'to_cashier' )  # Order by date descending, select related cashiers for efficient query
     for transfer in transfers:
         transfer.from_cashier_balance = transfer.from_cashier.balance()  # Calculate balance
         transfer.to_cashier_balance = transfer.to_cashier.balance() # Calculate balance
-    return render(request, 'cash/transfert/transfer_list.html', {'transfers': transfers})
+    return render(request, 'cash/transfert/transfer_list.html', {'transfers': transfers  ,'page_identifier': 'S45' })
 def create_transfer(request):
     if request.method == 'POST':
         form = TransferForm(request.POST)
@@ -1243,7 +1251,7 @@ def create_transfer(request):
     else:
         form = TransferForm()
 
-    return render(request, 'cash/transfert/create_transfert.html', {'form': form})
+    return render(request, 'cash/transfert/create_transfert.html', {'form': form  ,'page_identifier': 'S46' })
 
 # Update an existing transfer
 def update_transfer(request, pk):
@@ -1272,7 +1280,7 @@ def update_transfer(request, pk):
     else:
         form = TransferForm(instance=transfer)
 
-    return render(request, 'cash/transfert/update_transfer.html', {'form': form})
+    return render(request, 'cash/transfert/update_transfer.html', {'form': form  ,'page_identifier': 'S47' })
 
 # Delete a transfer
 def delete_transfer(request, pk):
@@ -1290,12 +1298,12 @@ def delete_transfer(request, pk):
         messages.success(request, "Transfer deleted successfully!")
         return redirect('transfer_list')
 
-    return render(request, 'cash/transfert/delete_transfer.html', {'transfer': transfer})
+    return render(request, 'cash/transfert/delete_transfer.html', {'transfer': transfer  ,'page_identifier': 'S48' })
 
 # List all cashiers
 def cashier_list(request):
     cashiers = Cashier.objects.all().order_by('name')  # Order by name
-    return render(request, 'cash/cashier/cashier_list.html', {'cashiers': cashiers})
+    return render(request, 'cash/cashier/cashier_list.html', {'cashiers': cashiers ,'page_identifier': 'S49' })
 
 # Create a new cashier
 def create_cashier(request):
@@ -1308,7 +1316,7 @@ def create_cashier(request):
     else:
         form = CashierForm()
 
-    return render(request, 'cash/cashier/create_cashier.html', {'form': form})
+    return render(request, 'cash/cashier/create_cashier.html', {'form': form  ,'page_identifier': 'S50' })
 
 # Update an existing cashier
 def update_cashier(request, pk):
@@ -1323,7 +1331,7 @@ def update_cashier(request, pk):
     else:
         form = CashierForm(instance=cashier)
 
-    return render(request, 'cash/cashier/update_cashier.html', {'form': form})
+    return render(request, 'cash/cashier/update_cashier.html', {'form': form  ,'page_identifier': 'S51' })
 
 
 # Delete a cashier
@@ -1335,7 +1343,7 @@ def delete_cashier(request, pk):
         messages.success(request, "Cashier deleted successfully!")
         return redirect('cashier_list')
 
-    return render(request, 'cash/cashier/delete_cashier.html', {'cashier': cashier})
+    return render(request, 'cash/cashier/delete_cashier.html', {'cashier': cashier ,  'page_identifier': 'S52' })
 
 
 # Cashier detail view
@@ -1354,6 +1362,7 @@ def cashier_detail(request, pk):
         'balance': balance,
         'transfers_out': transfers_out,
         'transfers_in': transfers_in
+         ,'page_identifier': 'S53' 
     })
 def get_cashier_balance(request):
     cashier_id = request.GET.get('cashier_id')
@@ -1433,6 +1442,7 @@ def payment_delay_per_class(request, pk):
         'students': student_data,
         'total_diff_sco': total_diff_sco,
         'total_diff_can': total_diff_can,
+         'page_identifier': 'S54' 
     })
 
 
@@ -1508,7 +1518,7 @@ def classe_information(request, pk):
         'actual_total_school_fees_received':actual_total_school_fees_received,
         'expected_total_school_fees':expected_total_school_fees,
         'total_py_uniforms_expected':total_py_uniforms_expected
-        
+         ,'page_identifier': 'S55' 
     })
 
 
@@ -1524,7 +1534,7 @@ def tarif_update(request, pk):
     else:
         form = TarifForm(instance=tarif)  # Pre-fill the form with existing data
 
-    return render(request, 'cash/tarif_form.html', {'form': form})    
+    return render(request, 'cash/tarif_form.html', {'form': form  ,'page_identifier': 'S56' })    
 
 @login_required
 def tarif_delete(request, pk):
@@ -1533,4 +1543,4 @@ def tarif_delete(request, pk):
         tarif.delete()  # Delete the tarif
         return redirect('classe_information', pk=tarif.classe.pk)  # Redirect back to class information page
 
-    return render(request, 'cash/tarif_confirm_delete.html', {'tarif': tarif})
+    return render(request, 'cash/tarif_confirm_delete.html', {'tarif': tarif  ,'page_identifier': 'S57' })

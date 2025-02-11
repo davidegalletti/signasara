@@ -111,7 +111,7 @@
         <tbody>
             {% for transfer in transfers_in %}
             <tr>
-                <td>{{ transfer.date|date:"d/m/Y" }}</td>
+                <td>{{ transfer.date|date:"m/d/Y" }}</td>
                 <td>{{ transfer.note|default:"Aucune description" }}</td>
                 <td>{{ transfer.amount|format_amount }}</td>
                 <td>{{ transfer.from_cashier.name }}</td>
@@ -137,14 +137,14 @@
                 //dom: 'Bfrtip',
                 buttons: [
                     'copy', 'csv', 'excel', 'print'
-                ]
+                ] ,  pageLength: 40,
             });
 
             $('#transfersInTable').DataTable({
                 //dom: 'Bfrtip',
                 buttons: [
                     'copy', 'csv', 'excel', 'print'
-                ]
+                ] ,  pageLength: 40,
             });
         });
 

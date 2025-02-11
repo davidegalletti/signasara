@@ -24,6 +24,28 @@
     <p>Total des paiements pour l'eleve  {{ classe.nom }} en {{ selected_annee_scolaire.nom }} : {{ total_class_payment|intcomma }} FCFA</p>
 {% endcomment %}
 {% block header %}
+<style>
+    /* Style the DataTables buttons container */
+    #datatable-buttons {
+        display: flex;
+        align-items: center;
+     /* Adjust spacing as needed */
+    }
+
+    /* Style the DataTables buttons to match navbar buttons */
+    .dt-buttons .dt-button {
+        background-color: grey; /* Adjust transparency as needed */
+        color: white;
+        border: none;
+        padding: 1rem 1rem;
+        margin-right: 0.5rem;
+        
+       
+        
+    }
+
+ 
+</style>
 <div class="d-flex justify-content-between align-items-center w-100">
     <!-- Left-aligned elements -->
     <div class="d-flex align-items-center">
@@ -52,13 +74,10 @@
         <a href="{% url 'classe_information' classe.pk %}" class="class-card mr-3">info</a>
        
         <a href="{% url 'late_payments_per_class' classe.id %}" class="class-card  mr-3">retards Paiement</a>
-
-        <button class="class-card mr-3" id="print-button" title="Print">
-            <i class="fas fa-print"></i>
-        </button>
-        <button class="class-card mr-3" id="export-button" title="Export to Excel">
-            <i class="fas fa-file-excel"></i>
-        </button>
+        <div id="datatable-buttons" class="ml-2 d-flex align-items-stretch">
+            <!-- Buttons will be moved here -->
+        </div>
+     
         <button class="class-card mr-3" id="undo-button" title="Undo">
             <i class="fas fa-undo"></i>
         </button>
@@ -200,10 +219,49 @@
 <script>
     $(document).ready(function() {
         // Initialize DataTable
+        var currentDate = new Date().toLocaleDateString();
+        var classe = "{{ classe.nom }}";
         var table = $('#studentTable').DataTable({
            // dom: 'Bfrtip',
-            buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
+          
+           pageLength: 40, // Show 40 rows per page
+           order: [],
+           buttons: [
+            {
+                
+                extend: 'csv',
+                text: 'Export CSV',
+                filename: 'liste per classe - ' + classe +' '  + currentDate,
+               // filename: 'Liste per classe - + 'classe' ' + currentDate,
+                className: 'btn btn-success',
+                exportOptions: {
+                    columns: ':not(:last-child)'
+                }
+            },
+            {
+                extend: 'excel',
+                text: 'Export Excel',
+                filename: 'liste per classe - ' + classe +' '  + currentDate,
+                className: 'btn btn-success',
+                exportOptions: {
+                    columns: ':not(:last-child)'
+                }
+            },
+            {
+                extend: 'print',
+                text: 'Print',
+                className: 'class-card',
+                title: 'liste per classe - ' + classe +' '  + currentDate,
+                exportOptions: {
+                    columns: ':not(:last-child)'
+                }
+            }
+        ],
+        order: [],
+        columnDefs: [{
+            targets: '_all',
+            orderable: true
+        }
             ],
             pageLength: 40,
             order: [],
@@ -213,36 +271,13 @@
             ]
         });
 
-        // Print button functionality
-        $('#print-button').on('click', function() {
-            table.button('.buttons-print').trigger();
-        });
+    
 
         // Export to Excel button functionality
-        $('#export-button').on('click', function() {
-            table.button('.buttons-excel').trigger();
-        });
+         // Move buttons to header
+         table.buttons().container()
+         .appendTo($('#datatable-buttons'));
     });
 </script>
-{% comment %}
-    <script>
-        $(document).ready(function() {
-            $('#studentTable').DataTable({
-              //  dom: 'lBfrtip', // Add length menu to the DataTable
-               /// buttons: [
-              ///       'csv', 'excel', 'pdf', 'print'
-              ///  ],
-               // 'copy',
-                //pagingType: 'simple',
-                pageLength: 40, // Number of entries per page
-                order: [],
-                columnDefs: [
-                    { targets: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], orderable: true }
-                ]
-            });
-        });
-      
-        
-    </script>
-{% endcomment %}
+
 {% endblock content %}

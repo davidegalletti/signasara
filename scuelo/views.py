@@ -798,6 +798,8 @@ def offsite_students(request):
         ).order_by('-date_inscription').first()
 
         school_name = latest_inscription.classe.ecole.nom if latest_inscription else "No School Assigned"
+        classe_name = latest_inscription.classe.nom if latest_inscription else "No School Assigned"
+        
 
         student_data = {
             'id': student.id,
@@ -808,6 +810,7 @@ def offsite_students(request):
             'date_naissance': student.date_naissance,
             'cs_py': student.get_cs_py_display(),
             'school_name': school_name,
+            'classe_name':classe_name,
             'hand': student.get_hand_display(),
             'note_eleve': student.note_eleve,
         }

@@ -9,5 +9,5 @@ def format_amount(value):
     if value is None:
         return ''
     # Format the number with spaces as thousands separators
-    formatted_value = f"{value:,.0f}".replace(',', ' ').replace('.', ',') + " FCFA"
+    formatted_value = f"{value:,.0f}".replace(',', ' ').replace('.', ',') 
     return formatted_value
