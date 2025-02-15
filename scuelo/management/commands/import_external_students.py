@@ -47,7 +47,7 @@ class Command(BaseCommand):
             except Exception as ex:
                 print(f'Error creating Ecole: {str(ex)}')
         
-        # Manually register classes
+        # Manually register classes 
         classe_data = [
         {"legacy_id": "_PK-6me-WP", "ecole_nom": "Ecole WEND LA MANEGDA", "type_classe_nom": "6me"},
         {"legacy_id": "_PK-6me-LMS", "ecole_nom": "Lycee Municipal de saaba", "type_classe_nom": "6me"},

@@ -213,7 +213,7 @@ def class_detail(request, pk):
     # Get students registered in this class during the selected academic year
     inscriptions = Inscription.objects.filter(classe=classe, annee_scolaire=selected_annee_scolaire)
     students = [inscription.eleve for inscription in inscriptions]
-
+    # here it will be student who are registered also student who  have at least ma
     # Calculate total payments for each student and get details of each payment
     for student in students:
         payments = Mouvement.objects.filter(inscription__eleve=student, inscription__classe=classe, inscription__annee_scolaire=selected_annee_scolaire)

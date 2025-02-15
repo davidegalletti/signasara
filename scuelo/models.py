@@ -18,7 +18,10 @@ HAND = (
     ("DM", "DM"),
     ("DL", "DL"),
     ("DV", "DV"),
+     ("DP", "DP"),
+      ("TL", "TL"),
 )
+ 
 CS_PY = (
     ("C", "CS"),
     ("E", "EXTRA"),

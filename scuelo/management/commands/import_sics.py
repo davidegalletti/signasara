@@ -10,11 +10,11 @@ from openpyxl import load_workbook
 
 # Define log file paths
 LOG_DIR = "logs"
-ECOLE_LOG_FILE = f"logs/import_ecole.log"
-TYPE_CLASSE_LOG_FILE = f"logs/import_type_classe.log"
-CLASSE_LOG_FILE = f"logs/import_classe.log"
-ELEVE_LOG_FILE = f"logs/import_eleve.log"
-PAIEMENT_LOG_FILE = f"logs/import_paiement.log"
+ECOLE_LOG_FILE = f"{LOG_DIR}/import_ecole.log"
+TYPE_CLASSE_LOG_FILE = f"{LOG_DIR}/import_type_classe.log"
+CLASSE_LOG_FILE = f"{LOG_DIR}/import_classe.log"
+ELEVE_LOG_FILE = f"{LOG_DIR}/import_eleve.log"
+PAIEMENT_LOG_FILE = f"{LOG_DIR}/import_paiement.log"
 
 
 def setup_logger(name, log_file, level=logging.INFO):
@@ -84,7 +84,13 @@ class Command(BaseCommand):
             logger.error(f"Error reading Excel file: {e}")
             return
 
-        annee_scolaire_actuel = AnneeScolaire.objects.get(actuel=True)
+        # Retrieve the active AnneeScolaire
+        try:
+            annee_scolaire_actuel = AnneeScolaire.objects.get(actuel=True, nom='Année scolaire 2024-25', date_initiale=datetime(2024, 9, 1).date(), date_finale=datetime(2025, 6, 1).date())
+        except AnneeScolaire.DoesNotExist:
+            logger.error("No active AnneeScolaire found with the specified attributes.")
+            return
+            
         derniere_annee_scolaire = AnneeScolaire.objects.filter(actuel=False).order_by('-date_initiale').first()
 
         if not derniere_annee_scolaire:
@@ -308,12 +314,20 @@ class Command(BaseCommand):
                         student_data['error'] = f"Invalid CONDITION_ELEVE value: {condition_eleve_value}"  # Add the error in data
                         failed_eleves_data.append(student_data)
                         continue
+
                      # Validating sex and mapping if it is None  
+                    if not sex_value:
+                         eleve_logger.error(f"Invalid SEX value: {sex_value} in row")
+                         student_data['error'] = f"Invalid SEX value: {sex_value}"
+                         failed_eleves_data.append(student_data)
+                         continue
+
                     if str(sex_value).strip() not in dict(SEX).keys():
                         eleve_logger.error(f"Invalid SEX value: {sex_value} in row")
                         student_data['error'] = f"Invalid SEX value: {sex_value}"
                         failed_eleves_data.append(student_data)
                         continue
+                    
 
                     cs_py_mapping = {
                             'CS': 'C',
@@ -333,6 +347,7 @@ class Command(BaseCommand):
                     
                     hand_value = str(hand_value).strip() if hand_value else None
 
+                    # Skip validation if hand_value is None
                     if hand_value and hand_value not in dict(HAND).keys():
                         eleve_logger.error(f"Invalid Hand value: {hand_value} in row")
                         student_data['error'] = f"Invalid Hand value: {hand_value}"
@@ -354,13 +369,11 @@ class Command(BaseCommand):
                             'hand': hand_value or None,  # Set to None if hand_value is blank,
                             'annee_inscr': student_data['A_inscr'],
                             'parent': student_data['Parent'],
-                            'tel_parent': student_data['Tel_parent']
-                        }
-                        )
+                            'tel_parent': student_data['Tel_parent']})
                         # Create inscription
                         inscription, inscription_created = Inscription.objects.get_or_create(
                             eleve=new_e,
-                            annee_scolaire=derniere_annee_scolaire,
+                            annee_scolaire=annee_scolaire_actuel,
                             classe=classe
                         )
                         if created:
@@ -383,42 +396,6 @@ class Command(BaseCommand):
             failed_eleves_df.to_excel(failed_eleves_file, index=False)
             logger.warning(f"Failed eleves data saved to {failed_eleves_file}")
 
-        '''  # 6. Process Paiement
-        paiement_logger.info("Importing Paiements...")
-        columns_paiement = {}
-        ws_paiement = wb['BcK Pagamento']
-        for row in ws_paiement.iter_rows(min_row=1):
-            row_values = [cell.value for cell in row]  # Extract values manually
-
-            if len(columns_paiement.keys()) == 0:
-                for column_index, column_name in enumerate(row_values):
-                    columns_paiement[column_name] = column_index
-            else:
-                try:
-                    eleve_legacy_id = row_values[columns_paiement['__FK_Studente']]
-                    try:
-                        eleve = Eleve.objects.get(pk=eleve_legacy_id)
-                        inscription = Inscription.objects.get(annee_scolaire=derniere_annee_scolaire, eleve=eleve)
-
-                        new_p = Mouvement(
-                            legacy_id=row_values[columns_paiement['_PK_Pagamento_ID']],
-                            causal=row_values[columns_paiement['Causale_Pagamento']],
-                            montant=row_values[columns_paiement['Importo_Pagamento']],
-                            date_paye=parse_date(row_values[columns_paiement['D_pagamento']]),
-                            note=row_values[columns_paiement['Note_Pagamento']],
-                            inscription=inscription
-                        )
-                        new_p.save()
-                        paiement_logger.info(f"Payment for {eleve.nom} {eleve.prenom} imported successfully.")
-                    except Eleve.DoesNotExist:
-                        paiement_logger.error(f"Eleve with ID {eleve_legacy_id} does not exist.")
-                    except Inscription.DoesNotExist:
-                        paiement_logger.error(f"Inscription for Eleve ID {eleve_legacy_id} in {derniere_annee_scolaire.nom} not found.")
-                except Exception as ex:
-                    paiement_logger.error(f"Error importing payment for Eleve ID {row_values[columns_paiement['__FK_Studente']]}: {str(ex)}")
-
-        logger.info('Import SICS END')
-        '''
         # 6. Process Paiement
         paiement_logger.info("Importing Paiements...")
         columns_paiement = {}
@@ -434,7 +411,7 @@ class Command(BaseCommand):
                     eleve_legacy_id = row_values[columns_paiement['__FK_Studente']]
                     try:
                         eleve = Eleve.objects.get(pk=eleve_legacy_id)
-                        inscription = Inscription.objects.get(annee_scolaire=derniere_annee_scolaire, eleve=eleve)
+                        inscription = Inscription.objects.get(annee_scolaire=annee_scolaire_actuel, eleve=eleve)
 
                         new_p = Mouvement(
                             causal=row_values[columns_paiement['Causale_Pagamento']],
@@ -451,7 +428,5 @@ class Command(BaseCommand):
                         paiement_logger.error(f"Inscription for Eleve ID {eleve_legacy_id} in {derniere_annee_scolaire.nom} not found.")
                 except Exception as ex:
                     paiement_logger.error(f"Error importing payment for Eleve ID {row_values[columns_paiement['__FK_Studente']]}: {str(ex)}")
-
-
 
         logger.info('Import SICS END')

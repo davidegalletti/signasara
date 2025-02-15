@@ -17,6 +17,8 @@ from django.http import HttpResponse
 from django.template.loader import render_to_string
 from datetime import timedelta, datetime
 import csv
+
+from django.shortcuts import render, get_object_or_404
 import io
 from django.utils import timezone
 import base64
@@ -24,6 +26,10 @@ import matplotlib.pyplot as plt
 from io import BytesIO
 import seaborn as sns
 from django.db import models
+from django.shortcuts import render, redirect
+from .models import Transfer, Cashier 
+
+from django.contrib import messages
 from datetime import datetime
 from django.db.models import  Case, When, Value
 from django.db.models.functions import TruncDay
@@ -910,11 +916,6 @@ def expense_delete(request, pk):
     return render(request, 'cash/expense/expense_confirm_delete.html', {'expense': expense , 'page_identifier': 'S34'})
 
 
-from django.shortcuts import render, get_object_or_404
-from django.db.models import Sum
-from .models import Cashier, Mouvement, Expense
-from datetime import timedelta
-
 
 def entree_sortie(request):
     # Fetch the C_SCO cashier
@@ -1082,11 +1083,6 @@ def export_rapport_comptable(request):
 
     return response
 
-    
-from django.shortcuts import render, redirect, get_object_or_404
-from .models import Transfer, Cashier 
-from .forms import TransferForm ,CashierForm
-from django.contrib import messages
 
 # List all transfers
 def transfer_list(request):
@@ -1222,6 +1218,7 @@ def transfer_list(request):
         transfer.from_cashier_balance = transfer.from_cashier.balance()  # Calculate balance
         transfer.to_cashier_balance = transfer.to_cashier.balance() # Calculate balance
     return render(request, 'cash/transfert/transfer_list.html', {'transfers': transfers  ,'page_identifier': 'S45' })
+
 def create_transfer(request):
     if request.method == 'POST':
         form = TransferForm(request.POST)

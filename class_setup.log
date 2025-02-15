@@ -12,3 +12,73 @@
 2025-01-31 00:35:55,394 - INFO - Superuser created successfully.
 2025-01-31 00:35:55,533 - INFO - Operator created successfully.
 2025-01-31 00:35:55,543 - INFO - Permissions assigned successfully.
+2025-02-13 21:56:56,549 - ERROR - Error during fixture setup: no such table: scuelo_anneescolaire
+2025-02-13 21:57:20,708 - INFO - School years created successfully.
+2025-02-13 21:57:20,912 - INFO - Superuser created successfully.
+2025-02-13 21:57:21,095 - INFO - Operator created successfully.
+2025-02-13 21:57:21,301 - INFO - Permissions assigned successfully.
+2025-02-14 00:12:14,631 - INFO - School years created successfully.
+2025-02-14 00:12:14,791 - INFO - Superuser created successfully.
+2025-02-14 00:12:14,943 - INFO - Operator created successfully.
+2025-02-14 00:12:15,109 - INFO - Permissions assigned successfully.
+2025-02-14 21:14:25,658 - INFO - School years created successfully.
+2025-02-14 21:14:25,898 - INFO - Superuser created successfully.
+2025-02-14 21:14:26,098 - INFO - Operator created successfully.
+2025-02-14 21:14:26,306 - INFO - Permissions assigned successfully.
+2025-02-14 21:39:33,021 - INFO - School years created successfully.
+2025-02-14 21:39:33,224 - INFO - Superuser created successfully.
+2025-02-14 21:39:33,382 - INFO - Operator created successfully.
+2025-02-14 21:39:33,580 - INFO - Permissions assigned successfully.
+2025-02-14 23:37:03,250 - INFO - School years created successfully.
+2025-02-14 23:37:03,494 - INFO - Superuser created successfully.
+2025-02-14 23:37:03,702 - INFO - Operator created successfully.
+2025-02-14 23:37:03,902 - INFO - Permissions assigned successfully.
+2025-02-14 23:41:38,691 - INFO - School years created successfully.
+2025-02-14 23:41:38,976 - INFO - Superuser created successfully.
+2025-02-14 23:41:39,261 - INFO - Operator created successfully.
+2025-02-14 23:41:39,492 - INFO - Permissions assigned successfully.
+2025-02-14 23:59:52,544 - INFO - School years created successfully.
+2025-02-14 23:59:52,776 - INFO - Superuser created successfully.
+2025-02-14 23:59:52,936 - INFO - Operator created successfully.
+2025-02-14 23:59:53,140 - INFO - Permissions assigned successfully.
+2025-02-15 18:46:34,954 - ERROR - Error during fixture setup: no such table: scuelo_anneescolaire
+2025-02-15 18:47:09,949 - INFO - School years created successfully.
+2025-02-15 18:47:10,203 - INFO - Superuser created successfully.
+2025-02-15 18:47:10,408 - INFO - Operator created successfully.
+2025-02-15 18:47:10,578 - INFO - Permissions assigned successfully.
+2025-02-15 19:15:09,638 - INFO - School years created successfully.
+2025-02-15 19:15:10,017 - INFO - Superuser created successfully.
+2025-02-15 19:15:10,245 - INFO - Operator created successfully.
+2025-02-15 19:15:10,473 - INFO - Permissions assigned successfully.
+2025-02-15 19:15:56,118 - INFO - School years created successfully.
+2025-02-15 19:15:56,348 - INFO - Superuser created successfully.
+2025-02-15 19:15:56,614 - INFO - Operator created successfully.
+2025-02-15 19:15:56,660 - INFO - Permissions assigned successfully.
+2025-02-15 19:18:19,329 - INFO - School years created successfully.
+2025-02-15 19:18:19,550 - INFO - Superuser created successfully.
+2025-02-15 19:18:19,765 - INFO - Operator created successfully.
+2025-02-15 19:18:19,973 - INFO - Permissions assigned successfully.
+2025-02-15 19:21:49,636 - INFO - School years created successfully.
+2025-02-15 19:21:49,896 - INFO - Superuser created successfully.
+2025-02-15 19:21:50,108 - INFO - Operator created successfully.
+2025-02-15 19:21:50,140 - INFO - Permissions assigned successfully.
+2025-02-15 19:22:01,578 - INFO - School years created successfully.
+2025-02-15 19:22:01,849 - INFO - Superuser created successfully.
+2025-02-15 19:22:02,123 - INFO - Operator created successfully.
+2025-02-15 19:22:02,167 - INFO - Permissions assigned successfully.
+2025-02-15 19:31:57,425 - INFO - School years created successfully.
+2025-02-15 19:31:57,640 - INFO - Superuser created successfully.
+2025-02-15 19:31:57,844 - INFO - Operator created successfully.
+2025-02-15 19:31:57,865 - INFO - Permissions assigned successfully.
+2025-02-15 19:40:42,258 - INFO - School years created successfully.
+2025-02-15 19:40:42,582 - INFO - Superuser created successfully.
+2025-02-15 19:40:42,873 - INFO - Operator created successfully.
+2025-02-15 19:40:43,114 - INFO - Permissions assigned successfully.
+2025-02-15 19:46:15,767 - INFO - School years created successfully.
+2025-02-15 19:46:16,020 - INFO - Superuser created successfully.
+2025-02-15 19:46:16,237 - INFO - Operator created successfully.
+2025-02-15 19:46:16,259 - INFO - Permissions assigned successfully.
+2025-02-15 21:07:49,720 - INFO - School years created successfully.
+2025-02-15 21:07:49,984 - INFO - Superuser created successfully.
+2025-02-15 21:07:50,211 - INFO - Operator created successfully.
+2025-02-15 21:07:50,445 - INFO - Permissions assigned successfully.

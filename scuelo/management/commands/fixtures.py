@@ -33,7 +33,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         try:
-            # Insert class data (TypeClasse)
+            ''' # Insert class data (TypeClasse)
             ps, _ = TypeClasse.objects.get_or_create(nom='PS', ordre=1, type_ecole='M')
             ms, _ = TypeClasse.objects.get_or_create(nom='MS', ordre=2, type_ecole='M')
             gs, _ = TypeClasse.objects.get_or_create(nom='GS', ordre=3, type_ecole='M')
@@ -78,10 +78,12 @@ class Command(BaseCommand):
             Classe.objects.get_or_create(ecole=ecole_interne, type=cm2, nom='CM2', legacy_id='_PK-CM2-Nas')
 
             logger.info("Classes for internal school created successfully.")
+            '''
 
             # Insert school years
-            AnneeScolaire.objects.get_or_create(nom='Année scolaire 2023-24', date_initiale='2023-09-01', date_finale='2024-06-01', actuel=False)
             AnneeScolaire.objects.get_or_create(nom='Année scolaire 2024-25', date_initiale='2024-09-01', date_finale='2025-06-01', actuel=True)
+            AnneeScolaire.objects.get_or_create(nom='Année scolaire 2023-24', date_initiale='2023-09-01', date_finale='2024-06-01', actuel=False)
+            
             AnneeScolaire.objects.get_or_create(nom='Année scolaire 2019-20', date_initiale='2019-09-01', date_finale='2020-06-01', actuel=False)
             AnneeScolaire.objects.get_or_create(nom='Année scolaire 2020-21', date_initiale='2020-09-01', date_finale='2021-06-01', actuel=False)
             AnneeScolaire.objects.get_or_create(nom='Année scolaire 2021-22', date_initiale='2021-09-01', date_finale='2022-06-01', actuel=False)
