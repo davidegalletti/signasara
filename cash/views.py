@@ -175,7 +175,7 @@ class UniformPaymentListView(ListView):
 
             # Determine uniform count based on payment amount, school type, and CS status
             uniform_count = 0
-            if cs_py == 'CS':
+            if cs_py == 'C':
                 # For students with 'CS' status
                 if school_type == 'P' and payment.montant == 2250:
                     uniform_count = 1
@@ -754,6 +754,9 @@ def delete_mouvement(request, pk):
 @login_required
 def late_payment_report(request):
     data = {}
+    grand_total_remaining = 0  # Grand total for all outstanding payments
+    grand_total_diff_sco = 0  # Grand total for SCO outstanding amounts
+    grand_total_diff_can = 0  # Grand total for CAN outstanding amounts
 
     # Get the current school year
     try:
@@ -785,9 +788,8 @@ def late_payment_report(request):
                 inscriptions__classe=classe,
                 inscriptions__annee_scolaire=current_annee_scolaire,
                 inscriptions__classe__ecole=school,
-                cs_py='PY',
+                cs_py='P',
                 condition_eleve= "CONF" or "PROP"
-                 
             ).distinct()
 
             student_data = []
@@ -834,7 +836,7 @@ def late_payment_report(request):
                         'diff_can': diff_can,
                         'retards': retards,
                         'percentage_paid': percentage_paid,
-                        'remaining_percentage': remaining_percentage, # Add remaining percentage
+                        'remaining_percentage': remaining_percentage,  # Add remaining percentage
                         'note': student.note_eleve,
                         'page_identifier': 'S30'
                     })
@@ -843,20 +845,32 @@ def late_payment_report(request):
                     total_diff_sco += diff_sco
                     total_diff_can += diff_can
 
-                total_class_remaining += retards
-
+                total_class_remaining += retards  # Accumulate class-level total
+                
             if student_data:
                 class_data[classe.nom] = {
                     'students': student_data,
                     'total_class_remaining': total_class_remaining,
-                    'total_diff_sco': total_diff_sco,  # Add total diff SCO for the class
-                    'total_diff_can': total_diff_can   # Add total diff CAN for the class
+                    'total_diff_sco': total_diff_sco,
+                    'total_diff_can': total_diff_can,
                 }
+
+                # Add to grand totals
+                grand_total_diff_sco += total_diff_sco
+                grand_total_diff_can += total_diff_can
+                grand_total_remaining = grand_total_diff_can +  grand_total_diff_sco
 
         if class_data:
             data[school.nom] = class_data
 
-    return render(request, 'cash/late_payment.html', {'data': data})
+    return render(request, 'cash/late_payment.html', {
+        'data': data,
+        'grand_total_remaining': grand_total_remaining,  # Grand total of all outstanding payments
+        'grand_total_diff_sco': grand_total_diff_sco,  # Grand total of SCO outstanding
+    'page_identifier': 'S58' ,
+        'grand_total_diff_can': grand_total_diff_can,  # Grand total of CAN outstanding
+    })
+
 
 
 from .models import Cashier
@@ -925,9 +939,9 @@ def entree_sortie(request):
     incomes = Mouvement.objects.filter( montant__gt=0).order_by('date_paye')
 
     # Debugging output
-    print("Incomes Count:", incomes.count())
-    for income in incomes:
-        print(f" {income.causal}, Amount: {income.montant}")
+    #print("Incomes Count:", incomes.count())
+    #for income in incomes:
+    #    print(f" {income.causal}, Amount: {income.montant}")
 
     # Fetch all outcomes (Expense) for this cashier
     expenses = Expense.objects.filter().order_by('date')
@@ -951,7 +965,7 @@ def entree_sortie(request):
 
     # Add expense entries as outcomes
     for expense in expenses:
-        description = f" {expense.description or ''}"
+        description = f"COMPT {expense.description or ''}"
         entries.append({
             'date': expense.date,
             'description': description,
@@ -1394,7 +1408,7 @@ def payment_delay_per_class(request, pk):
     students = Eleve.objects.filter(
         inscriptions__classe=classe,
         inscriptions__annee_scolaire=current_annee_scolaire,
-        cs_py='PY',
+        cs_py='P',
         condition_eleve='CONF'
     ).distinct()
 
@@ -1460,12 +1474,12 @@ def classe_information(request, pk):
     total_students_confirmed = Eleve.objects.filter(
     inscriptions__classe=classe,
     condition_eleve='CONF',
-    cs_py='PY'
+    cs_py='P'
     ).count()
 
     # Count students by categories
-    total_CS = Eleve.objects.filter(inscriptions__classe=classe, cs_py='CS').count()
-    total_PY = Eleve.objects.filter(inscriptions__classe=classe, cs_py='PY').count()
+    total_CS = Eleve.objects.filter(inscriptions__classe=classe, cs_py='C').count()
+    total_PY = Eleve.objects.filter(inscriptions__classe=classe, cs_py='P').count()
     other =  total_students - (total_PY + total_CS )
 
     # Calculate expected payments based on tranches
@@ -1514,8 +1528,8 @@ def classe_information(request, pk):
         'total_py_uniforms_received':total_py_uniforms_received,
         'actual_total_school_fees_received':actual_total_school_fees_received,
         'expected_total_school_fees':expected_total_school_fees,
-        'total_py_uniforms_expected':total_py_uniforms_expected
-         ,'page_identifier': 'S55' 
+        'total_py_uniforms_expected':total_py_uniforms_expected,
+         'page_identifier': 'S55' 
     })
 
 

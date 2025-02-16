@@ -13,8 +13,11 @@
 
 {% block header %}
 <span class="navbar-brand mb-0 h1 text-white">Paiement en Retards {{ current_annee_scolaire.nom }}</span>
-          
-    
+ 
+<h4 class="navbar-brand mb-0 h1 text-white"><strong>Total a Payer (retards) :</strong> {{ grand_total_remaining|format_amount }}</h4>
+<h4 class="navbar-brand mb-0 h1 text-white"><strong>Total a Payer SCO :</strong> {{ grand_total_diff_sco|format_amount }}</h4>
+<h4 class="navbar-brand mb-0 h1 text-white"><strong>Total a Payer CAN :</strong> {{ grand_total_diff_can|format_amount }}</h4>
+
             <!-- Undo and Redo Icons -->
             <div class="ml-2 d-flex align-items-stretch">
                 <button class="class-card mr-3 hidden-print" onclick="myFunction()"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print</button>

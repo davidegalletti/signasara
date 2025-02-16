@@ -37,7 +37,8 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         BASE_DIR = str(Path(__file__).resolve().parent.parent.parent)
-        full_path = f"{BASE_DIR}/exportcash/expenses sics.xlsx"  # Update with actual filename
+        # 16/ 02 / 2025 
+        full_path = f"{BASE_DIR}/exportcash/BcK Uscite cassa.xlsx"  # Update with actual filename
 
         logger.info(f"Starting expense import from {full_path}")
 

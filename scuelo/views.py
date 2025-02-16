@@ -231,7 +231,7 @@ def class_detail(request, pk):
     # Get tarifs related to this class for the selected academic year
     tarifs = Tarif.objects.filter(classe=classe, annee_scolaire=selected_annee_scolaire)
         # Calculate counts for each category
-    cs_count = sum(1 for student in students if student.get_cs_py_display() == 'CS')
+    cs_count = sum(1 for student in students if student.get_cs_py_display() == 'CS' )
     py_count = sum(1 for student in students if student.get_cs_py_display() == 'PY')
     aut_count = len(students) - cs_count - py_count 
     # Breadcrumb navigation (for template rendering)
@@ -533,6 +533,7 @@ def student_update(request, pk):
     return render(request, 'scuelo/students/studentupdate.html', {'form': form, 'student': student,
                                                                   'page_identifier': 'S13'  })
 '''
+from django.db.models import Prefetch, Sum, Count, Case, When, Value, IntegerField
 @method_decorator(login_required, name='dispatch')
 class StudentListView(ListView):
     model = Eleve
@@ -540,7 +541,6 @@ class StudentListView(ListView):
     context_object_name = 'students'
 
     def get_queryset(self):
-        # Fetch students and sort by their associated school and class if available
         return Eleve.objects.prefetch_related(
             Prefetch(
                 'inscriptions',
@@ -551,26 +551,33 @@ class StudentListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        # Prefetch schools, classes, and students with their payment data
-        schools = Ecole.objects.prefetch_related(
+        # Define the desired school order
+        preferred_schools = ['Sc_Nas_Mat', 'Sc_Nas_Pri']
+
+        # Annotate schools and classes and order them as requested
+        schools = Ecole.objects.annotate(
+            # Annotate schools with a custom ordering field
+            school_order=Case(
+                *[When(nom=school, then=Value(i)) for i, school in enumerate(preferred_schools)],
+                default=Value(len(preferred_schools)),
+                output_field=IntegerField()
+            )
+        ).prefetch_related(
             Prefetch(
                 'classe_set',
-                queryset=Classe.objects.prefetch_related(
-                    Prefetch(
-                        'inscription_set',
-                        queryset=Inscription.objects.select_related('eleve').annotate(
-                            total_paiements=Sum('mouvement__montant')
-                        )
-                    )
-                )
+                queryset=Classe.objects.annotate(
+                    student_count=Count('inscription')
+                ).filter(student_count__gt=0).order_by('-student_count')
             )
-        )
+        ).order_by('school_order', 'nom')  # Order first by custom order, then alphabetically
 
+        # Attach payment data to students (existing code - no changes needed here)
         for school in schools:
             for classe in school.classe_set.all():
                 for inscription in classe.inscription_set.all():
                     eleve = inscription.eleve
-                    eleve.total_paiements = inscription.total_paiements or 0
+                    # Corrected access to payment data using Mouvement model
+                    eleve.total_paiements = Mouvement.objects.filter(inscription=inscription).aggregate(Sum('montant'))['montant__sum'] or 0
 
         context['schools'] = schools
         context['page_identifier'] = 'S14'  # Add your page identifier here
