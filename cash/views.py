@@ -789,7 +789,7 @@ def late_payment_report(request):
                 inscriptions__annee_scolaire=current_annee_scolaire,
                 inscriptions__classe__ecole=school,
                 cs_py='P',
-                condition_eleve= "CONF" or "PROP"
+                condition_eleve = "CONF" #or "PROP"
             ).distinct()
 
             student_data = []
