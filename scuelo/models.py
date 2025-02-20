@@ -4,7 +4,6 @@ from django.db.models import Q, Sum
 from model_utils.models import TimeStampedModel
 from django.contrib.auth.models import User
 from datetime import datetime
-#from cash.models import  Tarif
 
 CONDITION_ELEVE = (
     ("CONF", "CONF"),
@@ -245,8 +244,6 @@ class UniformReservation(TimeStampedModel):
 
     def __str__(self):
         return f"Reservation for {self.student} - {self.quantity} uniforms"
-
-
 
 
 class StudentLog(TimeStampedModel):

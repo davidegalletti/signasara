@@ -108,6 +108,38 @@
     .fas {
         margin-right: 5px;
     }
+    .action {
+        width: 12px !important;
+    }
+
+    .action {
+        width: 12px !important;
+    }
+
+    .id {
+        width: 25px !important;
+    }
+
+    .hand {
+        width: 25px !important;
+    }
+
+    .prenom {
+        width: 200px !important;
+    }
+
+    .nom {
+        width: 200px !important;
+    }
+
+    .cs_py {
+        width: 1% !important;
+    }
+
+    .col-sex {
+        width: 1% !important;
+    }
+    .scuelo{ width: 5% !important}
 
     /* Responsive adjustments */
     @media (max-width: 768px) {
@@ -133,33 +165,40 @@
     <table id="offsiteStudentsTable" class="display compact">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Prénom</th>
-                <th>Nom</th>
+                <th class="action dt-left"></th>
+                <th class='id dt-left'>ID</th>
+                <th class='prenom dt-left'>Prénom</th>
+                <th class='nom dt-left' >Nom</th>
 
-                <th>Condition</th>
-                <th>Sexe</th>
-                <th>Date Naissance</th>
-                <th>CS_PY</th>
-                <th>École</th>
-                <th>classe</th>
+                <th class='cs_py dt-left'>Cond</th>
+                <th class='col-sex dt-left'>Sexe</th>
+                <th class='cs_py dt-left'>Dat Nais</th>
+                <th class='cs_py'>CS_PY</th>
+                <th class='scuelo'>École</th>
+                <th class='scuelo'>classe</th>
 
-                <th>Handicap</th>
+                <th class='hand'>Hand</th>
                 <th>Note</th>
-                <th>Actions</th>
+               
             </tr>
         </thead>
         <tbody>
             {% for student in all_offsite_students %}
             <tr>
-                <td>{{ student.id }}</td>
-                <td>{{ student.prenom }}</td>
-                <td>{{ student.nom }}</td>
+                <td class="d-flex">
+                    <a href="{% url 'student_detail' student.id %}">
+                        <i class="fas fa-eye"></i>
+                    </a>
 
-                <td>{{ student.condition_eleve }}</td>
-                <td>{{ student.get_sex_display }}</td>
-                <td>{{ student.date_naissance|format_date_obj }}</td>
-                <td>{{ student.get_cs_py_display }}</td>
+                </td>
+                <td class='dt-left'>{{ student.id }}</td>
+                <td class='dt-left'>{{ student.prenom }}</td>
+                <td class='dt-left'>{{ student.nom }}</td>
+
+                <td class='dt-lef'>{{ student.condition_eleve }}</td>
+                <td class='dt-let'>{{ student.sex }}</td>
+                <td class='dt-left'>{{ student.date_naissance|format_date_obj }}</td>
+                <td>{{ student.cs_py }}</td>
                 <td>{{ student.school_name|default:"-" }}</td>
                 <td>{{ student.classe_name|default:"-" }}</td>
 
@@ -167,12 +206,7 @@
                 <!-- Ensure blank if no handicap -->
 
                 <td>{{ student.note_eleve }}</td>
-                <td class="d-flex">
-                    <a href="{% url 'student_detail' student.id %}">
-                        <i class="fas fa-eye"></i>
-                    </a>
-
-                </td>
+             
             </tr>
             {% endfor %}
         </tbody>
@@ -200,7 +234,7 @@
                     filename: 'External Students - ' + currentDate,
                     className: 'btn btn-success',
                     exportOptions: {
-                        columns: ':not(:last-child)'
+                        columns: ':not(:first-child)'
                     }
                 },
                 {
@@ -209,7 +243,7 @@
                     filename: 'External Students - ' + currentDate,
                     className: 'btn btn-success',
                     exportOptions: {
-                        columns: ':not(:last-child)'
+                        columns: ':not(:first-child)'
                     }
                 },
                 {
@@ -218,15 +252,20 @@
                     className: 'class-card',
                     title: 'External Students List - ' + currentDate,
                     exportOptions: {
-                        columns: ':not(:last-child)'
+                        columns: ':not(:first-child)'
                     }
                 }
             ],
             order: [],
-            columnDefs: [{
-                targets: '_all',
-                orderable: true
-            }]
+            columnDefs: [
+                {
+                  targets: 10, // Target the last column (Actions column)
+                  width: '5%', //  adjust the percentage as needed
+                  orderable: true, // Make it orderable
+                  className: 'dt-left' // Add left alignment class
+                },
+          
+                  ]
         });
 
         // Move buttons to header

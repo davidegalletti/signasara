@@ -7,17 +7,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 
 
-class EleveUpdateForm(forms.ModelForm):
-    classe = forms.ModelChoiceField(queryset=Classe.objects.all(), required=True)
-    annee_scolaire = forms.ModelChoiceField(queryset=AnneeScolaire.objects.all(), required=True)
 
-    class Meta:
-        model = Eleve
-        fields = [
-            'nom', 'prenom', 'condition_eleve', 'sex', 'date_naissance', 
-            'cs_py', 'hand', 'annee_inscr', 'parent', 'tel_parent', 
-            'note_eleve', 'classe', 'annee_scolaire'
-        ]
         
 class ClasseCreateForm(forms.ModelForm):
     class Meta:
@@ -168,6 +158,25 @@ class EleveCreateForm(forms.ModelForm):
             # Automatically set the current year for annee_inscr
             current_year = datetime.now().year
             self.fields['annee_scolaire'].initial = current_year
+            
+class EleveUpdateForm(forms.ModelForm):
+    classe = forms.ModelChoiceField(queryset=Classe.objects.all(), required=True)
+    annee_scolaire = forms.ModelChoiceField(queryset=AnneeScolaire.objects.all(), required=True)
+
+    class Meta:
+        model = Eleve
+        fields = [
+            'nom', 'prenom', 'condition_eleve', 'sex', 'date_naissance', 
+            'cs_py', 'date_enquete', 'hand', 'annee_inscr', 'parent', 'tel_parent', 
+            'note_eleve', 'classe', 'annee_scolaire' , 
+        ]
+        widgets = {
+            'date_enquete': forms.DateInput(attrs={'type': 'date'}),
+            'date_naissance': forms.DateInput(attrs={'type': 'date'}),
+            'annee_inscr': forms.NumberInput(attrs={'min': 1900, 'max': 2100}),
+            'note_eleve': forms.Textarea(attrs={'rows': 4}),
+        }
+                    
 class InscriptionForm(forms.ModelForm):
     class Meta:
         model = Inscription

@@ -12,20 +12,20 @@
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
 
 {% block header %}
-<span class="navbar-brand mb-0 h1 text-white">Liste générale des étudiants</span>
-<div class="ml-2 d-flex align-items-stretch">
-    <a href="{% url 'new_student' %}" class="class-card mr-3">
-        <i class="fas fa-tshirt"></i>
-        <span>Nouvel élève</span>
-    </a>
-    <button class="class-card mr-3" id="undo-button" title="Undo">
-        <i class="fas fa-undo"></i>
-    </button>
-    <button class="class-card mr-3" id="redo-button" title="Redo">
-        <i class="fas fa-redo"></i>
-    </button>
-    <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
-</div>
+    <span class="navbar-brand mb-0 h1 text-white">Liste générale des étudiants</span>
+    <div class="ml-2 d-flex align-items-stretch">
+        <a href="{% url 'new_student' %}" class="class-card mr-3">
+            <i class="fas fa-tshirt"></i>
+            <span>Nouvel élève</span>
+        </a>
+        <button class="class-card mr-3" id="undo-button" title="Undo">
+            <i class="fas fa-undo"></i>
+        </button>
+        <button class="class-card mr-3" id="redo-button" title="Redo">
+            <i class="fas fa-redo"></i>
+        </button>
+        <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
+    </div>
 {% endblock header %}
 
 {% block content %}
@@ -70,8 +70,40 @@
         width: 1% !important;
     }
 
+    .tot {
+        width: 10% !important;
+    }
+
     .col-note {
         width: auto;
+    }
+
+    .action {
+        width: 12px !important;
+    }
+
+    .id {
+        width: 25px !important;
+    }
+
+    .hand {
+        width: 25px !important;
+    }
+
+    .prenom {
+        width: 200px !important;
+    }
+
+    .nom {
+        width: 200px !important;
+    }
+
+    .cs_py {
+        width: 1% !important;
+    }
+
+    .col-sex {
+        width: 1% !important;
     }
 </style>
 
@@ -79,42 +111,53 @@
     {% for school in schools %}
         <div class="school-section">
             <h5 class="school-title">{{ school.nom }}</h5>
-            
             {% for classe in school.classe_set.all %}
-                <div class="table-container">
+                <div class="">
                     <h4 class="class-title">{{ classe.nom }}</h4>
                     <table id="classTable-{{ classe.id }}" class="table table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th class='w-25'>Prénom</th>
-                                <th class='w-25'>Nom</th>
-                                <th class='col-note'>Note</th>
-                                <th class='col-sex'>Sexe</th>
-                                <th class='col-1'>Date nais</th>
-                                <th class='col-1'>CS_PY</th>
-                                <th class='col-1'>Handicap</th>
-                                <th class='col-1'>Total Payé</th>
-                                <th class='col-1'>Action</th>
+                                <th class='action'></th>
+                                <th class='id'>ID</th>
+                                <th class="prenom">Prénom</th>
+                                <th class="nom">Nom</th>
+                                <th class="col-sex">Sexe</th>
+                                <th class="col-sex">Date nais</th>
+                                <th class="cs_py">CS_PY</th>
+                                <th class="hand">Handicap</th>
+                              {% comment %}
+                                  <th>Total Payé</th>
+                              {% endcomment %}
+                                <th class='dt-left w-50'>Note</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for inscription in classe.inscription_set.all %}
                                 <tr>
+                                    <td>
+                                        <a href="{% url 'student_detail' inscription.eleve.id %}">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                    </td>
                                     <td>{{ inscription.eleve.id }}</td>
-                                    <td>{{ inscription.eleve.nom }}</td>
                                     <td>{{ inscription.eleve.prenom }}</td>
-                                    <td>{{ inscription.eleve.note_eleve }}</td>
+                                    <td>{{ inscription.eleve.nom }}</td>
                                     <td>{{ inscription.eleve.get_sex_display }}</td>
                                     <td>{{ inscription.eleve.date_naissance|date:"d/m/Y" }}</td>
                                     <td>{{ inscription.eleve.get_cs_py_display }}</td>
                                     <td>{% if inscription.eleve.hand %}{{ inscription.eleve.hand }}{% else %}-{% endif %}</td>
-                                    <td>{% if inscription.eleve.total_paiements %}{{ inscription.eleve.total_paiements|intcomma }} FCFA{% else %}-{% endif %}</td>
-                                    <td>
-                                        <a href="{% url 'student_detail' inscription.eleve.id %}">
-                                            <i class="fas fa-eye"></i> 
-                                        </a>
-                                    </td>
+                                 {% comment %}
+                                       <td>
+                                           {% if inscription.total_payments %}
+                                               {{ inscription.total_payments|intcomma }} FCFA
+                                           {% else %}
+                                               -
+                                           {% endif %}
+                                       </td>
+                         
+                                 {% endcomment %}              
+                                    
+                                    <td>{{ inscription.eleve.note_eleve }}</td>
                                 </tr>
                             {% endfor %}
                         </tbody>
@@ -126,24 +169,34 @@
 </div>
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         // Initialize DataTables for each class table individually
-        $('table[id^="classTable-"]').each(function() {
+        $('table[id^="classTable-"]').each(function () {
             $(this).DataTable({
                 buttons: [
-                    { extend: 'csv', text: 'Export CSV', className: 'btn btn-success' },
-                    { extend: 'excel', text: 'Export Excel', className: 'btn btn-success' },
-                    { extend: 'print', text: 'Print', className: 'btn btn-success' }
+                    {extend: 'csv', text: 'Export CSV', className: 'btn btn-success'},
+                    {extend: 'excel', text: 'Export Excel', className: 'btn btn-success'},
+                    {extend: 'print', text: 'Print', className: 'btn btn-success'}
                 ],
                 paging: true,
                 pageLength: 40,
                 lengthMenu: [10, 25, 50, 100],
                 order: [],  // Enable sorting
                 columnDefs: [
-                    { targets: '_all', orderable: true }
+                    {
+                        targets: '_all',  // Apply to all columns
+                        className: 'dt-left' // Apply left alignment class
+                    },
+                    {
+                        targets: -1, // Target the last column (Actions column), can also use the index number (e.g., 9)
+                        width: '5%',  // Adjust the percentage as needed
+                        orderable: true,
+                        className: 'dt-center' // Center the Actions column, if desired
+                    }
                 ]
             });
         });
     });
 </script>
+
 {% endblock content %}

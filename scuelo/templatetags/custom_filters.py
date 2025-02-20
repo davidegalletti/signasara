@@ -19,7 +19,7 @@ def format_date_obj(value, date_format="%d/%m/%y"):
 def format_amount(value):
     try:
         value = int(value)
-        return f"{value:,}".replace(",", " ") + " FCFA"
+        return f"{value:,}".replace(",", " ") + ""
     except (ValueError, TypeError):
         return value
     
