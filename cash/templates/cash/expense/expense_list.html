@@ -1,5 +1,14 @@
 {% extends "../../layout.html" %}
 {% load custom_filters %}
+<!-- Include DataTables CSS and JS -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
+<script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
 
 {% block header %}
 <div class="d-flex justify-content-between align-items-center w-100">
@@ -49,38 +58,78 @@
 
     .table th,
     .table td {
-        padding: 2px 8px !important; /* Further reduced padding */
-        text-align: center;
-        font-size: 10px; /* Smaller font size */
+        padding: 5px 8px !important;
+        font-size: 12px;
     }
 
     .table th {
         background-color: #333;
         color: #fff;
         text-transform: uppercase;
+    }
+
+    .class-header-row {
+        background-color: #f8f9fa !important;
         font-weight: bold;
     }
 
-    .table tbody tr:hover {
-        background-color: #e9ecef;
+    .highlight-negative {
+        color: red;
+        font-weight: bold;
     }
 
-    .highlight-negative {
-        color: red; /* Highlight negative values in red */
-        font-weight: bold; /* Make it bold for emphasis */
+    .page-break {
+        page-break-after: always;
+    }
+
+    .action {
+        width: 12px !important;
+    }
+
+    .id {
+        width: 25px !important;
+    }
+
+    .hand {
+        width: 25px !important;
+    }
+
+    .prenom {
+        width: 200px !important;
+    }
+
+    .nom {
+        width: 200px !important;
+    }
+
+    .cs_py {
+        width: 1% !important;
+    }
+    .col-sex {
+        width: 1% !important;
+    }
+    .amount-col {
+        text-align: right !important; /* Right-align numerical columns */
+         width: 50px  !important;
+    }
+
+    @media print {
+        .hidden-print {
+            display: none !important;
+        }
     }
 </style>
 
 <div class="">
     <h5>Liste des Dépenses</h5>
-
-    <table id="expensesTable" class="display compact table table-striped table-bordered">
+    <div class="table table-striped table-bordered">
+    <table id="expensesTable" class="display compact ">
         <thead>
             <tr>
-                <th>Date Incurred</th> <!-- Column header -->
+                <th class='amount-col'>Date</th> <!-- Column header -->
                 <th>Description</th>
-                <th>Montant</th>
-                <th>Total Progressif</th> <!-- Column for Progressive Total -->
+                <th class='amount-col'>Montant</th>
+                <th class='amount-col'>Total Progressif</th> <!-- Column for Progressive Total -->
                {% comment %}
                  <th>Actions</th>
                {% endcomment %}
@@ -90,7 +139,7 @@
             {% for item in expenses %}
             <tr>
                 <td>{{ item.expense.formatted_date }}</td> <!-- Formatted Date -->
-                <td>{{ item.expense.description }}</td> <!-- Expense Description -->
+                <td>COMPT-{{ item.expense.description }}</td> <!-- Expense Description -->
                 <td>{{ item.expense.amount|format_amount }}</td> <!-- Expense Amount -->
                 <td class="highlight-negative">{{ item.progressive_total|format_amount }}</td> <!-- Progressive Total in Red -->
                {% comment %}
@@ -105,50 +154,57 @@
     </table>
 
 </div>
-
 <script>
-// Initialize DataTable
-$(document).ready(function() {
-    $('#expensesTable').DataTable({
-        "order": [[0, "desc"]], // Order by Date Incurred descending
-        "pageLength": 36, // Show 25 rows by default
-        "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]], // Options for number of rows per page
-        "language": {
-            "search": "Search:",
-            "lengthMenu": "Display _MENU_ records per page",
-            "info": "Showing page _PAGE_ of _PAGES_",
-            "infoEmpty": "No records available",
-            "zeroRecords": "No matching records found",
-            "paginate": {
-                "next": "Next",
-                "previous": "Previous"
-            }
-        }
+    $(document).ready(function() {
+        var currentDate = new Date().toLocaleDateString();
+        var classe = "{{ classe.nom }}";
+        var table = $('#expensesTable').DataTable({
+            //dom: 'Bfrtip',
+            ordering: false,
+            paging: false,
+            columnDefs: [
+                { "className": "dt-left", "targets": [0, 1] }, // Apply to non-amount columns
+                { "className": "dt-right", "targets": [2, 3] }  // Apply to amount columns
+            ],
+            buttons: [
+                {
+                    extend: 'csv',
+                    text: 'Export CSV',
+                    filename: 'liste per classe - ' + classe + ' ' + currentDate,
+                    className: 'btn btn-success',
+                    exportOptions: {
+                        columns: ':not(:last-child)'
+                    }
+                },
+                {
+                    extend: 'excel',
+                    text: 'Export Excel',
+                    filename: 'liste per classe - ' + classe + ' ' + currentDate,
+                    className: 'btn btn-success',
+                    exportOptions: {
+                        columns: ':not(:last-child)'
+                    }
+                },
+                {
+                    extend: 'print',
+                    text: 'Print',
+                    className: 'class-card',
+                    title: 'liste per classe - ' + classe + ' ' + currentDate,
+                    exportOptions: {
+                        columns: ':not(:last-child)'
+                    }
+                }
+            ],
+        });
+
+        // Export to Excel button functionality
+        // Move buttons to header
+        table.buttons().container()
+            .appendTo($('#datatable-buttons'));
     });
-});
-
-// Print function
-function myFunction() {
-    // Get the DataTable instance
-    var table = $('#expensesTable').DataTable();
-
-    // Store the current page length
-    var currentPageLength = table.page.len();
-
-    // Set the page length to -1 (show all records)
-    table.page.len(-1).draw();
-
-    // Trigger the print dialog
-    window.print();
-
-    // Reset the page length back to the original setting
-    table.page.len(currentPageLength).draw();
-}
-
-// Export to Excel function (placeholder)
-function exportToExcel() {
-    alert("Export to Excel functionality is not yet implemented.");
-}
 </script>
+
+    
+    
 
 {% endblock %}

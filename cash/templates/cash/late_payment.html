@@ -10,26 +10,25 @@
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
 
-
 {% block header %}
 <span class="navbar-brand mb-0 h1 text-white">Paiement en Retards {{ current_annee_scolaire.nom }}</span>
- 
-<h4 class="navbar-brand mb-0 h1 text-white"><strong>Total a Payer (retards) :</strong> {{ grand_total_remaining|format_amount }}</h4>
-<h4 class="navbar-brand mb-0 h1 text-white"><strong>Total a Payer SCO :</strong> {{ grand_total_diff_sco|format_amount }}</h4>
-<h4 class="navbar-brand mb-0 h1 text-white"><strong>Total a Payer CAN :</strong> {{ grand_total_diff_can|format_amount }}</h4>
 
-            <!-- Undo and Redo Icons -->
-            <div class="ml-2 d-flex align-items-stretch">
-                <button class="class-card mr-3 hidden-print" onclick="myFunction()"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print</button>
-                <a href="{% url 'home' %}" class="class-card mr-3">Cancel</a>
-                <button class="class-card mr-3" id="undo-button" title="Undo">
-                    <i class="fas fa-undo"></i>
-                </button>
-                <button class="class-card mr-3" id="redo-button" title="Redo">
-                    <i class="fas fa-redo"></i>
-                </button>
-                <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
-            </div>
+<h4 class="navbar-brand mb-0 h1 text-white"><strong>Total :</strong> {{ grand_total_remaining|format_amount }}</h4>
+<h4 class="navbar-brand mb-0 h1 text-white"><strong>Total SCO :</strong> {{ grand_total_diff_sco|format_amount }}</h4>
+<h4 class="navbar-brand mb-0 h1 text-white"><strong>Total CAN :</strong> {{ grand_total_diff_can|format_amount }}</h4>
+
+<!-- Undo and Redo Icons -->
+<div class="ml-2 d-flex align-items-stretch">
+    <button class="class-card mr-3 " onclick="myFunction()"> Print</button>
+    <a href="{% url 'home' %}" class="class-card mr-3">Cancel</a>
+    <button class="class-card mr-3" id="undo-button" title="Undo">
+        <i class="fas fa-undo"></i>
+    </button>
+    <button class="class-card mr-3" id="redo-button" title="Redo">
+        <i class="fas fa-redo"></i>
+    </button>
+    <h2 class='mr-3 text-white'><strong>{{ page_identifier }}</strong></h2>
+</div>
 {% endblock header %}
 
 {% block content %}
@@ -49,9 +48,12 @@
 
     .table th,
     .table td {
-        padding: 5px 8px !important; /* Reduced padding */
-        text-align: center;
-        font-size: 12px; /* Smaller font size */
+        padding: 5px 8px !important;
+        /* Reduced padding */
+       /*  text-align: left;
+        /* Align text to the left */
+        font-size: 12px;
+        /* Smaller font size */
     }
 
     .table th {
@@ -61,144 +63,201 @@
     }
 
     .class-header-row {
-        background-color: #f8f9fa !important; /* Light gray background */
+        background-color: #f8f9fa !important;
+        /* Light gray background */
         font-weight: bold;
-        text-align: left;
+         /*text-align: left;*/
     }
 
     .highlight-negative {
-        color: red; /* Highlight negative values in red */
-        font-weight: bold; /* Make it bold for emphasis */
+        color: red;
+        /* Highlight negative values in red */
+        font-weight: bold;
+        /* Make it bold for emphasis */
+    }
+
+    .page-break {
+        page-break-after: always;
+        /* Insert page break after each .page-break element */
+    }
+
+
+    .id {
+        width: 2px !important;
+    }
+
+    .hand {
+        width: 25px !important;
+    }
+
+    .prenom {
+        width: 200px !important;
+    }
+
+    .nom {
+        width: 200px !important;
+    }
+
+    .cs_py {
+        width: 1% !important;
+    }
+
+    .col-sex {
+        width: 1% !important;
+        
+    }
+    .amount-col {
+        text-align: right !important; /* Right-align numerical columns */
+    }
+
+    .left-col {
+        text-align: left !important; /* Left-align other columns */
+    }
+    .paid { width: 5% !important;  text-align: center;}
+    .scuelo{ width: 5% !important}
+    @media print {
+        .hidden-print {
+            display: none !important;
+        }
     }
 </style>
 
 <div class="table-container">
-  
-    
+
+
     <table class="table table-striped table-bordered" id="delaysTable">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Sex</th>
-                <th>CS_PY</th>
-                <th>SCO Paid</th>
-                <th>SCO Exigible</th>
-                <th>Diff. SCO</th>
-                <th>CAN Paid</th>
-                <th>CAN Exigible</th>
-                <th>Diff. CAN</th>
-                <th>Retards</th>
-                <th>Note</th>
-                <th>% Paid</th>
-                <th>Retard (%)</th> <!-- New column for remaining percentage -->
+                <th class='id'>ID</th>
+                <th class='nom'>penom</th>
+                <th class='prenom'>Prnom</th>
+                <th class='col-sex'>Sex</th>
+                <th class='cs_py'>cond</th>
+                <th class='paid'> SCO Paid</th>
+                <th class='paid'>Exigible</th>
+                <th class='paid'>Diff. SCO</th>
+                <th class='paid'>CAN Paid</th>
+                <th class='paid'>Exigible</th>
+                <th class='paid'>Diff. CAN</th>
+                <th class='paid'>Retards</th>
+                <th class='paid'>Note</th>
+                <th class='paid'>% Paid</th>
+                <th class='paid'>Retard (%)</th>
+                <!-- New column for remaining percentage -->
             </tr>
         </thead>
         <tbody>
             {% for school, classes in data.items %}
-                {% for class_name, class_info in classes.items %}
-                    <!-- Class Header Row -->
-                    <tr class="class-header-row">
-                        <td colspan="14">Class: {{ class_name }} | Total Diff SCO: {{ class_info.total_diff_sco|default:"-" }} | Total Diff CAN: {{ class_info.total_diff_can|default:"-" }}</td>
-                    </tr>
+            {% for class_name, class_info in classes.items %}
+            <div class="page-break">
+                <!-- Class Header Row -->
 
-                    <!-- Student Rows -->
-                    {% for student in class_info.students %}
-                    <tr>
-                        <td>{{ student.id }}</td>
-                        <td>{{ student.nom }}</td>
-                        <td>{{ student.prenom }}</td>
-                        <td>{{ student.sex }}</td>
-                        <td>{{ student.cs_py }}</td>
+                <tr class="class-header-row">
 
-                        <!-- SCO Paid -->
-                        <td>{% if student.sco_paid == 0 %}-{% else %}{{ student.sco_paid|format_amount }}{% endif %}</td>
+                    <td colspan="15">Class: {{ class_name }}</td>
 
-                        <!-- SCO Exigible -->
-                        <td>{% if student.sco_exigible == 0 %}-{% else %}{{ student.sco_exigible|format_amount }}{% endif %}</td>
+                </tr>
 
-                        <!-- Diff SCO -->
-                        <td class="{% if student.diff_sco > 0 %}highlight-negative{% endif %}">
-                            {% if student.diff_sco == 0 %}-{% else %}{{ student.diff_sco|format_amount }}{% endif %}
-                        </td>
 
-                        <!-- CAN Paid -->
-                        <td>{% if student.can_paid == 0 %}-{% else %}{{ student.can_paid|format_amount }}{% endif %}</td>
 
-                        <!-- CAN Exigible -->
-                        <td>{% if student.can_exigible == 0 %}-{% else %}{{ student.can_exigible|format_amount }}{% endif %}</td>
+                <!-- Student Rows -->
+                {% for student in class_info.students %}
+                <tr>
+                    <td class='id'>{{ student.id }}</td>
+                    <td>{{ student.nom }}</td>
+                    <td>{{ student.prenom }}</td>
+                    <td>{{ student.sex }}</td>
+                    <td>{{ student.condition_eleve }}</td>
 
-                        <!-- Diff CAN -->
-                        <td class="{% if student.diff_can > 0 %}highlight-negative{% endif %}">
-                            {% if student.diff_can == 0 %}-{% else %}{{ student.diff_can|format_amount }}{% endif %}
-                        </td>
+                    <!-- SCO Paid -->
+                    <td class='amount-col'>
+                        {% if student.sco_paid == 0 %}-{% else %}{{ student.sco_paid|format_amount }}{% endif %}
+                    </td>
 
-                        <!-- Retards -->
-                        <td>{% if student.retards == 0 %}-{% else %}{{ student.retards|format_amount }}{% endif %}</td>
+                    <!-- SCO Exigible -->
+                    <td class='amount-col'>
+                        {% if student.sco_exigible == 0 %}-{% else %}{{ student.sco_exigible|format_amount }}{% endif %}
+                    </td>
 
-                        <!-- Note -->
-                        <td>{{ student.note }}</td>
+                    <!-- Diff SCO -->
+                    <td class="{% if student.diff_sco > 0 %}highlight-negative{% endif %} amount-col">
+                        {% if student.diff_sco == 0 %}-{% else %}{{ student.diff_sco|format_amount }}{% endif %}
+                    </td>
 
-                        <!-- Percentage Paid -->
-                        <td>{{ student.percentage_paid }}%</td>
+                    <!-- CAN Paid -->
+                    <td class='amount-col'>
+                        {% if student.can_paid == 0 %}-{% else %}{{ student.can_paid|format_amount }}{% endif %}
+                    </td>
 
-                        <!-- Remaining Percentage (Retard) -->
-                        <td class="{% if student.remaining_percentage > 0 %}red-retard{% endif %}">
-                            {% if student.remaining_percentage > 0 %}
-                                -{{ student.remaining_percentage|floatformat:1 }}%
-                            {% else %}
-                                -
-                            {% endif %}
-                        </td> <!-- Displaying as a percentage with a minus sign -->
-                    </tr>
-                    {% endfor %}
+                    <!-- CAN Exigible -->
+                    <td class='amount-col'>
+                        {% if student.can_exigible == 0 %}-{% else %}{{ student.can_exigible|format_amount }}{% endif %}
+                    </td>
+
+                    <!-- Diff CAN -->
+                    <td class="{% if student.diff_can > 0 %}highlight-negative{% endif %} amount-col">
+                        {% if student.diff_can == 0 %}-{% else %}{{ student.diff_can|format_amount }}{% endif %}
+                    </td>
+
+                    <!-- Retards -->
+                    <td class='amount-col'>
+                        {% if student.retards == 0 %}-{% else %}{{ student.retards|format_amount }}{% endif %}
+                    </td>
+
+                    <!-- Note -->
+                    <td>{{ student.note }}</td>
+
+                    <!-- Percentage Paid -->
+                    <td class='amount-col'>{{ student.percentage_paid|floatformat:1 }}%</td>
+
+                    <!-- Remaining Percentage (Retard) -->
+                    <td class="{% if student.remaining_percentage > 0 %}red-retard{% endif %} amount-col">
+                        {% if student.remaining_percentage > 0 %}
+                        -{{ student.remaining_percentage|floatformat:1 }}%
+                        {% else %}
+                        -
+                        {% endif %}
+                    </td> <!-- Displaying as a percentage with a minus sign -->
+                </tr>
                 {% endfor %}
+
+                <!-- Class Totals Row -->
+                <tr>
+                    <td colspan="7" style="text-align: right;">Class Total:</td>
+                    <td class="{% if class_info.total_diff_sco > 0 %}highlight-negative{% endif %} amount-col">
+                        {{ class_info.total_diff_sco|format_amount }}
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td class="{% if class_info.total_diff_can > 0 %}highlight-negative{% endif %} amount-col">
+                        {{ class_info.total_diff_can|format_amount }}
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </div>
+            {% endfor %}
             {% endfor %}
         </tbody>
     </table>
 
 </div>
 
-<!-- Initialize DataTables with Print Button Functionality -->
-<script type="text/javascript">
+<script>
+    $(document).ready(function() {
+        $('#delaysTable').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        });
+    });
 
     function myFunction() {
         window.print();
     }
-    $(document).ready(function() {
-        // Initialize DataTable with Print Button
-        var table = $('#delaysTable').DataTable({
-            "searching": false, // Disable search input
-            "lengthChange": false, // Disable "Show entries" dropdown
-            "language": {
-                "url": "//cdn.datatables.net/plug-ins/1.10.21/i18n/French.json"
-            },
-            dom: 'Bfrtip', // Define the layout of the table with buttons
-            buttons: [
-                {
-                    extend: 'print',
-                    text: 'Print',
-                    title: 'Late Payment Report', // Title for the print page
-                    customize: function (win) {
-                        $(win.document.body)
-                            .css('font-size', '12pt') // Set font size for printed document
-                            .prepend(
-                                '<h3 style="text-align:center;">Late Payment Report</h3>' // Add title to printed document
-                            );
-                        $(win.document.body).find('table')
-                            .addClass('compact') // Add compact class for better layout
-                            .css('font-size', '10pt'); // Adjust font size for table
-                    }
-                }
-            ]
-        });
-
-        // Trigger Print Button from Header
-        $('#printButton').on('click', function() {
-            table.button(0).trigger(); // Trigger the print button programmatically
-        });
-    });
 </script>
 
-{% endblock %}
+{% endblock content %}

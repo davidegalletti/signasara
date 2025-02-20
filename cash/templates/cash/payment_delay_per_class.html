@@ -1,12 +1,9 @@
-
-
-
 {% extends "../layout.html" %}
 {% load custom_filters %}
 
 {% block header %}
-<h5 class='text-white'>Retards de paiement pour la classe : {{ classe.nom }}</h5>   
-    
+<h5 class='text-white'>Retards de paiement pour la classe : {{ classe.nom }}</h5>
+
             <!-- Undo and Redo Icons -->
             <div class="ml-2 d-flex align-items-stretch">
                 <button class="class-card mr-3 hidden-print" onclick="myFunction()"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print</button>
@@ -37,9 +34,8 @@
 
     .table th,
     .table td {
-        padding: 5px 8px !important; /* Reduced padding */
-        text-align: center;
-        font-size: 12px; /* Smaller font size */
+        padding: 5px 8px !important;
+        font-size: 12px;
     }
 
     .table th {
@@ -49,14 +45,56 @@
     }
 
     .class-header-row {
-        background-color: #f8f9fa !important; /* Light gray background */
+        background-color: #f8f9fa !important;
         font-weight: bold;
-        text-align: left;
     }
 
     .highlight-negative {
-        color: red; /* Highlight negative values in red */
-        font-weight: bold; /* Make it bold for emphasis */
+        color: red;
+        font-weight: bold;
+    }
+
+    .page-break {
+        page-break-after: always;
+    }
+
+    .id {
+        width: 25px !important;
+    }
+
+    .hand {
+        width: 25px !important;
+    }
+
+    .prenom {
+        width: 200px !important;
+    }
+
+    .nom {
+        width: 200px !important;
+    }
+
+    .cs_py {
+        width: 1% !important;
+    }
+
+    .col-sex {
+        width: 1% !important;
+    }
+
+    .amount-col {
+        text-align: right !important; /* Right-align numerical columns */
+        width: 100px  !important;
+    }
+
+    .left-col {
+        text-align: left !important; /* Left-align other columns */
+    }
+
+    @media print {
+        .hidden-print {
+            display: none !important;
+        }
     }
 </style>
 
@@ -66,15 +104,15 @@
    <table class="table table-striped table-bordered">
        <thead>
            <tr>
-               <th>Student ID</th>
+               <th class='id'>id</th>
                <th>Nom</th>
                <th>Prénom</th>
-               <th>Condition</th>
-               <th>Sex</th>
-               <th>SCO Paid</th>
-               <th>SCO Exigible</th>
-               <th>Diff. SCO</th>
-               <th>CAN Paid</th>
+               <th class='cs_py'>Cond</th>
+               <th class='cs_py'>Sex</th>
+               <th class='amount-col'>SCO Paid</th>
+               <th class='amount-col'>SCO Exigible</th>
+               <th class='amount-col'>Diff. SCO</th>
+               <th class='amount-col'>CAN Paid</th>
                <th>CAN Exigible</th>
                <th>Diff. CAN</th>
            </tr>
@@ -82,16 +120,17 @@
        <tbody>
            {% for student in students %}
            <tr>
-               <td>{{ student.id }}</td> <!-- Display Student ID -->
-               <td>{{ student.nom }}</td>
-               <td>{{ student.prenom }}</td>
-               <td>{{ student.condition_eleve }}</td> <!-- Use condition_eleve here -->
-               <td>{{ student.sex }}</td>
-               <td>{% if student.sco_paid == 0 %}-{% else %}{{ student.sco_paid|format_amount }}{% endif %}</td>
-               <td>{% if student.sco_exigible == 0 %}-{% else %}{{ student.sco_exigible|format_amount }}{% endif %}</td>
+               <td class="dt-left">{{ student.id }}</td> <!-- Student ID -->
+               <td class="dt-left">{{ student.prenom }}</td>
+               <td class="dt-left">{{ student.nom }}</td>
+              
+               <td class="dt-left">{{ student.condition_eleve }}</td>
+               <td class="dt-left">{{ student.sex }}</td>
+               <td class="amount-col">{% if student.sco_paid == 0 %}-{% else %}{{ student.sco_paid|format_amount }}{% endif %}</td>
+               <td class='amount-col'>{% if student.sco_exigible == 0 %}-{% else %}{{ student.sco_exigible|format_amount }}{% endif %}</td>
 
                <!-- Display Diff SCO with styling -->
-               <td class="{% if student.diff_sco != 0 %}highlight-negative{% endif %}">
+               <td class=" amount-col {% if student.diff_sco != 0 %}highlight-negative dt-left{% else %}dt-left{% endif %}">
                    {% if student.diff_sco != 0 %}
                        -{{ student.diff_sco }}
                    {% else %}
@@ -99,11 +138,11 @@
                    {% endif %}
                </td>
 
-               <td>{% if student.can_paid == 0 %}-{% else %}{{ student.can_paid|format_amount }}{% endif %}</td>
-               <td>{% if student.can_exigible == 0 %}-{% else %}{{ student.can_exigible|format_amount }}{% endif %}</td>
+               <td class="amount-col">{% if student.can_paid == 0 %}-{% else %}{{ student.can_paid|format_amount }}{% endif %}</td>
+               <td class="amount-col">{% if student.can_exigible == 0 %}-{% else %}{{ student.can_exigible|format_amount }}{% endif %}</td>
 
                <!-- Display Diff CAN with styling -->
-               <td class="{% if student.diff_can != 0 %}highlight-negative{% endif %}">
+               <td class="amount-col {% if student.diff_can != 0 %}highlight-negative dt-left{% else %}dt-left{% endif %}">
                    {% if student.diff_can != 0 %}
                        -{{ student.diff_can }}
                    {% else %}
@@ -112,16 +151,15 @@
                </td>
            </tr>
            {% endfor %}
-           
+
            <!-- Total Row -->
            <tr class="class-header-row">
-               <td colspan="6"><strong>Total Differences:</strong></td>
-               
-               <td></td> <!-- Placeholder for CAN Paid -->
-               <td class='highlight-negative '> - {{ total_diff_sco }}</td> <!-- Total Diff SCO -->
-               <td>-</td> <!-- Placeholder for CAN Exigible -->
-               <td>-</td>
-               <td class='highlight-negative '>{{ total_diff_can }}</td> <!-- Total Diff CAN -->
+               <td colspan="6" class="dt-left"><strong>Total Differences:</strong></td>
+               <td class="dt-left"></td> <!-- Placeholder for CAN Paid -->
+               <td class='highlight-negative amount-col w-10'>- {{ total_diff_sco }}</td> <!-- Total Diff SCO -->
+               <td class="dt-left">-</td> <!-- Placeholder for CAN Exigible -->
+               <td class="dt-left">-</td>
+               <td class='highlight-negative amount-col'>{{ total_diff_can }}</td> <!-- Total Diff CAN -->
            </tr>
 
        </tbody>

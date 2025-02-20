@@ -310,170 +310,6 @@ class UniformReservationDeleteView(DeleteView):
     template_name = 'cash/reservations/uniform_reservation_confirm_delete.html'
     success_url = reverse_lazy('uniform-reservation-list')    
     
-@login_required
-def cash_flow_report(request):
-    # Get all movements for the current year
-    current_date = now()
-    movements = Mouvement.objects.filter(date_paye__year=current_date.year)
-    
-    # Calculate key metrics
-    total_revenue = movements.filter(type='R').aggregate(total=Sum('montant'))['total'] or 0
-    total_expenses = movements.filter(type='D').aggregate(total=Sum('montant'))['total'] or 0
-    net_cash_flow = total_revenue - total_expenses
-    
-    # Group by months for trend analysis
-    monthly_data = movements.values('date_paye__month').annotate(
-        total_inflow=Sum('montant', filter=models.Q(type='R')),
-        total_outflow=Sum('montant', filter=models.Q(type='D'))
-    ).order_by('date_paye__month')
-    
-    # Create Monthly Cash Flow Chart
-    months = [month['date_paye__month'] for month in monthly_data]
-    inflow = [month['total_inflow'] or 0 for month in monthly_data]
-    outflow = [month['total_outflow'] or 0 for month in monthly_data]
-
-    plt.figure(figsize=(10, 6))
-    plt.plot(months, inflow, marker='o', label='Inflow')
-    plt.plot(months, outflow, marker='o', label='Outflow')
-    plt.title('Monthly Cash Flow')
-    plt.xlabel('Month')
-    plt.ylabel('Amount')
-    plt.legend()
-
-    buffer = BytesIO()
-    plt.savefig(buffer, format='png')
-    buffer.seek(0)
-    monthly_cash_flow_chart = base64.b64encode(buffer.getvalue()).decode('utf-8')
-    buffer.close()
-
-    # Income vs Expenses Pie Chart
-    labels = ['Revenue', 'Expenses']
-    sizes = [total_revenue, total_expenses]
-    colors = ['#28a745', '#dc3545']
-
-    plt.figure(figsize=(8, 8))
-    plt.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=140)
-    plt.title('Revenue vs Expenses')
-
-    buffer = BytesIO()
-    plt.savefig(buffer, format='png')
-    buffer.seek(0)
-    income_vs_expenses_chart = base64.b64encode(buffer.getvalue()).decode('utf-8')
-    buffer.close()
-
-    context = {
-        'total_revenue': total_revenue,
-        'total_expenses': total_expenses,
-        'net_cash_flow': net_cash_flow,
-        'monthly_cash_flow_chart': monthly_cash_flow_chart,
-        'income_vs_expenses_chart': income_vs_expenses_chart,
-        'page_identifier': 'S08'
-    }
-    return render(request, 'cash/cash/cash_flow_report.html', context)
-
-
-
-@login_required
-def manage_tarifs(request, pk):
-    # Fetch the class and current school year
-    classe = get_object_or_404(Classe, pk=pk)
-    current_annee_scolaire = AnneeScolaire.objects.get(actuel=True)
-
-        # Fetch the students in this class for the current academic year
-    inscriptions = Inscription.objects.filter(classe=classe, annee_scolaire=current_annee_scolaire)
-        # Count total students
-    student_count = inscriptions.count()
-        # Count students who are both PY and CONF
-    confirmed_py_count = inscriptions.filter(
-        eleve__cs_py="P",  # PY students
-        eleve__condition_eleve="CONF"  # CONF students
-    ).count()
-
-    # Count CS students
-    cs_students_count = inscriptions.filter(eleve__cs_py="C").count()
-
-    # Count PY students
-    py_students_count = inscriptions.filter(eleve__cs_py="P").count()
-
-    # Count other students (students who are neither CS nor PY)
-    other_students_count = student_count - (cs_students_count + py_students_count)
-
-
-    # Fetch confirmed PY students for the class
-    confirmed_py_count = Inscription.objects.filter(
-        classe=classe,
-        annee_scolaire=current_annee_scolaire,
-        eleve__condition_eleve="CONF",
-        eleve__cs_py="P"
-    ).count()
-
-    # Fetch all tariffs for the class in the current school year
-    tarifs = Tarif.objects.filter(classe=classe, annee_scolaire=current_annee_scolaire)
-
-    # Calculate cumulative amounts for each tranche (using 'causal' instead of 'type_frais')
-    # Calculate cumulative sums for each tranche
-    tranche_data = {
-        'first_tranche': tarifs.filter(causal='SCO1').aggregate(total=Sum('montant'))['total'] or 0,
-        'second_tranche': (tarifs.filter(causal='SCO1').aggregate(total=Sum('montant'))['total'] or 0) +
-                        (tarifs.filter(causal='SCO2').aggregate(total=Sum('montant'))['total'] or 0),
-        'third_tranche': (tarifs.filter(causal='SCO1').aggregate(total=Sum('montant'))['total'] or 0) +
-                        (tarifs.filter(causal='SCO2').aggregate(total=Sum('montant'))['total'] or 0) +
-                        (tarifs.filter(causal='SCO3').aggregate(total=Sum('montant'))['total'] or 0),
-    }
-
-
-    # Calculate progressive payments per student
-    progress_per_eleve = (
-                          tranche_data['third_tranche'])
-
-    # Calculate the expected total payment for the class at each tranche
-    expected_payment = {
-        'first_tranche': tranche_data['first_tranche'] * confirmed_py_count,
-        'second_tranche': tranche_data['second_tranche'] * confirmed_py_count,
-        'third_tranche': tranche_data['third_tranche'] * confirmed_py_count
-    }
-
-    # Calculate total actual payments
-    total_actual_payments = Mouvement.objects.filter(
-        inscription__classe=classe,
-        inscription__annee_scolaire=current_annee_scolaire
-    ).aggregate(total=Sum('montant'))['total'] or 0
-
-       # Fetch count of students (PY, CS, and others)
-    student_count = Inscription.objects.filter(classe=classe, annee_scolaire=current_annee_scolaire).count()
-    py_students_count = Inscription.objects.filter(
-        classe=classe, annee_scolaire=current_annee_scolaire, eleve__cs_py="P"
-    ).count()
-      # Filter and count students who are PY and CONF
-    py_conf_students_count = Inscription.objects.filter(
-        classe=classe,
-        annee_scolaire=current_annee_scolaire,
-        eleve__cs_py="P",  # Filtering PY students
-        eleve__condition_eleve="CONF"  # Filtering CONF students
-    ).count()
-
-    cs_students_count = Inscription.objects.filter(
-        classe=classe, annee_scolaire=current_annee_scolaire, eleve__cs_py="C"
-    ).count()
-    other_students_count = student_count - py_students_count - cs_students_count
-    cs_students_count = inscriptions.filter(eleve__cs_py="C").count()
-    return render(request, 'cash/tarif/tarif_list.html', {
-        'classe': classe,
-        'tarifs': tarifs,
-        'progress_per_eleve': progress_per_eleve,
-        'tranche_data': tranche_data,
-        #'py_conf_students_count':  py_conf_students_count ,
-        'student_count': student_count,
-        'confirmed_py_count': confirmed_py_count,
-        'expected_payment': expected_payment,
-        'py_students_count': py_students_count,
-        'cs_students_count': cs_students_count,
-        'other_students_count': other_students_count,
-        'total_actual_payments': total_actual_payments,  
-        'page_identifier': 'S09'
-        
-    })
-
 
 @login_required
 def add_tarif(request, pk):
@@ -545,191 +381,6 @@ def export_accounting_report(request):
 
     return response
 
-
-@login_required
-def mouvement_list(request):
-    search_query = request.GET.get('search', '')
-
-    # Fetch all movements ordered by payment date
-    movements = Mouvement.objects.all().order_by('date_paye')
-
-    # Apply search filters if search_query is provided
-    if search_query:
-        movements = movements.filter(
-            Q(causal__icontains=search_query) | 
-            Q(note__icontains=search_query) |
-            Q(inscription__eleve__nom__icontains=search_query) |
-            Q(inscription__eleve__prenom__icontains=search_query)
-        )
-
-    # Initialize progressive total
-    progressive_total = 0
-
-    # Create a list to store processed movements with extra information
-    processed_movements = []
-
-    # Loop over movements to calculate the progressive total and build description
-    for mouvement in movements:
-        # If the causal is missing but linked to a tarif, set it
-        if mouvement.tarif and not mouvement.causal:
-            mouvement.causal = mouvement.tarif.causal
-            mouvement.save()
-
-        # Define the type based on the causal:
-        # All causals related to school fees (CAN, SCO1, SCO2, SCO3, TEN) are considered income (Recette)
-        if mouvement.causal in ['INS', 'SCO1', 'SCO2', 'SCO3', 'TEN', 'CAN']:  # Add any other causals as needed
-            mouvement.type = 'R'  # Recette (Inflow)
-        else:
-            mouvement.type = 'R'  # Dépense (Outflow)
-
-        # Adjust the progressive total based on the movement type
-        if mouvement.type == 'R':
-            progressive_total += mouvement.montant  # Add inflows
-            entry = mouvement.montant
-            exit = ''
-        elif mouvement.type == 'D':
-            progressive_total -= mouvement.montant  # Subtract outflows
-            entry = ''
-            exit = mouvement.montant
-
-        # Create a dynamic description combining student's full name, school name, and class
-        if mouvement.inscription and mouvement.inscription.classe:
-            student_name = f"{mouvement.inscription.eleve.nom} {mouvement.inscription.eleve.prenom}"
-            school_name = mouvement.inscription.classe.ecole.nom if mouvement.inscription.classe.ecole else "Unknown School"
-            class_name = mouvement.inscription.classe.nom
-            description = f"{student_name} - {school_name} - {class_name}"
-        else:
-            description = f"Unknown Student - No Class Info"
-
-        # Append processed data to the list
-        processed_movements.append({
-            'date': mouvement.date_paye,
-            'description': description,
-            'entry': entry,
-            'exit': exit,
-            'progressive_total': progressive_total
-        })
-
-    return render(request, 'cash/mouvement/mouvement_list.html', {
-        'movements': processed_movements,
-        'search_query': search_query,
-        'page_identifier': 'S11'
-    })
-
-@login_required
-def accounting_c_sco_report(request, period=None):
-    search_query = request.GET.get('search', '')
-
-    # Fetch all movements ordered by payment date
-    movements = Mouvement.objects.all().order_by('date_paye')
-
-    # Apply search filters if search_query is provided
-    if search_query:
-        movements = movements.filter(
-            Q(causal__icontains=search_query) | 
-            Q(note__icontains=search_query) |
-            Q(inscription__eleve__nom__icontains=search_query) |
-            Q(inscription__eleve__prenom__icontains=search_query)
-        )
-
-    # Initialize progressive total
-    progressive_total = 0
-    processed_movements = []
-
-    # Group data by period if specified
-    if period == 'weekly':
-        # Define the start of the current week
-        current_date = timezone.now().date()
-        start_of_week = current_date - timedelta(days=current_date.weekday())
-        end_of_week = start_of_week + timedelta(days=6)
-
-        # Group movements by week
-        movements = movements.filter(date_paye__range=[start_of_week, end_of_week])
-        grouping_key = 'WEEKLY'
-
-    elif period == 'bi-monthly':
-        # Define ranges for 1st to 15th and 16th to end of the month
-        current_date = timezone.now().date()
-        if current_date.day <= 15:
-            start_of_period = current_date.replace(day=1)
-            end_of_period = current_date.replace(day=15)
-        else:
-            start_of_period = current_date.replace(day=16)
-            last_day = (current_date.replace(day=1) + timedelta(days=32)).replace(day=1) - timedelta(days=1)
-            end_of_period = last_day
-
-        # Group movements within the period range
-        movements = movements.filter(date_paye__range=[start_of_period, end_of_period])
-        grouping_key = 'BI-MONTHLY'
-
-    else:
-        grouping_key = 'ALL'
-
-    # Loop over movements to calculate the progressive total and build description
-    for mouvement in movements:
-        # Ensure the correct type is assigned (R for inflows, D for outflows)
-        if mouvement.causal in ['INS', 'SCO1', 'SCO2', 'SCO3', 'TEN', 'CAN']:
-            mouvement.type = 'R'  # Recette (Inflow)
-        else:
-            mouvement.type = 'D'  # Dépense (Outflow)
-
-        # Adjust the progressive total based on the movement type
-        if mouvement.type == 'R':
-            progressive_total += mouvement.montant  # Add inflows
-            entry = mouvement.montant
-            exit = ''
-        elif mouvement.type == 'D':
-            progressive_total -= mouvement.montant  # Subtract outflows
-            entry = ''
-            exit = mouvement.montant
-
-        # Create a dynamic description combining student's full name, school name, and class
-        if mouvement.inscription and mouvement.inscription.classe:
-            student_name = f"{mouvement.inscription.eleve.nom} {mouvement.inscription.eleve.prenom}"
-            school_name = mouvement.inscription.classe.ecole.nom if mouvement.inscription.classe.ecole else "Unknown School"
-            class_name = mouvement.inscription.classe.nom
-            description = f"{student_name} - {school_name} - {class_name}"
-        else:
-            description = "Unknown Student - No Class Info"
-
-        # Append processed data to the list
-        processed_movements.append({
-            'date': mouvement.date_paye,
-            'description': description,
-            'entry': entry,
-            'exit': exit,
-            'progressive_total': progressive_total,
-            'grouping': grouping_key
-        })
-
-    return render(request, 'cash/mouvement/accounting_report.html', {
-        'movements': processed_movements,
-        'search_query': search_query,
-        'page_identifier': 'SCO Accounting',
-        'grouping_key': grouping_key
-    })
-
-
-
-@login_required
-def add_mouvement(request):
-    if request.method == 'POST':
-        form = MouvementForm(request.POST)
-        if form.is_valid():
-            mouvement = form.save(commit=False)
-            # Set the type to 'R' (Income) if causal is one of the income categories
-            if mouvement.causal in ['INS', 'SCO1', 'SCO2', 'SCO3', 'TEN', 'CAN']:
-                mouvement.type = 'R'  # Income
-            else:
-                mouvement.type = 'D'  # Expense
-            mouvement.save()
-            return redirect('mouvement_list')
-    else:
-        form = MouvementForm()
-
-    return render(request, 'cash/mouvement/add_mouvement.html', {'form': form , 'page_identifier': 'S12'})
-        
-
 @login_required
 def update_mouvement(request, pk):
     mouvement = get_object_or_404(Mouvement, pk=pk)
@@ -754,20 +405,19 @@ def delete_mouvement(request, pk):
 @login_required
 def late_payment_report(request):
     data = {}
-    grand_total_remaining = 0  # Grand total for all outstanding payments
-    grand_total_diff_sco = 0  # Grand total for SCO outstanding amounts
-    grand_total_diff_can = 0  # Grand total for CAN outstanding amounts
+    grand_total_remaining = 0
+    grand_total_diff_sco = 0
+    grand_total_diff_can = 0
 
-    # Get the current school year
     try:
         current_annee_scolaire = AnneeScolaire.objects.get(actuel=True)
     except AnneeScolaire.DoesNotExist:
         return render(request, 'cash/late_payment.html', {
             'data': data,
             'error': 'No current school year is set.',
+            'page_identifier': 'S58'
         })
 
-    # Fetch all schools with related classes and inscriptions
     schools = Ecole.objects.prefetch_related(
         Prefetch(
             'classe_set',
@@ -783,28 +433,43 @@ def late_payment_report(request):
     for school in schools:
         class_data = {}
         for classe in school.classe_set.all():
-            # Fetch students linked to this class through inscriptions
             students = Eleve.objects.filter(
                 inscriptions__classe=classe,
                 inscriptions__annee_scolaire=current_annee_scolaire,
                 inscriptions__classe__ecole=school,
                 cs_py='P',
-                condition_eleve = "CONF" #or "PROP"
+                condition_eleve__in=["CONF", "PROP"]
             ).distinct()
 
             student_data = []
             total_class_remaining = 0
-            total_diff_sco = 0  # Initialize total diff SCO for the class
-            total_diff_can = 0  # Initialize total diff CAN for the class
+            total_diff_sco = 0
+            total_diff_can = 0
 
             for student in students:
-                # Calculate SCO and CAN payments and expectations
-                payments = Mouvement.objects.filter(inscription__eleve=student)
-                sco_paid = payments.aggregate(Sum('montant'))['montant__sum'] or 0
-                can_paid = payments.filter(causal='CAN').aggregate(Sum('montant'))['montant__sum'] or 0
+                # Fetch SCO payments only
+                sco_payments = Mouvement.objects.filter(
+                    inscription__eleve=student,
+                    causal__in=['SCO'],
+                    inscription__annee_scolaire=current_annee_scolaire
+                )
+                sco_payments = Mouvement.objects.filter(
+                    inscription__eleve=student,
+                    inscription__annee_scolaire=current_annee_scolaire
+                ).exclude(causal__in=['CAN', 'TEN', 'INS'])
+
+                sco_paid = sco_payments.aggregate(Sum('montant'))['montant__sum'] or 0
+
+                can_payments = Mouvement.objects.filter(
+                    inscription__eleve=student,
+                    causal='CAN',
+                    inscription__annee_scolaire=current_annee_scolaire
+                )
+                can_paid = can_payments.aggregate(Sum('montant'))['montant__sum'] or 0
 
                 tarifs = Tarif.objects.filter(classe=classe, annee_scolaire=current_annee_scolaire)
-                sco_exigible = tarifs.filter(causal__in=['SCO1', 'SCO2', 'SCO3']).aggregate(Sum('montant'))['montant__sum'] or 0
+                sco_exigible = tarifs.filter(causal__in=['SCO1', 'SCO2', 'SCO3']).aggregate(Sum('montant'))[
+                                    'montant__sum'] or 0
                 can_exigible = tarifs.filter(causal='CAN').aggregate(Sum('montant'))['montant__sum'] or 0
 
                 diff_sco = sco_exigible - sco_paid
@@ -812,15 +477,14 @@ def late_payment_report(request):
                 retards = diff_sco + diff_can
 
                 if retards > 0:
-                    percentage_paid = int(
-                        100 * (sco_paid + can_paid) / (sco_exigible + can_exigible)
-                    ) if (sco_exigible + can_exigible) > 0 else 0
-
-                    # Calculate remaining percentage to pay
                     total_exigible = sco_exigible + can_exigible
+                    percentage_paid = (
+                        (sco_paid + can_paid) / total_exigible * 100
+                    ) if total_exigible > 0 else 0
+
                     remaining_percentage = (
-                        (retards / total_exigible * 100) if total_exigible > 0 else 0
-                    )
+                        retards / total_exigible * 100
+                    ) if total_exigible > 0 else 0
 
                     student_data.append({
                         'id': student.id,
@@ -836,17 +500,17 @@ def late_payment_report(request):
                         'diff_can': diff_can,
                         'retards': retards,
                         'percentage_paid': percentage_paid,
-                        'remaining_percentage': remaining_percentage,  # Add remaining percentage
+                        'remaining_percentage': remaining_percentage,
                         'note': student.note_eleve,
+                        'condition_eleve': student.condition_eleve,  # Include condition_eleve
                         'page_identifier': 'S30'
                     })
 
-                    # Accumulate totals for the class
                     total_diff_sco += diff_sco
                     total_diff_can += diff_can
 
-                total_class_remaining += retards  # Accumulate class-level total
-                
+                total_class_remaining += retards
+
             if student_data:
                 class_data[classe.nom] = {
                     'students': student_data,
@@ -855,25 +519,26 @@ def late_payment_report(request):
                     'total_diff_can': total_diff_can,
                 }
 
-                # Add to grand totals
                 grand_total_diff_sco += total_diff_sco
                 grand_total_diff_can += total_diff_can
-                grand_total_remaining = grand_total_diff_can +  grand_total_diff_sco
+                # grand_total_remaining += total_class_remaining # Don't double count
 
         if class_data:
             data[school.nom] = class_data
 
+    grand_total_remaining = grand_total_diff_sco + grand_total_diff_can # this is correct now
+
     return render(request, 'cash/late_payment.html', {
         'data': data,
-        'grand_total_remaining': grand_total_remaining,  # Grand total of all outstanding payments
-        'grand_total_diff_sco': grand_total_diff_sco,  # Grand total of SCO outstanding
-    'page_identifier': 'S58' ,
-        'grand_total_diff_can': grand_total_diff_can,  # Grand total of CAN outstanding
+        'grand_total_remaining': grand_total_remaining,
+        'grand_total_diff_sco': grand_total_diff_sco,
+        'page_identifier': 'S58',
+        'grand_total_diff_can': grand_total_diff_can,
+        'current_annee_scolaire': current_annee_scolaire,
     })
 
 
 
-from .models import Cashier
 @login_required
 def expense_list(request):
     expenses = Expense.objects.all().order_by('-date')  # Retrieve all expenses ordered by date
@@ -897,19 +562,32 @@ def expense_list(request):
     })
 
 def expense_create(request):
+    # Get the default cashier
+    default_cashier = Cashier.get_default_cashier()
+
+    # Retrieve the current school year from scuelo
+    current_year = AnneeScolaire.objects.filter(actuel=True).first()
+
+    # Retrieve the balance for the default cashier, filtering by school year
+    cashier_balance = default_cashier.balance(annee_scolaire=current_year)
+
     if request.method == "POST":
         form = ExpenseForm(request.POST)
         if form.is_valid():
             # Save the expense with C_SCO as the default cashier
             expense = form.save(commit=False)
-            expense.cashier = Cashier.get_default_cashier()  # Assign C_SCO automatically
+            expense.cashier = default_cashier  # Assign C_SCO automatically
+            expense.annee_scolaire = current_year #Assign current year automatically
             expense.save()
             return redirect('expense_list')  # Redirect to your expense list view
     else:
         form = ExpenseForm()
 
-    return render(request, 'cash/expense/expense_form.html', {'form': form ,
-                                                              'page_identifier': 'S32'})
+    return render(request, 'cash/expense/expense_form.html', {
+        'form': form,
+        'page_identifier': 'S32',
+        #'cashier_balance': cashier_balance  # Pass the balance to the template
+    })
 
 def expense_update(request, pk):
     expense = get_object_or_404(Expense, pk=pk)
@@ -931,19 +609,17 @@ def expense_delete(request, pk):
 
 
 
+from django.shortcuts import render, get_object_or_404
+from .models import Cashier, Mouvement, Expense
+
 def entree_sortie(request):
     # Fetch the C_SCO cashier
     cashier = get_object_or_404(Cashier, name="C_SCO")
 
-    # Fetch all incomes (Mouvement with positive amounts) for this cashier
-    incomes = Mouvement.objects.filter( montant__gt=0).order_by('date_paye')
+    # Fetch all incomes (Mouvement with positive amounts)
+    incomes = Mouvement.objects.filter(montant__gt=0).order_by('date_paye')
 
-    # Debugging output
-    #print("Incomes Count:", incomes.count())
-    #for income in incomes:
-    #    print(f" {income.causal}, Amount: {income.montant}")
-
-    # Fetch all outcomes (Expense) for this cashier
+    # Fetch all outcomes (Expense)
     expenses = Expense.objects.filter().order_by('date')
 
     # Prepare entries for the report
@@ -976,17 +652,21 @@ def entree_sortie(request):
     # Sort entries by date
     entries.sort(key=lambda x: x['date'])
 
-    # Calculate progressive balance
+    # Calculate progressive balance and total balance
     progressive_balance = 0
+    total_balance = 0  # Initialize total balance
     for entry in entries:
         progressive_balance += entry['entree'] - entry['sortie']
         entry['progressive'] = progressive_balance
+        total_balance = progressive_balance  # Update total balance with the latest progressive balance
 
+    # Pass data to the template
     return render(request, 'cash/inoutflows/entree_sortie.html', {
         'entries': entries,
         'cashier': cashier,
-        'balance': cashier.balance(),
-        'page_identifier': 'S35'# Use the balance method from Cashier model
+        'balance': cashier.balance(),  # Use the balance method from Cashier model
+        'total_balance': total_balance,  # Pass the calculated total balance
+        'page_identifier': 'S35'
     })
 
 
@@ -1385,7 +1065,8 @@ def get_cashier_balance(request):
         return JsonResponse({'error': 'Cashier not found'}, status=404)
     except Exception as e:
         return JsonResponse({'error': str(e)}, status=500)
-    
+
+
 @login_required
 def payment_delay_per_class(request, pk):
     # Get the current school year
@@ -1394,6 +1075,7 @@ def payment_delay_per_class(request, pk):
     except AnneeScolaire.DoesNotExist:
         return render(request, 'cash/payment_delay_per_class.html', {
             'error': 'No current school year is set.',
+             'page_identifier': 'S54' 
         })
 
     # Fetch the specific class
@@ -1402,6 +1084,7 @@ def payment_delay_per_class(request, pk):
     except Classe.DoesNotExist:
         return render(request, 'cash/payment_delay_per_class.html', {
             'error': 'Class not found.',
+             'page_identifier': 'S54' 
         })
 
     # Fetch students linked to this class through inscriptions
@@ -1409,7 +1092,7 @@ def payment_delay_per_class(request, pk):
         inscriptions__classe=classe,
         inscriptions__annee_scolaire=current_annee_scolaire,
         cs_py='P',
-        condition_eleve='CONF'
+       condition_eleve__in=["CONF", "PROP"]
     ).distinct()
 
     student_data = []
@@ -1419,8 +1102,17 @@ def payment_delay_per_class(request, pk):
     for student in students:
         # Calculate SCO and CAN payments and expectations
         payments = Mouvement.objects.filter(inscription__eleve=student)
-        sco_paid = payments.aggregate(Sum('montant'))['montant__sum'] or 0
-        can_paid = payments.filter(causal='CAN').aggregate(Sum('montant'))['montant__sum'] or 0
+        # Calculate SCO Paid (excluding CAN and TEN)
+        sco_paid = Mouvement.objects.filter(
+            inscription__eleve=student,
+            inscription__annee_scolaire=current_annee_scolaire
+        ).exclude(causal__in=['CAN', 'TEN','INS']).aggregate(Sum('montant'))['montant__sum'] or 0
+
+        can_paid = Mouvement.objects.filter(
+            inscription__eleve=student,
+            causal='CAN',
+            inscription__annee_scolaire=current_annee_scolaire
+        ).aggregate(Sum('montant'))['montant__sum'] or 0
 
         tarifs = Tarif.objects.filter(classe=classe, annee_scolaire=current_annee_scolaire)
         sco_exigible = tarifs.filter(causal__in=['SCO1', 'SCO2', 'SCO3']).aggregate(Sum('montant'))['montant__sum'] or 0
@@ -1455,8 +1147,6 @@ def payment_delay_per_class(request, pk):
         'total_diff_can': total_diff_can,
          'page_identifier': 'S54' 
     })
-
-
 
 
 @login_required
@@ -1507,7 +1197,7 @@ def classe_information(request, pk):
     actual_total_school_fees_received = Mouvement.objects.filter(
         inscription__classe=classe,
         inscription__annee_scolaire=school_year,
-        causal__in=['SCO1', 'SCO2', 'SCO3']
+        causal__in=['SCO']
     ).aggregate(total=Sum('montant'))['total'] or 0
     cost_per_uniform = UniformReservation.objects.filter(student_type='P').first().cost_per_uniform if UniformReservation.objects.filter(student_type='P').first() else 0 # 
     total_py_uniforms_expected = total_students_confirmed * cost_per_uniform

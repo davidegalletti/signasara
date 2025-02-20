@@ -14,7 +14,7 @@ def format_amount(value):
 
 
 @register.filter
-def format_date(value, date_format="%d/%m/%y"):
+def format_date(value, date_format="DD/MM/YYYY"):
     if isinstance(value, datetime):
         return value.strftime(date_format)
     return value
