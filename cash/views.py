@@ -561,33 +561,68 @@ def expense_list(request):
         'page_identifier': 'S31'# Pass the total expense to the template
     })
 
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
+from .models import Expense, Cashier, Mouvement
+from .forms import ExpenseForm
+from django.db.models import Sum
+
+from django.db import connection
+from django.db import IntegrityError
+from django.utils.crypto import get_random_string 
+
 def expense_create(request):
-    # Get the default cashier
-    default_cashier = Cashier.get_default_cashier()
+    # Fetch the cashier "C_SCO"
+    cashier = get_object_or_404(Cashier, name="C_SCO")
 
-    # Retrieve the current school year from scuelo
-    current_year = AnneeScolaire.objects.filter(actuel=True).first()
+    # Calculate total income (sum of montant in Mouvement table)
+    total_income = Mouvement.objects.aggregate(total=Sum('montant'))['total'] or 0
 
-    # Retrieve the balance for the default cashier, filtering by school year
-    cashier_balance = default_cashier.balance(annee_scolaire=current_year)
+    # Calculate total expenses (sum of amount in Expense table)
+    total_expenses = Expense.objects.filter(cashier=cashier).aggregate(total=Sum('amount'))['total'] or 0
 
-    if request.method == "POST":
+    # Calculate balance
+    balance = total_income - total_expenses
+
+    if request.method == 'POST':
         form = ExpenseForm(request.POST)
         if form.is_valid():
-            # Save the expense with C_SCO as the default cashier
             expense = form.save(commit=False)
-            expense.cashier = default_cashier  # Assign C_SCO automatically
-            expense.annee_scolaire = current_year #Assign current year automatically
-            expense.save()
-            return redirect('expense_list')  # Redirect to your expense list view
+            expense.cashier = cashier  # Associate expense with the C_SCO cashier
+
+            # Generate a unique legacy_id if it's not already set
+            if not expense.legacy_id:
+                expense.legacy_id = get_random_string(32)  # Generate a random string
+
+            try:
+                expense.save()
+                messages.success(request, "Expense created successfully!")
+                return redirect('expense_create')
+            except IntegrityError:
+                messages.error(request, "An error occurred: Duplicate legacy_id. Please try again.")
+                # Optionally, regenerate the legacy_id and try saving again
+                expense.legacy_id = get_random_string(32)
+                try:
+                    expense.save()
+                    messages.success(request, "Expense created successfully after regenerating legacy_id!")
+                    return redirect('expense_create')
+                except IntegrityError:
+                    messages.error(request, "Failed to generate a unique legacy_id. Please contact support.")
+                    # Log the error here if necessary
+                    pass  # Handle the case where a unique ID cannot be generated
     else:
         form = ExpenseForm()
 
-    return render(request, 'cash/expense/expense_form.html', {
+    # Pass balance and total income to template
+    context = {
         'form': form,
-        'page_identifier': 'S32',
-        #'cashier_balance': cashier_balance  # Pass the balance to the template
-    })
+        'cashier_balance': balance,
+        'total_income': total_income,
+        'total_expenses': total_expenses,
+        'page_identifier': 'S60',  # Example page identifier
+    }
+    
+    return render(request, 'cash/expense/expense_form.html', context)
 
 def expense_update(request, pk):
     expense = get_object_or_404(Expense, pk=pk)
@@ -608,7 +643,52 @@ def expense_delete(request, pk):
     return render(request, 'cash/expense/expense_confirm_delete.html', {'expense': expense , 'page_identifier': 'S34'})
 
 
+def income_list_view(request):
+    # Fetch all incomes, ordered by date in descending order
+    incomes = Mouvement.objects.all().order_by('-date_paye')
 
+    # Calculate the total montant
+    total_montant = Mouvement.objects.aggregate(total=Sum('montant'))['total'] or 0
+
+    # Debugging: Print montant values
+    print("All Mouvement Records:")
+    if incomes:
+        for income in incomes:
+            print(f"Causal: {income.causal}, Montant: {income.montant}, Date: {income.date_paye}, Cashier: {income.cashier}")
+    else:
+        print("No Mouvement records found.")
+
+    # Prepare data for the template
+    income_list = []
+    progressive_total = 0
+    for income in incomes:
+        progressive_total += income.montant
+        inscription_info = "N/A"
+        student_info = "N/A"
+        class_info = "N/A"
+
+        if income.inscription:
+            if income.inscription.eleve:
+                student_info = f"{income.inscription.eleve.nom} {income.inscription.eleve.prenom}"
+            if income.inscription.classe:
+                class_info = f"{income.inscription.classe.nom}"
+            inscription_info = f"{student_info} - {class_info}"
+
+        income_list.append({
+            'date': income.formatted_date_paye,
+            'causal': income.causal,
+            'montant': income.montant,
+            'progressive': progressive_total,
+            'inscription_info': inscription_info,
+        })
+
+    context = {
+        'income_list': income_list,
+        'total_montant': total_montant,  # Add total_montant to the context
+    }
+
+    return render(request, 'cash/inoutflows/income_list.html', context)
+#cash/inoutflows/income_list.html
 from django.shortcuts import render, get_object_or_404
 from .models import Cashier, Mouvement, Expense
 

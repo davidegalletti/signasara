@@ -128,8 +128,9 @@
             <tr>
                 <th class='amount-col'>Date</th> <!-- Column header -->
                 <th>Description</th>
-                <th class='amount-col'>Montant</th>
-                <th class='amount-col'>Total Progressif</th> <!-- Column for Progressive Total -->
+                <th class='amount-cl'>Montant</th>
+                <th class='amountcol'>Total Progressif</th> <!-- Column for Progressive Total -->
+                <th class='w-50'></th>
                {% comment %}
                  <th>Actions</th>
                {% endcomment %}
@@ -148,6 +149,10 @@
                      <a href="{% url 'expense_delete' item.expense.pk %}" title="Delete"><i class="fas fa-trash"></i></a>
                  </td>
                {% endcomment %}
+               <td class='w-200'></td>
+           
+            
+           
             </tr>
             {% endfor %}
         </tbody>

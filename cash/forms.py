@@ -50,7 +50,7 @@ class TarifForm(forms.ModelForm):
         }
 
 from .models import Cashier         
-class ExpenseForm(forms.ModelForm):
+'''class ExpenseForm(forms.ModelForm):
     c_sco_balance = forms.DecimalField(
         label="C_SCO Balance",
         max_digits=10,
@@ -76,8 +76,18 @@ class ExpenseForm(forms.ModelForm):
         # Fetch the default cashier (C_SCO) and calculate its balance
         c_sco_cashier = Cashier.get_default_cashier()
         if c_sco_cashier:
-            self.fields['c_sco_balance'].initial = c_sco_cashier.balance()
+            self.fields['c_sco_balance'].initial = c_sco_cashier.balance()'''
             
+class ExpenseForm(forms.ModelForm):
+    class Meta:
+        model = Expense
+        fields = ['description', 'amount', 'date', 'note']
+        widgets = {
+            'description': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter description'}),
+            'amount': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Enter amount'}),
+            'date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'note': forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'placeholder': 'Enter notes'}),
+        }
             
 class TransferForm(forms.ModelForm):
     class Meta:

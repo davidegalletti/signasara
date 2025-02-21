@@ -50,4 +50,5 @@ urlpatterns = [
     path('rapport-comptable/', views.rapport_comptable, name='rapport_comptable'),
     path('export-entree-sortie/', views.export_entree_sortie, name='export_entree_sortie'),
     path('export-rapport-comptable/', views.export_rapport_comptable, name='export_rapport_comptable'),
+    path('incomes/', views.income_list_view, name='income_list'),
 ]

@@ -1,3 +1,4 @@
+<!-- cash/income_list.html -->
 {% extends "../../layout.html" %}
 {% load custom_filters %}
 
@@ -7,7 +8,7 @@
         <h2 class='navbar-brand mb-0 h1 text-white'>Entrées et Sorties (C-SCO Cashier)</h2>
         <p class='navbar-brand mb-0 h1 text-white'> {{ user.username }}</p>
     </div>
-    <h1 class='navbar-brand mb-0 h1 text-white'>Total: {{ total_balance|format_amount }}</h1>
+    <h1 class='navbar-brand mb-0 h1 text-white'>Total: {{ total_montant|format_amount }}</h1>
 
     <div class="d-flex align-items-stretch">
         <button class="class-card mr-3 hidden-print" id="print-button" title="Print" onclick="myFunction()"><i class="fas fa-print"></i></button>
@@ -34,7 +35,7 @@
 
     .table th,
     .table td {
-        padding: 2px 8px !important;
+        padding: 8px !important;
         text-align: center;
         font-size: 12px;
     }
@@ -61,29 +62,30 @@
     }
 </style>
 
-
 <div>
 
-    <table id="entreeSortieTable" class="table table-striped display table-bordered compact">
+    <table id="" class="table table-striped display table-bordered compact">
         <thead>
             <tr>
                 <th class=' dt-left'>Date</th>
-                <th  class=' dt-left'>Description</th>
-                <th>Entrée (Income)</th>
-                <th>Sortie (Outcome)</th>
-                <th>Solde Progressif</th>
-                <th class='w-50'></th>
+                <th class=' dt-left'>Causal</th>
+                <th>Montant</th>
+                <th>Progressive Total</th>
+                <th class='dt-left'>Inscription Info</th>
+                <th class='dt-left'></th>
+                <th class='dt-left'></th>
             </tr>
         </thead>
         <tbody>
-            {% for entry in entries %}
+            {% for income in income_list %}
             <tr>
-                <td  class=' dt-left'>{{ entry.date|date:'d/m/Y' }}</td>
-                <td class=' dt-left'>{{ entry.description }}</td>
-                <td class=' dt-right'>{% if entry.entree > 0 %}{{ entry.entree|format_amount }}{% else %}-{% endif %}</td>
-                <td class=' dt-right'>{% if entry.sortie > 0 %}{{ entry.sortie|format_amount }}{% else %}-{% endif %}</td>
-                <td class=' dt-right'>{{ entry.progressive|default:"0"|format_amount }}</td>
-                <td class='w-50'></td>
+                <td class=' dt-left'>{{ income.date }}</td>
+                <td class=' dt-left'>{{ income.causal }}</td>
+                <td class=' dt-right'>{{ income.montant|format_amount }}</td> <!-- Format montant -->
+                <td class=' dt-right'>{{ income.progressive|default:"0"|format_amount }}</td> <!-- Format progressive -->
+                <td class=' dt-left'>{{ income.inscription_info }}</td>
+                <td class=' dt-left'></td>
+                <td class=' dt-left w-20'></td>
             </tr>
             {% empty %}
             <tr>
@@ -95,14 +97,14 @@
 
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<!-- Include jQuery and DataTables -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 
 <script>
     $(document).ready(function() {
-        const table = $('#entreeSortieTable').DataTable({
-           // "order": [[3, "asc"]], // Initial order by date descending
+        $('#entreeSortieTable').DataTable({
             "language": {
                 "search": "Search:",
                 "lengthMenu": "Display _MENU_ records per page",
@@ -115,14 +117,17 @@
                 }
             },
             "columnDefs": [
-                { "className": "dt-left", "targets": [0, 1] }, // Date and Description columns
-                { "className": "dt-right", "targets": [2, 3, 4] } // Remaining columns (Entrée, Sortie, Solde)
-            ]
-            ordering: false, // Disable sorting
-            paging: false,   // Disable pagination
+                { "className": "dt-left", "targets": [0, 1] }, // Date and Causal columns
+                { "className": "dt-right", "targets": [2, 3] } // Montant and Progressive columns
+            ],
+           // "ordering": true,      // Enable sorting
+            "order": [[0, "desc"]], // Order by the first column (Date) in descending order
+            "paging": false,      // Disable pagination
+            "info": false,        // Disable info
+            "searching": true      // Enable searching
         });
     });
-    </script>
-    
+</script>
+
 
 {% endblock %}

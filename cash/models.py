@@ -84,7 +84,7 @@ class Mouvement(TimeStampedModel):
   
     CAUSAL = (
         ("INS", "Inscription"),
-     ("SCO", "SCO"),
+        ("SCO", "SCO"),
         ("TEN", "Tenue"),
         ("CAN", "Cantine"),
     )
