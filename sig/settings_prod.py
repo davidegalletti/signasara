@@ -25,7 +25,7 @@ SECRET_KEY = PROD_SECRET_KEY
 DATABASES['default']['PASSWORD'] = PROD_DATABASE_PASSWORD
 DATABASES['default']['NAME'] = 'sicsnasara_prod'
 
-CSRF_TRUSTED_ORIGINS = ['sicscl.nasaraperilburkina.org']
+CSRF_TRUSTED_ORIGINS = ['https://sicscl.nasaraperilburkina.org']
 
 LOGGING_BASE_DIR = '/var/log/sicsnasara/prod/'
 for h in LOGGING["handlers"]:
